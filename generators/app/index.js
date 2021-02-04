@@ -20,6 +20,13 @@ module.exports = class extends Generator {
         default: 'Lesson Title Here'
       },
       {
+        type: 'list',
+        name: 'metedLang',
+        message: 'Choose the lesson language:',
+        choices: ['EN', 'ES', 'FR'],
+        default: 'EN'
+      },
+      {
         type: 'input',
         name: 'metedID',
         message: 'What is the lesson ID?',
@@ -133,23 +140,55 @@ module.exports = class extends Generator {
       { lessonPath: this.props.metedPath }
     );
 
-    //POST
+    //POST CONDITIONALS
     //defaults.js
-    this.fs.copyTpl(
-      this.templatePath('jquery/defaults.js'),
-      this.destinationPath('build/jquery/defaults.js'),
-      { lessonTitle: this.props.metedName, lessonID: this.props.metedID }
-    );
+    switch (this.props.metedLang){
+      case 'EN': //English
+        this.fs.copyTpl(
+          this.templatePath('extensions/lc-default/defaults.js'),
+          this.destinationPath('build/jquery/defaults.js'),
+          { lessonTitle: this.props.metedName, lessonID: this.props.metedID }
+        );
+      break;
+      case 'ES': //Spanish
+        this.fs.copyTpl(
+          this.templatePath('extensions/lc-default/defaults_es.js'),
+          this.destinationPath('build/jquery/defaults.js'),
+          { lessonTitle: this.props.metedName, lessonID: this.props.metedID }
+        );
+      break;
+      case 'FR': //French
+        this.fs.copyTpl(
+          this.templatePath('extensions/lc-default/defaults_fr.js'),
+          this.destinationPath('build/jquery/defaults.js'),
+          { lessonTitle: this.props.metedName, lessonID: this.props.metedID }
+        );
+    }
+    
     //print.php
-    this.fs.copyTpl(
-      this.templatePath('print.php'),
-      this.destinationPath('build/print.php'),
-      { lessonTitle: this.props.metedName, lessonID: this.props.metedID, lessonDesc: this.props.metedDesc, lessonKeys: this.props.metedKeys, currentYear: this.generatorYear }
-    );
+    if (this.props.multiLesson) {
+      this.fs.copyTpl(
+        this.templatePath('print.php'),
+        this.destinationPath('build/print.php'),
+        { lessonTitle: this.props.metedName, lessonID: this.props.metedID, lessonDesc: this.props.metedDesc, lessonKeys: this.props.metedKeys, currentYear: this.generatorYear, lessonLang: this.props.metedLang }
+      );
+      this.fs.copyTpl(
+        this.templatePath('print.php'),
+        this.destinationPath('build/print_02.php'),
+        { lessonTitle: this.props.metedName, lessonID: this.props.metedID, lessonDesc: this.props.metedDesc, lessonKeys: this.props.metedKeys, currentYear: this.generatorYear, lessonLang: this.props.metedLang }
+      );
+    } else {
+      this.fs.copyTpl(
+        this.templatePath('print.php'),
+        this.destinationPath('build/print.php'),
+        { lessonTitle: this.props.metedName, lessonID: this.props.metedID, lessonDesc: this.props.metedDesc, lessonKeys: this.props.metedKeys, currentYear: this.generatorYear, lessonLang: this.props.metedLang }
+      );
+    }
     
     //LOGS
     this.log("Lesson name set to: " + `${chalk.red(this.props.metedName)}`);
     this.log("Lesson ID set to: " + `${chalk.red(this.props.metedID)}`);
+    this.log("Lesson language set to: " + `${chalk.red(this.props.metedLang)}`);
     this.log("Copyright year set to: " + `${chalk.red(this.generatorYear)}`);
   }
 

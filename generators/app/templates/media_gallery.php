@@ -87,7 +87,7 @@ $moduleManager = new ModuleManager();
             <li class="active"><a href="media_gallery.php">Gallery</a></li>
             <li><a href="#userQuiz" data-toggle="modal">Quiz</a></li>
             <li><a href="#userSurvey" data-toggle="modal">Survey</a></li>
-			<li><a href="" id="booster-link">Booster</a></li>
+			      <li><a href="" id="booster-link">Booster</a></li>
           </ul>
         </div>
       </div>

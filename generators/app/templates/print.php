@@ -3,7 +3,7 @@ require_once( 'cometAPI.inc.php' );
 $mm = new MediaItemManager();
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="<% if (lessonLang === 'ES') { %>es<% } else if (lessonLang === 'FR') { %>fr<% } else { %>en<% } %>">
 <head>
 <title><%= lessonTitle %></title>
 <meta content="text/html; charset=UTF-8" http-equiv="content-type">

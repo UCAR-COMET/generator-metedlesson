@@ -1,10 +1,9 @@
 // ********************************************************************* //
-// * LATEST CORE 3.0 - Default FRENCH Functions
-// * (Do NOT alter this document! - Override defaults in the document <head>)
+// * LC3 Default FRENCH functions generated for:
+// * <%= lessonTitle %> (<%= lessonID %>)
 // ********************************************************************* //
 
-// DECLARE GLOBAL VARS //
-var moduleID = '1049';
+var moduleID = '<%= lessonID %>';
 
 $(document).ready(function () {
 	$('.tab-pane > h3').each(function () {
@@ -15,7 +14,6 @@ $(document).ready(function () {
 // MODULE PRINT VIEW CONTROL
 // ===============================
 $(document).ready(function () {
-
 	// Auto controls hiding of elements in Print View or Module View.
 	if (printVersion) {
 		$(document.body).addClass('prt');
@@ -165,7 +163,7 @@ $(function () {
 
 	// SHORT/LONG ANSWER QUESTION (MINIMUM CHARACTER REQUIREMENT) - TEXT ENTRY
 	$('.req-text').each(function () {
-		$('.submit-button').click(function () {
+		$('.req-text .submit-button').click(function () {
 			var inputText = $(this).parent().find('.text-response').val();
 			var characterMin = $(this).parent().find('.text-response').attr('data-text-min');
 
@@ -368,23 +366,9 @@ $(document).ready(function () {
 
 	// Survey Prompt
 	$('#quiz-prompt').append('<div id="userSurvey" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="usersurvey-label" aria-hidden="true"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">MetEd et le programme COMET® font partie de <a href="http://www.ucp.ucar.edu/">UCP</a> [University Corporation for Atmospheric Research (UCAR) Community Programs], un groupe interne de UCAR, et sont sponsorisés par le </button><h4 class="modal-title" id="usersurvey-label">Sondage auprès des utilisateurs</h4></div><div class="modal-body" id="module-usersurvey-modal"><p>Votre aide nous est indispensable pour améliorer nos prestations. Nous vous remercions de bien vouloir nous aider, en nous faisant savoir ce que vous pensez de ce module. Vos réponses nous aideront à réaliser des enseignements plus efficaces à l’avenir. </p><p>En cliquant sur le lien ci-après, vous accéderez à une brève enquête de satisfaction. Pour cela, vous devrez avoir ouvert une session, utilisant votre compte d’utilisateur de MetEd. Si vous n’avez ouvert pas de session MetEd ou si vous devez créer votre compte MetEd, des messages vous indiqueront la marche à suivre.</p></div><div class="modal-footer"> <a class="btn btn-default" href="/lesson/' + moduleID + '/survey" target="_blank">Évaluation du cours &raquo;</a> </div></div></div></div>');
-});
 
-// ===============================
-// PRINT LESSON IMG CAPTION FIX
-// ===============================
-function captionFix() {
-	$('div.center.caption').each(function () {
-		if ($(this).children('img').length > 0) {
-			var capWidth = $(this).children('img')[0].clientWidth;
-			if (capWidth >= 960) {
-				$(this).css('max-width', '960px');
-			} else {
-				$(this).css('max-width', '' + capWidth + 'px');
-			}
-		} else {
-			var loopCapWidth = $(this).prevAll().closest('a').children('img')[0].clientWidth;
-			$(this).css('max-width', '' + loopCapWidth + 'px');
-		}
-	});
-}
+	// Booster Link
+	if (moduleID !== '0000') {
+		$('#booster-link').attr('href', 'https://meted.ucar.edu/lesson/' + moduleID + '/booster');
+	}
+});
