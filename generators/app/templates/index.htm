@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title><%= lessonTitle %></title>
+<meta name="author" content="UCAR/COMET">
+<meta name="dcterms.rightsHolder" content="UCAR/COMET">
+<meta name="robots" content="all">
+<meta name="Description" content="<%= lessonDesc %>">
+<meta name="keywords" content="<%= lessonKeys %>">
+<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="initial-scale=1.0">
+<!-- STYLES =======================================-->
+<link rel="stylesheet" type="text/css" media="screen" href="bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="css/meted-base.min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="css/module-custom.css">
+<link rel="stylesheet" type="text/css" media="print" href="css/module-print.css">
+   
+<!-- JS LIBRARIES =================================-->
+<script src="jquery/jquery.min.js"></script>
+<script src="jquery/jquery-ui.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<!-- PRESET DEFAULTS ==============================-->
+<script src="jquery/defaults.js"></script>
+
+<!-- PRESET OVERRIDES =============================-->
+<script>
+	var printVersion = false; // Specify Print View.  Only [true] for print.php
+	var lessonID = <%= lessonID %>; // Specify Lesson ID to add preassessment, or 0 for no preassessment.
+	
+	// NOTE: Relative path breaks the download version!!!
+	var path = "https://meted.ucar.edu/lesson/" + lessonID + "/preassessment";
+	$(function() {
+	if (lessonID > 0) {
+		$('#pre-assessment-path').attr('href', path);
+		$('.begin-lesson-button').attr('data-toggle', 'modal');
+		$('.begin-lesson-button').attr('href', "#beginModule");
+		}
+	});
+</script>
+
+<!-- IE SUPPORT ==================================-->
+  <!--[if lte IE 9]>
+    <script type="text/javascript" src="ie-support/html5shiv.js"></script>
+    <script type="text/javascript" src="ie-support/respond.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="ie-support/ie-support.css" />
+  <![endif]-->
+</head>
+<body>
+
+<!--NAVBAR-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="">Home</a></li>
+            <li><a href="navmenu.php">Lesson</a></li>
+            <li><a href="download.php">Download</a></li>
+            <li><a href="media_gallery.php">Gallery</a></li>
+            <li><a href="#userQuiz" data-toggle="modal">Quiz</a></li>
+            <li><a href="#userSurvey" data-toggle="modal">Survey</a></li>
+			      <li><a href="" id="booster-link">Booster</a></li>
+          </ul>
+        </div>
+      </div>
+</nav>
+
+
+<div id="master-container" class="container splash-background">
+<div class="splash-overlay row">
+  <!--titles-->
+  <div class="lesson-titles center">
+    <h1 id="lesson-title"><%= lessonTitle %></h1>
+    <h2 id="lesson-subtitle"></h2>
+  </div>
+          
+
+  <!--begin section-->
+  <div id="lesson-midrow-items" class="row">
+  <div class="col-md-12">
+  <div class="center"><a href="navmenu.php" class="btn btn-lg btn-primary begin-lesson-button">Begin Lesson &rarr;</a></div>
+  </div>
+  </div>
+
+
+  <!--credits-->
+  <div id="lesson-splash-credits" class="row">
+  <div id="lesson-producer" class="col-sm-6">Produced by The COMET&reg; Program</div>
+  <div id="lesson-image-credit" class="col-sm-6">Image credit: **</div>
+  </div>
+</div>
+
+
+<!--FOOTER-->
+<div  id="lesson-footer" class="row splash-footer">
+<div class="col-md-8">
+<p id="lesson-copyright">&copy; <%= currentYear %>, <a href="http://www.ucar.edu/">The University Corporation for Atmospheric Research</a> - All Rights Reserved.</p>
+</div>
+<div class="col-md-4">
+	<ul id="parent-links">
+	<li><a href="http://www.meted.ucar.edu/legal.htm">Legal Notices</a></li>
+	<li><a href="http://www.comet.ucar.edu/">COMET</a></li>
+	<li><a href="http://www.meted.ucar.edu/">MetEd</a></li>
+	</ul>
+</div>
+</div>
+
+
+</div><!-- end master-container -->
+
+
+
+<!-- MODAL PROMPTS ========================-->
+<!-- Preassessment Prompt -->
+<div id="beginModule" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div id="preassessment-message" class="modal-content">
+      <div class="modal-footer">
+        <div class="btn-group">
+          <a class="btn btn-default" href="navmenu.php">Begin Lesson</a>
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="navmenu.php">Regular Lesson &raquo;</a></li>
+            <li><a href="print.php">Printable Lesson &raquo;</a></li>
+          </ul>
+        </div>
+      <a id="pre-assessment-path" class="btn btn-success" href="#" target="_blank">Go to the pre-assessment &raquo;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Quiz and Survey Prompt -->
+<div id="quiz-prompt"></div>
+</body>
+</html>
