@@ -113,25 +113,25 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath('index.htm'),
       this.destinationPath('build/index.htm'),
-      { lessonTitle: this.props.metedName, lessonID: this.props.metedID, lessonDesc: this.props.metedDesc, lessonKeys: this.props.metedKeys, currentYear: this.generatorYear }
+      { lessonTitle: this.props.metedName, lessonID: this.props.metedID, lessonLang: this.props.metedLang, lessonDesc: this.props.metedDesc, lessonKeys: this.props.metedKeys, currentYear: this.generatorYear }
     );
     //download.php
     this.fs.copyTpl(
       this.templatePath('download.php'),
       this.destinationPath('build/download.php'),
-      { lessonTitle: this.props.metedName, lessonID: this.props.metedID, currentYear: this.generatorYear  }
+      { lessonTitle: this.props.metedName, lessonID: this.props.metedID, lessonLang: this.props.metedLang, currentYear: this.generatorYear  }
     );
     //media_gallery.php
     this.fs.copyTpl(
       this.templatePath('media_gallery.php'),
       this.destinationPath('build/media_gallery.php'),
-      { lessonTitle: this.props.metedName, lessonID: this.props.metedID, currentYear: this.generatorYear  }
+      { lessonTitle: this.props.metedName, lessonID: this.props.metedID, lessonLang: this.props.metedLang, currentYear: this.generatorYear  }
     );
     //pageTemplate.php
     this.fs.copyTpl(
       this.templatePath('pageTemplate.php'),
       this.destinationPath('build/pageTemplate.php'),
-      { currentYear: this.generatorYear, narratedSwitch: this.props.narratedLesson }
+      { lessonLang: this.props.metedLang, narratedSwitch: this.props.narratedLesson, currentYear: this.generatorYear }
     );
     //navmenu.php
     this.fs.copyTpl(
@@ -149,12 +149,20 @@ module.exports = class extends Generator {
           this.destinationPath('build/jquery/defaults.js'),
           { lessonTitle: this.props.metedName, lessonID: this.props.metedID }
         );
+        this.fs.copy(
+          this.templatePath('navmenu.inc.php'),
+          this.destinationPath('build/navmenu.inc.php'),
+        );
       break;
       case 'ES': //Spanish
         this.fs.copyTpl(
           this.templatePath('extensions/lc-default/defaults_es.js'),
           this.destinationPath('build/jquery/defaults.js'),
           { lessonTitle: this.props.metedName, lessonID: this.props.metedID }
+        );
+        this.fs.copy(
+          this.templatePath('navmenu.inc_es.php'),
+          this.destinationPath('build/navmenu.inc.php'),
         );
       break;
       case 'FR': //French
@@ -163,6 +171,10 @@ module.exports = class extends Generator {
           this.destinationPath('build/jquery/defaults.js'),
           { lessonTitle: this.props.metedName, lessonID: this.props.metedID }
         );
+        this.fs.copy(
+          this.templatePath('navmenu.inc_fr.php'),
+          this.destinationPath('build/navmenu.inc.php'),
+        );
     }
     
     //print.php
@@ -170,18 +182,18 @@ module.exports = class extends Generator {
       this.fs.copyTpl(
         this.templatePath('print.php'),
         this.destinationPath('build/print.php'),
-        { lessonTitle: this.props.metedName, lessonID: this.props.metedID, lessonDesc: this.props.metedDesc, lessonKeys: this.props.metedKeys, currentYear: this.generatorYear, lessonLang: this.props.metedLang }
+        { lessonTitle: this.props.metedName, lessonID: this.props.metedID, lessonDesc: this.props.metedDesc, lessonKeys: this.props.metedKeys, currentYear: this.generatorYear, lessonLang: this.props.metedLang, multiPrint: this.props.multiLesson }
       );
       this.fs.copyTpl(
         this.templatePath('print.php'),
         this.destinationPath('build/print_02.php'),
-        { lessonTitle: this.props.metedName, lessonID: this.props.metedID, lessonDesc: this.props.metedDesc, lessonKeys: this.props.metedKeys, currentYear: this.generatorYear, lessonLang: this.props.metedLang }
+        { lessonTitle: this.props.metedName, lessonID: this.props.metedID, lessonDesc: this.props.metedDesc, lessonKeys: this.props.metedKeys, currentYear: this.generatorYear, lessonLang: this.props.metedLang, multiPrint: this.props.multiLesson }
       );
     } else {
       this.fs.copyTpl(
         this.templatePath('print.php'),
         this.destinationPath('build/print.php'),
-        { lessonTitle: this.props.metedName, lessonID: this.props.metedID, lessonDesc: this.props.metedDesc, lessonKeys: this.props.metedKeys, currentYear: this.generatorYear, lessonLang: this.props.metedLang }
+        { lessonTitle: this.props.metedName, lessonID: this.props.metedID, lessonDesc: this.props.metedDesc, lessonKeys: this.props.metedKeys, currentYear: this.generatorYear, lessonLang: this.props.metedLang, multiPrint: this.props.multiLesson }
       );
     }
     
@@ -189,7 +201,9 @@ module.exports = class extends Generator {
     this.log("Lesson name set to: " + `${chalk.red(this.props.metedName)}`);
     this.log("Lesson ID set to: " + `${chalk.red(this.props.metedID)}`);
     this.log("Lesson language set to: " + `${chalk.red(this.props.metedLang)}`);
-    this.log("Copyright year set to: " + `${chalk.red(this.generatorYear)}`);
+    this.log("Copyright year set to: " + `${chalk.green(this.generatorYear)}`);
+    //const structurePath = this.props.lessonPath.split('/').pop().split();
+    //this.log(structurePath);
   }
 
   /*install() {

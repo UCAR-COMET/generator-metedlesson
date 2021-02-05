@@ -6,7 +6,7 @@ $mm = new MediaItemManager();
 $moduleManager = new ModuleManager();
   $module = $moduleManager->getModule(<%= lessonID %>);
 ?>
-<html>
+<html lang="<% if (lessonLang === 'ES') { %>es<% } else if (lessonLang === 'FR') { %>fr<% } else { %>en<% } %>">
 <head>
 <meta charset="UTF-8">
 <title><%= lessonTitle %></title>
@@ -80,15 +80,37 @@ $moduleManager = new ModuleManager();
           </button>
     	</div>
         <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="index.htm">Home</a></li>
-            <li><a href="navmenu.php">Lesson</a></li>
-            <li><a href="download.php">Download</a></li>
-            <li class="active"><a href="media_gallery.php">Gallery</a></li>
-            <li><a href="#userQuiz" data-toggle="modal">Quiz</a></li>
-            <li><a href="#userSurvey" data-toggle="modal">Survey</a></li>
-			      <li><a href="" id="booster-link">Booster</a></li>
-          </ul>
+            <% if (lessonLang === 'ES') { %>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="index.htm">Inicio</a></li>
+                <li><a href="navmenu.php">Lección</a></li>
+                <li><a href="download.php">Descargar</a></li>
+                <li class="active"><a href="media_gallery.php">Galería multimedia</a></li>
+                <li><a href="#userQuiz" data-toggle="modal">Prueba</a></li>
+                <li><a href="#userSurvey" data-toggle="modal">Encuesta</a></li>
+                <!--<li><a href="" id="booster-link">Booster</a></li>-->
+              </ul>
+            <% } else if (lessonLang === 'FR') { %>
+              <ul class="nav navbar-nav navbar-right">
+                  <li><a href="index.htm">Accueil</a></li>
+                  <li><a href="navmenu.php">Leçon</a></li>
+                  <li><a href="download.php">Télécharger</a></li>
+                  <li class="active"><a href="media_gallery.php">Médiathèque</a></li>
+                  <li><a href="#userQuiz" data-toggle="modal">Questionnaire</a></li>
+                  <li><a href="#userSurvey" data-toggle="modal">Sondage</a></li>
+                  <!--<li><a href="" id="booster-link">Booster</a></li>-->
+                </ul>
+            <% } else { %>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="index.htm">Home</a></li>
+                <li><a href="navmenu.php">Lesson</a></li>
+                <li><a href="download.php">Download</a></li>
+                <li class="active"><a href="media_gallery.php">Gallery</a></li>
+                <li><a href="#userQuiz" data-toggle="modal">Quiz</a></li>
+                <li><a href="#userSurvey" data-toggle="modal">Survey</a></li>
+                <li><a href="" id="booster-link">Booster</a></li>
+              </ul>
+            <% } %>
         </div>
       </div>
 </nav>
@@ -218,14 +240,34 @@ $moduleManager = new ModuleManager();
 <!--FOOTER-->
 <div  id="lesson-footer" class="row">
 <div class="col-md-8">
-<p id="lesson-copyright">&copy; <%= currentYear %>, <a href="http://www.ucar.edu/">The University Corporation for Atmospheric Research</a> - All Rights Reserved.</p>
+<% if (lessonLang === 'ES') { %>
+  <p id="lesson-copyright">&copy; <%= currentYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a> - Reservados todos los derechos.</p>
+<% } else if (lessonLang === 'FR') { %>
+  <p id="lesson-copyright">&copy; <%= currentYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a> - Tous droits réservés.</p>
+<% } else { %>
+  <p id="lesson-copyright">&copy; <%= currentYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a> - All Rights Reserved.</p>
+<% } %>
 </div>
 <div class="col-md-4">
-	<ul id="parent-links">
-	<li><a href="http://www.meted.ucar.edu/legal.htm">Legal Notices</a></li>
-	<li><a href="http://comet.ucar.edu">COMET</a></li>
-	<li><a href="http://www.meted.ucar.edu/">MetEd</a></li>
-	</ul>
+<% if (lessonLang === 'ES') { %>
+<ul id="parent-links">
+  <li><a href="https://www.meted.ucar.edu/legal_es.htm">Avisos legales</a></li>
+  <li><a href="https://www.comet.ucar.edu/">COMET</a></li>
+  <li><a href="https://www.meted.ucar.edu/index_es.php">MetEd</a></li>
+</ul>
+<% } else if (lessonLang === 'FR') { %>
+<ul id="parent-links">
+  <li><a href="https://www.meted.ucar.edu/legal.htm">Mentions juridiques</a></li>
+  <li><a href="https://www.comet.ucar.edu/">COMET</a></li>
+  <li><a href="https://www.meted.ucar.edu/">MetEd</a></li>
+</ul>
+<% } else { %>
+<ul id="parent-links">
+  <li><a href="https://www.meted.ucar.edu/legal.htm">Legal Notices</a></li>
+  <li><a href="https://www.comet.ucar.edu/">COMET</a></li>
+  <li><a href="https://www.meted.ucar.edu/">MetEd</a></li>
+</ul>
+<% } %>
 </div>
 </div>
 
