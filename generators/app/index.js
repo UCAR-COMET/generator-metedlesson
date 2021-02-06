@@ -68,8 +68,12 @@ module.exports = class extends Generator {
       // To access props later use this.props.someAnswer;
       this.props = props;
 
-      // Constants
+      // Constants and adjusted vars
       this.generatorYear = generatorYear;
+        let pathString = this.props.metedPath;
+        let pathArray = pathString.split("/").splice("");
+        let structure = pathArray.map(word => word.replace(/[^ ]+/, "..")).join("/").substring(1); //Generate path structure from given meted path, must remove first "/"
+      this.structure = structure; //Expose so it can be defined in the template
     });
   }
 
@@ -119,7 +123,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath('download.php'),
       this.destinationPath('build/download.php'),
-      { lessonTitle: this.props.metedName, lessonID: this.props.metedID, lessonLang: this.props.metedLang, currentYear: this.generatorYear  }
+      { lessonTitle: this.props.metedName, lessonID: this.props.metedID, lessonLang: this.props.metedLang, currentYear: this.generatorYear, pathStructure: this.structure  }
     );
     //media_gallery.php
     this.fs.copyTpl(
@@ -202,8 +206,8 @@ module.exports = class extends Generator {
     this.log("Lesson ID set to: " + `${chalk.red(this.props.metedID)}`);
     this.log("Lesson language set to: " + `${chalk.red(this.props.metedLang)}`);
     this.log("Copyright year set to: " + `${chalk.green(this.generatorYear)}`);
-    //const structurePath = this.props.lessonPath.split('/').pop().split();
-    //this.log(structurePath);
+    this.log(this.structure);
+    
   }
 
   /*install() {

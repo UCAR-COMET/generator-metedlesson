@@ -138,11 +138,11 @@
 	<div id="maincontent">
 	  <div id="dl_agree">
 		<% if (lessonLang === 'ES') { %>
-			<?php include('../../download_agreement_es.txt'); ?>
+			<?php include('<%= pathStructure %>download_agreement_es.txt'); ?>
 		<% } else if (lessonLang === 'FR') { %>
-			<?php include('../../download_agreement_fr.txt'); ?>
+			<?php include('<%= pathStructure %>download_agreement_fr.txt'); ?>
 		<% } else { %>
-			<?php include('../../download_agreement.txt'); ?>
+			<?php include('<%= pathStructure %>download_agreement.txt'); ?>
 		<% } %>
 	  </div>
 	</div>
