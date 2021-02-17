@@ -135,7 +135,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath('pageTemplate.php'),
       this.destinationPath('build/pageTemplate.php'),
-      { lessonLang: this.props.metedLang, narratedSwitch: this.props.narratedLesson, currentYear: this.generatorYear }
+      { lessonLang: this.props.metedLang, narratedSwitch: this.props.narratedLesson, multiPrint: this.props.multiLesson, currentYear: this.generatorYear }
     );
     //navmenu.php
     this.fs.copyTpl(
@@ -210,7 +210,14 @@ module.exports = class extends Generator {
     
   }
 
+
   /*install() {
     this.installDependencies();
   }*/
+
+  /*install() {
+    this.spawnCommand('grunt', ['install']);
+  }*/
+
+
 };

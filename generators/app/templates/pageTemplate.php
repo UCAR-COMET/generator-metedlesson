@@ -106,7 +106,7 @@
 	<!--  Table of Contents -->
 	<div id="menu" class="sidebar-toc">
 		<div class="btn-group">
-    <% if (narratedSwitch) { %>
+    <% if (multiPrint) { %>
     <!-- Multi-print Lesson Selector -->
 		<a href="#" data-toggle="dropdown">
 			<h4 id="lesson-sidebar-unit-title">$titleTag <span class="caret"></span></h4>

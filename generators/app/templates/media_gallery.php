@@ -122,10 +122,17 @@ $moduleManager = new ModuleManager();
 <h2 id="lesson-sidebar-title" class="module-title-text"></h2>
 	<!--  Table of Contents -->
 	<div id="menu" class="sidebar-toc">
-		<h4 id="lesson-sidebar-unit-title">Media Gallery</h4>
+		<h4 id="lesson-sidebar-unit-title"><% if (lessonLang === 'ES') { %>Galería multimedia<% } else if (lessonLang === 'FR') { %>Médiathèque<% } else { %>Media Gallery<% } %></h4>
 	</div>
 <hr>
-<p>Media elements used in this module are protected by a variety of copyright licenses. Please use the "copyright terms" link associated with each item below for more information.</p>
+<% if (lessonLang === 'ES') { %>
+  <p>Los elementos multimedia empleados en esta lección están protegidos por diversas licencias de propiedad intelectual (<i>copyright</i>). Para obtener más información al respecto, utilice el enlace «Términos de derechos de autor» asociado a cada elemento a continuación.</p>         
+<% } else if (lessonLang === 'FR') { %>
+  <p>Les supports graphiques utilisés dans ce leçon sont protégés par différents droits d'auteurs. Veuillez svp utiliser le lien «&nbsp;termes des droits d'auteurs&nbsp;» associé à chaque élément ici-bas pour plus d'informations.</p>        
+<% } else { %>
+  <p>Media elements used in this module are protected by a variety of copyright licenses. Please use the "copyright terms" link associated with each item below for more information.</p>      
+<% } %>
+
 
 <div id="image_gallery" class="gallery-container row">
 <?php foreach($items as $item) { ?>
@@ -142,6 +149,154 @@ $moduleManager = new ModuleManager();
 
 <div id="a<?php echo $item->id; ?>" class="col-md-4 col-xs-6 gallery-item">
 
+
+<% if (lessonLang === 'ES') { %>
+  <div class="panel panel-default">
+                            <div class="media-thumbnail">
+                                <?php /*START_PHP_SIRFCIT*/ if ($item->extension != "swf" && $item->extension != "mp4" && $item->extension != "htm") { ?>
+                                <a href="<?php echo $item->path . "/" . $item->name . "." . $item->extension; ?>"
+                                    target="_blank"><img
+                                        src="<?php echo $item->path . "/" . $item->name . "." . $item->extension; ?>"
+                                        alt="<?php echo $item->description; ?>" height="130" class="center-block" /></a>
+                                <?php } /*END_PHP_SIRFCIT*/ ?>
+                                <?php /*START_PHP_SIRFCIT*/ if ($item->extension == "swf") { ?> <a
+                                    href="<?php echo $item->path . "/" . $item->name . "." . $item->extension; ?>"
+                                    target="_blank"><img src="<?php echo $item->path . "/" . $item->name . ".jpg" ?>"
+                                        alt="<?php echo $item->description; ?>" height="130" /></a> <br />
+                                <?php } /*END_PHP_SIRFCIT*/ ?>
+                                <?php /*START_PHP_SIRFCIT*/ if ($item->extension == "mp4") { ?> <a
+                                    href="<?php echo $item->path . "/" . $item->name . "." . $item->extension; ?>"
+                                    target="_blank"><img src="<?php echo $item->path . "/" . $item->name . ".jpg" ?>"
+                                        alt="<?php echo $item->description; ?>" height="130" /></a> <br />
+                                <?php } /*END_PHP_SIRFCIT*/ ?>
+                                <?php /*START_PHP_SIRFCIT*/ if ($item->extension == "htm") { ?> <a
+                                    href="<?php echo $item->path . "/index." . $item->extension; ?>"
+                                    target="_blank"><img src="<?php echo $item->path . "/" . $item->name . ".jpg" ?>"
+                                        alt="<?php echo $item->description; ?>" height="130" /></a> <br />
+                                <a href="<?php echo $item->path . "/index." . $item->extension; ?>" target="_blank">Ver
+                                    animación</a> <?php } /*END_PHP_SIRFCIT*/ ?>
+                            </div>
+                            <div class="media-description">
+                                <div class="media-description-text">
+                                    <p>
+                                        <strong>Descripción:</strong>
+                                        <br> <?php echo $item->description; ?>
+                                    </p>
+                                </div>
+                                <p class="media-filename">
+                                    <strong>Nombre de archivo:</strong><br>
+                                    <?php echo $item->name ?>.<?php echo $item->extension; ?>
+                                </p>
+                                <p>
+                                    <strong>Créditos:</strong>
+                                    <br> <?php echo $item->credits; ?>
+                                </p>
+                                <p>
+                                    <strong>Términos de derechos de autor:</strong> <br>
+                                    <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type == "COMET Standard Terms of Use") { ?>
+                                    <a href="http://www.meted.ucar.edu/legal_es.htm" target="_blank">Términos de uso
+                                        estándar de COMET</a> <?php } /*END_PHP_SIRFCIT*/ ?>
+                                    <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type == "COMET Standard Terms of Use - NCU") { ?>
+                                    <a href="http://www.meted.ucar.edu/legal_es.htm" target="_blank">Términos de uso
+                                        estándar de COMET - Uso no comercial</a> <?php } /*END_PHP_SIRFCIT*/ ?>
+                                    <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type == "Creative Commons BY 4.0 International") { ?>
+                                    <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative
+                                        Commons BY 4.0 Internacional</a> <?php } /*END_PHP_SIRFCIT*/ ?>
+                                    <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type == "Creative Commons Attribution-ShareAlike 3.0 Unported") { ?>
+                                    <a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank">Creative
+                                        Commons, Atribución-Compartir Igual 3.0</a> <?php } /*END_PHP_SIRFCIT*/ ?>
+                                    <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type == "Creative Commons Attribution-ShareAlike 2.5") { ?>
+                                    <a href="http://creativecommons.org/licenses/by-sa/2.5/" target="_blank">Creative
+                                        Commons, Atribución-Compartir Igual 2.5</a> <?php } /*END_PHP_SIRFCIT*/ ?>
+                                    <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type == "Creative Commons Attribution-ShareAlike 2.0") { ?>
+                                    <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">Creative
+                                        Commons, Atribución-Compartir Igual 2.0</a> <?php } /*END_PHP_SIRFCIT*/ ?>
+                                    <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type == "Creative Commons Attribution-Noncommercial-Share Alike 2.0 Generic") { ?>
+                                    <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank">Creative
+                                        Commons, Atribución-No comercial-Compartir igual 2.0 Genérica</a>
+                                    <?php } /*END_PHP_SIRFCIT*/ ?>
+                                    <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type == "Creative Commons Attribution-Noncommercial 2.0 Generic") { ?>
+                                    <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">Creative
+                                        Commons Atribución-No comercial 2.0 Genérica</a> <?php } /*END_PHP_SIRFCIT*/ ?>
+                                    <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type == "Creative Commons Attribution 2.0") { ?>
+                                    <a href="http://creativecommons.org/licenses/by/2.0/" target="_blank">Creative
+                                        Commons Atribución 2.0</a> <?php } /*END_PHP_SIRFCIT*/ ?>
+                                    <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type == "Creative Commons Attribution 2.0 Generic") { ?>
+                                    <a href="http://creativecommons.org/licenses/by/2.0/" target="_blank">Creative
+                                        Commons Atribución 2.0 Genérica</a> <?php } /*END_PHP_SIRFCIT*/ ?>
+                                </p>
+                            </div>
+                        </div>
+<% } else if (lessonLang === 'FR') { %>
+  <div class="panel panel-default">
+	<div class="media-thumbnail">
+	  <?php /*START_PHP_SIRFCIT*/ if ($item->extension != "swf" && $item->extension !="mp4" && $item->extension !="htm"){ ?>
+      <a href="<?php echo $item->path . "/" . $item->name . "." . $item->extension;?>" target="_blank"><img src="<?php echo $item->path . "/" . $item->name . "." . $item->extension; ?>" alt="<?php echo $item->description; ?>" height="130" class="center-block" /></a>
+      <?php } /*END_PHP_SIRFCIT*/ ?>
+      <?php /*START_PHP_SIRFCIT*/ if ($item->extension == "swf"){ ?>
+      <a href="<?php echo $item->path . "/" . $item->name . "." . $item->extension;?>" target="_blank"><img src="<?php echo $item->path . "/" . $item->name . ".jpg" ?>" alt="<?php echo $item->description; ?>" height="130" /></a> <br />
+
+      <?php } /*END_PHP_SIRFCIT*/ ?>
+      <?php /*START_PHP_SIRFCIT*/ if ($item->extension=="mp4"){ ?>
+      <a href="<?php echo $item->path . "/" . $item->name . "." . $item->extension;?>" target="_blank"><img src="<?php echo $item->path . "/" . $item->name . ".jpg" ?>" alt="<?php echo $item->description; ?>" height="130" /></a> <br />
+
+      <?php } /*END_PHP_SIRFCIT*/ ?>
+      <?php /*START_PHP_SIRFCIT*/ if ($item->extension=="htm"){ ?>
+      <a href="<?php echo $item->path . "/index." . $item->extension; ?>" target="_blank"><img src="<?php echo $item->path . "/" . $item->name . ".jpg" ?>" alt="<?php echo $item->description; ?>" height="130" /></a> <br />
+      <a href="<?php echo $item->path . "/index." . $item->extension; ?>" target="_blank">Regarder l'animation</a>
+      <?php } /*END_PHP_SIRFCIT*/ ?>
+    </div>
+    <div class="media-description">
+    <div class="media-description-text">
+   	<p>
+    <strong>Description&nbsp;:</strong>
+    <br>
+	<?php echo $item->description; ?></p>
+    </div>
+    <p class="media-filename">
+    <strong>Nom du fichier&nbsp;:</strong><br>
+	<?php echo $item->name ?>.<?php echo $item->extension; ?></p>
+    <p>
+    <strong>Source&nbsp;:</strong>
+    <br>
+	<?php echo $item->credits; ?></p>
+    <p>
+    <strong>Droits d'auteurs&nbsp;:</strong>
+    <br>
+      <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="COMET Standard Terms of Use"){ ?>
+      <a href="http://www.meted.ucar.edu/legal.htm" target="_blank">COMET Standard Terms of Use</a>
+      <?php } /*END_PHP_SIRFCIT*/ ?>
+      <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="COMET Standard Terms of Use - NCU"){ ?>
+      <a href="http://www.meted.ucar.edu/legal.htm" target="_blank">COMET Standard Terms of Use - NCU</a>
+      <?php } /*END_PHP_SIRFCIT*/ ?>
+      <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons BY 4.0 International"){ ?>
+      <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons BY 4.0 International</a>
+      <?php } /*END_PHP_SIRFCIT*/ ?>
+      <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution-ShareAlike 3.0 Unported"){ ?>
+      <a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank">Creative Commons Attribution-ShareAlike 3.0</a>
+      <?php } /*END_PHP_SIRFCIT*/ ?>
+      <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution-ShareAlike 2.5"){ ?>
+      <a href="http://creativecommons.org/licenses/by-sa/2.5/" target="_blank">Creative Commons Attribution-ShareAlike 2.5</a>
+      <?php } /*END_PHP_SIRFCIT*/ ?>
+      <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution-ShareAlike 2.0"){ ?>
+      <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">Creative Commons Attribution-ShareAlike 2.0</a>
+      <?php } /*END_PHP_SIRFCIT*/ ?>
+      <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution-Noncommercial-Share Alike 2.0 Generic"){ ?>
+      <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank">Creative Commons Attribution-Noncommercial-Share Alike 2.0 Generic</a>
+      <?php } /*END_PHP_SIRFCIT*/ ?>
+      <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution-Noncommercial 2.0 Generic"){ ?>
+      <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">Creative Commons Attribution-Noncommercial 2.0 Generic</a>
+      <?php } /*END_PHP_SIRFCIT*/ ?>
+      <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution 2.0"){ ?>
+      <a href="http://creativecommons.org/licenses/by/2.0/" target="_blank">Creative Commons Attribution 2.0</a>
+      <?php } /*END_PHP_SIRFCIT*/ ?>
+      <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution 2.0 Generic"){ ?>
+      <a href="http://creativecommons.org/licenses/by/2.0/" target="_blank">Creative Commons Attribution 2.0 Generic</a>
+      <?php } /*END_PHP_SIRFCIT*/ ?>
+    </p>
+    </div>
+</div>
+<% } else { %>
 <div class="panel panel-default">
 	<div class="media-thumbnail">
 	  <?php /*START_PHP_SIRFCIT*/ if ($item->extension != "swf" && $item->extension !="mp4" && $item->extension !="htm"){ ?>
@@ -217,10 +372,10 @@ $moduleManager = new ModuleManager();
     </div>
 </div>
 </div>
+<% } %>
 
 
 </div>
-
 
 
 <div>
