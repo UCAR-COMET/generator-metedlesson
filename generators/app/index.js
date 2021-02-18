@@ -2,6 +2,7 @@
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
+const grunt = require('grunt');
 
 module.exports = class extends Generator {
   prompting() {
@@ -80,8 +81,8 @@ module.exports = class extends Generator {
   writing() {
     //BUILD
     this.fs.copy(
-      this.templatePath('assets'),
-      this.destinationPath('build/assets'),
+      this.templatePath('extensions/grunt/newlesson/Gruntfile.js'),
+      this.destinationPath('Gruntfile.js'),
     );
     this.fs.copy(
       this.templatePath('bootstrap'),
@@ -210,14 +211,12 @@ module.exports = class extends Generator {
     
   }
 
-
+  //Install dependencies and run Grunt
   /*install() {
-    this.installDependencies();
+    this.installDependencies({
+      bower: false,
+    });
+    this.spawnCommand('grunt', ['default']);
   }*/
-
-  /*install() {
-    this.spawnCommand('grunt', ['install']);
-  }*/
-
 
 };
