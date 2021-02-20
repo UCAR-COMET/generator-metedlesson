@@ -85,6 +85,10 @@ module.exports = class extends Generator {
       this.destinationPath('Gruntfile.js'),
     );
     this.fs.copy(
+      this.templatePath('assets'),
+      this.destinationPath('build/assets'),
+    );
+    this.fs.copy(
       this.templatePath('bootstrap'),
       this.destinationPath('build/bootstrap'),
     );
@@ -212,11 +216,11 @@ module.exports = class extends Generator {
   }
 
   //Install dependencies and run Grunt
-  /*install() {
+  install() {
     this.installDependencies({
       bower: false,
     });
     this.spawnCommand('grunt', ['default']);
-  }*/
+  }
 
 };
