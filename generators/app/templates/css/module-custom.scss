@@ -593,10 +593,9 @@ background-color: #efefef;
 #lesson-subtitle {
 	font-size: $module-title-fontsize * 0.5;
 	margin-top: -12px;
-	color: $module-title-color * 0.75;
+	color: $module-title-color, 0.75;
 	/*text-shadow: $module-title-shadow;*/
 }
-
 
 
 @media (min-width:768px) {

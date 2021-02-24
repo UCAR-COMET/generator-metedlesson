@@ -7,7 +7,7 @@ module.exports = function (grunt) {
             all: {
               options: {
                 create: ['build/media', 'build/media/graphics', 'build/media/video', 'build/assets',
-                        'dist/src', 'dist/src/js', 'dist/src/css', 'dist/assets']
+                        'dist/src', 'dist/src/js', 'dist/src/css', 'dist/media', 'dist/media/graphics', 'dist/media/video']
               },
             },
           },
@@ -23,22 +23,23 @@ module.exports = function (grunt) {
             },
             vendor: {
                 files: [
-                  // Copy Primary JS
-                  {expand: true, flatten: true, src: ['build/jquery/jquery*.min.js', 'build/bootstrap/js/bootstrap.min.js', 'build/modernizr/modernizr.min.js'], dest: 'dist/dev/js/.', filter: 'isFile'},
-                  // Copy Secondary JS (apps and defaults)
+                  // Copy Javascript
+                  {expand: true, flatten: true, src: ['build/jquery/jquery*.min.js', 'build/bootstrap/js/bootstrap.min.js'], dest: 'dist/dev/js/.', filter: 'isFile'},
+                  {expand: true, flatten: true, src: ['build/modernizr/modernizr.min.js'], dest: 'dist/dev/js/modernizr/.', filter: 'isFile'},
+                  //TODO:ADD APPS HERE!!!
                   {expand: true, flatten: true, src: ['build/jquery/defaults.js'], dest: 'dist/dev/js/.', filter: 'isFile'},
-                  // Copy Bundle CSS and Static CSS
-                  {expand: true, flatten: true, src: ['build/jquery/jquery*.min.css', 'build/bootstrap/css/bootstrap.min.css', 'build/css/meted-base.min.css', 'build/css/module-custom.css'], dest: 'dist/dev/css/.', filter: 'isFile'},
-                  {expand: true, flatten: true, src: ['build/css/module-custom.scss', /*'build/css/module-print.css'*/], dest: 'dist/dev/css/.', filter: 'isFile'},
-                  // Copy static assets
+                  
+                                    
+                  // Copy Bundle CSS, Static CSS, and static assets
+                  {expand: true, flatten: true, src: ['build/jquery/jquery*.min.css', 'build/bootstrap/css/bootstrap.min.css', 'build/css/meted-base.min.css', 'build/css/module-custom.scss'], dest: 'dist/dev/css/.', filter: 'isFile'},
+                  //{expand: true, flatten: true, src: ['build/css/module-custom.scss', /*'build/css/module-print.css'*/], dest: 'dist/dev/css/.', filter: 'isFile'},
                   {expand: true, flatten: true, src: ['build/bootstrap/fonts/**', 'build/css/fonts/**'], dest: 'dist/src/css/static/fonts/.', filter: 'isFile'},
                   {expand: true, flatten: true, src: ['build/jquery/img/*', 'build/assets/*'], dest: 'dist/src/css/static/img/.'},
-                  // Include IE support
-                  {expand: true, flatten: true, src: ['build/ie-support/**'], dest: 'dist/dev/js/ie-support/.', filter: 'isFile'}
+                  {expand: true, flatten: true, src: ['build/ie-support/**'], dest: 'dist/src/js/ie-support/.', filter: 'isFile'}
                 ],
               },
           },
-        //Concat js files (in array order)
+        //CONCAT AND COMPRESS JS: core.js
         concat: {
             options: {
               separator: ' ',
@@ -50,20 +51,25 @@ module.exports = function (grunt) {
                 },
             },
             dist: {
-              src: ['dist/dev/js/jquery.min.js', 'dist/dev/js/jquery-plugins.min.js', 'dist/dev/js/jquery-ui.min.js', 'dist/dev/js/bootstrap.min.js', 'dist/dev/js/modernizr.min.js'],
+              src: ['dist/dev/js/jquery.min.js', 'dist/dev/js/jquery-plugins.min.js', 'dist/dev/js/jquery-ui.min.js', 'dist/dev/js/bootstrap.min.js', 'dist/dev/js/modernizr.min.js', 'dist/dev/js/defaults.js'],
               dest: 'dist/src/js/core.js',
             },
           },
+        //CONCAT AND MINIFY CSS: styles.css
         sass: {
             dist: {
+              options: {
+                style: 'expanded'
+              },
               files: {
-                'dist/src/css/module-custom.css': 'dist/dev/css/module-custom.scss'
+                'dist/src/css/module-custom.css': 'dist/dev/css/module-custom.scss',
+                //'widgets.css': 'widgets.scss'
               }
             }
-        },
+          },
         cssmin: {
             options: {
-                mergeIntoShorthands: false,
+                mergeIntoShorthands: true,
                 roundingPrecision: -1
               },
             target: {
@@ -79,18 +85,13 @@ module.exports = function (grunt) {
               baseDir: 'dist/src/css/static/(styles|assets)'
             },
             all: {
-              src: ['dist/dev/css/*.css'],
+              src: ['dist/dev/css/*.css', 'dist/src/css/module-custom.css'],
               dest: 'dist/src/css/styles.css'
             },
         },
-        // Deletes to clean directories
-        clean: {
-            //js: ['dist/dev', /*'!dist/src/js/core.js', '!dist/src/js/defaults.js'*/],
-            //css: ['dist/dev/css'],
-            grunt: ['./Gruntfile.js']
-        },
+      //ADD JS AND CSS LINK TAGS TO PAGES
       tags: {
-        build: {
+        buildIndex: {
             options: {
               linkTemplate: '<link rel="stylesheet" media="screen" href="{{ path }}"/>',  
               scriptTemplate: '<script src="{{ path }}"></script>',
@@ -99,17 +100,63 @@ module.exports = function (grunt) {
             },
             src: [
                 'dist/src/css/styles.css',
-                '!dist/src/css/module-custom.css',
                 '!dist/src/css/module-print.css',
                 'dist/src/js/*.js',
             ],
             dest: 'dist/index.htm'
+        },
+        buildDownload: {
+          options: {
+            linkTemplate: '<link rel="stylesheet" media="screen" href="{{ path }}"/>',  
+            scriptTemplate: '<script src="{{ path }}"></script>',
+              openTag: '<!-- STYLES =======================================-->',
+          closeTag: '<!-- PRESET OVERRIDES =============================-->'
+          },
+          src: [
+              'dist/src/css/styles.css',
+              '!dist/src/css/module-print.css',
+              'dist/src/js/*.js',
+          ],
+          dest: 'dist/download.php'
+        },
+        buildMedia: {
+          options: {
+            linkTemplate: '<link rel="stylesheet" media="screen" href="{{ path }}"/>',  
+            scriptTemplate: '<script src="{{ path }}"></script>',
+              openTag: '<!-- STYLES =======================================-->',
+          closeTag: '<!-- PRESET OVERRIDES =============================-->'
+          },
+          src: [
+              'dist/src/css/styles.css',
+              '!dist/src/css/module-print.css',
+              'dist/src/js/*.js',
+          ],
+          dest: 'dist/media_gallery.php'
+        },
+        buildTemplate: {
+          options: {
+            linkTemplate: '<link rel="stylesheet" media="screen" href="{{ path }}"/>',  
+            scriptTemplate: '<script src="{{ path }}"></script>',
+              openTag: '<!-- STYLES =======================================-->',
+          closeTag: '<!-- PRESET OVERRIDES =============================-->'
+          },
+          src: [
+              'dist/src/css/styles.css',
+              '!dist/src/css/module-print.css',
+              'dist/src/js/*.js',
+          ],
+          dest: 'dist/pageTemplate.php'
         }
-      }
+      },
+      //CLEAN THE BUILDS
+      clean: {
+        core: ['dist/dev', 'dist/src/css/module-custom.*', './.sass-cache/'],
+        grunt: ['./Gruntfile.js']
+      },
     })
 
 
-    grunt.registerTask("default", ['mkdir', 'copy', 'concat', 'cssmin', 'sass', 'concat_css', 'clean', 'tags']);
+    grunt.registerTask("default", ['mkdir', 'copy', 'concat', 'sass', 'cssmin', 'concat_css', 'clean', 'tags']);
     //grunt.registerTask("default", ['mkdir']);
     //grunt.registerTask("optimize", ['mkdir']);
     //grunt.registerTask('conversion', ['mkdir']);
@@ -123,6 +170,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-script-link-tags');
-    //grunt.loadNpmTasks('grunt-html-build');
     
 }
