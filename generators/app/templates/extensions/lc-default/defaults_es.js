@@ -1,5 +1,5 @@
 // ********************************************************************* //
-// * LC3 Default SPANISH functions generated for:
+// * LC Default SPANISH functions generated for:
 // * <%= lessonTitle %> (<%= lessonID %>)
 // ********************************************************************* //
 

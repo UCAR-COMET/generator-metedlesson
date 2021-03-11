@@ -27,14 +27,15 @@ module.exports = function (grunt) {
                   {expand: true, flatten: true, src: ['build/jquery/jquery*.min.js', 'build/bootstrap/js/bootstrap.min.js'], dest: 'dist/dev/js/.', filter: 'isFile'},
                   {expand: true, flatten: true, src: ['build/modernizr/modernizr.min.js'], dest: 'dist/dev/js/modernizr/.', filter: 'isFile'},
                   //TODO:ADD APPS HERE!!!
+                  {expand: true, flatten: true, src: ['build/jquery/meted-player/mediaelement-and-player.min.js', 'build/jquery/apps/fancybox/fancybox.min.js', 'build/jquery/apps/image-sweep/image-sweep.js'], dest: 'dist/dev/js/.', filter: 'isFile'},
+                  {expand: true, flatten: true, src: ['build/jquery/apps/draw/draw.js', 'build/jquery/apps/drag/drag.js'], dest: 'dist/dev/js/.', filter: 'isFile'},
                   {expand: true, flatten: true, src: ['build/jquery/defaults.js'], dest: 'dist/dev/js/.', filter: 'isFile'},
                   
-                                    
                   // Copy Bundle CSS, Static CSS, and static assets
                   {expand: true, flatten: true, src: ['build/jquery/jquery*.min.css', 'build/bootstrap/css/bootstrap.min.css', 'build/css/meted-base.min.css', 'build/css/module-custom.scss'], dest: 'dist/dev/css/.', filter: 'isFile'},
-                  //{expand: true, flatten: true, src: ['build/css/module-custom.scss', /*'build/css/module-print.css'*/], dest: 'dist/dev/css/.', filter: 'isFile'},
+                  {expand: true, flatten: true, src: ['build/jquery/meted-player/mediaelementplayer.min.css'], dest: 'dist/dev/css/.', filter: 'isFile'},
                   {expand: true, flatten: true, src: ['build/bootstrap/fonts/**', 'build/css/fonts/**'], dest: 'dist/src/css/static/fonts/.', filter: 'isFile'},
-                  {expand: true, flatten: true, src: ['build/jquery/img/*', 'build/assets/*'], dest: 'dist/src/css/static/img/.'},
+                  {expand: true, flatten: true, src: ['build/jquery/img/*', 'build/jquery/meted-player/mejs-controls.svg', 'build/jquery/apps/fancybox/*.gif', 'build/jquery/apps/fancybox/*.png', 'build/assets/*'], dest: 'dist/src/css/static/img/.'},
                   {expand: true, flatten: true, src: ['build/ie-support/**'], dest: 'dist/src/js/ie-support/.', filter: 'isFile'}
                 ],
               },

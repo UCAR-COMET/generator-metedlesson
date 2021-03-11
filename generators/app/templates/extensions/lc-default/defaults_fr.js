@@ -1,5 +1,5 @@
 // ********************************************************************* //
-// * LC3 Default FRENCH functions generated for:
+// * LC Default FRENCH functions generated for:
 // * <%= lessonTitle %> (<%= lessonID %>)
 // ********************************************************************* //
 
