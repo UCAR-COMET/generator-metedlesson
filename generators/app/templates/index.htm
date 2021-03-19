@@ -30,7 +30,7 @@
 	var lessonID = <%= lessonID %>; // Specify Lesson ID to add preassessment, or 0 for no preassessment.
 	
 	// NOTE: Relative path breaks the download version!!!
-	var path = "https://meted.ucar.edu/lesson/" + lessonID + "/preassessment";
+	var path = "https://meted.ucar.edu/education_training/lesson/" + lessonID + "/preassessment";
 	$(function() {
 	if (lessonID > 0) {
 		$('#pre-assessment-path').attr('href', path);
