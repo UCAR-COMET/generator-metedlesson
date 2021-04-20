@@ -231,11 +231,11 @@ module.exports = class extends Generator {
     }
     
     //LOGS
-    this.log("Lesson name set to: " + `${chalk.red(this.props.metedName)}`);
-    this.log("Lesson ID set to: " + `${chalk.red(this.props.metedID)}`);
-    this.log("Lesson language set to: " + `${chalk.red(this.props.metedLang)}`);
-    this.log("Copyright year set to: " + `${chalk.green(this.generatorYear)}`);
-    this.log(this.structure);
+    //this.log("Lesson name set to: " + `${chalk.red(this.props.metedName)}`);
+    //this.log("Lesson ID set to: " + `${chalk.red(this.props.metedID)}`);
+    //this.log("Lesson language set to: " + `${chalk.red(this.props.metedLang)}`);
+    //this.log("Copyright year set to: " + `${chalk.green(this.generatorYear)}`);
+    //this.log(this.structure);
     
   }
 
@@ -243,7 +243,9 @@ module.exports = class extends Generator {
   install() {
     this.installDependencies({
       bower: false,
+      grunt: true
     });
+    this.npmInstall();
     this.spawnCommand('grunt', ['default']);
   }
 
