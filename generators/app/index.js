@@ -12,6 +12,7 @@ module.exports = class extends Generator {
     );
     // Let's get the current year
     const generatorYear = new Date().getFullYear();
+    let addPrompts = false;
 
     const prompts = [
       {
@@ -62,12 +63,35 @@ module.exports = class extends Generator {
         name: 'narratedLesson',
         message: 'Does this lesson need a switch to Narrated/Text button?',
         default: false
+      },
+      {
+        type: 'confirm',
+        name: 'additionalOptions',
+        message: 'Would you like to change any additional options?',
+        default: false
       }
     ];
+
+    const additionalPrompts = [
+      {
+        type: 'input',
+        name: 'customYear',
+        message: 'Enter custom copyright year(s)',
+        default: this.generatorYear
+      },
+      {
+        type: 'input',
+        name: 'splashImageCredit',
+        message: 'Enter a splash image credit',
+        default: '** Image Credit'
+      },
+    ];
+
 
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       this.props = props;
+      
 
       // Constants and adjusted vars
       this.generatorYear = generatorYear;
