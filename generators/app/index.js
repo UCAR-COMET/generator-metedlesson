@@ -243,9 +243,21 @@ module.exports = class extends Generator {
   install() {
     this.installDependencies({
       bower: false,
-      grunt: true
+      //grunt: true
     });
-    this.npmInstall();
+    this.npmInstall(['grunt'], { 'save-dev': true });
+    this.npmInstall(['grunt-cli'], { 'save-dev': true });
+    this.npmInstall(['grunt-concat-css'], { 'save-dev': true });
+    this.npmInstall(['grunt-contrib-sass'], { 'save-dev': true });
+    this.npmInstall(['grunt-contrib-clean'], { 'save-dev': true });
+    this.npmInstall(['grunt-contrib-concat'], { 'save-dev': true });
+    this.npmInstall(['grunt-contrib-copy'], { 'save-dev': true });
+    this.npmInstall(['grunt-contrib-cssmin'], { 'save-dev': true });
+    this.npmInstall(['grunt-html-build'], { 'save-dev': true });
+    this.npmInstall(['grunt-mkdir'], { 'save-dev': true });
+    this.npmInstall(['grunt-sails-linker'], { 'save-dev': true });
+    this.npmInstall(['grunt-script-link-tags'], { 'save-dev': true });
+    
     this.spawnCommand('grunt', ['default']);
   }
 
