@@ -280,7 +280,7 @@ module.exports = class extends Generator {
     this.installDependencies({
       bower: false
     });
-    this.npmInstall(
+    /*this.npmInstall(
       [
         "grunt",
         "grunt-cli",
@@ -296,11 +296,11 @@ module.exports = class extends Generator {
         "grunt-script-link-tags"
       ],
       { "save-dev": true }
-    );
+    );*/
   }
 
   // Run Grunt
-  RunCommands() {
+  /*RunCommands() {
     this.spawnCommand("grunt", ["default"]);
-  }
+  }*/
 };
