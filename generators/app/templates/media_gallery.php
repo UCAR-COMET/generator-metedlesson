@@ -202,6 +202,9 @@ $moduleManager = new ModuleManager();
                                     <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type == "Creative Commons BY 4.0 International") { ?>
                                     <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative
                                         Commons BY 4.0 Internacional</a> <?php } /*END_PHP_SIRFCIT*/ ?>
+                                    <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type == "Creative Commons Attribution-ShareAlike 3.0 IGO") { ?>
+                                    <a href="http://creativecommons.org/licenses/by-sa/3.0/igo/" target="_blank">Creative
+                                        Commons, Atribución-Compartir Igual 3.0 IGO</a> <?php } /*END_PHP_SIRFCIT*/ ?>
                                     <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type == "Creative Commons Attribution-ShareAlike 3.0 Unported") { ?>
                                     <a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank">Creative
                                         Commons, Atribución-Compartir Igual 3.0</a> <?php } /*END_PHP_SIRFCIT*/ ?>
@@ -272,6 +275,9 @@ $moduleManager = new ModuleManager();
       <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons BY 4.0 International"){ ?>
       <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons BY 4.0 International</a>
       <?php } /*END_PHP_SIRFCIT*/ ?>
+      <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution-ShareAlike 3.0 IGO"){ ?>
+      <a href="http://creativecommons.org/licenses/by-sa/3.0/igo/" target="_blank">Creative Commons Attribution-ShareAlike 3.0 IGO</a>
+      <?php } /*END_PHP_SIRFCIT*/ ?>
       <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution-ShareAlike 3.0 Unported"){ ?>
       <a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank">Creative Commons Attribution-ShareAlike 3.0</a>
       <?php } /*END_PHP_SIRFCIT*/ ?>
@@ -340,6 +346,9 @@ $moduleManager = new ModuleManager();
       <?php } /*END_PHP_SIRFCIT*/ ?>
       <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons BY 4.0 International"){ ?>
       <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons BY 4.0 International</a>
+      <?php } /*END_PHP_SIRFCIT*/ ?>
+      <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution-ShareAlike 3.0 IGO"){ ?>
+      <a href="http://creativecommons.org/licenses/by-sa/3.0/igo/" target="_blank">Creative Commons Attribution-ShareAlike 3.0 IGO</a>
       <?php } /*END_PHP_SIRFCIT*/ ?>
       <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution-ShareAlike 3.0 Unported"){ ?>
       <a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank">Creative Commons Attribution-ShareAlike 3.0</a>
