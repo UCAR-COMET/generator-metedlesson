@@ -1,0 +1,20 @@
+{
+  "name": "cometlesson",
+  "version": "1.0.0",
+  "description": "COMET MetEd lesson scaffolding dependencies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gary Pacheco - COMET",
+  "license": "ISC",
+  "dependencies": {
+    "grunt-concat-css": "^0.3.2",
+    "grunt-contrib-clean": "^2.0.1",
+    "grunt-contrib-concat": "^2.1.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^4.0.0",
+    "grunt-mkdir": "^1.1.0",
+    "grunt-script-link-tags": "^1.0.2"
+  }
+}

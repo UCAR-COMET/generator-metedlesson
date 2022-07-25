@@ -1,5 +1,5 @@
-# generator-metedlesson [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> Meted lesson template generator
+# generator-cometlesson [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+> COMET MetEd lesson generator v2.0.0
 
 ## Installation
 
@@ -25,12 +25,12 @@ yo metedlesson
 
 ## License
 
-Apache-2.0 © [The COMET Program](https://www.meted.ucar.edu)
+Apache-2.0 © [Gary Pacheco - COMET](https://www.comet.ucar.edu)
 
 
-[npm-image]: https://badge.fury.io/js/generator-metedlesson.svg
-[npm-url]: https://npmjs.org/package/generator-metedlesson
-[travis-image]: https://travis-ci.com/lsphantom/generator-metedlesson.svg?branch=master
-[travis-url]: https://travis-ci.com/lsphantom/generator-metedlesson
-[daviddm-image]: https://david-dm.org/lsphantom/generator-metedlesson.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/lsphantom/generator-metedlesson
+[npm-image]: https://badge.fury.io/js/generator-cometlesson.svg
+[npm-url]: https://npmjs.org/package/generator-cometlesson
+[travis-image]: https://travis-ci.com//generator-cometlesson.svg?branch=master
+[travis-url]: https://travis-ci.com//generator-cometlesson
+[daviddm-image]: https://david-dm.org//generator-cometlesson.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org//generator-cometlesson

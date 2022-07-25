@@ -96,7 +96,39 @@ module.exports = class extends Generator {
   }
 
   writing() {
+    //INSTALL DEPENDENCIES
+    const pkgJson = {
+      devDependencies: {
+        "grunt": "^1.5.3",
+        "grunt-cli": "^1.4.3",
+        "grunt-concat-css": "^0.3.2",
+        "grunt-contrib-clean": "^2.0.1",
+        "grunt-contrib-concat": "^2.1.0",
+        "grunt-contrib-copy": "^1.0.0",
+        "grunt-contrib-cssmin": "^4.0.0",
+        "grunt-mkdir": "^1.1.0",
+        "grunt-script-link-tags": "^1.0.2"
+      },
+      dependencies: {
+        "grunt": "^1.5.3",
+        "grunt-cli": "^1.4.3",
+        "grunt-concat-css": "^0.3.2",
+        "grunt-contrib-clean": "^2.0.1",
+        "grunt-contrib-concat": "^2.1.0",
+        "grunt-contrib-copy": "^1.0.0",
+        "grunt-contrib-cssmin": "^4.0.0",
+        "grunt-mkdir": "^1.1.0",
+        "grunt-script-link-tags": "^1.0.2"
+      },
+    };
+    // Extend or create package.json file in destination path
+    this.fs.extendJSON(this.destinationPath('package.json'), pkgJson);
+
     // BUILD
+    /*this.fs.copy(
+      this.templatePath("extensions/package.json"),
+      this.destinationPath("package.json")
+    );*/
     this.fs.copy(
       this.templatePath("extensions/grunt/newlesson/Gruntfile.js"),
       this.destinationPath("Gruntfile.js")
@@ -267,20 +299,16 @@ module.exports = class extends Generator {
       );
     }
 
-    // LOGS
-    // this.log("Lesson name set to: " + `${chalk.red(this.props.metedName)}`);
-    // this.log("Lesson ID set to: " + `${chalk.red(this.props.metedID)}`);
-    // this.log("Lesson language set to: " + `${chalk.red(this.props.metedLang)}`);
-    // this.log("Copyright year set to: " + `${chalk.green(this.generatorYear)}`);
-    // this.log(this.structure);
   }
 
   // Install dependencies
   install() {
     this.installDependencies({
-      bower: false
+      npm: true,
+      bower: false,
+      grunt: true
     });
-    /*this.npmInstall(
+    this.npmInstall(
       [
         "grunt",
         "grunt-cli",
@@ -295,12 +323,24 @@ module.exports = class extends Generator {
         "grunt-sails-linker",
         "grunt-script-link-tags"
       ],
-      { "save-dev": true }
-    );*/
+      { "save-dev": false }
+    );
+    // Run npm install && grunt on end
+    this.on('end', function () {
+      if (!this.options['skip-install']) {
+        this.npmInstall();
+        this.spawnCommand('grunt', ['default']);
+      }
+    });
+
+    // Log Output
+    this.log(yosay(`${chalk.green("I made the lesson basic structure, just running a few more tasks...")}`));
+    this.log("Lesson: " + `${chalk.red(this.props.metedName)}`);
+    this.log("ID: " + `${chalk.red(this.props.metedID)}`);
+    this.log("Language: " + `${chalk.red(this.props.metedLang)}`);
+    this.log("Copyright year: " + `${chalk.red(this.generatorYear)}`);
+    this.log(`${chalk.green('build & dist')} folders READY`)
+    //this.log(this.structure);
   }
 
-  // Run Grunt
-  /*RunCommands() {
-    this.spawnCommand("grunt", ["default"]);
-  }*/
 };

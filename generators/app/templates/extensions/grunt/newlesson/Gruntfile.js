@@ -262,6 +262,7 @@ module.exports = function(grunt) {
     // CLEAN THE BUILDS
     clean: {
       core: ["dist/dev", "dist/src/css/module-custom.*", "./.sass-cache/"],
+      node: ["node_modules", "package*"],
       grunt: ["./Gruntfile.js"]
     }
   });
@@ -278,7 +279,7 @@ module.exports = function(grunt) {
   // Grunt.registerTask("default", ['mkdir']);
   // grunt.registerTask("optimize", ['mkdir']);
   // grunt.registerTask('conversion', ['mkdir']);
-
+ 
   grunt.loadNpmTasks("grunt-contrib-copy");
   grunt.loadNpmTasks("grunt-mkdir");
   grunt.loadNpmTasks("grunt-contrib-concat");
