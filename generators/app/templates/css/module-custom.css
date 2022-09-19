@@ -10,15 +10,15 @@ body {
 /* WebFont Stack 1 - Normal Weight */
 @font-face {
   font-family: "futurapro-normal";
-  src: url("fonts/futurapro/futurapro-normal.eot");
-  src: url("fonts/futurapro/futurapro-normal.eot?#iefix") format("embedded-opentype"), url("fonts/futurapro/futurapro-normal.woff") format("woff"), url("fonts/futurapro/futurapro-normal.ttf") format("truetype");
+  src: url("fonts.eot");
+  src: url("fonts.eot?#iefix") format("embedded-opentype"), url("fonts.woff") format("woff"), url("fonts.ttf") format("truetype");
   font-style: normal;
   font-weight: normal; }
 /* WebFont Stack 2 - Bold, Black, or Heavy */
 @font-face {
   font-family: "futurapro-bold";
-  src: url("fonts/futurapro/futurapro-bold.eot");
-  src: url("fonts/futurapro/futurapro-bold.eot?#iefix") format("embedded-opentype"), url("fonts/futurapro/futurapro-bold.woff") format("woff"), url("fonts/futurapro/futurapro-bold.ttf") format("truetype");
+  src: url("fonts.eot");
+  src: url("fonts.eot?#iefix") format("embedded-opentype"), url("fonts.woff") format("woff"), url("fonts.ttf") format("truetype");
   font-style: normal;
   font-weight: bold; }
 /* Links */
@@ -278,7 +278,7 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none; }
 
 /* ========================================================== */
-/* === 3.0 LATEST CORE 2 COMPONENTS ========================= */
+/* === LATEST CORE 2 Legacy Components ====================== */
 /* === MODULE HEADER ======================================== */
 #module-title {
   color: #fff;
@@ -416,8 +416,7 @@ body {
   /* IE6-9 fallback on horizontal gradient */ }
 
 .navbar-inverse {
-  background-color: #efefef;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5e5e5+0,ffffff+50,e5e5e5+100 */ }
+  background-color: #efefef; }
 
 .navbar-inverse .navbar-nav > li > a {
   color: #777; }
@@ -479,7 +478,7 @@ body {
 #lesson-subtitle {
   font-size: 20px;
   margin-top: -12px;
-  color: #bfbfbf;
+  color: #fff, 0.75;
   /*text-shadow: $module-title-shadow;*/ }
 
 @media (min-width: 768px) {
@@ -555,14 +554,6 @@ body {
   padding-right: 15px;
   z-index: 2; }
 
-/*#lesson-footer.splash-footer {
-	position: absolute;
-	bottom: 0px;
-	right: 0px;
-	left: 0px;
-	clear: both;
-	padding: 0px 15px;
-}*/
 .stage_nav {
   margin-top: 0px;
   position: absolute;
@@ -591,19 +582,6 @@ body {
   padding-bottom: 60px;
   min-height: 480px;
   background-color: #fff; }
-
-/*#cover-overlay {
-    background: rgba(255,255,255,0.25);
-    overflow: hidden;
-    height: 100%;
-    z-index: 2;
-	margin-left: -15px;
-	margin-right: -15px;
-	padding-left: 15px;
-	padding-right: 15px;
-}*/
-.lesson-titles {
-  /*padding-top: 50px;*/ }
 
 #lesson-midrow-items {
   padding-bottom: 100px; }

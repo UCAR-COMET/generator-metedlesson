@@ -39,7 +39,7 @@ $textselect-background: #300CD2;
 
 //* WEB-FONTS */
 $font-stack1: "futurapro-normal";
-@mixin font-stack1($font-src: 'fonts/futurapro-normal'){
+@mixin font-stack1($font-src: 'fonts'){
 	font-family: "#{$font-stack1}";
 	src: url('#{$font-src}.eot');
 	src: url('#{$font-src}.eot?#iefix') format('embedded-opentype'),
@@ -50,7 +50,7 @@ $font-stack1: "futurapro-normal";
 }
 
 $font-stack2: "futurapro-bold";
-@mixin font-stack2($font-src: 'fonts/futurapro-bold'){
+@mixin font-stack2($font-src: 'fonts'){
 	font-family: "#{$font-stack2}";
 	src: url('#{$font-src}.eot');
 	src: url('#{$font-src}.eot?#iefix') format('embedded-opentype'),

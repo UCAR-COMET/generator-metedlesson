@@ -6,12 +6,14 @@ const grunt = require("grunt");
 
 module.exports = class extends Generator {
   prompting() {
-    // Have Yeoman greet the user
-    this.log(yosay(`Let's generate a new ${chalk.blue("MetEd Lesson")}!`));
-    // Let's get the current year
+    // 1) Let's create some variables to use in the generator: current year, splash credit
     const generatorYear = new Date().getFullYear();
-    // Let addPrompts = false;
+    const splashCredit = "The COMET Program";
 
+    // 2) Have Yeoman greet the user
+    this.log(yosay(`Let's generate a new ${chalk.blue("MetEd Lesson")}!`));
+
+    // 3) Let's make prompts in the CLI
     const prompts = [
       {
         type: "input",
@@ -47,7 +49,7 @@ module.exports = class extends Generator {
       {
         type: "input",
         name: "metedPath",
-        message: "What is the MetEd lesson path?",
+        message: "What is the MetEd lesson path structure?",
         default: "/example/path/"
       },
       {
@@ -61,6 +63,12 @@ module.exports = class extends Generator {
         name: "narratedLesson",
         message: "Does this lesson need a switch to Narrated/Text button?",
         default: false
+      },
+      {
+        type: "confirm",
+        name: "hasAdditionalOptions",
+        message: "Would you like to include additional components? (custom copyright year, image credit)",
+        default: false
       }
     ];
 
@@ -68,14 +76,14 @@ module.exports = class extends Generator {
       {
         type: "input",
         name: "customYear",
-        message: "Enter custom copyright year(s)",
-        default: this.generatorYear
+        message: "Enter custom copyright year(s): ",
+        default: "1999-2005"
       },
       {
         type: "input",
         name: "splashImageCredit",
-        message: "Enter a splash image credit",
-        default: "** Image Credit"
+        message: "Enter a splash image credit: ",
+        default: "The COMET Program"
       }
     ];
 
@@ -92,6 +100,23 @@ module.exports = class extends Generator {
         .join("/")
         .substring(1); // Generate path structure from given meted path, must remove first "/"
       this.structure = structure; // Expose so it can be defined in the template
+
+      // Check additional prompts
+      if (props.hasAdditionalOptions) {
+        return this.prompt(additionalPrompts).then(props => {
+          // To access props from additional options
+          this.props = props;
+
+          // Adjusted vars
+          this.generatorYear = props.customYear;
+          this.splashCredit = props.splashImageCredit;
+          
+        });
+      }
+      else {
+        //console.log('Continue without additional options.');
+      }
+
     });
   }
 

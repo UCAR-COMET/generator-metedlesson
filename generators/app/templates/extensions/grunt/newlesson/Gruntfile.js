@@ -271,7 +271,8 @@ module.exports = function(grunt) {
     "mkdir",
     "copy",
     "concat",
-    /* 'sass', */ "cssmin",
+    /*"sass",*/
+    "cssmin",
     "concat_css",
     "clean",
     "tags"
@@ -284,7 +285,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-mkdir");
   grunt.loadNpmTasks("grunt-contrib-concat");
   grunt.loadNpmTasks("grunt-concat-css");
-  // Grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks("grunt-contrib-cssmin");
   grunt.loadNpmTasks("grunt-contrib-clean");
   grunt.loadNpmTasks("grunt-script-link-tags");
