@@ -60,19 +60,19 @@ module.exports = class extends Generator {
       },
       {
         type: "confirm",
-        name: "narratedLesson",
-        message: "Does this lesson need a switch to Narrated/Text button?",
-        default: false
-      },
-      {
-        type: "confirm",
         name: "hasAdditionalOptions",
-        message: "Would you like to include additional components? (custom copyright year, image credit)",
+        message: "Would you like to include additional components? (narration switch, custom copyright year, image credit)",
         default: false
       }
     ];
 
     const additionalPrompts = [
+      {
+        type: "confirm",
+        name: "narratedLesson",
+        message: "Does this lesson need a switch to Narrated/Text button?",
+        default: false
+      },
       {
         type: "input",
         name: "customYear",
