@@ -65,25 +65,25 @@ module.exports = class extends Generator {
         default: false
       }
     ];
-
+    //4) Additional prompts
     const additionalPrompts = [
-      {
-        type: "confirm",
-        name: "narratedLesson",
-        message: "Does this lesson need a switch to Narrated/Text button?",
-        default: false
-      },
       {
         type: "input",
         name: "customYear",
         message: "Enter custom copyright year(s): ",
-        default: "1999-2005"
+        default: generatorYear
       },
       {
         type: "input",
         name: "splashImageCredit",
         message: "Enter a splash image credit: ",
         default: splashCredit
+      },
+      {
+        type: "confirm",
+        name: "narratedLesson",
+        message: "Does this lesson need a switch to Narrated/Text button?",
+        default: false
       }
     ];
 
@@ -103,7 +103,7 @@ module.exports = class extends Generator {
 
       // Check additional prompts
       if (props.hasAdditionalOptions) {
-        return this.prompt(additionalPrompts).then(props => {
+        this.prompt(additionalPrompts).then(props => {
           // To access props from additional options
           this.props = props;
 
@@ -113,9 +113,7 @@ module.exports = class extends Generator {
           
         });
       }
-      else {
-        //console.log('Continue without additional options.');
-      }
+      else { /*console.log('Continue without additional options.');*/ }
 
     });
   }
@@ -360,7 +358,7 @@ module.exports = class extends Generator {
     });
 
     // Log Output
-    this.log(yosay(`${chalk.green("I made the lesson basic structure, just running a few more tasks...")}`));
+    this.log(yosay(`${chalk.green("I made the MetEd lesson basic scaffold, just running a few more tasks...")}`));
     this.log("Lesson: " + `${chalk.red(this.props.metedName)}`);
     this.log("ID: " + `${chalk.red(this.props.metedID)}`);
     this.log("Language: " + `${chalk.red(this.props.metedLang)}`);
