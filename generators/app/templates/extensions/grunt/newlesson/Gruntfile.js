@@ -163,17 +163,6 @@ module.exports = function(grunt) {
       }
     },
     // CONCAT AND MINIFY CSS: styles.css
-    /* sass: {
-            dist: {
-              options: {
-                style: 'expanded'
-              },
-              files: {
-                'dist/src/css/module-custom.css': 'dist/dev/css/module-custom.scss',
-                //'widgets.css': 'widgets.scss'
-              }
-            }
-          }, */
     cssmin: {
       options: {
         mergeIntoShorthands: true,
@@ -181,6 +170,7 @@ module.exports = function(grunt) {
       },
       target: {
         files: {
+          "build/css/meted-base.min.css": ["build/css/meted-base.css"],
           "dist/src/css/module-custom.css": ["dist/src/css/module-custom.css"]
         }
       }
@@ -193,11 +183,19 @@ module.exports = function(grunt) {
       all: {
         src: ["dist/dev/css/*.css", "dist/src/css/module-custom.css"],
         dest: "dist/src/css/styles.css"
-      },
-      files: {
-        'build/css/meted-base.min.css': ['build/css/meted-base.css']
       }
     },
+    /* sass: {
+        dist: {
+          options: {
+            style: 'expanded'
+          },
+          files: {
+            'dist/src/css/module-custom.css': 'dist/dev/css/module-custom.scss',
+            //'widgets.css': 'widgets.scss'
+          }
+        }
+      }, */
     // ADD JS AND CSS LINK TAGS TO PAGES
     tags: {
       buildIndex: {
@@ -265,7 +263,7 @@ module.exports = function(grunt) {
     clean: {
       core: ["dist/dev", "dist/src/css/module-custom.*", "./.sass-cache/"],
       node: ["node_modules", "package*"],
-      //grunt: ["./Gruntfile.js"]
+      grunt: ["./Gruntfile.js"]
     }
   });
 
