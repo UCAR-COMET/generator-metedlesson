@@ -61,7 +61,7 @@ module.exports = class extends Generator {
       {
         type: "confirm",
         name: "hasAdditionalOptions",
-        message: "Would you like to include additional components? (narration switch, custom copyright year, image credit)",
+        message: "Would you like to include additional components? (copyright year(s), image credit, narration switch)",
         default: false
       }
     ];
@@ -91,15 +91,19 @@ module.exports = class extends Generator {
       // To access props later use this.props.someAnswer;
       this.props = props;
 
-      // Constants and adjusted vars
-      this.generatorYear = generatorYear;
-      let pathString = this.props.metedPath;
-      let pathArray = pathString.split("/").splice("");
-      let structure = pathArray
-        .map(word => word.replace(/[^ ]+/, ".."))
-        .join("/")
-        .substring(1); // Generate path structure from given meted path, must remove first "/"
-      this.structure = structure; // Expose so it can be defined in the template
+      function adjustVars(setYear, setSplashCredit){
+        // Constants and adjusted vars
+        this.generatorYear = setYear;
+        let pathString = this.props.metedPath;
+        let pathArray = pathString.split("/").splice("");
+        let structure = pathArray
+          .map(word => word.replace(/[^ ]+/, ".."))
+          .join("/")
+          .substring(1); // Generate path structure from given meted path, must remove first "/"
+        this.structure = structure; // Expose so it can be defined in the template
+        this.splashCredit = setSplashCredit;
+      }
+      
 
       // Check additional prompts
       if (props.hasAdditionalOptions) {
@@ -108,13 +112,14 @@ module.exports = class extends Generator {
           this.props = props;
 
           // Adjusted vars
-          this.generatorYear = props.customYear;
-          this.splashCredit = props.splashImageCredit;
-          
+          /*this.generatorYear = props.customYear;
+          this.splashCredit = props.splashImageCredit;*/
+          adjustVars(props.customYear, props.splashImageCredit);
         });
       }
-      else { 
-        this.log('Continue building lesson without additional options...'); 
+      else {
+        adjustVars(generatorYear, splashCredit);
+        console.log('Continue building lesson without additional options...'); 
       }
 
     });
