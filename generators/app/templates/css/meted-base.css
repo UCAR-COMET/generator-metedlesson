@@ -1,13 +1,11 @@
-/*!
- * METED BASE CSS (Last update: 09/2022)
- */
+/* === meted-base.css (Last updated: 10/2022) === */
+
 /* ========================================================== */
 /* === 1.0 GLOBAL ELEMENTS ================================== */
 /* ========================================================== */
 body {
 	background-color: #fff;
 }
-/* Text Selection */
 ::-moz-selection {
 color: #fff;
 background: #300CD2;
@@ -16,23 +14,6 @@ background: #300CD2;
 	color: #fff;
 	background: #300CD2;
 }
-/* Source Sans Pro
-@font-face {
-	font-family: 'source_sans_problack_italic';
-	src: url('fonts/sourcesanspro-blackitalic-webfont.eot');
-	src: url('fonts/sourcesanspro-blackitalic-webfont.eot?#iefix') format('embedded-opentype'),  url('fonts/sourcesanspro-blackitalic-webfont.woff') format('woff'),  url('fonts/sourcesanspro-blackitalic-webfont.ttf') format('truetype'),  url('fonts/sourcesanspro-blackitalic-webfont.svg#source_sans_problack_italic') format('svg');
-	font-weight: normal;
-	font-style: normal;
-} - Black, Italic */
-/* Source Sans Pro
-@font-face {
-	font-family: 'source_sans_probold';
-	src: url('fonts/sourcesanspro-bold-webfont.eot');
-	src: url('fonts/sourcesanspro-bold-webfont.eot?#iefix') format('embedded-opentype'),  url('fonts/sourcesanspro-bold-webfont.woff') format('woff'),  url('fonts/sourcesanspro-bold-webfont.ttf') format('truetype'),  url('fonts/sourcesanspro-bold-webfont.svg#source_sans_probold') format('svg');
-	font-weight: normal;
-	font-style: normal;
-} - Bold */
-/* Headings */
 h1, h2, h3, h4, h5, h6 {
 	font-family: Helvetica, Arial, sans-serif;
 }
@@ -42,7 +23,6 @@ img {
 	text-decoration: line-through;
 	font-weight: bold !important;
 }
-/* Hyperink Word Breaks */
 a {
 	word-wrap: break-word;
 }

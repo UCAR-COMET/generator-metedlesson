@@ -93,7 +93,7 @@ module.exports = function(grunt) {
             src: [
               "build/jquery/jquery*.min.css",
               "build/bootstrap/css/bootstrap.min.css",
-              "build/css/meted-base.min.css",
+              "build/css/meted-base.css",
               "build/css/module-custom.scss"
             ],
             dest: "dist/dev/css/.",
@@ -187,13 +187,15 @@ module.exports = function(grunt) {
     },
     concat_css: {
       options: {
-        // Task-specific options go here.
         assetBaseUrl: "static/",
         baseDir: "dist/src/css/static/(styles|assets)"
       },
       all: {
         src: ["dist/dev/css/*.css", "dist/src/css/module-custom.css"],
         dest: "dist/src/css/styles.css"
+      },
+      files: {
+        'build/css/meted-base.min.css': ['build/css/meted-base.css']
       }
     },
     // ADD JS AND CSS LINK TAGS TO PAGES
@@ -263,7 +265,7 @@ module.exports = function(grunt) {
     clean: {
       core: ["dist/dev", "dist/src/css/module-custom.*", "./.sass-cache/"],
       node: ["node_modules", "package*"],
-      grunt: ["./Gruntfile.js"]
+      //grunt: ["./Gruntfile.js"]
     }
   });
 
