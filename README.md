@@ -1,5 +1,5 @@
-# generator-cometlesson [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> COMET MetEd lesson generator v2.0.0
+# generator-cometlesson [![NPM version 4.0.0][npm-image]][npm-url]
+> COMET MetEd lesson generator v2.0.1
 
 ## Installation
 
