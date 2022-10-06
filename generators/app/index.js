@@ -199,7 +199,8 @@ module.exports = class extends Generator {
         lessonLang: this.props.metedLang,
         lessonDesc: this.props.metedDesc,
         lessonKeys: this.props.metedKeys,
-        currentYear: this.generatorYear
+        currentYear: this.generatorYear,
+        splashCredit: this.splashImageCredit,
       }
     );
     // Download.php
