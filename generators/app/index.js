@@ -203,7 +203,7 @@ module.exports = class extends Generator {
         lessonDesc: this.props.metedDesc,
         lessonKeys: this.props.metedKeys,
         copyrightYear: this.generatorYear,
-        splashImageCredit: this.splashCredit,
+        splashImageCredit: this.copyrightText,
       }
     );
     // Download.php
