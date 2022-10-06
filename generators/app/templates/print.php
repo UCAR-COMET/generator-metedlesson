@@ -90,11 +90,11 @@ $mm = new MediaItemManager();
 	<div id="module-footer" class="row">
 		<div class="col-md-10 col-sm-12">
 		<% if (lessonLang === 'ES') { %>
-		<p class="footer-text">&copy; <%= currentYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a><br>Reservados todos los derechos. <a href="https://meted.ucar.edu/legal_es.htm">Avisos legales</a></p>
+		<p class="footer-text">&copy; <%= copyrightYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a><br>Reservados todos los derechos. <a href="https://meted.ucar.edu/legal_es.htm">Avisos legales</a></p>
 		<% } else if (lessonLang === 'FR') { %>
-		<p class="footer-text">&copy; <%= currentYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a><br>Tous droits réservés. <a href="https://meted.ucar.edu/legal.htm">Mentions juridiques</a></p>
+		<p class="footer-text">&copy; <%= copyrightYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a><br>Tous droits réservés. <a href="https://meted.ucar.edu/legal.htm">Mentions juridiques</a></p>
 		<% } else { %>
-		<p class="footer-text">&copy; <%= currentYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a><br>All Rights Reserved. <a href="https://meted.ucar.edu/legal.htm">Legal notices</a></p>
+		<p class="footer-text">&copy; <%= copyrightYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a><br>All Rights Reserved. <a href="https://meted.ucar.edu/legal.htm">Legal notices</a></p>
 		<% } %>
 		</div>
 		<div class="col-md-2 hidden-sm hidden-xs">

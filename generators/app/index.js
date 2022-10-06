@@ -214,7 +214,7 @@ module.exports = class extends Generator {
         lessonTitle: this.props.metedName,
         lessonID: this.props.metedID,
         lessonLang: this.props.metedLang,
-        currentYear: this.generatorYear,
+        copyrightYear: this.generatorYear,
         pathStructure: this.structure
       }
     );
@@ -226,7 +226,7 @@ module.exports = class extends Generator {
         lessonTitle: this.props.metedName,
         lessonID: this.props.metedID,
         lessonLang: this.props.metedLang,
-        currentYear: this.generatorYear
+        copyrightYear: this.generatorYear
       }
     );
     // PageTemplate.php
@@ -237,7 +237,7 @@ module.exports = class extends Generator {
         lessonLang: this.props.metedLang,
         narratedSwitch: this.props.narratedLesson,
         multiPrint: this.props.multiLesson,
-        currentYear: this.generatorYear
+        copyrightYear: this.generatorYear
       }
     );
     // Navmenu.php
@@ -294,7 +294,7 @@ module.exports = class extends Generator {
           lessonID: this.props.metedID,
           lessonDesc: this.props.metedDesc,
           lessonKeys: this.props.metedKeys,
-          currentYear: this.generatorYear,
+          copyrightYear: this.generatorYear,
           lessonLang: this.props.metedLang,
           multiPrint: this.props.multiLesson
         }
@@ -307,7 +307,7 @@ module.exports = class extends Generator {
           lessonID: this.props.metedID,
           lessonDesc: this.props.metedDesc,
           lessonKeys: this.props.metedKeys,
-          currentYear: this.generatorYear,
+          copyrightYear: this.generatorYear,
           lessonLang: this.props.metedLang,
           multiPrint: this.props.multiLesson
         }
@@ -321,7 +321,7 @@ module.exports = class extends Generator {
           lessonID: this.props.metedID,
           lessonDesc: this.props.metedDesc,
           lessonKeys: this.props.metedKeys,
-          currentYear: this.generatorYear,
+          copyrightYear: this.generatorYear,
           lessonLang: this.props.metedLang,
           multiPrint: this.props.multiLesson
         }

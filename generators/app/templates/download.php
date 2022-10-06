@@ -156,11 +156,11 @@
 <div  id="lesson-footer" class="row">
 <div class="col-md-8">
 <% if (lessonLang === 'ES') { %>
-  <p id="lesson-copyright">&copy; <%= currentYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a> - Reservados todos los derechos.</p>
+  <p id="lesson-copyright">&copy; <%= copyrightYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a> - Reservados todos los derechos.</p>
 <% } else if (lessonLang === 'FR') { %>
-  <p id="lesson-copyright">&copy; <%= currentYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a> - Tous droits réservés.</p>
+  <p id="lesson-copyright">&copy; <%= copyrightYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a> - Tous droits réservés.</p>
 <% } else { %>
-  <p id="lesson-copyright">&copy; <%= currentYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a> - All Rights Reserved.</p>
+  <p id="lesson-copyright">&copy; <%= copyrightYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a> - All Rights Reserved.</p>
 <% } %>
 </div>
 <div class="col-md-4">
