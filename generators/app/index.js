@@ -8,7 +8,7 @@ module.exports = class extends Generator {
   prompting() {
     // 1) Let's create some variables to use in the generator: current year, splash credit
     const generatorYear = new Date().getFullYear();
-    const splashCredit = "The COMET Program";
+    const copyrightText = "The COMET Program";
 
     // 2) Have Yeoman greet the user
     this.log(yosay(`Let's generate a new ${chalk.blue("MetEd Lesson")}!`));
@@ -77,7 +77,7 @@ module.exports = class extends Generator {
         type: "input",
         name: "splashImageCredit",
         message: "Enter a splash image credit: ",
-        default: splashCredit
+        default: copyrightText
       },
       {
         type: "confirm",
@@ -90,36 +90,34 @@ module.exports = class extends Generator {
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       this.props = props;
+      this.generatorYear = generatorYear;
 
-      function adjustVars(setYear, setSplashCredit){
-        // Constants and adjusted vars
-        this.generatorYear = setYear;
-        let pathString = this.props.metedPath;
+      // Generate path structure from given meted path, must remove first "/"
+      let pathString = this.props.metedPath;
         let pathArray = pathString.split("/").splice("");
         let structure = pathArray
           .map(word => word.replace(/[^ ]+/, ".."))
           .join("/")
-          .substring(1); // Generate path structure from given meted path, must remove first "/"
+          .substring(1); 
         this.structure = structure; // Expose so it can be defined in the template
-        this.splashCredit = setSplashCredit;
-      }
+      this.copyrightText = copyrightText;
       
 
       // Check additional prompts
       if (props.hasAdditionalOptions) {
         return this.prompt(additionalPrompts).then(props => {
+          console.log('RETURN STUFF FOR ADDITIONAL PROMPTS AND OPTIONS!!!');
           // To access props from additional options
-          this.props = props;
+          //this.props = props;
 
           // Adjusted vars
-          /*this.generatorYear = props.customYear;
-          this.splashCredit = props.splashImageCredit;*/
-          adjustVars(props.customYear, props.splashImageCredit);
+          this.generatorYear = props.customYear;
+          this.copyrightText = props.splashImageCredit;
         });
       }
       else {
-        console.log('Continue building lesson without additional options...');
-        adjustVars(this.generatorYear, this.splashCredit);
+        /*console.log('Continue building lesson without additional options...');
+        adjustVars(this.generatorYear, this.splashCredit);*/
       }
 
     });
@@ -204,7 +202,7 @@ module.exports = class extends Generator {
         lessonLang: this.props.metedLang,
         lessonDesc: this.props.metedDesc,
         lessonKeys: this.props.metedKeys,
-        currentYear: this.generatorYear,
+        copyrightYear: this.generatorYear,
         splashImageCredit: this.splashCredit,
       }
     );
