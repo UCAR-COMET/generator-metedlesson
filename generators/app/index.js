@@ -83,7 +83,7 @@ module.exports = class extends Generator {
         type: "input",
         name: "splashImageCredit",
         message: "Enter a splash image credit: ",
-        default: "The COMET Program"
+        default: splashCredit
       }
     ];
 
@@ -200,7 +200,7 @@ module.exports = class extends Generator {
         lessonDesc: this.props.metedDesc,
         lessonKeys: this.props.metedKeys,
         currentYear: this.generatorYear,
-        splashCredit: this.splashImageCredit,
+        splashImageCredit: this.splashCredit,
       }
     );
     // Download.php
