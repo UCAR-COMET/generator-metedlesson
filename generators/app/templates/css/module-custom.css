@@ -1,7 +1,4 @@
 /* ========================================================== */
-/* === LATEST CORE 2.O CUSTOM STYLES ======================== */
-/* ========================================================== */
-/* ========================================================== */
 /* === 1.0 OVERALL HTML ELEMENTS ============================ */
 body {
   background-color: #fff;
@@ -9,16 +6,16 @@ body {
 
 /* WebFont Stack 1 - Normal Weight */
 @font-face {
-  font-family: "futurapro-normal";
-  src: url("fonts.eot");
-  src: url("fonts.eot?#iefix") format("embedded-opentype"), url("fonts.woff") format("woff"), url("fonts.ttf") format("truetype");
+  font-family: "fonts/futurapro-normal";
+  src: url("fonts/futurapro-normal.eot");
+  src: url("fonts/futurapro-normal.eot?#iefix") format("embedded-opentype"), url("fonts/futurapro-normal.woff") format("woff"), url("fonts/futurapro-normal.ttf") format("truetype");
   font-style: normal;
   font-weight: normal; }
 /* WebFont Stack 2 - Bold, Black, or Heavy */
 @font-face {
-  font-family: "futurapro-bold";
-  src: url("fonts.eot");
-  src: url("fonts.eot?#iefix") format("embedded-opentype"), url("fonts.woff") format("woff"), url("fonts.ttf") format("truetype");
+  font-family: "fonts/futurapro-bold";
+  src: url("fonts/futurapro-bold.eot");
+  src: url("fonts/futurapro-bold.eot?#iefix") format("embedded-opentype"), url("fonts/futurapro-bold.woff") format("woff"), url("fonts/futurapro-bold.ttf") format("truetype");
   font-style: normal;
   font-weight: bold; }
 /* Links */
@@ -737,5 +734,3 @@ body {
 .retired-template-thumb a:hover img {
   -webkit-filter: sepia(1);
   filter: sepia(1); }
-
-/*# sourceMappingURL=module-custom.css.map */

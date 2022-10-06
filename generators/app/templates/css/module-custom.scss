@@ -2,8 +2,6 @@
 //* === module-custom.scss GENERATED FROM generator-metedlesson ======= */
 //* =================================================================== */
 
-/* ========================================== */
-/* === SASS VARS ============================ */
 //* HTML ELEMENTS */
 $body-background:		#fff;
 $body-font: 			"Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -41,8 +39,8 @@ $textselect-background: #300CD2;
 
 //* WEB-FONTS */
 $font-stack1: "futurapro-normal";
-@mixin font-stack1($font-src: 'fonts/'){
-	font-family: "#{$font-src}#{$font-stack1}";
+@mixin font-stack1($font-src: 'fonts/#{$font-stack1}'){
+	font-family: "#{$font-src}";
 	src: url('#{$font-src}.eot');
 	src: url('#{$font-src}.eot?#iefix') format('embedded-opentype'),
 		 url('#{$font-src}.woff') format('woff'),
@@ -51,8 +49,8 @@ $font-stack1: "futurapro-normal";
 	font-weight: normal;
 }
 $font-stack2: "futurapro-bold";
-@mixin font-stack2($font-src: 'fonts/'){
-	font-family: "#{$font-src}#{$font-stack2}";
+@mixin font-stack2($font-src: 'fonts/#{$font-stack2}'){
+	font-family: "#{$font-src}";
 	src: url('#{$font-src}.eot');
 	src: url('#{$font-src}.eot?#iefix') format('embedded-opentype'),
 		 url('#{$font-src}.woff') format('woff'),

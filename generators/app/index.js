@@ -358,13 +358,13 @@ module.exports = class extends Generator {
     });
 
     // Log Output
-    this.log(yosay(`${chalk.green("I made the MetEd lesson basic scaffold, just running a few more tasks...")}`));
+    this.log(yosay(`${chalk.green("I made the MetEd lesson scaffolding with the following settings:")}`));
     this.log("Lesson: " + `${chalk.red(this.props.metedName)}`);
     this.log("ID: " + `${chalk.red(this.props.metedID)}`);
     this.log("Language: " + `${chalk.red(this.props.metedLang)}`);
     this.log("Copyright year: " + `${chalk.red(this.generatorYear)}`);
-    this.log(`${chalk.green('build & dist')} folders READY`)
-    //this.log(this.structure);
+    this.log(`${chalk.green('build & dist')} folders READY`);
+    this.log(yosay(`${chalk.green("Just running a few more tasks...")}`));
   }
 
 };
