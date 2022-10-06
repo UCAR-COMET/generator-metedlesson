@@ -1,9 +1,9 @@
-# generator-cometlesson [![NPM version 4.0.0][npm-image]][npm-url]
+# generator-metedlesson
 > COMET MetEd lesson generator v2.0.1
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-metedlesson using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and generator-metedlesson using [npm](https://www.npmjs.com/) (assuming you have pre-installed [node.js](https://nodejs.org/)).
 
 ```bash
 npm install -g yo
@@ -15,13 +15,6 @@ Then generate your new project:
 ```bash
 yo metedlesson
 ```
-
-## Getting To Know Yeoman
-
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
 
 ## License
 
