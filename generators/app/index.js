@@ -103,7 +103,7 @@ module.exports = class extends Generator {
 
       // Check additional prompts
       if (props.hasAdditionalOptions) {
-        this.prompt(additionalPrompts).then(props => {
+        return this.prompt(additionalPrompts).then(props => {
           // To access props from additional options
           this.props = props;
 
@@ -113,7 +113,9 @@ module.exports = class extends Generator {
           
         });
       }
-      else { /*console.log('Continue without additional options.');*/ }
+      else { 
+        this.log('Continue building lesson without additional options...'); 
+      }
 
     });
   }
