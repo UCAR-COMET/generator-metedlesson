@@ -118,8 +118,8 @@ module.exports = class extends Generator {
         });
       }
       else {
-        adjustVars(generatorYear, splashCredit);
-        console.log('Continue building lesson without additional options...'); 
+        console.log('Continue building lesson without additional options...');
+        adjustVars(this.generatorYear, this.splashCredit);
       }
 
     });
