@@ -30,5 +30,5 @@ Apache-2.0 © [Gary Pacheco - COMET](https://www.comet.ucar.edu)
 
 
 ## Updates
-oct/2022 -- v2.0.1 Switch prompts to add conditionals, fixes with SASS and webfont structures.
-nov/2022 -- v2.1.0 Switch prompts, and include Articulate shell template.
+- oct/2022 -- v2.0.1 Switch prompts to add conditionals, fixes with SASS and webfont structures.
+- nov/2022 -- v2.1.0 Switch prompts, and include Articulate shell template.
