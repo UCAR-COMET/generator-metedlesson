@@ -16,10 +16,11 @@ module.exports = class extends Generator {
     // 3) Let's make prompts in the CLI
     const prompts = [
       {
-        type: "input",
-        name: "metedName",
-        message: "What is the name of the lesson?",
-        default: "Lesson Title Here"
+        type: "list",
+        name: "templateType",
+        message: "Choose the lesson template:",
+        choices: ["single-print", "multi-print", "articulate-shell"],
+        default: "single-print"
       },
       {
         type: "list",
@@ -27,6 +28,12 @@ module.exports = class extends Generator {
         message: "Choose the lesson language:",
         choices: ["EN", "ES", "FR"],
         default: "EN"
+      },
+      {
+        type: "input",
+        name: "metedName",
+        message: "What is the name of the lesson?",
+        default: "Lesson Title Here"
       },
       {
         type: "input",
@@ -54,18 +61,13 @@ module.exports = class extends Generator {
       },
       {
         type: "confirm",
-        name: "multiLesson",
-        message: "Is this a multi-print lesson?",
-        default: false
-      },
-      {
-        type: "confirm",
         name: "hasAdditionalOptions",
-        message: "Would you like to include additional components? (copyright year(s), image credit, narration switch)",
+        message:
+          "Would you like to include additional components? (copyright year(s), image credit, narration switch)",
         default: false
       }
     ];
-    //4) Additional prompts
+    // 4) Additional prompts
     const additionalPrompts = [
       {
         type: "input",
@@ -94,40 +96,37 @@ module.exports = class extends Generator {
 
       // Generate path structure from given meted path, must remove first "/"
       let pathString = this.props.metedPath;
-        let pathArray = pathString.split("/").splice("");
-        let structure = pathArray
-          .map(word => word.replace(/[^ ]+/, ".."))
-          .join("/")
-          .substring(1); 
-        this.structure = structure; // Expose so it can be defined in the template
+      let pathArray = pathString.split("/").splice("");
+      let structure = pathArray
+        .map(word => word.replace(/[^ ]+/, ".."))
+        .join("/")
+        .substring(1);
+      this.structure = structure; // Expose so it can be defined in the template
       this.copyrightText = copyrightText;
-      
 
       // Check additional prompts
       if (props.hasAdditionalOptions) {
         return this.prompt(additionalPrompts).then(props => {
-          console.log('RETURN STUFF FOR ADDITIONAL PROMPTS AND OPTIONS!!!');
+          console.log("RETURN STUFF FOR ADDITIONAL PROMPTS AND OPTIONS!!!");
           // To access props from additional options
-          //this.props = props;
+          // this.props = props;
 
           // Adjusted vars
           this.generatorYear = props.customYear;
           this.copyrightText = props.splashImageCredit;
         });
       }
-      else {
-        /*console.log('Continue building lesson without additional options...');
-        adjustVars(this.generatorYear, this.splashCredit);*/
-      }
 
+      /* Console.log('Continue building lesson without additional options...');
+        adjustVars(this.generatorYear, this.splashCredit); */
     });
   }
 
   writing() {
-    //INSTALL DEPENDENCIES
+    // INSTALL DEPENDENCIES
     const pkgJson = {
       devDependencies: {
-        "grunt": "^1.5.3",
+        grunt: "^1.5.3",
         "grunt-cli": "^1.4.3",
         "grunt-concat-css": "^0.3.2",
         "grunt-contrib-clean": "^2.0.1",
@@ -138,7 +137,7 @@ module.exports = class extends Generator {
         "grunt-script-link-tags": "^1.0.2"
       },
       dependencies: {
-        "grunt": "^1.5.3",
+        grunt: "^1.5.3",
         "grunt-cli": "^1.4.3",
         "grunt-concat-css": "^0.3.2",
         "grunt-contrib-clean": "^2.0.1",
@@ -147,16 +146,16 @@ module.exports = class extends Generator {
         "grunt-contrib-cssmin": "^4.0.0",
         "grunt-mkdir": "^1.1.0",
         "grunt-script-link-tags": "^1.0.2"
-      },
+      }
     };
     // Extend or create package.json file in destination path
-    this.fs.extendJSON(this.destinationPath('package.json'), pkgJson);
+    this.fs.extendJSON(this.destinationPath("package.json"), pkgJson);
 
     // BUILD
-    /*this.fs.copy(
+    /* this.fs.copy(
       this.templatePath("extensions/package.json"),
       this.destinationPath("package.json")
-    );*/
+    ); */
     this.fs.copy(
       this.templatePath("extensions/grunt/newlesson/Gruntfile.js"),
       this.destinationPath("Gruntfile.js")
@@ -197,13 +196,14 @@ module.exports = class extends Generator {
       this.templatePath("index.htm"),
       this.destinationPath("build/index.htm"),
       {
+        templateType: this.props.templateType,
         lessonTitle: this.props.metedName,
         lessonID: this.props.metedID,
         lessonLang: this.props.metedLang,
         lessonDesc: this.props.metedDesc,
         lessonKeys: this.props.metedKeys,
         copyrightYear: this.generatorYear,
-        splashImageCredit: this.copyrightText,
+        splashImageCredit: this.copyrightText
       }
     );
     // Download.php
@@ -211,6 +211,7 @@ module.exports = class extends Generator {
       this.templatePath("download.php"),
       this.destinationPath("build/download.php"),
       {
+        templateType: this.props.templateType,
         lessonTitle: this.props.metedName,
         lessonID: this.props.metedID,
         lessonLang: this.props.metedLang,
@@ -223,6 +224,7 @@ module.exports = class extends Generator {
       this.templatePath("media_gallery.php"),
       this.destinationPath("build/media_gallery.php"),
       {
+        templateType: this.props.templateType,
         lessonTitle: this.props.metedName,
         lessonID: this.props.metedID,
         lessonLang: this.props.metedLang,
@@ -234,10 +236,11 @@ module.exports = class extends Generator {
       this.templatePath("pageTemplate.php"),
       this.destinationPath("build/pageTemplate.php"),
       {
+        templateType: this.props.templateType,
         lessonLang: this.props.metedLang,
         narratedSwitch: this.props.narratedLesson,
-        multiPrint: this.props.multiLesson,
         copyrightYear: this.generatorYear
+        // MultiPrint: this.props.multiLesson,
       }
     );
     // Navmenu.php
@@ -254,7 +257,11 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
           this.templatePath("extensions/lc-default/defaults.js"),
           this.destinationPath("build/jquery/defaults.js"),
-          { lessonTitle: this.props.metedName, lessonID: this.props.metedID }
+          {
+            templateType: this.props.templateType,
+            lessonTitle: this.props.metedName,
+            lessonID: this.props.metedID
+          }
         );
         this.fs.copy(
           this.templatePath("navmenu.inc.php"),
@@ -265,7 +272,11 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
           this.templatePath("extensions/lc-default/defaults_es.js"),
           this.destinationPath("build/jquery/defaults.js"),
-          { lessonTitle: this.props.metedName, lessonID: this.props.metedID }
+          {
+            templateType: this.props.templateType,
+            lessonTitle: this.props.metedName,
+            lessonID: this.props.metedID
+          }
         );
         this.fs.copy(
           this.templatePath("navmenu.inc_es.php"),
@@ -276,7 +287,11 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
           this.templatePath("extensions/lc-default/defaults_fr.js"),
           this.destinationPath("build/jquery/defaults.js"),
-          { lessonTitle: this.props.metedName, lessonID: this.props.metedID }
+          {
+            templateType: this.props.templateType,
+            lessonTitle: this.props.metedName,
+            lessonID: this.props.metedID
+          }
         );
         this.fs.copy(
           this.templatePath("navmenu.inc_fr.php"),
@@ -284,32 +299,62 @@ module.exports = class extends Generator {
         );
     }
 
-    // Print.php
-    if (this.props.multiLesson) {
+    // MULTI-PRINT SETUP
+    if (this.props.templateType === "multi-print") {
       this.fs.copyTpl(
         this.templatePath("print.php"),
         this.destinationPath("build/print.php"),
         {
+          templateType: this.props.templateType,
           lessonTitle: this.props.metedName,
           lessonID: this.props.metedID,
           lessonDesc: this.props.metedDesc,
           lessonKeys: this.props.metedKeys,
           copyrightYear: this.generatorYear,
-          lessonLang: this.props.metedLang,
-          multiPrint: this.props.multiLesson
+          lessonLang: this.props.metedLang
         }
       );
       this.fs.copyTpl(
         this.templatePath("print.php"),
         this.destinationPath("build/print_02.php"),
         {
+          templateType: this.props.templateType,
           lessonTitle: this.props.metedName,
           lessonID: this.props.metedID,
           lessonDesc: this.props.metedDesc,
           lessonKeys: this.props.metedKeys,
           copyrightYear: this.generatorYear,
-          lessonLang: this.props.metedLang,
-          multiPrint: this.props.multiLesson
+          lessonLang: this.props.metedLang
+        }
+      );
+      this.fs.copyTpl(
+        this.templatePath("contributors.htm"),
+        this.destinationPath("build/contributors.htm"),
+        {
+          templateType: this.props.templateType,
+          lessonTitle: this.props.metedName,
+          lessonID: this.props.metedID,
+          lessonDesc: this.props.metedDesc,
+          lessonKeys: this.props.metedKeys,
+          copyrightYear: this.generatorYear,
+          lessonLang: this.props.metedLang
+        }
+      );
+    }
+
+    // Articulate shell setup
+    if (this.props.templateType === "articulate-shell") {
+      this.fs.copyTpl(
+        this.templatePath("contributors.htm"),
+        this.destinationPath("build/contributors.htm"),
+        {
+          templateType: this.props.templateType,
+          lessonTitle: this.props.metedName,
+          lessonID: this.props.metedID,
+          lessonDesc: this.props.metedDesc,
+          lessonKeys: this.props.metedKeys,
+          copyrightYear: this.generatorYear,
+          lessonLang: this.props.metedLang
         }
       );
     } else {
@@ -317,17 +362,16 @@ module.exports = class extends Generator {
         this.templatePath("print.php"),
         this.destinationPath("build/print.php"),
         {
+          templateType: this.props.templateType,
           lessonTitle: this.props.metedName,
           lessonID: this.props.metedID,
           lessonDesc: this.props.metedDesc,
           lessonKeys: this.props.metedKeys,
           copyrightYear: this.generatorYear,
-          lessonLang: this.props.metedLang,
-          multiPrint: this.props.multiLesson
+          lessonLang: this.props.metedLang
         }
       );
     }
-
   }
 
   // Install dependencies
@@ -355,21 +399,26 @@ module.exports = class extends Generator {
       { "save-dev": false }
     );
     // Run npm install && grunt on end
-    this.on('end', function () {
-      if (!this.options['skip-install']) {
+    this.on("end", function() {
+      if (!this.options["skip-install"]) {
         this.npmInstall();
-        this.spawnCommand('grunt', ['default']);
+        this.spawnCommand("grunt", ["default"]);
       }
     });
 
     // Log Output
-    this.log(yosay(`${chalk.green("I made the MetEd lesson scaffolding with the following settings:")}`));
+    this.log(
+      yosay(
+        `${chalk.green(
+          "I made the MetEd lesson scaffolding with the following settings:"
+        )}`
+      )
+    );
     this.log("Lesson: " + `${chalk.red(this.props.metedName)}`);
     this.log("ID: " + `${chalk.red(this.props.metedID)}`);
     this.log("Language: " + `${chalk.red(this.props.metedLang)}`);
     this.log("Copyright year: " + `${chalk.red(this.generatorYear)}`);
-    this.log(`${chalk.green('build & dist')} folders READY`);
+    this.log(`${chalk.green("build & dist")} folders READY`);
     this.log(yosay(`${chalk.green("Just running a few more tasks...")}`));
   }
-
 };

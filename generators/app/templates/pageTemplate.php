@@ -70,7 +70,9 @@
                 <li><a href="media_gallery.php">Galería multimedia</a></li>
                 <li><a href="#userQuiz" data-toggle="modal">Prueba</a></li>
                 <li><a href="#userSurvey" data-toggle="modal">Encuesta</a></li>
-                <!--<li><a href="" id="booster-link">Booster</a></li>-->
+                <li><a href="" id="booster-link">Refuerzo</a></li>
+                <% if (templateType === 'multi-print' || templateType === 'articulate-shell') { %><li><a href="contributors.htm">Colaboradores</a></li>
+                <% } %>
               </ul>
             <% } else if (lessonLang === 'FR') { %>
               <ul class="nav navbar-nav navbar-right">
@@ -80,7 +82,9 @@
                   <li><a href="media_gallery.php">Médiathèque</a></li>
                   <li><a href="#userQuiz" data-toggle="modal">Questionnaire</a></li>
                   <li><a href="#userSurvey" data-toggle="modal">Sondage</a></li>
-                  <!--<li><a href="" id="booster-link">Booster</a></li>-->
+                  <li><a href="" id="booster-link">Questions de suivi</a></li>
+                  <% if (templateType === 'multi-print' || templateType === 'articulate-shell') { %><li><a href="contributors.htm">Contributeurs</a></li>
+                  <% } %>
                 </ul>
             <% } else { %>
               <ul class="nav navbar-nav navbar-right">
@@ -91,6 +95,8 @@
                 <li><a href="#userQuiz" data-toggle="modal">Quiz</a></li>
                 <li><a href="#userSurvey" data-toggle="modal">Survey</a></li>
                 <li><a href="" id="booster-link">Booster</a></li>
+                <% if (templateType === 'multi-print' || templateType === 'articulate-shell') { %><li><a href="contributors.htm">Contributors</a></li>
+                <% } %>
               </ul>
             <% } %>
         </div>
@@ -106,7 +112,7 @@
 	<!--  Table of Contents -->
 	<div id="menu" class="sidebar-toc">
 		<div class="btn-group">
-    <% if (multiPrint) { %>
+    <% if (templateType === 'multi-print') { %>
     <!-- Multi-print Lesson Selector -->
 		<a href="#" data-toggle="dropdown">
 			<h4 id="lesson-sidebar-unit-title">$titleTag <span class="caret"></span></h4>

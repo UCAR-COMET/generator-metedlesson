@@ -34,7 +34,7 @@ $mm = new MediaItemManager();
 <div id="module-wrapper" class="container">
 	<div class="row">
 		<section id="module-topbanner">
-			<a id="module-title" class="module-title-text <% if (multiPrint) { %>chapter_title<% } %>" href="index.htm"><% if (multiPrint) { %>UNIT TITLE HERE<% } %></a>
+			<a id="module-title" class="module-title-text <% if (templateType === 'multi-print') { %>chapter_title<% } %>" href="index.htm"><% if (templateType === 'multi-print') { %>UNIT TITLE HERE<% } %></a>
 			<h3 id="module-credit" class="hidden-sm hidden-xs"><% if (lessonLang === 'ES') { %>Producido por The COMET® Program<% } else if (lessonLang === 'FR') { %>Produit par le programme COMET®<% } else { %>Produced by The COMET&reg; Program<% } %></h3>
 		</section>
 	</div><!-- end row 1/3 -->

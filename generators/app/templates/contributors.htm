@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="<% if (lessonLang === 'ES') { %>es<% } else if (lessonLang === 'FR') { %>fr<% } else { %>en<% } %>">
+<head>
+<meta charset="UTF-8">
+<title><%= lessonTitle %></title>
+<meta name="author" content="UCAR/COMET">
+<meta name="dcterms.rightsHolder" content="UCAR/COMET">
+<meta name="robots" content="all">
+<meta name="Description" content="This short lesson uses GOES-R red-green-blue (RGB) composites and single channel imagery in combination with numerical weather prediction (NWP) model output for analysis of nighttime fog. In this lesson, the learner is challenged to use the Nighttime Microphysics RGB, 2-m relative humidity, and 10-m wind fields to locate fog overnight. Learners will also use the datasets in combination to forecast the dissipation of fog which is not easily achieved by using satellite imagery or NWP fields in isolation. The lesson highlights the benefits of using animated satellite products and combining satellite RGB imagery with NWP model fields to be able to make more informed forecasting decisions.">
+<meta name="keywords" content="GOES-R, satellite, RGB, nighttime microphysics, fog, numerical weather prediction,  NWP, GFS, Global Forecast System, HRRR, High Resolution Rapid Refresh, comparison, overlay, integration, identification, 10m wind, 2m relative humidity, relative humidity, wind speed and direction, aviation, dissipation, data fusion, potential vorticity, flight delays">
+<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="initial-scale=1.0">
+<!-- STYLES =======================================-->
+<link rel="stylesheet" type="text/css" media="screen" href="bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="css/meted-base.min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="css/module-custom.css">
+<link rel="stylesheet" type="text/css" media="print" href="css/module-print.css">
+   
+<!-- JS LIBRARIES =================================-->
+<script src="jquery/jquery.min.js"></script>
+<script src="jquery/jquery-ui.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<!-- PRESET DEFAULTS ==============================-->
+<script src="jquery/defaults.js"></script>
+
+<!-- PRESET OVERRIDES =============================-->
+<script>
+	var printVersion = false;
+	var lessonID = 0; // Specify Lesson ID to add preassessment, or 0 for no preassessment.
+	
+	// NOTE: Relative path breaks the download version!!!
+	var path = "https://meted.ucar.edu/education_training/lesson/" + lessonID + "/preassessment";
+	$(function() {
+	if (lessonID > 0) {
+		$('#pre-assessment-path').attr('href', path);
+		$('.begin-lesson-button').attr('data-toggle', 'modal');
+		$('.begin-lesson-button').attr('href', "#beginModule");
+		}
+	});
+</script>
+
+<!-- IE SUPPORT ==================================-->
+  <!--[if lte IE 9]>
+    <script type="text/javascript" src="ie-support/html5shiv.js"></script>
+    <script type="text/javascript" src="ie-support/respond.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="ie-support/ie-support.css" />
+  <![endif]-->
+</head>
+<body>
+  <!--NAVBAR-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+  </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <% if (lessonLang === 'ES') { %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.htm">Inicio</a></li>
+          <% if (templateType === 'articulate-shell') { %>
+          <li><a href="storyline/story.html" target="_blank">Lección <span class="glyphicon glyphicon-new-window"></span></a></li>
+          <% } else { %>
+          <li><a href="navmenu.php">Lección</a></li>
+          <% } %>
+          <li><a href="download.php">Descargar</a></li>
+          <li><a href="media_gallery.php">Galería multimedia</a></li>
+          <li><a href="#userQuiz" data-toggle="modal">Prueba</a></li>
+          <li><a href="#userSurvey" data-toggle="modal">Encuesta</a></li>
+          <li><a href="" id="booster-link">Refuerzo</a></li>
+          <% if (templateType === 'multi-print' || templateType === 'articulate-shell') { %><li class="active"><a href="contributors.htm">Colaboradores</a></li>
+          <% } %>
+        </ul>
+      <% } else if (lessonLang === 'FR') { %>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="index.htm">Accueil</a></li>
+            <% if (templateType === 'articulate-shell') { %>
+            <li><a href="storyline/story.html" target="_blank">Leçon <span class="glyphicon glyphicon-new-window"></span></a></li>
+            <% } else { %>
+            <li><a href="navmenu.php">Leçon</a></li>
+            <% } %>
+            <li><a href="download.php">Télécharger</a></li>
+            <li><a href="media_gallery.php">Médiathèque</a></li>
+            <li><a href="#userQuiz" data-toggle="modal">Questionnaire</a></li>
+            <li><a href="#userSurvey" data-toggle="modal">Sondage</a></li>
+            <li><a href="" id="booster-link">Questions de suivi</a></li>
+            <% if (templateType === 'multi-print' || templateType === 'articulate-shell') { %><li class="active"><a href="contributors.htm">Contributeurs</a></li>
+            <% } %>
+          </ul>
+      <% } else { %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.htm">Home</a></li>
+          <% if (templateType === 'articulate-shell') { %>
+          <li><a href="storyline/story.html" target="_blank">Lesson <span class="glyphicon glyphicon-new-window"></span></a></li>
+          <% } else { %>
+          <li><a href="navmenu.php">Lesson</a></li>
+          <% } %>
+          <li><a href="download.php">Download</a></li>
+          <li><a href="media_gallery.php">Gallery</a></li>
+          <li><a href="#userQuiz" data-toggle="modal">Quiz</a></li>
+          <li><a href="#userSurvey" data-toggle="modal">Survey</a></li>
+          <li><a href="" id="booster-link">Booster</a></li>
+          <% if (templateType === 'multi-print' || templateType === 'articulate-shell') { %><li class="active"><a href="contributors.htm">Contributors</a></li>
+          <% } %>
+        </ul>
+      <% } %>
+    </div>
+  </div>
+</nav>
+<div id="master-container" class="container">
+<h3>Contributors</h3>
+<div id="comet-sponsors">
+  <h4 id="sponsors">COMET Sponsors</h4>
+  <p>MetEd and the COMET® Program are a part of the <a href="https://www.ucar.edu/community-programs"
+      target="_blank">University Corporation for Atmospheric Research's (UCAR's) Community Programs (UCP)</a> and are
+    sponsored by </p>
+  <ul>
+    <li><a href="https://www.weather.gov/about/" target="_blank">NOAA's National Weather Service (NWS)</a><br>with
+      additional funding by:</li>
+    <li><a href="https://www.eumetsat.int/" target="_blank">European Organisation for the Exploitation of Meteorological
+        Satellites (EUMETSAT)</a></li>
+    <li><a href="http://weather.gc.ca/" target="_blank">Meteorological Service of Canada (MSC)</a> </li>
+    <li><a href="http://www.nesdis.noaa.gov/" target="_blank">NOAA's National Environmental Satellite, Data and
+        Information Service (NESDIS)</a></li>
+    <li><a href="http://www.ngs.noaa.gov/" target="_blank">NOAA's National Geodetic Survey (NGS)</a> </li>
+    <li><a href="http://www.nsf.gov" target="_blank">National Science Foundation (NSF)</a> </li>
+    <li><a href="https://public.wmo.int/en" target="_blank">World Meteorological Organization (WMO)</a></li>
+  </ul>
+  <p>To learn more about us, please visit the <a href="http://www.comet.ucar.edu" target="_blank">COMET website</a>.
+  </p>
+  <h4 id="lesson-contributors">Project Contributors</h4>
+  <h5>Project Lead</h5>
+  <ul>
+    <li>--</li>
+  </ul>
+  <h5>Instructional Design</h5>
+  <ul>
+    <li>--</li>
+  </ul>
+  <h5>Science Advisors</h5>
+  <ul>
+    <li>--</li>
+  </ul>
+  <h5>Program Oversight</h5>
+  <ul>
+    <li>--</li>
+  </ul>
+  <h5>Graphics/Animations</h5>
+  <ul>
+    <li>--</li>
+  </ul>
+  <h5>Multimedia Authoring/Interface Design</h5>
+  <ul>
+    <li>--</li>
+  </ul>
+</div>
+<div id="comet-staff">
+    <h4>COMET Staff, [month] 2022</h4>
+    <h5>Director's Office</h5>
+    <ul>
+        <li>--</li>
+    </ul>
+    <h5>Business Administration</h5>
+    <ul>
+        <li>--</li>
+      </ul>
+    <h5>IT Services</h5>
+    <ul>
+        <li>--</li>
+      </ul>
+    
+  <h5>Instructional Services</h5>
+    <ul>  
+        <li>--</li>
+	</ul>
+   
+   <h5>International Programs</h5>
+   <ul>
+       <li>--</li>
+    </ul>
+    <h5>Production and Media Services</h5>
+	<ul>
+	   <li>--</li>
+	</ul>
+    <h5>Science Group</h5>
+    <ul>
+       	<li>--</li>
+      </ul>
+      <h5>NOAA/National Weather Service - Forecast Decision Training Division</h5>
+    <ul>
+      <li>--</li>
+    </ul>
+</div>
+<!--FOOTER-->
+<div  id="lesson-footer" class="row">
+  <div class="col-md-8">
+    <% if (lessonLang === 'ES') { %>
+      <p id="lesson-copyright">&copy; <%= copyrightYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a> - Reservados todos los derechos.</p>
+    <% } else if (lessonLang === 'FR') { %>
+      <p id="lesson-copyright">&copy; <%= copyrightYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a> - Tous droits réservés.</p>
+    <% } else { %>
+      <p id="lesson-copyright">&copy; <%= copyrightYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a> - All Rights Reserved.</p>
+    <% } %>
+  </div>
+  <div class="col-md-4">
+      <% if (lessonLang === 'ES') { %>
+      <ul id="parent-links">
+        <li><a href="https://www.meted.ucar.edu/legal_es.htm">Avisos legales</a></li>
+        <li><a href="https://www.comet.ucar.edu/">COMET</a></li>
+        <li><a href="https://www.meted.ucar.edu/index_es.php">MetEd</a></li>
+      </ul>
+      <% } else if (lessonLang === 'FR') { %>
+      <ul id="parent-links">
+        <li><a href="https://www.meted.ucar.edu/legal.htm">Mentions juridiques</a></li>
+        <li><a href="https://www.comet.ucar.edu/">COMET</a></li>
+        <li><a href="https://www.meted.ucar.edu/">MetEd</a></li>
+      </ul>
+      <% } else { %>
+      <ul id="parent-links">
+        <li><a href="https://www.meted.ucar.edu/legal.htm">Legal Notices</a></li>
+        <li><a href="https://www.comet.ucar.edu/">COMET</a></li>
+        <li><a href="https://www.meted.ucar.edu/">MetEd</a></li>
+      </ul>
+      <% } %>
+  </div>
+  </div>
+</div><!--end master container-->
+
+<!-- Quiz/Survey Prompts -->
+<div id="quiz-prompt"></div>
+</body>
+</html>

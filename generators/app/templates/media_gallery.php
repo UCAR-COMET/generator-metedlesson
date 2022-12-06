@@ -83,32 +83,50 @@ $moduleManager = new ModuleManager();
             <% if (lessonLang === 'ES') { %>
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="index.htm">Inicio</a></li>
+                <% if (templateType === 'articulate-shell') { %>
+                <li><a href="storyline/story.html" target="_blank">Lección <span class="glyphicon glyphicon-new-window"></span></a></li>
+                <% } else { %>
                 <li><a href="navmenu.php">Lección</a></li>
+                <% } %>
                 <li><a href="download.php">Descargar</a></li>
                 <li class="active"><a href="media_gallery.php">Galería multimedia</a></li>
                 <li><a href="#userQuiz" data-toggle="modal">Prueba</a></li>
                 <li><a href="#userSurvey" data-toggle="modal">Encuesta</a></li>
-                <!--<li><a href="" id="booster-link">Booster</a></li>-->
+                <li><a href="" id="booster-link">Refuerzo</a></li>
+                <% if (templateType === 'multi-print' || templateType === 'articulate-shell') { %><li><a href="contributors.htm">Colaboradores</a></li>
+                <% } %>
               </ul>
             <% } else if (lessonLang === 'FR') { %>
               <ul class="nav navbar-nav navbar-right">
                   <li><a href="index.htm">Accueil</a></li>
+                  <% if (templateType === 'articulate-shell') { %>
+                  <li><a href="storyline/story.html" target="_blank">Leçon <span class="glyphicon glyphicon-new-window"></span></a></li>
+                  <% } else { %>
                   <li><a href="navmenu.php">Leçon</a></li>
+                  <% } %>
                   <li><a href="download.php">Télécharger</a></li>
                   <li class="active"><a href="media_gallery.php">Médiathèque</a></li>
                   <li><a href="#userQuiz" data-toggle="modal">Questionnaire</a></li>
                   <li><a href="#userSurvey" data-toggle="modal">Sondage</a></li>
-                  <!--<li><a href="" id="booster-link">Booster</a></li>-->
+                  <li><a href="" id="booster-link">Questions de suivi</a></li>
+                  <% if (templateType === 'multi-print' || templateType === 'articulate-shell') { %><li><a href="contributors.htm">Contributeurs</a></li>
+                <% } %>
                 </ul>
             <% } else { %>
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="index.htm">Home</a></li>
+                <% if (templateType === 'articulate-shell') { %>
+                <li><a href="storyline/story.html" target="_blank">Lesson <span class="glyphicon glyphicon-new-window"></span></a></li>
+                <% } else { %>
                 <li><a href="navmenu.php">Lesson</a></li>
+                <% } %>
                 <li><a href="download.php">Download</a></li>
                 <li class="active"><a href="media_gallery.php">Gallery</a></li>
                 <li><a href="#userQuiz" data-toggle="modal">Quiz</a></li>
                 <li><a href="#userSurvey" data-toggle="modal">Survey</a></li>
                 <li><a href="" id="booster-link">Booster</a></li>
+                <% if (templateType === 'multi-print' || templateType === 'articulate-shell') { %><li><a href="contributors.htm">Contributors</a></li>
+                <% } %>
               </ul>
             <% } %>
         </div>
