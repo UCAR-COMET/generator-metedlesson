@@ -1,4 +1,11 @@
-/* === meted-base.css (Last updated: 10/2022) === */
+/* ========================================================== */
+/* ========================================================== *
+ *     LATEST CORE 2.1 BASE
+ *	   ------------------------------------------------------
+ *	   DO NOT ALTER THIS DOCUMENT !!!
+ *     Use <module-custom.css> for module styling !!!
+ * ========================================================== */
+/* ========================================================== */
 
 /* ========================================================== */
 /* === 1.0 GLOBAL ELEMENTS ================================== */
@@ -6,6 +13,7 @@
 body {
 	background-color: #fff;
 }
+/* Text Selection */
 ::-moz-selection {
 color: #fff;
 background: #300CD2;
@@ -14,8 +22,25 @@ background: #300CD2;
 	color: #fff;
 	background: #300CD2;
 }
+/* Source Sans Pro - Black, Italic */
+@font-face {
+	font-family: 'source_sans_problack_italic';
+	src: url('fonts/sourcesanspro-blackitalic-webfont.eot');
+	src: url('fonts/sourcesanspro-blackitalic-webfont.eot?#iefix') format('embedded-opentype'),  url('fonts/sourcesanspro-blackitalic-webfont.woff') format('woff'),  url('fonts/sourcesanspro-blackitalic-webfont.ttf') format('truetype'),  url('fonts/sourcesanspro-blackitalic-webfont.svg#source_sans_problack_italic') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+/* Source Sans Pro - Bold */
+@font-face {
+	font-family: 'source_sans_probold';
+	src: url('fonts/sourcesanspro-bold-webfont.eot');
+	src: url('fonts/sourcesanspro-bold-webfont.eot?#iefix') format('embedded-opentype'),  url('fonts/sourcesanspro-bold-webfont.woff') format('woff'),  url('fonts/sourcesanspro-bold-webfont.ttf') format('truetype'),  url('fonts/sourcesanspro-bold-webfont.svg#source_sans_probold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+/* Headings */
 h1, h2, h3, h4, h5, h6 {
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: "source_sans_probold", Helvetica, Arial, sans-serif;
 }
 /* Missing Images */
 img {
@@ -23,6 +48,7 @@ img {
 	text-decoration: line-through;
 	font-weight: bold !important;
 }
+/* Hyperink Word Breaks */
 a {
 	word-wrap: break-word;
 }
@@ -529,12 +555,14 @@ body.prt .print_hide {
 	background-color: #1D1D1D;
 	text-align: center;
 	background: url(../assets/module-cover.jpg) no-repeat center center fixed;
-	background-size: 1250px 600px;
-
+	background-size: 1250px 600px;/*-webkit-background-size: cover;
+  		-moz-background-size: cover;
+  		-o-background-size: cover;
+  	background-size: cover;*/
 }
 #module-title {
 	color: #fff;
-	/*font-family: 'source_sans_problack_italic';*/
+	font-family: 'source_sans_problack_italic';
 	font-size: 4em;
 	line-height: auto;
 	height: 150px;
@@ -586,7 +614,7 @@ a#module-title:hover, a#module-title:active {
 #module-credit {
 	float: right;
 	color: #fff;
-	/*font-family: 'source_sans_probold';*/
+	font-family: 'source_sans_probold';
 	font-size: 14px;
 	margin: 0 0;
 	margin-top: -10px;

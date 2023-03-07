@@ -1,8 +1,9 @@
-//* =================================================================== */
-//* === module-custom.scss GENERATED FROM generator-metedlesson ======= */
-//* =================================================================== */
+//* ========================================================== */
+//* === LATEST CORE 2.1 CUSTOM VARIABLES ===================== */
+//* ========================================================== */
 
 //* HTML ELEMENTS */
+
 $body-background:		#fff;
 $body-font: 			"Helvetica Neue", Helvetica, Arial, sans-serif;
 
@@ -39,7 +40,7 @@ $textselect-background: #300CD2;
 
 //* WEB-FONTS */
 $font-stack1: "futurapro-normal";
-@mixin font-stack1($font-src: 'fonts/#{$font-stack1}'){
+@mixin font-stack1($font-src: 'fonts/futurapro/futurapro-normal'){
 	font-family: "#{$font-stack1}";
 	src: url('#{$font-src}.eot');
 	src: url('#{$font-src}.eot?#iefix') format('embedded-opentype'),
@@ -48,8 +49,9 @@ $font-stack1: "futurapro-normal";
 	font-style: normal;
 	font-weight: normal;
 }
+
 $font-stack2: "futurapro-bold";
-@mixin font-stack2($font-src: 'fonts/#{$font-stack2}'){
+@mixin font-stack2($font-src: 'fonts/futurapro/futurapro-bold'){
 	font-family: "#{$font-stack2}";
 	src: url('#{$font-src}.eot');
 	src: url('#{$font-src}.eot?#iefix') format('embedded-opentype'),
@@ -66,6 +68,10 @@ $success-color: #8FCE44;
 $warning-color: #FFAF3C;
 $danger-color: #FA5858;
 
+
+/* ========================================================== */
+/* === LATEST CORE 2.O CUSTOM STYLES ======================== */
+/* ========================================================== */
 
 /* ========================================================== */
 /* === 1.0 OVERALL HTML ELEMENTS ============================ */
@@ -367,7 +373,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* ========================================================== */
-/* === LATEST CORE 2 Legacy Components ====================== */
+/* === 3.0 LATEST CORE 2 COMPONENTS ========================= */
 
 /* === MODULE HEADER ======================================== */
 #module-title {
@@ -522,6 +528,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', end
 
 .navbar-inverse {
 background-color: #efefef;
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5e5e5+0,ffffff+50,e5e5e5+100 */
+//background: #e5e5e5; /* Old browsers */
+//background: -moz-linear-gradient(top,  #e5e5e5 0%, #ffffff 50%, #e5e5e5 100%); /* FF3.6-15 */
+//background: -webkit-linear-gradient(top,  #e5e5e5 0%,#ffffff 50%,#e5e5e5 100%); /* Chrome10-25,Safari5.1-6 */
+//background: linear-gradient(to bottom,  #e5e5e5 0%,#ffffff 50%,#e5e5e5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+//filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
 }
 .navbar-inverse .navbar-nav > li > a {
     color: #777;
@@ -588,9 +600,10 @@ background-color: #efefef;
 #lesson-subtitle {
 	font-size: $module-title-fontsize * 0.5;
 	margin-top: -12px;
-	color: $module-title-color, 0.75;
+	color: $module-title-color * 0.75;
 	/*text-shadow: $module-title-shadow;*/
 }
+
 
 
 @media (min-width:768px) {
@@ -673,6 +686,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', e
 	padding-right: 15px;
     z-index: 2;
 }
+/*#lesson-footer.splash-footer {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	clear: both;
+	padding: 0px 15px;
+}*/
 
 .stage_nav {
 	margin-top: 0px;
@@ -703,7 +724,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', e
 	min-height: 480px;
 	background-color: #fff;
 }
-
+/*#cover-overlay {
+    background: rgba(255,255,255,0.25);
+    overflow: hidden;
+    height: 100%;
+    z-index: 2;
+	margin-left: -15px;
+	margin-right: -15px;
+	padding-left: 15px;
+	padding-right: 15px;
+}*/
+.lesson-titles {
+	/*padding-top: 50px;*/
+}
 #lesson-midrow-items {
 	padding-bottom: 100px;
 }
