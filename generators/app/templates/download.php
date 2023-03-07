@@ -50,19 +50,13 @@
         $content_area.append('<div id="license_agree"></div>');
         var $new_license = $('#license_agree');
         $new_license.append($agree_content);
-        $new_license.before('<h3 style="text-align:center"><% if (lessonLang === '
-            ES ') { %>Acuerdo de licencia<% } else if (lessonLang === '
-            FR ') { %>Contrat de license<% } else { %>License Agreement<% } %></h3>');
+        $new_license.before('<h3 style="text-align:center"><% if (lessonLang === "ES") { %>Acuerdo de licencia<% } else if (lessonLang === "FR") { %>Contrat de license<% } else { %>License Agreement<% } %></h3>');
         $new_license.after('<div id="agree_btns"><span></span><span></span></div>');
         var $agree_btns = $('#agree_btns');
         $agree_btns.children('span:first').append($yes_accept);
         $agree_btns.children('span:last').append($no_accept);
-        $agree_btns.children('span:first input').addClass('agree').attr('value', '<% if (lessonLang === '
-            ES ') { %>Acepto<% } else if (lessonLang === '
-            FR ') { %>J\'accepte<% } else { %>I Accept<% } %>');
-        $agree_btns.children('span:last input').attr('value', '<% if (lessonLang === '
-            ES ') { %>No acepto<% } else if (lessonLang === '
-            FR ') { %>Je n\'accepte pas<% } else { %>I do not accept<% } %>');
+        $agree_btns.children('span:first input').addClass('agree').attr('value', '<% if (lessonLang === "ES") { %>Acepto<% } else if (lessonLang === "FR") { %>J\'accepte<% } else { %>I Accept<% } %>');
+        $agree_btns.children('span:last input').attr('value', '<% if (lessonLang === "ES") { %>No acepto<% } else if (lessonLang === "FR") { %>Je n\'accepte pas<% } else { %>I do not accept<% } %>');
         // add LC2+ styling
         $('#agree_btns input:first').addClass('btn btn-success');
         $('#agree_btns input:last').addClass('btn btn-default').css('margin-left', '6px');
