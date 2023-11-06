@@ -1,6 +1,6 @@
 <?php
 	$moduleTitle1 = "<%= lessonTitle %>";
-	$agreeLink = "../../distribute/getZip.php?moduleID=<%= lessonID %>&type=download&structure=dynamic"; 
+	$agreeLink = "<%= pathStructure %>distribute/getZip.php?moduleID=<%= lessonID %>&type=download&structure=dynamic"; 
 ?>
 <!doctype html>
 <html lang="<% if (lessonLang === 'ES') { %>es<% } else if (lessonLang === 'FR') { %>fr<% } else { %>en<% } %>">
@@ -151,8 +151,6 @@
 
 
     <main id="master-container" class="container">
-
-
         <div class="row">
             <section id="lesson-content" class="col-sm-12">
                 <h2 id="lesson-sidebar-title" class="module-title-text"></h2>
