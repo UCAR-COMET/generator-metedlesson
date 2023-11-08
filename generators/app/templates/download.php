@@ -4,7 +4,6 @@
 ?>
 <!doctype html>
 <html lang="<% if (lessonLang === 'ES') { %>es<% } else if (lessonLang === 'FR') { %>fr<% } else { %>en<% } %>">
-
 <head>
     <meta charset="UTF-8">
     <title><%= lessonTitle %></title>
@@ -151,10 +150,9 @@
 
 
     <main id="master-container" class="container">
-        <div class="row">
+        <article class="row">
             <section id="lesson-content" class="col-sm-12">
                 <h2 id="lesson-sidebar-title" class="module-title-text"></h2>
-                <!--  Table of Contents -->
                 <div id="menu" class="sidebar-toc">
                     <h4 id="lesson-sidebar-unit-title">
                         <% if (lessonLang === 'ES') { %>Descargar<% } else if (lessonLang === 'FR') { %>Télécharger<% } else { %>Download<% } %>
@@ -162,7 +160,7 @@
                 </div>
                 <hr>
 
-                <article id="maincontent">
+                <div id="maincontent">
                     <div id="dl_agree">
                         <% if (lessonLang === 'ES') { %>
                         <?php include('<%= pathStructure %>download_agreement_es.txt'); ?>
@@ -172,11 +170,9 @@
                         <?php include('<%= pathStructure %>download_agreement.txt'); ?>
                         <% } %>
                     </div>
-                </article>
-
+                </div>
             </section>
-        </div>
-
+        </article>
 
 
         <!--FOOTER-->
