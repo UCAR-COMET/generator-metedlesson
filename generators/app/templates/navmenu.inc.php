@@ -112,7 +112,7 @@ class Navmenu
 	
 	public function getPageTitle($page)
 	{
-		$content = $this->html->find('section[id=page_' . $page . ']', 0);
+		$content = $this->html->find('[id=page_' . $page . ']', 0);
 		$h3 = $content->find('h3',0);
 		return $h3->innertext;
 		
@@ -120,12 +120,12 @@ class Navmenu
 	
 	public function getContent($page)
 	{
-		$content = $this->html->find('section[id=page_' . $page . ']', 0);
+		$content = $this->html->find('[id=page_' . $page . ']', 0);
 		
 		if($this->type == "flash")
 		{
 			//if there is a div with a class = swf_600_700_some_name then replace that content with the swf  
-			$swfDivs = $content->find('div[class^=swf_]');
+			$swfDivs = $content->find('[class^=swf_]');
 			foreach($swfDivs as $swfDiv)
 			{     
 				$classes = explode(" ", $swfDiv->class);
@@ -151,8 +151,8 @@ class Navmenu
 	
 	public function getRemoteContent($page)
 	{
-		//this is the whole page with containing div and all.
-		$content = $this->html->find('section[id=page_' . $page . ']', 0);
+		//this is the whole page with containing div#page_ or section#page_ and all.
+		$content = $this->html->find('[id=page_' . $page . ']', 0);
 		
 		//get the first header and remove it, sometimes its h2 somtimes an h3, if it something else it won't get removed.;
 		$headerTitle = $content->find('h3',0);
@@ -228,7 +228,7 @@ class Navmenu
 				$previousPrint = $this->printFiles[$this->tab - 2];
 				$html = new simple_html_dom(); 
 				$html->load_file($previousPrint);
-				$toc = $html->find('nav[id=tableofcontents]', 0);
+				$toc = $html->find('[id=tableofcontents]', 0);
 		
 				foreach($toc->find('a') as $a)
 				{
@@ -253,7 +253,7 @@ class Navmenu
 				$nextPrint = $this->printFiles[$this->tab ];
 				$html = new simple_html_dom(); 
 				$html->load_file($nextPrint);
-				$toc = $html->find('nav[id=tableofcontents]', 0);
+				$toc = $html->find('[id=tableofcontents]', 0);
 		
 				$a = $toc->find('a',0);
 				$link = $a->href;
