@@ -1,10 +1,10 @@
 <!doctype html>
 <?php 
 require_once('cometAPI.inc.php'); 
-        $mm = new MediaItemManager();
-      $items = $mm->getMediaGalleryUTF8(<%= lessonID %>);
-        $moduleManager = new ModuleManager();
-      $module = $moduleManager->getModule(<%= lessonID %>);
+    $mm = new MediaItemManager();
+    $items = $mm->getMediaGalleryUTF8(<%= lessonID %>);
+    $moduleManager = new ModuleManager();
+    $module = $moduleManager->getModule(<%= lessonID %>);
 ?>
 <html lang="<% if (lessonLang === 'ES') { %>es<% } else if (lessonLang === 'FR') { %>fr<% } else { %>en<% } %>">
 <head>
