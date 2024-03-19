@@ -1,13 +1,12 @@
 <!doctype html>
 <?php 
 require_once('cometAPI.inc.php'); 
-$mm = new MediaItemManager();
-  $items = $mm->getMediaGalleryUTF8(<%= lessonID %>);
-$moduleManager = new ModuleManager();
-  $module = $moduleManager->getModule(<%= lessonID %>);
+    $mm = new MediaItemManager();
+    $items = $mm->getMediaGalleryUTF8(<%= lessonID %>);
+    $moduleManager = new ModuleManager();
+    $module = $moduleManager->getModule(<%= lessonID %>);
 ?>
 <html lang="<% if (lessonLang === 'ES') { %>es<% } else if (lessonLang === 'FR') { %>fr<% } else { %>en<% } %>">
-
 <head>
 	<meta charset="UTF-8">
 	<title><%= lessonTitle %></title>
@@ -72,7 +71,6 @@ $moduleManager = new ModuleManager();
     <link rel="stylesheet" type="text/css" media="screen" href="ie-support/ie-support.css" />
   <![endif]-->
 </head>
-
 <body>
 
 	<!--NAVBAR-->
@@ -489,7 +487,8 @@ $moduleManager = new ModuleManager();
 			</div>
 		</div>
 
-
+        </div>
+        </div>
 
 		<!--FOOTER-->
 		<footer id="lesson-footer" class="row">
@@ -530,10 +529,43 @@ $moduleManager = new ModuleManager();
 
 
 	</main><!-- end master container -->
+        <!--FOOTER-->
+        <footer id="lesson-footer" class="row">
+            <div class="col-md-8">
+            <% if (lessonLang === 'ES') { %>
+                <p id="lesson-copyright">&copy; <%= copyrightYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a> - Reservados todos los derechos.</p>
+            <% } else if (lessonLang === 'FR') { %>
+                <p id="lesson-copyright">&copy; <%= copyrightYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a> - Tous droits réservés.</p>
+            <% } else { %>
+                <p id="lesson-copyright">&copy; <%= copyrightYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a> - All Rights Reserved.</p>
+            <% } %>
+            </div>
+            <div class="col-md-4">
+            <% if (lessonLang === 'ES') { %>
+                <ul id="parent-links">
+                    <li><a href="https://www.meted.ucar.edu/legal_es.htm">Avisos legales</a></li>
+                    <li><a href="https://www.comet.ucar.edu/">COMET</a></li>
+                    <li><a href="https://www.meted.ucar.edu/index_es.php">MetEd</a></li>
+                </ul>
+            <% } else if (lessonLang === 'FR') { %>
+                <ul id="parent-links">
+                    <li><a href="https://www.meted.ucar.edu/legal.htm">Mentions juridiques</a></li>
+                    <li><a href="https://www.comet.ucar.edu/">COMET</a></li>
+                    <li><a href="https://www.meted.ucar.edu/">MetEd</a></li>
+                </ul>
+            <% } else { %>
+                <ul id="parent-links">
+                    <li><a href="https://www.meted.ucar.edu/legal.htm">Legal Notices</a></li>
+                    <li><a href="https://www.comet.ucar.edu/">COMET</a></li>
+                    <li><a href="https://www.meted.ucar.edu/">MetEd</a></li>
+                </ul>
+            <% } %>
+            </div>
+        </footer>
+    </main><!-- end master container -->
 
 
 	<!-- Quiz and Survey prompt -->
 	<div id="quiz-prompt"></div>
 </body>
-
 </html>

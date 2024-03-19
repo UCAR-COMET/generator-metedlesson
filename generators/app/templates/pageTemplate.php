@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="<% if (lessonLang === 'ES') { %>es<% } else if (lessonLang === 'FR') { %>fr<% } else { %>en<% } %>">
-
 <head>
     <meta charset="UTF-8">
     <title>$templateTitle</title>
@@ -12,32 +11,26 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/meted-base.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/module-custom.css">
     <link rel="stylesheet" type="text/css" media="print" href="css/module-print.css">
-
     <!-- JS LIBRARIES =================================-->
     <script src="jquery/jquery.min.js"></script>
     <script src="jquery/jquery-ui.min.js"></script>
     <script src="jquery/jquery-plugins.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="modernizr/modernizr.min.js"></script>
-
     <!-- MEDIA PLAYER =================================-->
     <link rel="stylesheet" type="text/css" media="screen" href="jquery/meted-player/mediaelementplayer.min.css">
     <script src="jquery/meted-player/mediaelement-and-player.min.js"></script>
-
     <!-- THIRD-PARTY HANDLERS =========================-->
     <link rel="stylesheet" type="text/css" media="screen" href="jquery/apps/fancybox/fancybox.min.css">
     <script src="jquery/apps/fancybox/fancybox.min.js"></script>
     <script src="jquery/apps/elevatezoom/elevatezoom.min.js"></script>
-
     <!-- EXTENSION SCRIPTS ============================-->
     <script src="jquery/apps/drag/drag.js"></script>
     <script src="jquery/apps/draw/draw.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="jquery/apps/image-sweep/image-sweep.css">
     <script src="jquery/apps/image-sweep/image-sweep.js"></script>
-
     <!-- PRESET DEFAULTS ==============================-->
     <script type="text/javascript" src="jquery/defaults.js"></script>
-
     <!-- PRESET OVERRIDES =============================-->
     <script type="text/javascript">
     var printVersion = $typeBoolean; // Specify Print View.  [true] for PRINT, or [false] for DYNAMIC content.
@@ -50,7 +43,6 @@
     <link rel="stylesheet" type="text/css" media="screen" href="ie-support/ie-support.css" />
   <![endif]-->
 </head>
-
 <body>
     <!--NAVBAR-->
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -65,7 +57,7 @@
                 </button>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-                <% if (lessonLang === 'ES') { %>
+            <% if (lessonLang === 'ES') { %>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="index.htm">Inicio</a></li>
                     <li class="active"><a href="navmenu.php">Lección</a></li>
@@ -74,11 +66,11 @@
                     <li><a href="#userQuiz" data-toggle="modal">Prueba</a></li>
                     <li><a href="#userSurvey" data-toggle="modal">Encuesta</a></li>
                     <li><a href="" id="booster-link">Refuerzo</a></li>
-                    <% if (templateType === 'multi-print' || templateType === 'articulate-shell') { %><li><a
-                            href="contributors.htm">Colaboradores</a></li>
-                    <% } %>
+                <% if (templateType === 'multi-print' || templateType === 'articulate-shell') { %>
+                    <li><a href="contributors.htm">Colaboradores</a></li>
+            <% } %>
                 </ul>
-                <% } else if (lessonLang === 'FR') { %>
+            <% } else if (lessonLang === 'FR') { %>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="index.htm">Accueil</a></li>
                     <li class="active"><a href="navmenu.php">Leçon</a></li>
@@ -87,11 +79,11 @@
                     <li><a href="#userQuiz" data-toggle="modal">Questionnaire</a></li>
                     <li><a href="#userSurvey" data-toggle="modal">Sondage</a></li>
                     <li><a href="" id="booster-link">Questions de suivi</a></li>
-                    <% if (templateType === 'multi-print' || templateType === 'articulate-shell') { %><li><a
-                            href="contributors.htm">Contributeurs</a></li>
-                    <% } %>
+                <% if (templateType === 'multi-print' || templateType === 'articulate-shell') { %>
+                    <li><a href="contributors.htm">Contributeurs</a></li>
+            <% } %>
                 </ul>
-                <% } else { %>
+            <% } else { %>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="index.htm">Home</a></li>
                     <li class="active"><a href="navmenu.php">Lesson</a></li>
@@ -100,31 +92,27 @@
                     <li><a href="#userQuiz" data-toggle="modal">Quiz</a></li>
                     <li><a href="#userSurvey" data-toggle="modal">Survey</a></li>
                     <li><a href="" id="booster-link">Booster</a></li>
-                    <% if (templateType === 'multi-print' || templateType === 'articulate-shell') { %><li><a
-                            href="contributors.htm">Contributors</a></li>
-                    <% } %>
+                <% if (templateType === 'multi-print' || templateType === 'articulate-shell') { %>
+                    <li><a href="contributors.htm">Contributors</a></li>
+            <% } %>
                 </ul>
-                <% } %>
+            <% } %>
             </div>
         </div>
     </nav>
 
     <main id="master-container" class="container">
-
         <div class="row">
             <div id="lesson-sidebar" class="col-sm-3">
                 <h2 id="lesson-sidebar-title">$templateTitle</h2>
-
                 <!--  Table of Contents -->
                 <nav id="menu" class="sidebar-toc">
+                    <!-- Multi-print Lesson Selector -->
                     <div class="btn-group">
-                        <% if (templateType === 'multi-print') { %>
-                        <!-- Multi-print Lesson Selector -->
-                        <a href="#" data-toggle="dropdown">
-                            <h4 id="lesson-sidebar-unit-title">$titleTag <span class="caret"></span></h4>
-                        </a>
+                    <% if (templateType === 'multi-print') { %>
+                        <a href="#" data-toggle="dropdown"><h4 id="lesson-sidebar-unit-title">$titleTag <span class="caret"></span></h4></a>
                         $tabMenu
-                        <% } %>
+                    <% } %>
                     </div>
                     <% if (narratedSwitch) { %>
                     <!-- Narrated/Text Switch -->
@@ -137,67 +125,50 @@
                 </nav>
             </div>
 
-
             <section id="lesson-content" class="col-sm-9">
                 <div id="print-button">
-                    <a href="$printLink"><span class="glyphicon glyphicon-print"></span>
-                        <% if (lessonLang === 'ES') { %>Imprimir<% } else if (lessonLang === 'FR') { %>Imprimer<% } else { %>Print<% } %></a>
+                    <a href="$printLink"><span class="glyphicon glyphicon-print"></span><% if (lessonLang === 'ES') { %>Imprimir<% } else if (lessonLang === 'FR') { %>Imprimer<% } else { %>Print<% } %></a>
                 </div>
                 $templateContent
-
-                <!-- BACK TO TOP BUTTON ==========================
-                <p class="back-top"><a href="#top"><span class="glyphicon glyphicon-upload"></span></a></p>-->
             </section>
-
         </div>
-
-
 
         <!--FOOTER-->
         <footer id="lesson-footer" class="row">
             <div class="col-md-8">
-                <% if (lessonLang === 'ES') { %>
-                <p id="lesson-copyright">&copy; <%= copyrightYear %>, <a href="https://www.ucar.edu/">The University
-                        Corporation for Atmospheric Research</a> - Reservados todos los derechos.</p>
-                <% } else if (lessonLang === 'FR') { %>
-                <p id="lesson-copyright">&copy; <%= copyrightYear %>, <a href="https://www.ucar.edu/">The University
-                        Corporation for Atmospheric Research</a> - Tous droits réservés.</p>
-                <% } else { %>
-                <p id="lesson-copyright">&copy; <%= copyrightYear %>, <a href="https://www.ucar.edu/">The University
-                        Corporation for Atmospheric Research</a> - All Rights Reserved.</p>
-                <% } %>
+            <% if (lessonLang === 'ES') { %>
+                <p id="lesson-copyright">&copy; <%= copyrightYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a> - Reservados todos los derechos.</p>
+            <% } else if (lessonLang === 'FR') { %>
+                <p id="lesson-copyright">&copy; <%= copyrightYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a> - Tous droits réservés.</p>
+            <% } else { %>
+                <p id="lesson-copyright">&copy; <%= copyrightYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a> - All Rights Reserved.</p>
+            <% } %>
             </div>
             <div class="col-md-4">
-                <% if (lessonLang === 'ES') { %>
+            <% if (lessonLang === 'ES') { %>
                 <ul id="parent-links">
                     <li><a href="https://www.meted.ucar.edu/legal_es.htm">Avisos legales</a></li>
                     <li><a href="https://www.comet.ucar.edu/">COMET</a></li>
                     <li><a href="https://www.meted.ucar.edu/index_es.php">MetEd</a></li>
                 </ul>
-                <% } else if (lessonLang === 'FR') { %>
+            <% } else if (lessonLang === 'FR') { %>
                 <ul id="parent-links">
                     <li><a href="https://www.meted.ucar.edu/legal.htm">Mentions juridiques</a></li>
                     <li><a href="https://www.comet.ucar.edu/">COMET</a></li>
                     <li><a href="https://www.meted.ucar.edu/">MetEd</a></li>
                 </ul>
-                <% } else { %>
+            <% } else { %>
                 <ul id="parent-links">
                     <li><a href="https://www.meted.ucar.edu/legal.htm">Legal Notices</a></li>
                     <li><a href="https://www.comet.ucar.edu/">COMET</a></li>
                     <li><a href="https://www.meted.ucar.edu/">MetEd</a></li>
                 </ul>
-                <% } %>
+            <% } %>
             </div>
         </footer>
-
-
     </main>
-    <!-- end master container -->
-
-
 
     <!-- Quiz/Survey Prompts -->
     <div id="quiz-prompt"></div>
 </body>
-
 </html>

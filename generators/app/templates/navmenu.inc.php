@@ -9,7 +9,7 @@ class Navmenu
 	private $path; // The path to the module
 	private $toc; //The dom of the current table of contents.
 	private $tab; //The tab we are on if any. 
-	private $type; //If we want to see flash or text.
+	private $type; //If we want to see interactive or text.
 	private $printFiles; //Used by the findPrintVersions() function to return a singleton instance of a list that has the name of all the print files.
 	
 	private $linkArray = array();//The list of nodes that are leaf nodes, ie. have content.
@@ -49,7 +49,7 @@ class Navmenu
 			$this->html->load_file($printList[$tab - 1]);
 		}else
 		{
-			$this->html->load_file("http://" . $server . $path . $printList[$tab - 1]);	
+			$this->html->load_file("https://" . $server . $path . $printList[$tab - 1]);	
 		}
 		
 		
@@ -122,7 +122,7 @@ class Navmenu
 	{
 		$content = $this->html->find('[id=page_' . $page . ']', 0);
 		
-		if($this->type == "flash")
+		/*if($this->type == "flash")
 		{
 			//if there is a div with a class = swf_600_700_some_name then replace that content with the swf  
 			$swfDivs = $content->find('[class^=swf_]');
@@ -135,9 +135,8 @@ class Navmenu
 				$swf = $params[3];
 				$insert = "<div class='swfCenter'><script type='text/javascript'>AC_FL_RunContent( 'codebase','http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0','bgcolor','FFFFFF','width','" . $width . "','height','" . $height . "','src','media/flash/". $swf ."','quality','high','pluginspage','http://www.macromedia.com/go/getflashplayer','movie','media/flash/". $swf ."','wmode','transparent' );</script></div>";
 				$swfDiv->innertext = $insert;
-				
 			}
-		}
+		}*/
 		
 		//Add the back and next buttons.
 		$bnCode = $this->getBackNextCode($page);
@@ -165,10 +164,10 @@ class Navmenu
 		$imgs = $content->find('img');
 		foreach($imgs as $img)
 		{
-			$img->src = "http://" . $this->server . $this->path . $img->src;
+			$img->src = "https://" . $this->server . $this->path . $img->src;
 		}
 		
-		if($this->type == "flash")
+		/*if($this->type == "flash")
 		{
 			$flashPath = "http://" . $this->server . $this->path;
 			
@@ -185,7 +184,7 @@ class Navmenu
 				$swfDiv->innertext = $insert;
 				
 			}
-		}
+		}*/
 		
 		
 		return $content;

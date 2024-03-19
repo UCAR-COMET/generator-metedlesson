@@ -4,7 +4,6 @@ require_once('navmenu.inc.php');
 $server = $_SERVER['SERVER_NAME'];
 $path = "<%= lessonPath %>";
 
-
 //Get the page requested. 
 $page = $_REQUEST['page'];
 $tab = $_REQUEST['tab'];
@@ -26,8 +25,7 @@ if($type == null)
 if($type == "flash")
 {
 	$typeBoolean = "false";
-}else
-{
+} else {
 	$typeBoolean = "true";
 }
 
@@ -46,10 +44,6 @@ $pageTemplate = addSlashes( file_get_contents('pageTemplate.php'));
 $pageOutput = "";
 
 
-
 eval("\$pageOutput = \"$pageTemplate\";");
 echo $pageOutput;
-
-
-
 ?>
