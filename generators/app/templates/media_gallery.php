@@ -8,7 +8,6 @@ require_once('cometAPI.inc.php');
 ?>
 <html lang="<% if (lessonLang === 'ES') { %>es<% } else if (lessonLang === 'FR') { %>fr<% } else { %>en<% } %>">
 <head>
-<<<<<<< HEAD
     <meta charset="UTF-8">
     <title><%= lessonTitle %></title>
     <meta name="copyright" content="UCAR/COMET">
