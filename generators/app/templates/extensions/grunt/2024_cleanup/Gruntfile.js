@@ -1,4 +1,4 @@
-// FOR NEW BUILD WITH YEOMAN
+// FOR CLEANUP OF EXISTING LESSON BUILD
 module.exports = function(grunt) {
   grunt.initConfig({
     // Build project scaffold
@@ -23,22 +23,17 @@ module.exports = function(grunt) {
     // Copy original src files if existent
     copy: {
       main: {
-        // MAIN: Include all php files and index.htm, add module-custom
         files: [
+          // Include all php files and index.htm
           {
             expand: true,
             flatten: true,
             src: ["build/*.php", "build/index.htm"],
             dest: "dist/.",
             filter: "isFile"
-          },
-          {
-            expand: true,
-            flatten: false,
-            src: ["build/css/module-custom.scss", "build/css/module-custom.css"],
-            dest: "dist/src/css/.",
-            filter: "isFile"
           }
+          // Include asset folders
+          // {expand: true, flatten: true, src: ['build/assets/*'], dest: 'dist/assets/.', filter: 'isFile'},
         ]
       },
       vendor: {
