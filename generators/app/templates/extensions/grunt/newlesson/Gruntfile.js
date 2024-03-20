@@ -24,20 +24,20 @@ module.exports = function(grunt) {
     copy: {
       main: {
         files: [
-          { //CORE files
+          { //CORE php and htm files
             expand: true,
             flatten: true,
             src: ["build/*.php", "build/index.htm"],
             dest: "dist/.",
             filter: "isFile"
           },
-          { //CSS files
+          { //CORE css files
             expand: true,
             flatten: true,
             src: [
               "build/jquery/jquery.min.css",
               "build/bootstrap/css/bootstrap.min.css",
-              "build/css/meted-base.css"
+              "build/css/*.css"
             ],
             dest: "dist/dev/css/.",
             filter: "isFile"
@@ -98,10 +98,13 @@ module.exports = function(grunt) {
             dest: "dist/dev/js/.",
             filter: "isFile"
           },
-          { //Media Element Player CSS
+          { //All vendor CSS
             expand: true,
             flatten: true,
-            src: ["build/jquery/meted-player/mediaelementplayer.min.css"],
+            src: [
+              "build/jquery/meted-player/mediaelementplayer.min.css",
+              "build/jquery/apps/**/*.css"
+            ],
             dest: "dist/dev/css/.",
             filter: "isFile"
           },
