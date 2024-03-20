@@ -268,8 +268,8 @@ module.exports = function(grunt) {
     "mkdir",
     "copy",
     "concat",
-    /*"sass",*/
-    "cssmin",
+    /*"sass",
+    "cssmin",*/
     "concat_css",
     "clean",
     "tags"
