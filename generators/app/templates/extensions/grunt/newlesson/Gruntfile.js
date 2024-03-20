@@ -1,5 +1,4 @@
 // REQ MODULES
-const Fiber = require('fibers');
 const sass = require('node-sass');
 
 // FOR NEW BUILD WITH YEOMAN
@@ -225,7 +224,6 @@ module.exports = function(grunt) {
     sass: {
       options: {
           implementation: sass,
-          fiber: Fiber,
           sourceMap: true
       },
       dist: {
