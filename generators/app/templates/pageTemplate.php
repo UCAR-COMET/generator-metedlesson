@@ -5,32 +5,29 @@
     <title>$templateTitle</title>
     <meta name="viewport" content="width=device-width">
     <meta name="viewport" content="initial-scale=1.0">
-    <!-- STYLES =======================================-->
+<!-- =CORE TAGS START= -->
     <link rel="stylesheet" type="text/css" media="screen" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="jquery/jquery-ui.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/meted-base.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/module-custom.css">
-    <link rel="stylesheet" type="text/css" media="print" href="css/module-print.css">
-    <!-- JS LIBRARIES =================================-->
     <script src="jquery/jquery.min.js"></script>
     <script src="jquery/jquery-ui.min.js"></script>
     <script src="jquery/jquery-plugins.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="modernizr/modernizr.min.js"></script>
-    <!-- MEDIA PLAYER =================================-->
     <link rel="stylesheet" type="text/css" media="screen" href="jquery/meted-player/mediaelementplayer.min.css">
     <script src="jquery/meted-player/mediaelement-and-player.min.js"></script>
-    <!-- THIRD-PARTY HANDLERS =========================-->
     <link rel="stylesheet" type="text/css" media="screen" href="jquery/apps/fancybox/fancybox.min.css">
     <script src="jquery/apps/fancybox/fancybox.min.js"></script>
     <script src="jquery/apps/elevatezoom/elevatezoom.min.js"></script>
-    <!-- EXTENSION SCRIPTS ============================-->
     <script src="jquery/apps/drag/drag.js"></script>
     <script src="jquery/apps/draw/draw.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="jquery/apps/image-sweep/image-sweep.css">
     <script src="jquery/apps/image-sweep/image-sweep.js"></script>
+<!-- =CORE TAGS END= -->
     <!-- PRESET DEFAULTS ==============================-->
     <script type="text/javascript" src="jquery/defaults.js"></script>
+    <link rel="stylesheet" type="text/css" media="print" href="css/module-print.css">
     <!-- PRESET OVERRIDES =============================-->
     <script type="text/javascript">
     var printVersion = $typeBoolean; // Specify Print View.  [true] for PRINT, or [false] for DYNAMIC content.

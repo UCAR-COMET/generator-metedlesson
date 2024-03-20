@@ -14,15 +14,18 @@ $mm = new MediaItemManager();
     <meta name="keywords" content="<%= lessonKeys %>">
     <meta name="viewport" content="width=device-width">
     <meta name="viewport" content="initial-scale=1.0">
+<!-- =CORE TAGS START= -->
     <link rel="stylesheet" type="text/css" media="screen" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="jquery/jquery-ui.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/meted-base.min.css">
-    <link rel="stylesheet" type="text/css" media="print" href="css/module-print.css">
     <script src="jquery/jquery.min.js"></script>
     <script src="jquery/jquery-ui.min.js"></script>
     <script src="jquery/jquery-plugins.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="modernizr/modernizr.min.js"></script>
+<!-- =CORE TAGS END= -->
+    <!-- PRESET DEFAULTS ==============================-->
+    <link rel="stylesheet" type="text/css" media="print" href="css/module-print.css">
     <script src="jquery/defaults.js"></script>
     <script>
     var printVersion = true;

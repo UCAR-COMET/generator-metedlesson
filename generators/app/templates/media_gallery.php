@@ -14,22 +14,21 @@ require_once('cometAPI.inc.php');
     <meta name="robots" content="all">
     <meta name="viewport" content="width=device-width">
     <meta name="viewport" content="initial-scale=1.0">
-    <!-- STYLES =======================================-->
+<!-- =CORE TAGS START= -->
     <link rel="stylesheet" type="text/css" media="screen" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="jquery/jquery-ui.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/meted-base.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/module-custom.css">
-    <link rel="stylesheet" type="text/css" media="print" href="css/module-print.css">
-    <!-- JS LIBRARIES =================================-->
     <script src="jquery/jquery.min.js"></script>
     <script src="jquery/jquery-ui.min.js"></script>
     <script src="jquery/jquery-plugins.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="modernizr/modernizr.min.js"></script>
-    <!-- THIRD-PARTY HANDLERS =========================-->
     <link rel="stylesheet" type="text/css" media="screen" href="jquery/apps/fancybox/fancybox.min.css">
     <script src="jquery/apps/fancybox/fancybox.min.js"></script>
+<!-- =CORE TAGS END= -->
     <!-- PRESET DEFAULTS ==============================-->
+    <link rel="stylesheet" type="text/css" media="print" href="css/module-print.css">
     <script src="jquery/defaults.js"></script>
     <!-- PRESET OVERRIDES =============================-->
     <script>
@@ -55,12 +54,12 @@ require_once('cometAPI.inc.php');
     });
     </script>
 
-    <!-- IE SUPPORT ===================================-->
-    <!--[if lte IE 9]>
-        <script type="text/javascript" src="ie-support/html5shiv.js"></script>
-        <script type="text/javascript" src="ie-support/respond.js"></script>
-        <link rel="stylesheet" type="text/css" media="screen" href="ie-support/ie-support.css" />
-    <![endif]-->
+<!-- IE SUPPORT ===================================-->
+<!--[if lte IE 9]>
+    <script type="text/javascript" src="ie-support/html5shiv.js"></script>
+    <script type="text/javascript" src="ie-support/respond.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="ie-support/ie-support.css" />
+<![endif]-->
 </head>
 <body>
 

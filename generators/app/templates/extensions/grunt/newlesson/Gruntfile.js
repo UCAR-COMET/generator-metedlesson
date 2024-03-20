@@ -37,12 +37,18 @@ module.exports = function(grunt) {
             src: [
               "build/jquery/jquery.min.css",
               "build/bootstrap/css/bootstrap.min.css",
-              "build/css/meted-base.css",
-              "build/css/module-custom.*"
+              "build/css/meted-base.css"
             ],
             dest: "dist/dev/css/.",
             filter: "isFile"
           },
+          { //module-custom.*
+            expand: true,
+            flatten: true,
+            src: ["build/css/module-custom.*"],
+            dest: "dist/src/css/.",
+            filter: "isFile"
+          }
         ]
       },
       vendor: {
@@ -147,8 +153,8 @@ module.exports = function(grunt) {
         options: {
           linkTemplate: '<link rel="stylesheet" media="screen" href="{{ path }}"/>',
           scriptTemplate: '<script src="{{ path }}"></script>',
-          openTag: "<!-- STYLES =======================================-->",
-          closeTag: "<!-- PRESET OVERRIDES =============================-->"
+          openTag: "<!-- =CORE TAGS START= -->",
+          closeTag: "<!-- =CORE TAGS END= -->"
         },
         src: [
           "dist/src/css/styles.css",
@@ -162,8 +168,8 @@ module.exports = function(grunt) {
         options: {
           linkTemplate: '<link rel="stylesheet" media="screen" href="{{ path }}"/>',
           scriptTemplate: '<script src="{{ path }}"></script>',
-          openTag: "<!-- STYLES =======================================-->",
-          closeTag: "<!-- PRESET OVERRIDES =============================-->"
+          openTag: "<!-- =CORE TAGS START= -->",
+          closeTag: "<!-- =CORE TAGS END= -->"
         },
         src: [
           "dist/src/css/styles.css",
@@ -177,8 +183,8 @@ module.exports = function(grunt) {
         options: {
           linkTemplate: '<link rel="stylesheet" media="screen" href="{{ path }}"/>',
           scriptTemplate: '<script src="{{ path }}"></script>',
-          openTag: "<!-- STYLES =======================================-->",
-          closeTag: "<!-- PRESET OVERRIDES =============================-->"
+          openTag: "<!-- =CORE TAGS START= -->",
+          closeTag: "<!-- =CORE TAGS END= -->"
         },
         src: [
           "dist/src/css/styles.css",
@@ -192,8 +198,8 @@ module.exports = function(grunt) {
         options: {
           linkTemplate: '<link rel="stylesheet" media="screen" href="{{ path }}"/>',
           scriptTemplate: '<script src="{{ path }}"></script>',
-          openTag: "<!-- STYLES =======================================-->",
-          closeTag: "<!-- PRESET OVERRIDES =============================-->"
+          openTag: "<!-- =CORE TAGS START= -->",
+          closeTag: "<!-- =CORE TAGS END= -->"
         },
         src: [
           "dist/src/css/styles.css",
