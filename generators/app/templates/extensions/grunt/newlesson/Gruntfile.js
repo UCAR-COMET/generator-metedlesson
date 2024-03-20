@@ -281,13 +281,13 @@ module.exports = function(grunt) {
   // grunt.registerTask("optimize", ['mkdir']);
   // grunt.registerTask('conversion', ['mkdir']);
  
+  grunt.loadNpmTasks("node-sass");
+  grunt.loadNpmTasks("grunt-sass");
   grunt.loadNpmTasks("grunt-contrib-copy");
   grunt.loadNpmTasks("grunt-mkdir");
   grunt.loadNpmTasks("grunt-contrib-concat");
   grunt.loadNpmTasks("grunt-concat-css");
   //grunt.loadNpmTasks("grunt-contrib-cssmin");
-  grunt.loadNpmTasks("node-sass");
-  grunt.loadNpmTasks("grunt-sass");
   grunt.loadNpmTasks("grunt-script-link-tags");
   grunt.loadNpmTasks("grunt-contrib-clean");
 };
