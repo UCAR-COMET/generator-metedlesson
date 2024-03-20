@@ -133,33 +133,6 @@ module.exports = function(grunt) {
         ]
       }
     },
-    // CONCAT AND COMPRESS JS: core.js
-    concat: {
-      options: {
-        separator: " ",
-        // Replace all 'use strict' statements in the code with a single one at the top
-        banner: "'use strict';\n",
-        process: function(src, filepath) {
-          return (
-            "// Source: " +
-            filepath +
-            "\n" +
-            src.replace(/(^|\n)[ \t]*('use strict'|"use strict");?\s*/g, "$1")
-          );
-        }
-      },
-      dist: {
-        src: [
-          "dist/dev/js/jquery.min.js",
-          "dist/dev/js/jquery-plugins.min.js",
-          "dist/dev/js/jquery-ui.min.js",
-          "dist/dev/js/bootstrap.min.js",
-          "dist/dev/js/modernizr.min.js",
-          "dist/dev/js/defaults.js"
-        ],
-        dest: "dist/src/js/core.js"
-      }
-    },
     // CONCAT AND MINIFY CSS: styles.css
     cssmin: {
       options: {
@@ -261,9 +234,36 @@ module.exports = function(grunt) {
         dest: "dist/pageTemplate.php"
       }
     },
+    // CONCAT AND COMPRESS JS: core.js
+    concat: {
+      options: {
+        separator: " ",
+        // Replace all 'use strict' statements in the code with a single one at the top
+        banner: "'use strict';\n",
+        process: function(src, filepath) {
+          return (
+            "// Source: " +
+            filepath +
+            "\n" +
+            src.replace(/(^|\n)[ \t]*('use strict'|"use strict");?\s*/g, "$1")
+          );
+        }
+      },
+      dist: {
+        src: [
+          "dist/dev/js/jquery.min.js",
+          "dist/dev/js/jquery-plugins.min.js",
+          "dist/dev/js/jquery-ui.min.js",
+          "dist/dev/js/bootstrap.min.js",
+          "dist/dev/js/modernizr.min.js",
+          "dist/dev/js/defaults.js"
+        ],
+        dest: "dist/src/js/core.js"
+      }
+    },
     // CLEAN THE BUILDS
     clean: {
-      core: ["dist/dev", "dist/src/css/module-custom.*", "./.sass-cache/"],
+      core: ["dist/dev", "./.sass-cache/"],
       node: ["node_modules", "package*"],
       grunt: ["./Gruntfile.js"]
     }
