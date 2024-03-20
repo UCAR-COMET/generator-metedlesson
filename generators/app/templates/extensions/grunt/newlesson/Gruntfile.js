@@ -1,3 +1,7 @@
+// REQ MODULES
+const Fiber = require('fibers');
+const sass = require('node-sass');
+
 // FOR NEW BUILD WITH YEOMAN
 module.exports = function(grunt) {
   grunt.initConfig({
@@ -219,14 +223,16 @@ module.exports = function(grunt) {
       }
     },
     sass: {
-        dist: {
-          options: {
-            style: 'expanded'
-          },
+      options: {
+          implementation: sass,
+          fiber: Fiber,
+          sourceMap: true
+      },
+      dist: {
           files: {
-            'dist/src/css/module-custom.css': 'dist/dev/css/module-custom.scss',
+              'dist/src/css/module-custom.css': 'dist/src/css/module-custom.scss'
           }
-        }
+      }
     },
     // CONCAT AND COMPRESS JS: core.js
     concat: {
@@ -282,7 +288,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-concat");
   grunt.loadNpmTasks("grunt-concat-css");
   //grunt.loadNpmTasks("grunt-contrib-cssmin");
-  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks("node-sass");
+  grunt.loadNpmTasks("grunt-sass");
   grunt.loadNpmTasks("grunt-script-link-tags");
   grunt.loadNpmTasks("grunt-contrib-clean");
 };
