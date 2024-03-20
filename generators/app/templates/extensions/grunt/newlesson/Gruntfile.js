@@ -147,6 +147,45 @@ module.exports = function(grunt) {
         }
       }
     },*/
+    
+    /*sass: {
+      options: {
+          implementation: sass,
+          sourceMap: true
+      },
+      dist: {
+          files: {
+              'dist/src/css/module-custom.css': 'dist/src/css/module-custom.scss'
+          }
+      }
+    },*/
+    // CONCAT AND COMPRESS JS: core.js
+    concat: {
+      options: {
+        separator: " ",
+        // Replace all 'use strict' statements in the code with a single one at the top
+        banner: "'use strict';\n",
+        process: function(src, filepath) {
+          return (
+            "// Source: " +
+            filepath +
+            "\n" +
+            src.replace(/(^|\n)[ \t]*('use strict'|"use strict");?\s*/g, "$1")
+          );
+        }
+      },
+      dist: {
+        src: [
+          "dist/dev/js/jquery.min.js",
+          "dist/dev/js/jquery-plugins.min.js",
+          "dist/dev/js/jquery-ui.min.js",
+          "dist/dev/js/bootstrap.min.js",
+          "dist/dev/js/modernizr.min.js",
+          "dist/dev/js/defaults.js"
+        ],
+        dest: "dist/src/js/core.js"
+      }
+    },
     // ADD JS AND CSS LINK TAGS TO PAGES
     tags: {
       tagIndex: {
@@ -218,44 +257,6 @@ module.exports = function(grunt) {
       all: {
         src: ["dist/dev/css/*.css", "!dist/dev/css/module-custom.css"],
         dest: "dist/src/css/styles.css"
-      }
-    },
-    /*sass: {
-      options: {
-          implementation: sass,
-          sourceMap: true
-      },
-      dist: {
-          files: {
-              'dist/src/css/module-custom.css': 'dist/src/css/module-custom.scss'
-          }
-      }
-    },*/
-    // CONCAT AND COMPRESS JS: core.js
-    concat: {
-      options: {
-        separator: " ",
-        // Replace all 'use strict' statements in the code with a single one at the top
-        banner: "'use strict';\n",
-        process: function(src, filepath) {
-          return (
-            "// Source: " +
-            filepath +
-            "\n" +
-            src.replace(/(^|\n)[ \t]*('use strict'|"use strict");?\s*/g, "$1")
-          );
-        }
-      },
-      dist: {
-        src: [
-          "dist/dev/js/jquery.min.js",
-          "dist/dev/js/jquery-plugins.min.js",
-          "dist/dev/js/jquery-ui.min.js",
-          "dist/dev/js/bootstrap.min.js",
-          "dist/dev/js/modernizr.min.js",
-          "dist/dev/js/defaults.js"
-        ],
-        dest: "dist/src/js/core.js"
       }
     },
     // CLEAN THE BUILDS
