@@ -164,7 +164,7 @@ module.exports = function(grunt) {
       }, */
     // ADD JS AND CSS LINK TAGS TO PAGES
     tags: {
-      buildIndex: {
+      tagIndex: {
         options: {
           linkTemplate:
             '<link rel="stylesheet" media="screen" href="{{ path }}"/>',
@@ -178,9 +178,9 @@ module.exports = function(grunt) {
           "!dist/src/css/module-print.css",
           "dist/src/js/*.js"
         ],
-        dest: ["dist/index.htm", "dist/download.php", "dist/media_gallery.php", "dist/pageTemplate.php"]
+        dest: "dist/index.htm"
       },
-      /*buildDownload: {
+      tagDownload: {
         options: {
           linkTemplate:
             '<link rel="stylesheet" media="screen" href="{{ path }}"/>',
@@ -196,7 +196,7 @@ module.exports = function(grunt) {
         ],
         dest: "dist/download.php"
       },
-      buildMedia: {
+      tagMedia: {
         options: {
           linkTemplate:
             '<link rel="stylesheet" media="screen" href="{{ path }}"/>',
@@ -212,7 +212,7 @@ module.exports = function(grunt) {
         ],
         dest: "dist/media_gallery.php"
       },
-      buildTemplate: {
+      tagPageTemplate: {
         options: {
           linkTemplate:
             '<link rel="stylesheet" media="screen" href="{{ path }}"/>',
@@ -227,7 +227,7 @@ module.exports = function(grunt) {
           "dist/src/js/*.js"
         ],
         dest: "dist/pageTemplate.php"
-      }*/
+      }
     },
     // CONCAT AND COMPRESS JS: core.js
     concat: {
