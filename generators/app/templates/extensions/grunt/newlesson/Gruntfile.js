@@ -31,13 +31,6 @@ module.exports = function(grunt) {
             src: ["build/*.php", "build/index.htm"],
             dest: "dist/.",
             filter: "isFile"
-          },
-          {
-            expand: true,
-            flatten: false,
-            src: ["build/css/module-custom.scss", "build/css/module-custom.css"],
-            dest: "dist/src/css/.",
-            filter: "isFile"
           }
         ]
       },
@@ -213,6 +206,7 @@ module.exports = function(grunt) {
         },
         src: [
           "dist/src/css/styles.css",
+          "dist/src/css/module-custom.css",
           "!dist/src/css/module-print.css",
           "dist/src/js/*.js"
         ],
@@ -228,6 +222,7 @@ module.exports = function(grunt) {
         },
         src: [
           "dist/src/css/styles.css",
+          "dist/src/css/module-custom.css",
           "!dist/src/css/module-print.css",
           "dist/src/js/*.js"
         ],
@@ -243,6 +238,7 @@ module.exports = function(grunt) {
         },
         src: [
           "dist/src/css/styles.css",
+          "dist/src/css/module-custom.css",
           "!dist/src/css/module-print.css",
           "dist/src/js/*.js"
         ],
@@ -258,6 +254,7 @@ module.exports = function(grunt) {
         },
         src: [
           "dist/src/css/styles.css",
+          "dist/src/css/module-custom.css",
           "!dist/src/css/module-print.css",
           "dist/src/js/*.js"
         ],
