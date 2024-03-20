@@ -141,27 +141,6 @@ module.exports = function(grunt) {
         }
       }
     },*/
-    concat_css: {
-      options: {
-        assetBaseUrl: "static/",
-        baseDir: "dist/src/css/static/(styles|assets)"
-      },
-      all: {
-        src: ["dist/dev/css/*.css"],
-        dest: "dist/src/css/styles.css"
-      }
-    },
-    /* sass: {
-        dist: {
-          options: {
-            style: 'expanded'
-          },
-          files: {
-            'dist/src/css/module-custom.css': 'dist/dev/css/module-custom.scss',
-            //'widgets.css': 'widgets.scss'
-          }
-        }
-      }, */
     // ADD JS AND CSS LINK TAGS TO PAGES
     tags: {
       tagIndex: {
@@ -229,6 +208,27 @@ module.exports = function(grunt) {
         dest: "dist/pageTemplate.php"
       }
     },
+    concat_css: {
+      options: {
+        assetBaseUrl: "static/",
+        baseDir: "dist/src/css/static/(styles|assets)"
+      },
+      all: {
+        src: ["dist/dev/css/*.css", "!dist/dev/css/module-custom.css"],
+        dest: "dist/src/css/styles.css"
+      }
+    },
+    /* sass: {
+        dist: {
+          options: {
+            style: 'expanded'
+          },
+          files: {
+            'dist/src/css/module-custom.css': 'dist/dev/css/module-custom.scss',
+            //'widgets.css': 'widgets.scss'
+          }
+        }
+      }, */
     // CONCAT AND COMPRESS JS: core.js
     concat: {
       options: {
