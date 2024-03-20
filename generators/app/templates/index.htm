@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="<% if (lessonLang === 'ES') { %>es<% } else if (lessonLang === 'FR') { %>fr<% } else { %>en<% } %>">
-
 <head>
   <meta charset="UTF-8">
   <title><%= lessonTitle %></title>
@@ -63,19 +62,14 @@
       <% if (lessonLang==='ES' ) { %>
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><a href="">Inicio</a></li>
-        <% if (templateType==='articulate-shell' ) { %>
-          <li><a href="storyline/story.html" target="_blank">Lección <span class="glyphicon glyphicon-new-window"></span></a></li>
-        <% } else { %>
-          <li><a href="navmenu.php">Lección</a></li>
-        <% } %>
+<% if (templateType==='articulate-shell' ) { %> <li><a href="storyline/story.html" target="_blank">Lección <span class="glyphicon glyphicon-new-window"></span></a></li>
+<% } else { %>  <li><a href="navmenu.php">Lección</a></li><% } %>
           <li><a href="download.php">Descargar</a></li>
           <li><a href="media_gallery.php">Galería multimedia</a></li>
           <li><a href="#userQuiz" data-toggle="modal">Prueba</a></li>
           <li><a href="#userSurvey" data-toggle="modal">Encuesta</a></li>
           <li><a href="" id="booster-link">Refuerzo</a></li>
-        <% if (templateType==='multi-print' || templateType==='articulate-shell' ) { %>
-          <li><a href="contributors.htm">Colaboradores</a></li>
-      <% } %>
+<% if (templateType==='multi-print' || templateType==='articulate-shell' ) { %> <li><a href="contributors.htm">Colaboradores</a></li><% } %>
         </ul>
       <% } else if (lessonLang==='FR' ) { %>
         <ul class="nav navbar-nav navbar-right">

@@ -120,7 +120,7 @@
                 <li><a href="index.htm">Home</a></li>
                 <% if (templateType === 'articulate-shell') { %>
                 <li><a href="storyline/story.html" target="_blank">Lesson <span class="glyphicon glyphicon-new-window"></span></a></li>
-                <% } else { %>
+                <% } else { %>  
                 <li><a href="navmenu.php">Lesson</a></li>
                 <% } %>
                 <li class="active"><a href="download.php">Download</a></li>
