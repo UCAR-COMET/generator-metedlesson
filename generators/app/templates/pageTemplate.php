@@ -36,12 +36,12 @@
     var printVersion = $typeBoolean; // Specify Print View.  [true] for PRINT, or [false] for DYNAMIC content.
     </script>
 
-    <!-- IE SUPPORT ===================================-->
-    <!--[if lte IE 9]>
+<!-- IE SUPPORT ===================================-->
+<!--[if lte IE 9]>
     <script type="text/javascript" src="jquery/apps/draw/excanvas.js"></script>
     <script type="text/javascript" src="ie-support/respond.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="ie-support/ie-support.css" />
-  <![endif]-->
+<![endif]-->
 </head>
 <body>
     <!--NAVBAR-->
