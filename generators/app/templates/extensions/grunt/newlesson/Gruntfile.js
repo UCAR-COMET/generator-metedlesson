@@ -218,17 +218,16 @@ module.exports = function(grunt) {
         dest: "dist/src/css/styles.css"
       }
     },
-    /* sass: {
+    sass: {
         dist: {
           options: {
             style: 'expanded'
           },
           files: {
             'dist/src/css/module-custom.css': 'dist/dev/css/module-custom.scss',
-            //'widgets.css': 'widgets.scss'
           }
         }
-      }, */
+    },
     // CONCAT AND COMPRESS JS: core.js
     concat: {
       options: {
@@ -268,8 +267,8 @@ module.exports = function(grunt) {
     "mkdir",
     "copy",
     "concat",
-    /*"sass",
-    "cssmin",*/
+    "sass",
+    /*"cssmin",*/
     "concat_css",
     "tags",
     "clean"
