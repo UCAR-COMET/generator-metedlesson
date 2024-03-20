@@ -385,10 +385,6 @@ module.exports = class extends Generator {
       [
         "grunt",
         "grunt-cli",
-        "grunt-concat-css",
-        //"grunt-contrib-sass",
-        "node-sass",
-        "grunt-sass",
         "grunt-contrib-clean",
         "grunt-contrib-concat",
         "grunt-contrib-copy",

@@ -1,6 +1,3 @@
-// REQ MODULES
-const sass = require('node-sass');
-
 // FOR NEW BUILD WITH YEOMAN
 module.exports = function(grunt) {
   grunt.initConfig({
@@ -41,7 +38,7 @@ module.exports = function(grunt) {
               "build/jquery/jquery.min.css",
               "build/bootstrap/css/bootstrap.min.css",
               "build/css/meted-base.css",
-              "build/css/module-custom.scss"
+              "build/css/module-custom.*"
             ],
             dest: "dist/dev/css/.",
             filter: "isFile"
@@ -148,8 +145,7 @@ module.exports = function(grunt) {
     tags: {
       tagIndex: {
         options: {
-          linkTemplate:
-            '<link rel="stylesheet" media="screen" href="{{ path }}"/>',
+          linkTemplate: '<link rel="stylesheet" media="screen" href="{{ path }}"/>',
           scriptTemplate: '<script src="{{ path }}"></script>',
           openTag: "<!-- STYLES =======================================-->",
           closeTag: "<!-- PRESET OVERRIDES =============================-->"
@@ -164,8 +160,7 @@ module.exports = function(grunt) {
       },
       tagDownload: {
         options: {
-          linkTemplate:
-            '<link rel="stylesheet" media="screen" href="{{ path }}"/>',
+          linkTemplate: '<link rel="stylesheet" media="screen" href="{{ path }}"/>',
           scriptTemplate: '<script src="{{ path }}"></script>',
           openTag: "<!-- STYLES =======================================-->",
           closeTag: "<!-- PRESET OVERRIDES =============================-->"
@@ -180,8 +175,7 @@ module.exports = function(grunt) {
       },
       tagMedia: {
         options: {
-          linkTemplate:
-            '<link rel="stylesheet" media="screen" href="{{ path }}"/>',
+          linkTemplate: '<link rel="stylesheet" media="screen" href="{{ path }}"/>',
           scriptTemplate: '<script src="{{ path }}"></script>',
           openTag: "<!-- STYLES =======================================-->",
           closeTag: "<!-- PRESET OVERRIDES =============================-->"
@@ -196,8 +190,7 @@ module.exports = function(grunt) {
       },
       tagPageTemplate: {
         options: {
-          linkTemplate:
-            '<link rel="stylesheet" media="screen" href="{{ path }}"/>',
+          linkTemplate: '<link rel="stylesheet" media="screen" href="{{ path }}"/>',
           scriptTemplate: '<script src="{{ path }}"></script>',
           openTag: "<!-- STYLES =======================================-->",
           closeTag: "<!-- PRESET OVERRIDES =============================-->"
@@ -221,7 +214,7 @@ module.exports = function(grunt) {
         dest: "dist/src/css/styles.css"
       }
     },
-    sass: {
+    /*sass: {
       options: {
           implementation: sass,
           sourceMap: true
@@ -231,7 +224,7 @@ module.exports = function(grunt) {
               'dist/src/css/module-custom.css': 'dist/src/css/module-custom.scss'
           }
       }
-    },
+    },*/
     // CONCAT AND COMPRESS JS: core.js
     concat: {
       options: {
@@ -271,23 +264,21 @@ module.exports = function(grunt) {
     "mkdir",
     "copy",
     "concat",
-    "sass",
-    /*"cssmin",*/
     "concat_css",
     "tags",
-    "clean"
+    //"clean"
+    /*"sass",
+    "cssmin",*/
   ]);
   // Grunt.registerTask("default", ['mkdir']);
   // grunt.registerTask("optimize", ['mkdir']);
   // grunt.registerTask('conversion', ['mkdir']);
  
-  grunt.loadNpmTasks("node-sass");
-  grunt.loadNpmTasks("grunt-sass");
   grunt.loadNpmTasks("grunt-contrib-copy");
   grunt.loadNpmTasks("grunt-mkdir");
   grunt.loadNpmTasks("grunt-contrib-concat");
   grunt.loadNpmTasks("grunt-concat-css");
-  //grunt.loadNpmTasks("grunt-contrib-cssmin");
   grunt.loadNpmTasks("grunt-script-link-tags");
   grunt.loadNpmTasks("grunt-contrib-clean");
+  //grunt.loadNpmTasks("grunt-contrib-cssmin");
 };
