@@ -20,24 +20,34 @@ module.exports = function(grunt) {
         }
       }
     },
-    // Copy original src files if existent
+    // Copy original SRC files to DIST
     copy: {
       main: {
-        // MAIN: Include all php files and index.htm, add module-custom
         files: [
-          {
+          { //CORE files
             expand: true,
             flatten: true,
             src: ["build/*.php", "build/index.htm"],
             dest: "dist/.",
             filter: "isFile"
-          }
+          },
+          { //CSS files
+            expand: true,
+            flatten: true,
+            src: [
+              "build/jquery/jquery.min.css",
+              "build/bootstrap/css/bootstrap.min.css",
+              "build/css/meted-base.css",
+              "build/css/module-custom.scss"
+            ],
+            dest: "dist/dev/css/.",
+            filter: "isFile"
+          },
         ]
       },
       vendor: {
         files: [
-          // Copy Javascript
-          {
+          { //Jquery and Bootstrap
             expand: true,
             flatten: true,
             src: [
@@ -47,15 +57,14 @@ module.exports = function(grunt) {
             dest: "dist/dev/js/.",
             filter: "isFile"
           },
-          {
+          { //Modernizr
             expand: true,
             flatten: true,
             src: ["build/modernizr/modernizr.min.js"],
             dest: "dist/dev/js/modernizr/.",
             filter: "isFile"
           },
-          // TODO:ADD APPS HERE!!!
-          {
+          { //Media Element Player, Fancybox, Image Sweep
             expand: true,
             flatten: true,
             src: [
@@ -66,7 +75,7 @@ module.exports = function(grunt) {
             dest: "dist/dev/js/.",
             filter: "isFile"
           },
-          {
+          { //Drag, Draw
             expand: true,
             flatten: true,
             src: [
@@ -76,42 +85,28 @@ module.exports = function(grunt) {
             dest: "dist/dev/js/.",
             filter: "isFile"
           },
-          {
+          { //LC defaults.js
             expand: true,
             flatten: true,
             src: ["build/jquery/defaults.js"],
             dest: "dist/dev/js/.",
             filter: "isFile"
           },
-
-          // Copy Bundle CSS, Static CSS, and static assets
-          {
-            expand: true,
-            flatten: true,
-            src: [
-              "build/jquery/jquery*.min.css",
-              "build/bootstrap/css/bootstrap.min.css",
-              "build/css/meted-base.css",
-              "build/css/module-custom.scss"
-            ],
-            dest: "dist/dev/css/.",
-            filter: "isFile"
-          },
-          {
+          { //Media Element Player CSS
             expand: true,
             flatten: true,
             src: ["build/jquery/meted-player/mediaelementplayer.min.css"],
             dest: "dist/dev/css/.",
             filter: "isFile"
           },
-          {
+          { //Bootstrap static elements
             expand: true,
             flatten: true,
             src: ["build/bootstrap/fonts/**", "build/css/fonts/**"],
             dest: "dist/src/css/static/fonts/.",
             filter: "isFile"
           },
-          {
+          { //Other static elements
             expand: true,
             flatten: true,
             src: [
@@ -123,7 +118,7 @@ module.exports = function(grunt) {
             ],
             dest: "dist/src/css/static/img/."
           },
-          {
+          { //IE Support
             expand: true,
             flatten: true,
             src: ["build/ie-support/**"],
@@ -134,7 +129,7 @@ module.exports = function(grunt) {
       }
     },
     // CONCAT AND MINIFY CSS: styles.css
-    cssmin: {
+    /*cssmin: {
       options: {
         mergeIntoShorthands: true,
         roundingPrecision: -1
@@ -145,14 +140,14 @@ module.exports = function(grunt) {
           "dist/src/css/module-custom.css": ["dist/src/css/module-custom.css"]
         }
       }
-    },
+    },*/
     concat_css: {
       options: {
         assetBaseUrl: "static/",
         baseDir: "dist/src/css/static/(styles|assets)"
       },
       all: {
-        src: ["dist/dev/css/*.css", "dist/src/css/module-custom.css"],
+        src: ["dist/dev/css/*.css"],
         dest: "dist/src/css/styles.css"
       }
     },
@@ -183,9 +178,9 @@ module.exports = function(grunt) {
           "!dist/src/css/module-print.css",
           "dist/src/js/*.js"
         ],
-        dest: "dist/index.htm"
+        dest: ["dist/index.htm", "dist/download.php", "dist/media_gallery.php", "dist/pageTemplate.php"]
       },
-      buildDownload: {
+      /*buildDownload: {
         options: {
           linkTemplate:
             '<link rel="stylesheet" media="screen" href="{{ path }}"/>',
@@ -232,7 +227,7 @@ module.exports = function(grunt) {
           "dist/src/js/*.js"
         ],
         dest: "dist/pageTemplate.php"
-      }
+      }*/
     },
     // CONCAT AND COMPRESS JS: core.js
     concat: {

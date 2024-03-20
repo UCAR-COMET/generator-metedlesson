@@ -16,7 +16,7 @@ $mm = new MediaItemManager();
     <meta name="viewport" content="initial-scale=1.0">
     <link rel="stylesheet" type="text/css" media="screen" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="jquery/jquery-ui.min.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/meted-base.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/meted-base.min.css">
     <link rel="stylesheet" type="text/css" media="print" href="css/module-print.css">
     <script src="jquery/jquery.min.js"></script>
     <script src="jquery/jquery-ui.min.js"></script>
