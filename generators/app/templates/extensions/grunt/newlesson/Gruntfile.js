@@ -276,7 +276,7 @@ module.exports = function(grunt) {
     "concat",
     "concat_css",
     "tags",
-    //"clean"
+    "clean"
     /*"sass",
     "cssmin",*/
   ]);
