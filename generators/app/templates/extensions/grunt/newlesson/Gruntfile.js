@@ -156,7 +156,7 @@ module.exports = function(grunt) {
       target: {
         files: {
           "dist/dev/css/vendor-compiled.min.css": ["dist/dev/css/bootstrap.min.css", "dist/dev/css/fancybox.min.css", "dist/dev/css/jquery.fancybox*.css", "dist/dev/css/mediaelementplayer.min.css"],
-          "dist/src/css/meted-core.css": ["dist/src/css/meted-base*.css", "dist/src/css/image-sweep.css"],
+          "dist/dev/css/meted-core.css": ["dist/dev/css/meted-base.min.css", "dist/dev/css/image-sweep.css"],
         }
       }
     },
@@ -288,7 +288,8 @@ module.exports = function(grunt) {
       },
       all: {
         src: [ // List in order instead of * to avoid conflicts
-          "dist/dev/css/*.css",
+          "dist/dev/css/vendor-compiled.min.css",
+          "dist/src/css/meted-core.css",
           "!dist/dev/css/module-print.css",
           "!dist/dev/css/module-custom.css"
         ],
