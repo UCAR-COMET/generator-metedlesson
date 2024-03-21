@@ -148,19 +148,18 @@ module.exports = function(grunt) {
       }
     },
     // CONCAT AND MINIFY CSS: styles.css
-    /*cssmin: {
+    cssmin: {
       options: {
         mergeIntoShorthands: true,
         roundingPrecision: -1
       },
       target: {
         files: {
-          "build/css/meted-base.min.css": ["build/css/meted-base.css"],
-          "dist/src/css/module-custom.css": ["dist/src/css/module-custom.css"]
+          "dist/dev/css/vendor-compiled.min.css": ["dist/dev/css/bootstrap.min.css", "dist/dev/css/fancybox.min.css", "dist/dev/css/jquery.fancybox*.css", "dist/dev/css/mediaelementplayer.min.css"],
+          "dist/src/css/meted-core.css": ["dist/src/css/meted-base*.css", "dist/src/css/image-sweep.css"],
         }
       }
-    },*/
-    
+    },
     /*sass: {
       options: {
           implementation: sass,
