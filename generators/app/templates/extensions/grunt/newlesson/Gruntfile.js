@@ -306,12 +306,12 @@ module.exports = function(grunt) {
   grunt.registerTask("default", [
     "mkdir",
     "copy",
+    "cssmin",
     "concat",
     "concat_css",
     "tags",
     //"clean"
-    /*"sass",
-    "cssmin",*/
+    /*"sass",*/
   ]);
   // Grunt.registerTask("default", ['mkdir']);
   // grunt.registerTask("optimize", ['mkdir']);
