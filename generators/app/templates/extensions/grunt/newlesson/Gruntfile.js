@@ -265,6 +265,21 @@ module.exports = function(grunt) {
           "!dist/src/css/module-print.css"
         ],
         dest: "dist/pageTemplate.php"
+      },
+      tagPrint: {
+        options: {
+          linkTemplate: '<link rel="stylesheet" media="print" href="{{ path }}"/>',
+          scriptTemplate: '<script src="{{ path }}"></script>',
+          openTag: "<!-- =CORE TAGS START= -->",
+          closeTag: "<!-- =CORE TAGS END= -->"
+        },
+        src: [
+          "dist/src/css/styles.css",
+          "dist/src/css/module-custom.css",
+          "dist/src/js/*.js",
+          "!dist/src/css/module-print.css"
+        ],
+        dest: "dist/print.php"
       }
     },
     concat_css: {
@@ -299,7 +314,7 @@ module.exports = function(grunt) {
     "concat",
     "concat_css",
     "tags",
-    "clean"
+    //"clean"
     /*"sass",
     "cssmin",*/
   ]);
