@@ -188,8 +188,17 @@ module.exports = function(grunt) {
         }
       },
       dist: {
-        src: [
-          "dist/dev/js/*.js",
+        src: [ // List in order instead of * to avoid conflicts
+          "dist/dev/js/jquery.min.js",
+          "dist/dev/js/jquery-ui.min.js",
+          "dist/dev/js/jquery-plugins.min.js",
+          "dist/dev/js/bootstrap.min.js",
+          "dist/dev/js/fancybox.min.js",
+          "dist/dev/js/mediaelement-and-player.min.js",
+          "dist/dev/js/image-sweep.js",
+          "dist/dev/js/draw.js",
+          "dist/dev/js/drag.js",
+          "dist/dev/js/modernizr.min.js",
           "!dist/dev/js/defaults.js"
         ],
         dest: "dist/src/js/core.js"
