@@ -43,7 +43,11 @@ module.exports = function(grunt) {
             filter: "isFile"
           },
           { //defaults.js
-
+            expand: true,
+            flatten: true,
+            src: ["build/jquery/defaults.js"],
+            dest: "dist/dev/js/.",
+            filter: "isFile"
           },
           { //module-custom.* and module-print.css
             expand: true,
@@ -171,7 +175,7 @@ module.exports = function(grunt) {
     // CONCAT AND COMPRESS JS: core.js
     concat: {
       options: {
-        separator: " ",
+        separator: "/** =============== **/\n/** =============== **/\n",
         // Replace all 'use strict' statements in the code with a single one at the top
         banner: "'use strict';\n",
         process: function(src, filepath) {
@@ -185,11 +189,8 @@ module.exports = function(grunt) {
       },
       dist: {
         src: [
-          "dist/dev/js/jquery.min.js",
-          "dist/dev/js/jquery-plugins.min.js",
-          "dist/dev/js/jquery-ui.min.js",
-          "dist/dev/js/bootstrap.min.js",
-          "dist/dev/js/modernizr.min.js"
+          "dist/dev/js/*.js",
+          "!dist/dev/js/defaults.js"
         ],
         dest: "dist/src/js/core.js"
       }

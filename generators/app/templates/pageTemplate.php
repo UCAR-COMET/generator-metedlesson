@@ -24,11 +24,10 @@
     <script src="jquery/apps/draw/draw.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="jquery/apps/image-sweep/image-sweep.css">
     <script src="jquery/apps/image-sweep/image-sweep.js"></script>
-<!-- =CORE TAGS END= -->
-    <!-- PRESET DEFAULTS ==============================-->
-    <script type="text/javascript" src="jquery/defaults.js"></script>
+    <!-- lc2024: module-print.css, defaults.js -->
     <link rel="stylesheet" type="text/css" media="print" href="css/module-print.css">
-    <!-- PRESET OVERRIDES =============================-->
+    <script type="text/javascript" src="jquery/defaults.js"></script>
+<!-- =CORE TAGS END= -->
     <script type="text/javascript">
     var printVersion = $typeBoolean; // Specify Print View.  [true] for PRINT, or [false] for DYNAMIC content.
     </script>

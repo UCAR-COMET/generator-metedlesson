@@ -23,10 +23,10 @@ $mm = new MediaItemManager();
     <script src="jquery/jquery-plugins.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="modernizr/modernizr.min.js"></script>
-<!-- =CORE TAGS END= -->
-    <!-- PRESET DEFAULTS ==============================-->
+    <!-- lc2024: module-print.css, defaults.js -->
     <link rel="stylesheet" type="text/css" media="print" href="css/module-print.css">
     <script src="jquery/defaults.js"></script>
+<!-- =CORE TAGS END= -->
     <script>
     var printVersion = true;
     </script>
