@@ -31,7 +31,7 @@ module.exports = function(grunt) {
             dest: "dist/.",
             filter: "isFile"
           },
-          { //CORE css files
+          { //CORE css files -> to /dev
             expand: true,
             flatten: true,
             src: [
@@ -42,14 +42,14 @@ module.exports = function(grunt) {
             dest: "dist/dev/css/.",
             filter: "isFile"
           },
-          { //defaults.js
+          { //defaults.js -> to /src
             expand: true,
             flatten: true,
             src: ["build/jquery/defaults.js"],
-            dest: "dist/dev/js/.",
+            dest: "dist/src/js/.",
             filter: "isFile"
           },
-          { //module-custom.* and module-print.css
+          { //module-custom.* and module-print.css -> to /src
             expand: true,
             flatten: true,
             src: [
@@ -63,7 +63,7 @@ module.exports = function(grunt) {
       },
       vendor: {
         files: [
-          { //Jquery and Bootstrap
+          { //Jquery and Bootstrap -> to /dev
             expand: true,
             flatten: true,
             src: [
@@ -73,14 +73,14 @@ module.exports = function(grunt) {
             dest: "dist/dev/js/.",
             filter: "isFile"
           },
-          { //Modernizr
+          { //Modernizr -> to /dev
             expand: true,
             flatten: true,
             src: ["build/modernizr/modernizr.min.js"],
             dest: "dist/dev/js/modernizr/.",
             filter: "isFile"
           },
-          { //Media Element Player, Fancybox, Image Sweep
+          { //Media Element Player, Fancybox, Image Sweep -> to /dev
             expand: true,
             flatten: true,
             src: [
@@ -91,7 +91,7 @@ module.exports = function(grunt) {
             dest: "dist/dev/js/.",
             filter: "isFile"
           },
-          { //Drag, Draw
+          { //Drag, Draw -> to /dev
             expand: true,
             flatten: true,
             src: [
@@ -101,14 +101,14 @@ module.exports = function(grunt) {
             dest: "dist/dev/js/.",
             filter: "isFile"
           },
-          { //LC defaults.js
+          { //LC defaults.js -> to /dev
             expand: true,
             flatten: true,
             src: ["build/jquery/defaults.js"],
             dest: "dist/dev/js/.",
             filter: "isFile"
           },
-          { //All vendor CSS
+          { //All vendor CSS -> to /dev
             expand: true,
             flatten: true,
             src: [
@@ -118,14 +118,14 @@ module.exports = function(grunt) {
             dest: "dist/dev/css/.",
             filter: "isFile"
           },
-          { //Bootstrap static elements
+          { //Bootstrap static elements -> to /src
             expand: true,
             flatten: true,
             src: ["build/bootstrap/fonts/**", "build/css/fonts/**"],
             dest: "dist/src/css/static/fonts/.",
             filter: "isFile"
           },
-          { //Other static elements
+          { //Other static elements -> to /src
             expand: true,
             flatten: true,
             src: [
@@ -137,7 +137,7 @@ module.exports = function(grunt) {
             ],
             dest: "dist/src/css/static/img/."
           },
-          { //IE Support
+          { //IE Support -> to /src
             expand: true,
             flatten: true,
             src: ["build/ie-support/**"],
