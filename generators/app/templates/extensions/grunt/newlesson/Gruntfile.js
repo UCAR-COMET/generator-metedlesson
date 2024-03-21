@@ -42,10 +42,16 @@ module.exports = function(grunt) {
             dest: "dist/dev/css/.",
             filter: "isFile"
           },
-          { //module-custom.*
+          { //defaults.js
+
+          },
+          { //module-custom.* and module-print.css
             expand: true,
             flatten: true,
-            src: ["build/css/module-custom.*"],
+            src: [
+              "build/css/module-custom.*",
+              "build/css/module-print.css"
+            ],
             dest: "dist/src/css/.",
             filter: "isFile"
           }
@@ -183,8 +189,7 @@ module.exports = function(grunt) {
           "dist/dev/js/jquery-plugins.min.js",
           "dist/dev/js/jquery-ui.min.js",
           "dist/dev/js/bootstrap.min.js",
-          "dist/dev/js/modernizr.min.js",
-          "dist/dev/js/defaults.js"
+          "dist/dev/js/modernizr.min.js"
         ],
         dest: "dist/src/js/core.js"
       }
@@ -201,8 +206,8 @@ module.exports = function(grunt) {
         src: [
           "dist/src/css/styles.css",
           "dist/src/css/module-custom.css",
-          "!dist/src/css/module-print.css",
-          "dist/src/js/*.js"
+          "dist/src/js/*.js",
+          "!dist/src/css/module-print.css"
         ],
         dest: "dist/index.htm"
       },
@@ -216,8 +221,8 @@ module.exports = function(grunt) {
         src: [
           "dist/src/css/styles.css",
           "dist/src/css/module-custom.css",
-          "!dist/src/css/module-print.css",
-          "dist/src/js/*.js"
+          "dist/src/js/*.js",
+          "!dist/src/css/module-print.css"
         ],
         dest: "dist/download.php"
       },
@@ -231,8 +236,8 @@ module.exports = function(grunt) {
         src: [
           "dist/src/css/styles.css",
           "dist/src/css/module-custom.css",
-          "!dist/src/css/module-print.css",
-          "dist/src/js/*.js"
+          "dist/src/js/*.js",
+          "!dist/src/css/module-print.css"
         ],
         dest: "dist/media_gallery.php"
       },
@@ -246,8 +251,8 @@ module.exports = function(grunt) {
         src: [
           "dist/src/css/styles.css",
           "dist/src/css/module-custom.css",
-          "!dist/src/css/module-print.css",
-          "dist/src/js/*.js"
+          "dist/src/js/*.js",
+          "!dist/src/css/module-print.css"
         ],
         dest: "dist/pageTemplate.php"
       }
