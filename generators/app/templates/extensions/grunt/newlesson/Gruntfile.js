@@ -175,7 +175,7 @@ module.exports = function(grunt) {
     // CONCAT AND COMPRESS JS: core.js
     concat: {
       options: {
-        separator: "/** =============== **/\n/** =============== **/\n",
+        separator: "\n/** ============================== **/\n/** ============================== **/\n",
         // Replace all 'use strict' statements in the code with a single one at the top
         banner: "'use strict';\n",
         process: function(src, filepath) {
@@ -289,12 +289,8 @@ module.exports = function(grunt) {
       },
       all: {
         src: [ // List in order instead of * to avoid conflicts
-          "dist/dev/css/bootstrap.min.css",
-          "dist/dev/css/jquery-ui.min.css",
-          "dist/dev/css/mediaelementplayer.min.css",
-          "dist/dev/css/fancybox.min.css",
-          "dist/dev/css/image-sweep.css",
-          "dist/dev/css/meted-base.min.css",
+          "dist/dev/css/*.css",
+          "!dist/dev/css/module-print.css",
           "!dist/dev/css/module-custom.css"
         ],
         dest: "dist/src/css/styles.css"
