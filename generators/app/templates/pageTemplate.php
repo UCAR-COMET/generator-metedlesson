@@ -9,7 +9,6 @@
     <link rel="stylesheet" type="text/css" media="screen" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="jquery/jquery-ui.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/meted-base.min.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/module-custom.css">
     <script src="jquery/jquery.min.js"></script>
     <script src="jquery/jquery-ui.min.js"></script>
     <script src="jquery/jquery-plugins.min.js"></script>
@@ -24,6 +23,7 @@
     <script src="jquery/apps/draw/draw.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="jquery/apps/image-sweep/image-sweep.css">
     <script src="jquery/apps/image-sweep/image-sweep.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/module-custom.css">
     <!-- lc2024: module-print.css, defaults.js -->
     <link rel="stylesheet" type="text/css" media="print" href="css/module-print.css">
     <script type="text/javascript" src="jquery/defaults.js"></script>

@@ -273,7 +273,15 @@ module.exports = function(grunt) {
         baseDir: "dist/src/css/static/(styles|assets)"
       },
       all: {
-        src: ["dist/dev/css/*.css", "!dist/dev/css/module-custom.css"],
+        src: [ // List in order instead of * to avoid conflicts
+          "dist/dev/css/bootstrap.min.css",
+          "dist/dev/css/jquery-ui.min.css",
+          "dist/dev/css/mediaelementplayer.min.css",
+          "dist/dev/css/fancybox.min.css",
+          "dist/dev/css/image-sweep.css",
+          "dist/dev/css/meted-base.min.css",
+          "!dist/dev/css/module-custom.css"
+        ],
         dest: "dist/src/css/styles.css"
       }
     },
