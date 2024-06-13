@@ -311,7 +311,7 @@ module.exports = function(grunt) {
     "concat",
     "concat_css",
     "tags",
-    //"clean"
+    "clean"
     /*"sass",*/
   ]);
   // Grunt.registerTask("default", ['mkdir']);
