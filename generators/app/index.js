@@ -357,6 +357,19 @@ module.exports = class extends Generator {
           lessonLang: this.props.metedLang
         }
       );
+      this.fs.copyTpl(
+        this.templatePath("print.php"),
+        this.destinationPath("build/print.php"),
+        {
+          templateType: this.props.templateType,
+          lessonTitle: this.props.metedName,
+          lessonID: this.props.metedID,
+          lessonDesc: this.props.metedDesc,
+          lessonKeys: this.props.metedKeys,
+          copyrightYear: this.generatorYear,
+          lessonLang: this.props.metedLang
+        }
+      );
     } else {
       this.fs.copyTpl(
         this.templatePath("print.php"),
