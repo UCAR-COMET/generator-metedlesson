@@ -217,6 +217,8 @@ module.exports = class extends Generator {
           lessonID: this.props.metedID,
           lessonDesc: this.props.metedDesc,
           lessonKeys: this.props.metedKeys,
+          copyrightYear: this.generatorYear,
+          lessonLang: this.props.metedLang
         }
       );
       // quiz.html
@@ -229,6 +231,8 @@ module.exports = class extends Generator {
           lessonID: this.props.metedID,
           lessonDesc: this.props.metedDesc,
           lessonKeys: this.props.metedKeys,
+          copyrightYear: this.generatorYear,
+          lessonLang: this.props.metedLang
         }
       );
       // resources.html
@@ -241,6 +245,8 @@ module.exports = class extends Generator {
           lessonID: this.props.metedID,
           lessonDesc: this.props.metedDesc,
           lessonKeys: this.props.metedKeys,
+          copyrightYear: this.generatorYear,
+          lessonLang: this.props.metedLang
         }
       );
       // survey.html
@@ -253,6 +259,8 @@ module.exports = class extends Generator {
           lessonID: this.props.metedID,
           lessonDesc: this.props.metedDesc,
           lessonKeys: this.props.metedKeys,
+          copyrightYear: this.generatorYear,
+          lessonLang: this.props.metedLang
         }
       );
       
