@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
 
-    <title>Troubleshooting Fouling Check</title>
+    <title><%= lessonTitle %></title>
     <meta name="author" content="UCAR/COMET">
     <meta name="dcterms.rightsHolder" content="UCAR/COMET">
     <meta name="robots" content="all">
@@ -109,7 +109,7 @@
                                           </svg></button></form>
                                     </div>
                                     <div class="nav-sidebar-header__content"><a class="nav-sidebar-header__title"
-                                        href="index.html">Troubleshooting Fouling Check</a>
+                                        href="index.html"><%= lessonTitle %></a>
                                       <div class="nav-sidebar-header__progress">
                                         <div aria-hidden="true" class="nav-sidebar-header__progress-track" role="img">
                                           <div class="nav-sidebar-header__progress-runner" style="width: 0%;"></div>
@@ -331,9 +331,33 @@
                       </div>
                     </div>
                     <footer id="lesson-footer">
-                        <p id="lesson-copyright">© 2024, <a href="https://www.ucar.edu/">The University Corporation for
-                            Atmospheric Research</a> - All Rights Reserved.</p>
-                        <p id="lesson-privacy"><a href="https://www.meted.ucar.edu/legal.htm">Legal Notices</a> | <a href="https://www.comet.ucar.edu/">COMET</a> | <a href="https://www.meted.ucar.edu/">MetEd</a></p>
+                      <% if (lessonLang==='ES' ) { %>
+                        <p id="lesson-copyright">&copy; <%= copyrightYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a> - Reservados todos los derechos.</p>
+                      <% } else if (lessonLang==='FR' ) { %>
+                        <p id="lesson-copyright">&copy; <%= copyrightYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a> - Tous droits réservés.</p>
+                      <% } else { %>
+                        <p id="lesson-copyright">&copy; <%= copyrightYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a> - All Rights Reserved.</p>
+                      <% } %>
+
+                      <% if (lessonLang==='ES' ) { %>
+                        <p id="parent-links">
+                          <a href="https://www.meted.ucar.edu/legal_es.htm">Avisos legales</a> | 
+                          <a href="https://www.comet.ucar.edu/">COMET</a> | 
+                          <a href="https://www.meted.ucar.edu/index_es.php">MetEd</a>
+                        </p>
+                      <% } else if (lessonLang==='FR' ) { %>
+                        <p id="parent-links">
+                          <a href="https://www.meted.ucar.edu/legal.htm">Mentions juridiques</a> | 
+                          <a href="https://www.comet.ucar.edu/">COMET</a> | 
+                          <a href="https://www.meted.ucar.edu/">MetEd</a>
+                        </p>
+                      <% } else { %>
+                        <p id="parent-links">
+                          <a href="https://www.meted.ucar.edu/legal.htm">Legal Notices</a> | 
+                          <a href="https://www.comet.ucar.edu/">COMET</a> | 
+                          <a href="https://www.meted.ucar.edu/">MetEd</a>
+                        </p>
+                      <% } %>
                     </footer>
                   </div>
                 </div>

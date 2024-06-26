@@ -160,6 +160,11 @@ module.exports = class extends Generator {
         this.templatePath("articulate_rise/src"),
         this.destinationPath("build/src")
       );
+      // gruntfile
+      this.fs.copy(
+        this.templatePath("extensions/grunt/articulate/Gruntfile.js"),
+        this.destinationPath("Gruntfile.js")
+      );
       // index.html
       this.fs.copyTpl(
         this.templatePath("articulate_rise/index.html"),
@@ -206,6 +211,42 @@ module.exports = class extends Generator {
       this.fs.copyTpl(
         this.templatePath("articulate_rise/preassessment.html"),
         this.destinationPath("build/preassessment.html"),
+        {
+          templateType: this.props.templateType,
+          lessonTitle: this.props.metedName,
+          lessonID: this.props.metedID,
+          lessonDesc: this.props.metedDesc,
+          lessonKeys: this.props.metedKeys,
+        }
+      );
+      // quiz.html
+      this.fs.copyTpl(
+        this.templatePath("articulate_rise/quiz.html"),
+        this.destinationPath("build/quiz.html"),
+        {
+          templateType: this.props.templateType,
+          lessonTitle: this.props.metedName,
+          lessonID: this.props.metedID,
+          lessonDesc: this.props.metedDesc,
+          lessonKeys: this.props.metedKeys,
+        }
+      );
+      // resources.html
+      this.fs.copyTpl(
+        this.templatePath("articulate_rise/resources.html"),
+        this.destinationPath("build/resources.html"),
+        {
+          templateType: this.props.templateType,
+          lessonTitle: this.props.metedName,
+          lessonID: this.props.metedID,
+          lessonDesc: this.props.metedDesc,
+          lessonKeys: this.props.metedKeys,
+        }
+      );
+      // survey.html
+      this.fs.copyTpl(
+        this.templatePath("articulate_rise/survey.html"),
+        this.destinationPath("build/survey.html"),
         {
           templateType: this.props.templateType,
           lessonTitle: this.props.metedName,
@@ -326,7 +367,7 @@ module.exports = class extends Generator {
       }
     );
 
-    // POST CONDITIONALS
+    // POST LANGUAGE CONDITIONALS
     // defaults.js
     switch (this.props.metedLang) {
       case "EN": // English
@@ -375,7 +416,7 @@ module.exports = class extends Generator {
         );
     }
 
-    // MULTI-PRINT SETUP
+    // MULTI-PRINT ONLY
     if (this.props.templateType === "multi-print") {
       this.fs.copyTpl(
         this.templatePath("print.php"),
