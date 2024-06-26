@@ -155,19 +155,12 @@ module.exports = class extends Generator {
 
     // Articulate shell setup if selected
     if (this.props.templateType === "articulate-shell") {
-      this.fs.copyTpl(
-        this.templatePath("articulate_rise/contributors.html"),
-        this.destinationPath("build/contributors.html"),
-        {
-          templateType: this.props.templateType,
-          lessonTitle: this.props.metedName,
-          lessonID: this.props.metedID,
-          lessonDesc: this.props.metedDesc,
-          lessonKeys: this.props.metedKeys,
-          copyrightYear: this.generatorYear,
-          lessonLang: this.props.metedLang
-        }
+      // source files
+      this.fs.copy(
+        this.templatePath("articulate_rise/src"),
+        this.destinationPath("build/src")
       );
+      // index.html
       this.fs.copyTpl(
         this.templatePath("articulate_rise/index.html"),
         this.destinationPath("build/index.html"),
@@ -181,6 +174,21 @@ module.exports = class extends Generator {
           lessonLang: this.props.metedLang
         }
       );
+      // contributors.html
+      this.fs.copyTpl(
+        this.templatePath("articulate_rise/contributors.html"),
+        this.destinationPath("build/contributors.html"),
+        {
+          templateType: this.props.templateType,
+          lessonTitle: this.props.metedName,
+          lessonID: this.props.metedID,
+          lessonDesc: this.props.metedDesc,
+          lessonKeys: this.props.metedKeys,
+          copyrightYear: this.generatorYear,
+          lessonLang: this.props.metedLang
+        }
+      );
+      // gallery.php
       this.fs.copyTpl(
         this.templatePath("articulate_rise/gallery.php"),
         this.destinationPath("build/gallery.php"),
@@ -192,6 +200,18 @@ module.exports = class extends Generator {
           lessonKeys: this.props.metedKeys,
           copyrightYear: this.generatorYear,
           lessonLang: this.props.metedLang
+        }
+      );
+      // preassessment.html
+      this.fs.copyTpl(
+        this.templatePath("articulate_rise/preassessment.html"),
+        this.destinationPath("build/preassessment.html"),
+        {
+          templateType: this.props.templateType,
+          lessonTitle: this.props.metedName,
+          lessonID: this.props.metedID,
+          lessonDesc: this.props.metedDesc,
+          lessonKeys: this.props.metedKeys,
         }
       );
       
