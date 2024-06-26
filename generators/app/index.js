@@ -345,8 +345,8 @@ module.exports = class extends Generator {
     // Articulate shell setup
     if (this.props.templateType === "articulate-shell") {
       this.fs.copyTpl(
-        this.templatePath("contributors.htm"),
-        this.destinationPath("build/contributors.htm"),
+        this.templatePath("articulate_rise/contributors.html"),
+        this.destinationPath("build/contributors.html"),
         {
           templateType: this.props.templateType,
           lessonTitle: this.props.metedName,
@@ -358,8 +358,8 @@ module.exports = class extends Generator {
         }
       );
       this.fs.copyTpl(
-        this.templatePath("print.php"),
-        this.destinationPath("build/print.php"),
+        this.templatePath("articulate_rise/index.html"),
+        this.destinationPath("build/index.html"),
         {
           templateType: this.props.templateType,
           lessonTitle: this.props.metedName,
@@ -370,6 +370,20 @@ module.exports = class extends Generator {
           lessonLang: this.props.metedLang
         }
       );
+      this.fs.copyTpl(
+        this.templatePath("articulate_rise/gallery.php"),
+        this.destinationPath("build/gallery.php"),
+        {
+          templateType: this.props.templateType,
+          lessonTitle: this.props.metedName,
+          lessonID: this.props.metedID,
+          lessonDesc: this.props.metedDesc,
+          lessonKeys: this.props.metedKeys,
+          copyrightYear: this.generatorYear,
+          lessonLang: this.props.metedLang
+        }
+      );
+      
     } else {
       this.fs.copyTpl(
         this.templatePath("print.php"),

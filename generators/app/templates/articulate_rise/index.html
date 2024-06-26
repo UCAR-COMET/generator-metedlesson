@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="<% if (lessonLang === 'ES') { %>es<% } else if (lessonLang === 'FR') { %>fr<% } else { %>en<% } %>">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="src/css/rise_custom.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+
+    <title><%= lessonTitle %></title>
+    <meta name="author" content="UCAR/COMET">
+    <meta name="dcterms.rightsHolder" content="UCAR/COMET">
+    <meta name="robots" content="all">
+    <meta name="Description" content="">
+
+    <script type="text/javascript" src="src/js/player-0.0.11.min.js"></script>
+    <script type="text/javascript" src="src/js/lzwcompress.js"></script>
+
+    
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+  <link rel="stylesheet" type="text/css" href="src/css/rise_base.css">
+  <link rel="stylesheet" type="text/css" href="src/css/rise_custom.css">
+
+</head>
+  <body>
+    <div id="app">
+      <div class="visually-hidden-always" role="log" aria-live="polite" aria-atomic="true" aria-relevant="additions text"></div>
+      <div class="visually-hidden-always" role="log" aria-live="polite" aria-atomic="true" aria-relevant="additions text"></div>
+      <div class="visually-hidden-always" role="log" aria-live="assertive" aria-atomic="true" aria-relevant="additions text"></div>
+      <div class="visually-hidden-always" role="log" aria-live="assertive" aria-atomic="true" aria-relevant="additions text"></div>
+      <div id="innerApp" class="theme classic"><div>
+    </div>
+<div class="transition-group">
+  <main aria-describedby="overview-main-region-desc" tabindex="-1"><span id="overview-main-region-desc"
+      class="visually-hidden-always">Course overview</span>
+    <div class="cover-container">
+      <div id="cover" class="cover cover--layout-split-left-image">
+        <header class="cover__header">
+          <div class="cover__header-content">
+            <div class="cover__header-content-info">
+              <h1 class="cover__header-content-title"><%= lessonTitle %></h1>
+              <div class="cover__header-content-action-wrapper"><a
+                  class="cover__header-content-action-link overview__button-enrolled"
+                  href="storyline/story.html"><span
+                    class="cover__header-content-action-link-text">Lesson &rarr;</span></a>
+              </div>
+              <section class="cover__details-content-section">
+                <div class="cover__details-content-description brand--linkColor">
+                  <div class="fr-view">
+                    <p>Lesson description here...</p>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+          <div class="cover__header-graphic" style="background-image: url('src/assets/module-cover.jpg');">
+            <div class=""></div>
+          </div>
+        </header>
+        <section class="cover__details">
+          <div class="cover__details-content-wrap cover__details-content-wrap--logo">
+            <div class="cover__details-content">
+              <div class="cover__details-description-outline">
+                
+                <section class="cover__details-content-section cover__details-content-section--type-outline">
+                  <nav aria-label="Table of contents" class="overview-list">
+                      <ol class="overview-list__list overview-list__list--sectionless" role="list">
+                        <li class="overview-list__li" role="listitem">
+                          <div class="overview-list-item"><a class="overview-list-item__link"
+                              data-link="lesson-link-item" href="preassessment.html">
+                              <div class="overview-list-item__progress-circle"><span aria-hidden="true"
+                                  class="overview-list-item__icon"></span><span class="overview-list-item__title"><svg aria-hidden="true"
+                                    class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false"
+                                    height="12" viewBox="0 0 18 12" width="18" xmlns="http://www.w3.org/2000/svg">
+                                    <path clip-rule="evenodd"
+                                      d="M0.666992 1.00002C0.666992 0.539783 1.04009 0.166687 1.50033 0.166687H14.0003C14.4606 0.166687 14.8337 0.539783 14.8337 1.00002C14.8337 1.46026 14.4606 1.83335 14.0003 1.83335H1.50033C1.04009 1.83335 0.666992 1.46026 0.666992 1.00002ZM0.666992 6.00002C0.666992 5.53978 1.04009 5.16669 1.50033 5.16669H16.5003C16.9606 5.16669 17.3337 5.53978 17.3337 6.00002C17.3337 6.46026 16.9606 6.83335 16.5003 6.83335H1.50033C1.04009 6.83335 0.666992 6.46026 0.666992 6.00002ZM0.666992 11C0.666992 10.5398 1.04009 10.1667 1.50033 10.1667H10.667C11.1272 10.1667 11.5003 10.5398 11.5003 11C11.5003 11.4603 11.1272 11.8334 10.667 11.8334H1.50033C1.04009 11.8334 0.666992 11.4603 0.666992 11Z"
+                                      fill="currentColor" fill-rule="evenodd"></path>
+                                  </svg>Pre-assessment</span><span
+                                  class="lesson-progress lesson-progress--cover"><span
+                                    class="lesson-progress__graphic lesson-progress__graphic--cover"></span></span></div>
+                            </a></div>
+                        </li>
+                        <li class="overview-list__li" role="listitem">
+                          <div class="overview-list-item"><a class="overview-list-item__link"
+                              data-link="lesson-link-item" href="storyline/story.html" target="_blank">
+                              <div class="overview-list-item__progress-circle"><span aria-hidden="true"
+                                  class="overview-list-item__icon"></span><span class="overview-list-item__title"><svg aria-hidden="true"
+                                    class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false"
+                                    height="12" viewBox="0 0 18 12" width="18" xmlns="http://www.w3.org/2000/svg">
+                                    <path clip-rule="evenodd"
+                                      d="M0.666992 1.00002C0.666992 0.539783 1.04009 0.166687 1.50033 0.166687H14.0003C14.4606 0.166687 14.8337 0.539783 14.8337 1.00002C14.8337 1.46026 14.4606 1.83335 14.0003 1.83335H1.50033C1.04009 1.83335 0.666992 1.46026 0.666992 1.00002ZM0.666992 6.00002C0.666992 5.53978 1.04009 5.16669 1.50033 5.16669H16.5003C16.9606 5.16669 17.3337 5.53978 17.3337 6.00002C17.3337 6.46026 16.9606 6.83335 16.5003 6.83335H1.50033C1.04009 6.83335 0.666992 6.46026 0.666992 6.00002ZM0.666992 11C0.666992 10.5398 1.04009 10.1667 1.50033 10.1667H10.667C11.1272 10.1667 11.5003 10.5398 11.5003 11C11.5003 11.4603 11.1272 11.8334 10.667 11.8334H1.50033C1.04009 11.8334 0.666992 11.4603 0.666992 11Z"
+                                      fill="currentColor" fill-rule="evenodd"></path>
+                                  </svg>Lesson &rarr;</span><span
+                                  class="lesson-progress lesson-progress--cover"><span
+                                    class="lesson-progress__graphic lesson-progress__graphic--cover"></span></span></div>
+                            </a></div>
+                        </li>
+                        <li class="overview-list__li" role="listitem">
+                          <div class="overview-list-item"><a class="overview-list-item__link"
+                              data-link="lesson-link-item" href="gallery.php">
+                              <div class="overview-list-item__progress-circle"><span aria-hidden="true"
+                                  class="overview-list-item__icon"></span><span class="overview-list-item__title"><svg aria-hidden="true"
+                                    class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false"
+                                    height="12" viewBox="0 0 18 12" width="18" xmlns="http://www.w3.org/2000/svg">
+                                    <path clip-rule="evenodd"
+                                      d="M0.666992 1.00002C0.666992 0.539783 1.04009 0.166687 1.50033 0.166687H14.0003C14.4606 0.166687 14.8337 0.539783 14.8337 1.00002C14.8337 1.46026 14.4606 1.83335 14.0003 1.83335H1.50033C1.04009 1.83335 0.666992 1.46026 0.666992 1.00002ZM0.666992 6.00002C0.666992 5.53978 1.04009 5.16669 1.50033 5.16669H16.5003C16.9606 5.16669 17.3337 5.53978 17.3337 6.00002C17.3337 6.46026 16.9606 6.83335 16.5003 6.83335H1.50033C1.04009 6.83335 0.666992 6.46026 0.666992 6.00002ZM0.666992 11C0.666992 10.5398 1.04009 10.1667 1.50033 10.1667H10.667C11.1272 10.1667 11.5003 10.5398 11.5003 11C11.5003 11.4603 11.1272 11.8334 10.667 11.8334H1.50033C1.04009 11.8334 0.666992 11.4603 0.666992 11Z"
+                                      fill="currentColor" fill-rule="evenodd"></path>
+                                  </svg>Gallery</span><span
+                                  class="lesson-progress lesson-progress--cover"><span
+                                    class="lesson-progress__graphic lesson-progress__graphic--cover"></span></span></div>
+                            </a></div>
+                        </li>
+                        <li class="overview-list__li" role="listitem">
+                          <div class="overview-list-item"><a class="overview-list-item__link"
+                              data-link="lesson-link-item" href="quiz.html">
+                              <div class="overview-list-item__progress-circle"><span aria-hidden="true"
+                                  class="overview-list-item__icon"></span><span class="overview-list-item__title"><svg aria-hidden="true"
+                                    class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false"
+                                    height="12" viewBox="0 0 18 12" width="18" xmlns="http://www.w3.org/2000/svg">
+                                    <path clip-rule="evenodd"
+                                      d="M0.666992 1.00002C0.666992 0.539783 1.04009 0.166687 1.50033 0.166687H14.0003C14.4606 0.166687 14.8337 0.539783 14.8337 1.00002C14.8337 1.46026 14.4606 1.83335 14.0003 1.83335H1.50033C1.04009 1.83335 0.666992 1.46026 0.666992 1.00002ZM0.666992 6.00002C0.666992 5.53978 1.04009 5.16669 1.50033 5.16669H16.5003C16.9606 5.16669 17.3337 5.53978 17.3337 6.00002C17.3337 6.46026 16.9606 6.83335 16.5003 6.83335H1.50033C1.04009 6.83335 0.666992 6.46026 0.666992 6.00002ZM0.666992 11C0.666992 10.5398 1.04009 10.1667 1.50033 10.1667H10.667C11.1272 10.1667 11.5003 10.5398 11.5003 11C11.5003 11.4603 11.1272 11.8334 10.667 11.8334H1.50033C1.04009 11.8334 0.666992 11.4603 0.666992 11Z"
+                                      fill="currentColor" fill-rule="evenodd"></path>
+                                  </svg>Quiz</span><span
+                                  class="lesson-progress lesson-progress--cover"><span
+                                    class="lesson-progress__graphic lesson-progress__graphic--cover"></span></span></div>
+                            </a></div>
+                        </li>
+                        <li class="overview-list__li" role="listitem">
+                          <div class="overview-list-item"><a class="overview-list-item__link"
+                              data-link="lesson-link-item" href="survey.html">
+                              <div class="overview-list-item__progress-circle"><span aria-hidden="true"
+                                  class="overview-list-item__icon"></span><span class="overview-list-item__title"><svg aria-hidden="true"
+                                    class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false"
+                                    height="12" viewBox="0 0 18 12" width="18" xmlns="http://www.w3.org/2000/svg">
+                                    <path clip-rule="evenodd"
+                                      d="M0.666992 1.00002C0.666992 0.539783 1.04009 0.166687 1.50033 0.166687H14.0003C14.4606 0.166687 14.8337 0.539783 14.8337 1.00002C14.8337 1.46026 14.4606 1.83335 14.0003 1.83335H1.50033C1.04009 1.83335 0.666992 1.46026 0.666992 1.00002ZM0.666992 6.00002C0.666992 5.53978 1.04009 5.16669 1.50033 5.16669H16.5003C16.9606 5.16669 17.3337 5.53978 17.3337 6.00002C17.3337 6.46026 16.9606 6.83335 16.5003 6.83335H1.50033C1.04009 6.83335 0.666992 6.46026 0.666992 6.00002ZM0.666992 11C0.666992 10.5398 1.04009 10.1667 1.50033 10.1667H10.667C11.1272 10.1667 11.5003 10.5398 11.5003 11C11.5003 11.4603 11.1272 11.8334 10.667 11.8334H1.50033C1.04009 11.8334 0.666992 11.4603 0.666992 11Z"
+                                      fill="currentColor" fill-rule="evenodd"></path>
+                                  </svg>Survey</span><span
+                                  class="lesson-progress lesson-progress--cover"><span
+                                    class="lesson-progress__graphic lesson-progress__graphic--cover"></span></span></div>
+                            </a></div>
+                        </li>
+                        <li class="overview-list__li" role="listitem">
+                          <div class="overview-list-item"><a class="overview-list-item__link"
+                              data-link="lesson-link-item" href="https://meted.ucar.edu/education_training/lesson/10319/booster" target="_blank">
+                              <div class="overview-list-item__progress-circle"><span aria-hidden="true"
+                                  class="overview-list-item__icon"></span><span class="overview-list-item__title"><svg aria-hidden="true"
+                                    class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false"
+                                    height="12" viewBox="0 0 18 12" width="18" xmlns="http://www.w3.org/2000/svg">
+                                    <path clip-rule="evenodd"
+                                      d="M0.666992 1.00002C0.666992 0.539783 1.04009 0.166687 1.50033 0.166687H14.0003C14.4606 0.166687 14.8337 0.539783 14.8337 1.00002C14.8337 1.46026 14.4606 1.83335 14.0003 1.83335H1.50033C1.04009 1.83335 0.666992 1.46026 0.666992 1.00002ZM0.666992 6.00002C0.666992 5.53978 1.04009 5.16669 1.50033 5.16669H16.5003C16.9606 5.16669 17.3337 5.53978 17.3337 6.00002C17.3337 6.46026 16.9606 6.83335 16.5003 6.83335H1.50033C1.04009 6.83335 0.666992 6.46026 0.666992 6.00002ZM0.666992 11C0.666992 10.5398 1.04009 10.1667 1.50033 10.1667H10.667C11.1272 10.1667 11.5003 10.5398 11.5003 11C11.5003 11.4603 11.1272 11.8334 10.667 11.8334H1.50033C1.04009 11.8334 0.666992 11.4603 0.666992 11Z"
+                                      fill="currentColor" fill-rule="evenodd"></path>
+                                  </svg>Booster &rarr;</span><span
+                                  class="lesson-progress lesson-progress--cover"><span
+                                    class="lesson-progress__graphic lesson-progress__graphic--cover"></span></span></div>
+                            </a></div>
+                        </li>
+                        <!--<li class="overview-list__li overview-list__li--last" role="listitem">
+                          <div class="overview-list-item"><a class="overview-list-item__link"
+                              data-link="lesson-link-item" href="resources.html">
+                              <div class="overview-list-item__progress-circle"><span aria-hidden="true"
+                                  class="overview-list-item__icon"></span><span class="overview-list-item__title"><svg aria-hidden="true"
+                                    class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false"
+                                    height="12" viewBox="0 0 18 12" width="18" xmlns="http://www.w3.org/2000/svg">
+                                    <path clip-rule="evenodd"
+                                      d="M0.666992 1.00002C0.666992 0.539783 1.04009 0.166687 1.50033 0.166687H14.0003C14.4606 0.166687 14.8337 0.539783 14.8337 1.00002C14.8337 1.46026 14.4606 1.83335 14.0003 1.83335H1.50033C1.04009 1.83335 0.666992 1.46026 0.666992 1.00002ZM0.666992 6.00002C0.666992 5.53978 1.04009 5.16669 1.50033 5.16669H16.5003C16.9606 5.16669 17.3337 5.53978 17.3337 6.00002C17.3337 6.46026 16.9606 6.83335 16.5003 6.83335H1.50033C1.04009 6.83335 0.666992 6.46026 0.666992 6.00002ZM0.666992 11C0.666992 10.5398 1.04009 10.1667 1.50033 10.1667H10.667C11.1272 10.1667 11.5003 10.5398 11.5003 11C11.5003 11.4603 11.1272 11.8334 10.667 11.8334H1.50033C1.04009 11.8334 0.666992 11.4603 0.666992 11Z"
+                                      fill="currentColor" fill-rule="evenodd"></path>
+                                  </svg>Resources</span><span
+                                  class="lesson-progress lesson-progress--cover"><span
+                                    class="lesson-progress__graphic lesson-progress__graphic--cover"></span></span></div>
+                            </a></div>
+                        </li>-->
+                        <li class="overview-list__li overview-list__li--last" role="listitem">
+                          <div class="overview-list-item"><a class="overview-list-item__link"
+                              data-link="lesson-link-item" href="contributors.html">
+                              <div class="overview-list-item__progress-circle"><span aria-hidden="true"
+                                  class="overview-list-item__icon"></span><span class="overview-list-item__title"><svg aria-hidden="true"
+                                    class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false"
+                                    height="12" viewBox="0 0 18 12" width="18" xmlns="http://www.w3.org/2000/svg">
+                                    <path clip-rule="evenodd"
+                                      d="M0.666992 1.00002C0.666992 0.539783 1.04009 0.166687 1.50033 0.166687H14.0003C14.4606 0.166687 14.8337 0.539783 14.8337 1.00002C14.8337 1.46026 14.4606 1.83335 14.0003 1.83335H1.50033C1.04009 1.83335 0.666992 1.46026 0.666992 1.00002ZM0.666992 6.00002C0.666992 5.53978 1.04009 5.16669 1.50033 5.16669H16.5003C16.9606 5.16669 17.3337 5.53978 17.3337 6.00002C17.3337 6.46026 16.9606 6.83335 16.5003 6.83335H1.50033C1.04009 6.83335 0.666992 6.46026 0.666992 6.00002ZM0.666992 11C0.666992 10.5398 1.04009 10.1667 1.50033 10.1667H10.667C11.1272 10.1667 11.5003 10.5398 11.5003 11C11.5003 11.4603 11.1272 11.8334 10.667 11.8334H1.50033C1.04009 11.8334 0.666992 11.4603 0.666992 11Z"
+                                      fill="currentColor" fill-rule="evenodd"></path>
+                                  </svg>Contributors</span><span
+                                  class="lesson-progress lesson-progress--cover"><span
+                                    class="lesson-progress__graphic lesson-progress__graphic--cover"></span></span></div>
+                            </a></div>
+                        </li>
+                      </ol>
+                  </nav>
+                </section>
+              </div>
+            </div>
+          </div>
+
+
+        </section>
+
+        <footer id="lesson-footer">
+          <% if (lessonLang==='ES' ) { %>
+            <p id="lesson-copyright">&copy; <%= copyrightYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a> - Reservados todos los derechos.</p>
+          <% } else if (lessonLang==='FR' ) { %>
+            <p id="lesson-copyright">&copy; <%= copyrightYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a> - Tous droits réservés.</p>
+          <% } else { %>
+            <p id="lesson-copyright">&copy; <%= copyrightYear %>, <a href="https://www.ucar.edu/">The University Corporation for Atmospheric Research</a> - All Rights Reserved.</p>
+          <% } %>
+
+          <% if (lessonLang==='ES' ) { %>
+            <p id="parent-links">
+              <a href="https://www.meted.ucar.edu/legal_es.htm">Avisos legales</a> | 
+              <a href="https://www.comet.ucar.edu/">COMET</a> | 
+              <a href="https://www.meted.ucar.edu/index_es.php">MetEd</a>
+            </p>
+          <% } else if (lessonLang==='FR' ) { %>
+            <p id="parent-links">
+              <a href="https://www.meted.ucar.edu/legal.htm">Mentions juridiques</a> | 
+              <a href="https://www.comet.ucar.edu/">COMET</a> | 
+              <a href="https://www.meted.ucar.edu/">MetEd</a>
+            </p>
+          <% } else { %>
+            <p id="parent-links">
+              <a href="https://www.meted.ucar.edu/legal.htm">Legal Notices</a> | 
+              <a href="https://www.comet.ucar.edu/">COMET</a> | 
+              <a href="https://www.meted.ucar.edu/">MetEd</a>
+            </p>
+          <% } %>
+        </footer>
+      </div>
+    </div>  
+
+  </main>
+</div>
+<div></div>
+
+
+
+</div>
+</div>
+
+</body>
+</html>
