@@ -197,8 +197,8 @@
                                         </div>
                                       </li>
                                       <li class="nav-sidebar__outline-list-item" role="listitem">
-                                        <div class="nav-sidebar__outline-item nav-sidebar__outline-item--active nav-sidebar__outline-item--complete">
-                                          <a class="nav-sidebar__outline-item__link nav-sidebar__outline-item__link--active active" data-link="lesson-link-item"
+                                        <div class="nav-sidebar__outline-item">
+                                          <a class="nav-sidebar__outline-item__link" data-link="lesson-link-item"
                                             href="resources.html"><svg aria-hidden="true"
                                               class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false" height="12" viewBox="0 0 18 12"
                                               width="18" xmlns="http://www.w3.org/2000/svg">
@@ -210,7 +210,8 @@
                                       </li>
                                       <li class="nav-sidebar__outline-list-item"
                                         role="listitem">
-                                        <div class="nav-sidebar__outline-item"><a class="nav-sidebar__outline-item__link" data-link="lesson-link-item"
+                                        <div class="nav-sidebar__outline-item">
+                                          <a class="nav-sidebar__outline-item__link" data-link="lesson-link-item"
                                             href="contributors.html"><svg aria-hidden="true"
                                               class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false" height="12" viewBox="0 0 18 12"
                                               width="18" xmlns="http://www.w3.org/2000/svg">
@@ -220,9 +221,10 @@
                                             </svg>Contributors<span class="lesson-progress lesson-progress--sidebar"><span
                                                 class="lesson-progress__graphic lesson-progress__graphic--sidebar"></span></span></a></div>
                                       </li>
-                                      <li class="nav-sidebar__outline-list-item nav-sidebar__outline-list-item--last"
+                                      <li class="nav-sidebar__outline-list-item"
                                         role="listitem">
-                                        <div class="nav-sidebar__outline-item"><a class="nav-sidebar__outline-item__link" data-link="lesson-link-item"
+                                        <div class="nav-sidebar__outline-item nav-sidebar__outline-list-item--last nav-sidebar__outline-item--active nav-sidebar__outline-item--complete">
+                                          <a class="nav-sidebar__outline-item__link nav-sidebar__outline-item__link--active active" data-link="lesson-link-item"
                                             href="download.php"><svg aria-hidden="true"
                                               class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false" height="12" viewBox="0 0 18 12"
                                               width="18" xmlns="http://www.w3.org/2000/svg">
