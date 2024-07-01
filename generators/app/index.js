@@ -263,6 +263,20 @@ module.exports = class extends Generator {
           lessonLang: this.props.metedLang
         }
       );
+      // download.php
+      this.fs.copyTpl(
+        this.templatePath("articulate_rise/download.php"),
+        this.destinationPath("build/download.php"),
+        {
+          templateType: this.props.templateType,
+          lessonTitle: this.props.metedName,
+          lessonID: this.props.metedID,
+          lessonDesc: this.props.metedDesc,
+          lessonKeys: this.props.metedKeys,
+          copyrightYear: this.generatorYear,
+          lessonLang: this.props.metedLang
+        }
+      );
       
     } else {
 

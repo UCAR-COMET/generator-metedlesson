@@ -1,5 +1,9 @@
+<?php
+  $moduleTitle1 = "<%= lessonTitle %>";
+	$agreeLink = "<%= pathStructure %>distribute/getZip.php?moduleID=<%= lessonID %>&type=download&structure=dynamic"; 
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<% if (lessonLang === 'ES') { %>es<% } else if (lessonLang === 'FR') { %>fr<% } else { %>en<% } %>">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="src/css/rise_custom.css">
@@ -52,7 +56,7 @@
       <div class="transition-group">
         <div class="page-lesson-wrap">
           <div class="visually-hidden-always" tabindex="-1">
-            <div>Resources</div>
+            <div><% if (lessonLang === 'ES') { %>Descargar<% } else if (lessonLang === 'FR') { %>Télécharger<% } else { %>Download<% } %></div>
             <div>Top of page</div>
           </div><button class="visually-hidden btn-skip-to-lesson brand--ui" type="button"><span
               class="btn-skip-to-lesson__wrap">SKIP TO CONTENT<span aria-hidden="true"><svg class="btn-skip-to-lesson__icon"
@@ -263,7 +267,7 @@
                                                             <div class="lesson-header__counter"></div>
                                                             <h1 class="lesson-header__title">
                                                               <div class=" brand--linkColor">
-                                                                <div class="fr-view">Resources</div>
+                                                                <div class="fr-view">Download</div>
                                                               </div>
                                                             </h1>
                                                             <div class="lesson-header__author"></div>
@@ -297,12 +301,21 @@
                                                     <span></span>
                                                     <div class="block-text__container">
                                                       <div class="block-text__row"></div>
-                                                      <h2><div class=" brand--linkColor"><div class="fr-view"><strong>Resources</strong></div></div></h2>
+                                                      <h2><div class=" brand--linkColor"><div class="fr-view"><strong><% if (lessonLang === 'ES') { %>Descargar<% } else if (lessonLang === 'FR') { %>Télécharger<% } else { %>Download<% } %></strong></div></div></h2>
                                                       <div class="block-text__row">
                                                         <div class="block-text__col">
                                                           <div class="fr-view">
-                                                            <p>CONTENT HERE ...</p>
-                                                            
+                                                          <div id="maincontent">
+                                                              <div id="dl_agree">
+                                                                  <% if (lessonLang === 'ES') { %>
+                                                                  <?php include('<%= pathStructure %>download_agreement_es.txt'); ?>
+                                                                  <% } else if (lessonLang === 'FR') { %>
+                                                                  <?php include('<%= pathStructure %>download_agreement_fr.txt'); ?>
+                                                                  <% } else { %>
+                                                                  <?php include('<%= pathStructure %>download_agreement.txt'); ?>
+                                                                  <% } %>
+                                                              </div>
+                                                          </div>
                                                           </div>
                                                         </div>
                                                       </div>
