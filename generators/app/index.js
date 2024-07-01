@@ -274,7 +274,8 @@ module.exports = class extends Generator {
           lessonDesc: this.props.metedDesc,
           lessonKeys: this.props.metedKeys,
           copyrightYear: this.generatorYear,
-          lessonLang: this.props.metedLang
+          lessonLang: this.props.metedLang,
+          pathStructure: this.structure
         }
       );
       
