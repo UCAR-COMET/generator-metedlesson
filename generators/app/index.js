@@ -202,6 +202,7 @@ module.exports = class extends Generator {
           lessonDesc: this.props.metedDesc,
           lessonKeys: this.props.metedKeys,
           copyrightYear: this.generatorYear,
+          usedPages: this.articulatePages,
           lessonLang: this.props.metedLang
         }
       );
@@ -216,6 +217,7 @@ module.exports = class extends Generator {
           lessonDesc: this.props.metedDesc,
           lessonKeys: this.props.metedKeys,
           copyrightYear: this.generatorYear,
+          usedPages: this.articulatePages,
           lessonLang: this.props.metedLang
         }
       );
@@ -230,6 +232,7 @@ module.exports = class extends Generator {
           lessonDesc: this.props.metedDesc,
           lessonKeys: this.props.metedKeys,
           copyrightYear: this.generatorYear,
+          usedPages: this.articulatePages,
           lessonLang: this.props.metedLang
         }
       );
@@ -244,6 +247,7 @@ module.exports = class extends Generator {
           lessonDesc: this.props.metedDesc,
           lessonKeys: this.props.metedKeys,
           copyrightYear: this.generatorYear,
+          usedPages: this.articulatePages,
           lessonLang: this.props.metedLang
         }
       );
@@ -258,20 +262,7 @@ module.exports = class extends Generator {
           lessonDesc: this.props.metedDesc,
           lessonKeys: this.props.metedKeys,
           copyrightYear: this.generatorYear,
-          lessonLang: this.props.metedLang
-        }
-      );
-      // resources.html
-      this.fs.copyTpl(
-        this.templatePath("articulate_rise/resources.htm"),
-        this.destinationPath("build/resources.htm"),
-        {
-          templateType: this.props.templateType,
-          lessonTitle: this.props.metedName,
-          lessonID: this.props.metedID,
-          lessonDesc: this.props.metedDesc,
-          lessonKeys: this.props.metedKeys,
-          copyrightYear: this.generatorYear,
+          usedPages: this.articulatePages,
           lessonLang: this.props.metedLang
         }
       );
@@ -286,6 +277,7 @@ module.exports = class extends Generator {
           lessonDesc: this.props.metedDesc,
           lessonKeys: this.props.metedKeys,
           copyrightYear: this.generatorYear,
+          usedPages: this.articulatePages,
           lessonLang: this.props.metedLang
         }
       );
@@ -301,9 +293,62 @@ module.exports = class extends Generator {
           lessonKeys: this.props.metedKeys,
           copyrightYear: this.generatorYear,
           lessonLang: this.props.metedLang,
+          usedPages: this.articulatePages,
           pathStructure: this.structure
         }
       );
+      // conditional pages
+      if (this.articulatePages.includes("Resources")) {
+        this.fs.copy(
+          this.templatePath("articulate_rise/resources.htm"),
+          this.destinationPath("build/resources.htm"),
+          {
+            templateType: this.props.templateType,
+          lessonTitle: this.props.metedName,
+          lessonID: this.props.metedID,
+          lessonDesc: this.props.metedDesc,
+          lessonKeys: this.props.metedKeys,
+          copyrightYear: this.generatorYear,
+          lessonLang: this.props.metedLang,
+          usedPages: this.articulatePages,
+          pathStructure: this.structure
+          }
+        );
+      }
+      if (this.articulatePages.includes("Print")) {
+        this.fs.copy(
+          this.templatePath("print.php"),
+          this.destinationPath("build/print.php"),
+          {
+            templateType: this.props.templateType,
+          lessonTitle: this.props.metedName,
+          lessonID: this.props.metedID,
+          lessonDesc: this.props.metedDesc,
+          lessonKeys: this.props.metedKeys,
+          copyrightYear: this.generatorYear,
+          lessonLang: this.props.metedLang,
+          usedPages: this.articulatePages,
+          pathStructure: this.structure
+          }
+        );
+      }
+      if (this.articulatePages.includes("Blank Page")) {
+        this.fs.copy(
+          this.templatePath("articulate_rise/blank.htm"),
+          this.destinationPath("build/blank.htm"),
+          {
+            templateType: this.props.templateType,
+          lessonTitle: this.props.metedName,
+          lessonID: this.props.metedID,
+          lessonDesc: this.props.metedDesc,
+          lessonKeys: this.props.metedKeys,
+          copyrightYear: this.generatorYear,
+          lessonLang: this.props.metedLang,
+          usedPages: this.articulatePages,
+          pathStructure: this.structure
+          }
+        );
+      }
       
     } else {
 

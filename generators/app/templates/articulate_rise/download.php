@@ -227,6 +227,7 @@
                                                 class="lesson-progress__graphic lesson-progress__graphic--sidebar"></span></span></a>
                                         </div>
                                       </li>
+                                      <% if (usedPages.includes('Resources') { %>
                                       <li class="nav-sidebar__outline-list-item" role="listitem">
                                         <div class="nav-sidebar__outline-item">
                                           <a class="nav-sidebar__outline-item__link" data-link="lesson-link-item"
@@ -239,6 +240,7 @@
                                             </svg>Resources<span class="lesson-progress lesson-progress--sidebar"><span
                                                 class="lesson-progress__graphic lesson-progress__graphic--sidebar"></span></span></a></div>
                                       </li>
+                                      <% } %>
                                       <li class="nav-sidebar__outline-list-item"
                                         role="listitem">
                                         <div class="nav-sidebar__outline-item"><a class="nav-sidebar__outline-item__link" data-link="lesson-link-item"
