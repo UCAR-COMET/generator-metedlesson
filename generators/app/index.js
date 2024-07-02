@@ -67,6 +67,28 @@ module.exports = class extends Generator {
         default: false
       }
     ];
+
+    if (this.props.templateType === "articulate-shell") {
+      const articulatePrompts = [
+        {
+          type: "checkbox",
+          name: "articulateAdditionalPages",
+          message: "Choose additional pages to include:",
+          choices: [
+            "Resources",
+            "Print",
+            "Blank Page"
+          ]
+        }
+      ];
+      return this.prompt(articulatePrompts).then(props => {
+        console.log("RETURN STUFF FOR ADDITIONAL PROMPTS AND OPTIONS!!!");
+        // To access props from additional options
+        // this.props = props;
+
+      });
+    }
+
     // 4) Additional prompts
     const additionalPrompts = [
       {
