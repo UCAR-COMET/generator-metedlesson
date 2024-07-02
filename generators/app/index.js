@@ -98,15 +98,15 @@ module.exports = class extends Generator {
         message: "Select any additional pages to include:",
         choices: [{
           name: 'Resources',
-          value: 'includeResources',
+          value: 'Resources',
           checked: true
         }, {
           name: 'Print',
-          value: 'includePrint',
+          value: 'Print',
           checked: false
         }, {
           name: 'Blank Page',
-          value: 'includeBlank',
+          value: 'Blank',
           checked: false
         }]
       }
