@@ -9,6 +9,7 @@ module.exports = class extends Generator {
     // 1) Let's create some variables to use in the generator: current year, splash credit
     const generatorYear = new Date().getFullYear();
     const copyrightText = "The COMET Program";
+    const articulatePages = [];
 
     // 2) Have Yeoman greet the user
     this.log(yosay(`Let's generate a new ${chalk.blue("MetEd Lesson")}!`));
@@ -68,27 +69,6 @@ module.exports = class extends Generator {
       }
     ];
 
-    if (this.props.templateType === "articulate-shell") {
-      const articulatePrompts = [
-        {
-          type: "checkbox",
-          name: "articulateAdditionalPages",
-          message: "Choose additional pages to include:",
-          choices: [
-            "Resources",
-            "Print",
-            "Blank Page"
-          ]
-        }
-      ];
-      return this.prompt(articulatePrompts).then(props => {
-        console.log("RETURN STUFF FOR ADDITIONAL PROMPTS AND OPTIONS!!!");
-        // To access props from additional options
-        // this.props = props;
-
-      });
-    }
-
     // 4) Additional prompts
     const additionalPrompts = [
       {
@@ -111,6 +91,20 @@ module.exports = class extends Generator {
       }
     ];
 
+    const articulateShellPrompts = [
+      {
+        type: "checkbox",
+        name: "articulatePages",
+        message: "Select the additional pages to include:",
+        choices: [
+          "Resources",
+          "Print",
+          "Blank Page",
+        ],
+        default: ["Resources"]
+      }
+    ];
+
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       this.props = props;
@@ -126,8 +120,8 @@ module.exports = class extends Generator {
       this.structure = structure; // Expose so it can be defined in the template
       this.copyrightText = copyrightText;
 
-      // Check additional prompts
-      if (props.hasAdditionalOptions) {
+      // Check additional prompts for LC
+      if (props.hasAdditionalOptions && props.templateType !== "articulate-shell") {
         return this.prompt(additionalPrompts).then(props => {
           console.log("RETURN STUFF FOR ADDITIONAL PROMPTS AND OPTIONS!!!");
           // To access props from additional options
@@ -136,6 +130,16 @@ module.exports = class extends Generator {
           // Adjusted vars
           this.generatorYear = props.customYear;
           this.copyrightText = props.splashImageCredit;
+        });
+      }
+      if (props.templateType === "articulate-shell") {
+        return this.prompt(articulateShellPrompts).then(props => {
+          console.log("RETURN STUFF FOR ARTICULATE SHELL PROMPTS!!!");
+          // To access props from additional options
+          // this.props = props;
+
+          // Adjusted vars
+          this.articulatePages = props.articulatePages;
         });
       }
 
