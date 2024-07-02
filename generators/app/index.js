@@ -147,7 +147,7 @@ module.exports = class extends Generator {
           // this.props = props;
 
           // Adjusted vars
-          this.articulatePages = props.articulatePages.push(props.articulatePages);
+          this.articulatePages = props.articulatePages;
           console.log("Articulate Pages: ", this.articulatePages);
         });
       }
