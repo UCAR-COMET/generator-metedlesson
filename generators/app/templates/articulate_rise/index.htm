@@ -34,43 +34,35 @@
       <div id="innerApp" class="theme classic"><div>
     </div>
 <div class="transition-group">
-  <main aria-describedby="overview-main-region-desc" tabindex="-1"><span id="overview-main-region-desc"
-      class="visually-hidden-always">Course overview</span>
+  <main aria-describedby="overview-main-region-desc" tabindex="-1">
+    <span id="overview-main-region-desc" class="visually-hidden-always">Course overview</span>
     <div class="cover-container">
-      <div id="cover" class="cover cover--layout-split-left-image">
-        <header class="cover__header">
-          <div class="cover__header-content">
+      <div id="cover" class="cover cover--layout-left-overlay">
+        <header class="cover__header" style="max-width: 1280px; float: none; margin: 0 auto;">
+          <div class="cover__header-content cover__header-content--overlay-dark"
+            style="position: relative; background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('src/assets/module-cover.jpg');">
             <div class="cover__header-content-info">
               <h1 class="cover__header-content-title"><%= lessonTitle %></h1>
-              <div class="cover__header-content-action-wrapper"><a
-                  class="cover__header-content-action-link overview__button-enrolled"
-                  href="storyline/story.html"><span
-                    class="cover__header-content-action-link-text">Lesson &rarr;</span></a>
+              <div class="cover__header-content-action-wrapper">
+                <a class="cover__header-content-action-link overview__button-enrolled" style="float: none; margin: 0 auto; display: inline-block; background-color: var(--color-theme)"
+                  href="storyline/story.html"><span class="cover__header-content-action-link-text">Begin Lesson &rarr;</span></a>
               </div>
-              <section class="cover__details-content-section">
-                <div class="cover__details-content-description brand--linkColor">
-                  <div class="fr-view">
-                    <p>Lesson description here...</p>
-                  </div>
-                </div>
-              </section>
             </div>
-          </div>
-          <div class="cover__header-graphic" style="background-image: url('src/assets/module-cover.jpg');">
-            <div class=""></div>
+            <div class="cover_image_copyright">
+              <p>Image: Courtesy of Jessica Moore / USGS</p>
+            </div>
           </div>
         </header>
         <section class="cover__details">
           <div class="cover__details-content-wrap cover__details-content-wrap--logo">
             <div class="cover__details-content">
               <div class="cover__details-description-outline">
-                
                 <section class="cover__details-content-section cover__details-content-section--type-outline">
                   <nav aria-label="Table of contents" class="overview-list">
                       <ol class="overview-list__list overview-list__list--sectionless" role="list">
                         <li class="overview-list__li" role="listitem">
                           <div class="overview-list-item"><a class="overview-list-item__link"
-                              data-link="lesson-link-item" href="preassessment.html">
+                              data-link="lesson-link-item" href="preassessment.htm">
                               <div class="overview-list-item__progress-circle"><span aria-hidden="true"
                                   class="overview-list-item__icon"></span><span class="overview-list-item__title"><svg aria-hidden="true"
                                     class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false"
@@ -115,7 +107,7 @@
                         </li>
                         <li class="overview-list__li" role="listitem">
                           <div class="overview-list-item"><a class="overview-list-item__link"
-                              data-link="lesson-link-item" href="quiz.html">
+                              data-link="lesson-link-item" href="quiz.htm">
                               <div class="overview-list-item__progress-circle"><span aria-hidden="true"
                                   class="overview-list-item__icon"></span><span class="overview-list-item__title"><svg aria-hidden="true"
                                     class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false"
@@ -130,7 +122,7 @@
                         </li>
                         <li class="overview-list__li" role="listitem">
                           <div class="overview-list-item"><a class="overview-list-item__link"
-                              data-link="lesson-link-item" href="survey.html">
+                              data-link="lesson-link-item" href="survey.htm">
                               <div class="overview-list-item__progress-circle"><span aria-hidden="true"
                                   class="overview-list-item__icon"></span><span class="overview-list-item__title"><svg aria-hidden="true"
                                     class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false"
@@ -158,9 +150,9 @@
                                     class="lesson-progress__graphic lesson-progress__graphic--cover"></span></span></div>
                             </a></div>
                         </li>
-                        <li class="overview-list__li overview-list__li--last" role="listitem">
+                        <li class="overview-list__lit" role="listitem">
                           <div class="overview-list-item"><a class="overview-list-item__link"
-                              data-link="lesson-link-item" href="resources.html">
+                              data-link="lesson-link-item" href="resources.htm">
                               <div class="overview-list-item__progress-circle"><span aria-hidden="true"
                                   class="overview-list-item__icon"></span><span class="overview-list-item__title"><svg aria-hidden="true"
                                     class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false"
@@ -173,9 +165,9 @@
                                     class="lesson-progress__graphic lesson-progress__graphic--cover"></span></span></div>
                             </a></div>
                         </li>
-                        <li class="overview-list__li overview-list__li--last" role="listitem">
+                        <li class="overview-list__li" role="listitem">
                           <div class="overview-list-item"><a class="overview-list-item__link"
-                              data-link="lesson-link-item" href="contributors.html">
+                              data-link="lesson-link-item" href="contributors.htm">
                               <div class="overview-list-item__progress-circle"><span aria-hidden="true"
                                   class="overview-list-item__icon"></span><span class="overview-list-item__title"><svg aria-hidden="true"
                                     class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false"

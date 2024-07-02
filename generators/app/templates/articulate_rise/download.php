@@ -43,6 +43,37 @@
         }
       });
     });
+
+    // cleans the download version markup
+    $(document).ready(function() {
+        // acquire real content then remove junk
+        var $content_area = $('#maincontent');
+        var $agreement = $('#dl_agree');
+            $agreement.hide(); // hide while fussing
+        var $agree_content = $agreement.find('#form1 table tr td:first').html();
+        var $yes_accept = $agreement.find('input:first');
+        var $no_accept = $agreement.find('input:last');
+        var $notice = $agreement.find('td:last p:last');
+
+        // create new license div
+        $content_area.append('<div id="license_agree"></div>');
+        var $new_license = $('#license_agree');
+            $new_license.append($agree_content);
+            $new_license.before('<h3 style="text-align:center">License Agreement</h3>');
+            $new_license.after('<div id="agree_btns"><span></span><span></span></div>');
+        var $agree_btns = $('#agree_btns');
+            $agree_btns.children('span:first').append($yes_accept);
+            $agree_btns.children('span:last').append($no_accept);
+            $agree_btns.children('span:first input').addClass('agree').attr('value', 'I Accept');
+            $agree_btns.children('span:last input').attr('value', 'I do not accept');
+        // add LC2+ styling
+        $('#agree_btns input:first').addClass('btn btn-primary');
+        $('#agree_btns input:last').addClass('btn btn-primary').css('margin-left', '6px');
+            $agree_btns.after($notice);
+            //$agree_btns.after('<h4>Notice!</h4>');  //This notice should be removed past JAN/2021
+            $content_area.find('p:last').removeAttr('style');
+            $agreement.remove();
+    });
   </script>
 </head>
   <body>
@@ -56,7 +87,7 @@
       <div class="transition-group">
         <div class="page-lesson-wrap">
           <div class="visually-hidden-always" tabindex="-1">
-            <div><% if (lessonLang === 'ES') { %>Descargar<% } else if (lessonLang === 'FR') { %>Télécharger<% } else { %>Download<% } %></div>
+            <div>Download</div>
             <div>Top of page</div>
           </div><button class="visually-hidden btn-skip-to-lesson brand--ui" type="button"><span
               class="btn-skip-to-lesson__wrap">SKIP TO CONTENT<span aria-hidden="true"><svg class="btn-skip-to-lesson__icon"
@@ -113,7 +144,7 @@
                                           </svg></button></form>
                                     </div>
                                     <div class="nav-sidebar-header__content"><a class="nav-sidebar-header__title"
-                                        href="index.html"><%= lessonTitle %></a>
+                                        href="index.htm"><%= lessonTitle %></a>
                                       <div class="nav-sidebar-header__progress">
                                         <div aria-hidden="true" class="nav-sidebar-header__progress-track" role="img">
                                           <div class="nav-sidebar-header__progress-runner" style="width: 0%;"></div>
@@ -129,7 +160,7 @@
                                     <ol class="nav-sidebar__outline-list" role="list">
                                       <li class="nav-sidebar__outline-list-item" role="listitem">
                                         <div class="nav-sidebar__outline-item"><a class="nav-sidebar__outline-item__link" data-link="lesson-link-item"
-                                            href="preassessment.html"><svg aria-hidden="true" class="nav-sidebar__outline-item-link-icon" fill="none"
+                                            href="preassessment.htm"><svg aria-hidden="true" class="nav-sidebar__outline-item-link-icon" fill="none"
                                               focusable="false" height="12" viewBox="0 0 18 12" width="18" xmlns="http://www.w3.org/2000/svg">
                                               <path clip-rule="evenodd"
                                                 d="M0.666992 1.00002C0.666992 0.539783 1.04009 0.166687 1.50033 0.166687H14.0003C14.4606 0.166687 14.8337 0.539783 14.8337 1.00002C14.8337 1.46026 14.4606 1.83335 14.0003 1.83335H1.50033C1.04009 1.83335 0.666992 1.46026 0.666992 1.00002ZM0.666992 6.00002C0.666992 5.53978 1.04009 5.16669 1.50033 5.16669H16.5003C16.9606 5.16669 17.3337 5.53978 17.3337 6.00002C17.3337 6.46026 16.9606 6.83335 16.5003 6.83335H1.50033C1.04009 6.83335 0.666992 6.46026 0.666992 6.00002ZM0.666992 11C0.666992 10.5398 1.04009 10.1667 1.50033 10.1667H10.667C11.1272 10.1667 11.5003 10.5398 11.5003 11C11.5003 11.4603 11.1272 11.8334 10.667 11.8334H1.50033C1.04009 11.8334 0.666992 11.4603 0.666992 11Z"
@@ -150,7 +181,7 @@
                                       </li>
                                       <li class="nav-sidebar__outline-list-item" role="listitem">
                                         <div class="nav-sidebar__outline-item"><a class="nav-sidebar__outline-item__link" data-link="lesson-link-item"
-                                            href="quiz.html"><svg aria-hidden="true"
+                                            href="quiz.htm"><svg aria-hidden="true"
                                               class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false" height="12" viewBox="0 0 18 12"
                                               width="18" xmlns="http://www.w3.org/2000/svg">
                                               <path clip-rule="evenodd"
@@ -163,7 +194,7 @@
                                         <div class="nav-sidebar__outline-item nav-sidebar__outline-item">
                                           <a class="nav-sidebar__outline-item__link nav-sidebar__outline-item__link"
                                             data-link="lesson-link-item"
-                                            href="survey.html"><svg aria-hidden="true"
+                                            href="survey.htm"><svg aria-hidden="true"
                                               class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false"
                                               height="12" viewBox="0 0 18 12" width="18" xmlns="http://www.w3.org/2000/svg">
                                               <path clip-rule="evenodd"
@@ -199,7 +230,7 @@
                                       <li class="nav-sidebar__outline-list-item" role="listitem">
                                         <div class="nav-sidebar__outline-item">
                                           <a class="nav-sidebar__outline-item__link" data-link="lesson-link-item"
-                                            href="resources.html"><svg aria-hidden="true"
+                                            href="resources.htm"><svg aria-hidden="true"
                                               class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false" height="12" viewBox="0 0 18 12"
                                               width="18" xmlns="http://www.w3.org/2000/svg">
                                               <path clip-rule="evenodd"
@@ -210,9 +241,8 @@
                                       </li>
                                       <li class="nav-sidebar__outline-list-item"
                                         role="listitem">
-                                        <div class="nav-sidebar__outline-item">
-                                          <a class="nav-sidebar__outline-item__link" data-link="lesson-link-item"
-                                            href="contributors.html"><svg aria-hidden="true"
+                                        <div class="nav-sidebar__outline-item"><a class="nav-sidebar__outline-item__link" data-link="lesson-link-item"
+                                            href="contributors.htm"><svg aria-hidden="true"
                                               class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false" height="12" viewBox="0 0 18 12"
                                               width="18" xmlns="http://www.w3.org/2000/svg">
                                               <path clip-rule="evenodd"
@@ -221,9 +251,9 @@
                                             </svg>Contributors<span class="lesson-progress lesson-progress--sidebar"><span
                                                 class="lesson-progress__graphic lesson-progress__graphic--sidebar"></span></span></a></div>
                                       </li>
-                                      <li class="nav-sidebar__outline-list-item"
+                                      <li class="nav-sidebar__outline-list-item nav-sidebar__outline-list-item--last"
                                         role="listitem">
-                                        <div class="nav-sidebar__outline-item nav-sidebar__outline-list-item--last nav-sidebar__outline-item--active nav-sidebar__outline-item--complete">
+                                        <div class="nav-sidebar__outline-item nav-sidebar__outline-item--active nav-sidebar__outline-item--complete">
                                           <a class="nav-sidebar__outline-item__link nav-sidebar__outline-item__link--active active" data-link="lesson-link-item"
                                             href="download.php"><svg aria-hidden="true"
                                               class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false" height="12" viewBox="0 0 18 12"
@@ -256,8 +286,7 @@
                                       <div class="page__wrapper page__wrapper--white">
                                         <main aria-describedby="lesson-main-region-desc" class="lesson-main" tabindex="-1">
                                           <span id="lesson-main-region-desc" class="visually-hidden-always">Lesson content</span>
-                                          <div aria-hidden="true"
-                                            class="lesson-header-wrap lesson-header-wrap--collapsed lesson-header-wrap--light">
+                                          <div aria-hidden="false" class="lesson-header-wrap lesson-header-wrap--light">
                                             <section class="page__header">
                                               <div class="page__header-limit">
                                                 <div class="page__header-container">
@@ -268,7 +297,7 @@
                                                           <div class="lesson-header__content">
                                                             <div class="lesson-header__counter"></div>
                                                             <h1 class="lesson-header__title">
-                                                              <div class=" brand--linkColor">
+                                                              <div class="brand--linkColor">
                                                                 <div class="fr-view">Download</div>
                                                               </div>
                                                             </h1>
@@ -285,8 +314,7 @@
                                               <div class="progress-wrap">
                                                 <div class="progress">
                                                   <div class="progress__container">
-                                                    <div class="progress__indicator brand--background"
-                                                      style="transform: translate3d(100%, 0px, 0px);"></div>
+                                                    <div class="progress__indicator brand--background" style="transform: translate3d(100%, 0px, 0px);"></div>
                                                   </div>
                                                 </div>
                                               </div>
@@ -303,21 +331,10 @@
                                                     <span></span>
                                                     <div class="block-text__container">
                                                       <div class="block-text__row"></div>
-                                                      <h2><div class=" brand--linkColor"><div class="fr-view"><strong><% if (lessonLang === 'ES') { %>Descargar<% } else if (lessonLang === 'FR') { %>Télécharger<% } else { %>Download<% } %></strong></div></div></h2>
                                                       <div class="block-text__row">
-                                                        <div class="block-text__col">
-                                                          <div class="fr-view">
-                                                          <div id="maincontent">
-                                                              <div id="dl_agree">
-                                                                  <% if (lessonLang === 'ES') { %>
-                                                                  <?php include('<%= pathStructure %>download_agreement_es.txt'); ?>
-                                                                  <% } else if (lessonLang === 'FR') { %>
-                                                                  <?php include('<%= pathStructure %>download_agreement_fr.txt'); ?>
-                                                                  <% } else { %>
-                                                                  <?php include('<%= pathStructure %>download_agreement.txt'); ?>
-                                                                  <% } %>
-                                                              </div>
-                                                          </div>
+                                                        <div id="maincontent" class="block-">
+                                                          <div id="dl_agree" class="fr-view">
+                                                            <?php include('../../../download_agreement.txt'); ?>
                                                           </div>
                                                         </div>
                                                       </div>
@@ -325,16 +342,7 @@
                                                   </div>
                                                 </div>
                                               </div>
-                                              <div class="noOutline">
-                                                <div>
-                                                  <div
-                                                    class="block-gallery block-gallery--fourcol block-wrapper bg bg--range-light bg--type-light"
-                                                    style="--color-background: #ffffff; box-shadow: rgb(255, 255, 255) 0px 1px 0px; padding-bottom: 3rem; padding-top: 3rem;">
-                                                    
-                                                  </div>
-                                                </div>
-                                              </div>
-
+                                              
                                             </section>
 
                                           </div>

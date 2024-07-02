@@ -167,7 +167,7 @@ module.exports = class extends Generator {
       );
       // index.html
       this.fs.copyTpl(
-        this.templatePath("articulate_rise/index.html"),
+        this.templatePath("articulate_rise/index.htm"),
         this.destinationPath("build/index.html"),
         {
           templateType: this.props.templateType,
@@ -181,7 +181,7 @@ module.exports = class extends Generator {
       );
       // contributors.html
       this.fs.copyTpl(
-        this.templatePath("articulate_rise/contributors.html"),
+        this.templatePath("articulate_rise/contributors.htm"),
         this.destinationPath("build/contributors.html"),
         {
           templateType: this.props.templateType,
@@ -209,7 +209,7 @@ module.exports = class extends Generator {
       );
       // preassessment.html
       this.fs.copyTpl(
-        this.templatePath("articulate_rise/preassessment.html"),
+        this.templatePath("articulate_rise/preassessment.htm"),
         this.destinationPath("build/preassessment.html"),
         {
           templateType: this.props.templateType,
@@ -223,7 +223,7 @@ module.exports = class extends Generator {
       );
       // quiz.html
       this.fs.copyTpl(
-        this.templatePath("articulate_rise/quiz.html"),
+        this.templatePath("articulate_rise/quiz.htm"),
         this.destinationPath("build/quiz.html"),
         {
           templateType: this.props.templateType,
@@ -237,7 +237,7 @@ module.exports = class extends Generator {
       );
       // resources.html
       this.fs.copyTpl(
-        this.templatePath("articulate_rise/resources.html"),
+        this.templatePath("articulate_rise/resources.htm"),
         this.destinationPath("build/resources.html"),
         {
           templateType: this.props.templateType,
@@ -251,7 +251,7 @@ module.exports = class extends Generator {
       );
       // survey.html
       this.fs.copyTpl(
-        this.templatePath("articulate_rise/survey.html"),
+        this.templatePath("articulate_rise/survey.htm"),
         this.destinationPath("build/survey.html"),
         {
           templateType: this.props.templateType,
