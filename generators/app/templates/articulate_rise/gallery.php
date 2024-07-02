@@ -175,7 +175,7 @@ require_once('cometAPI.inc.php');
                                       </li>
                                       <li class="nav-sidebar__outline-list-item" role="listitem">
                                         <div class="nav-sidebar__outline-item"><a class="nav-sidebar__outline-item__link" data-link="lesson-link-item"
-                                            href="https://meted.ucar.edu/education_training/lesson/10319/booster"><svg aria-hidden="true"
+                                            href="https://meted.ucar.edu/education_training/lesson/<%= lessonID %>/booster"><svg aria-hidden="true"
                                               class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false" height="12" viewBox="0 0 18 12"
                                               width="18" xmlns="http://www.w3.org/2000/svg">
                                               <path clip-rule="evenodd"
