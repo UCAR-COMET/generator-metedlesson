@@ -334,7 +334,7 @@
                                                       <div class="block-text__row">
                                                         <div id="maincontent" class="block-">
                                                           <div id="dl_agree" class="fr-view">
-                                                            <?php include('../../../download_agreement.txt'); ?>
+                                                            <?php include('<%= pathStructure %>download_agreement.txt'); ?>
                                                           </div>
                                                         </div>
                                                       </div>
