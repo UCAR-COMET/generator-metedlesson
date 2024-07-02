@@ -771,7 +771,7 @@
     --color-theme-rgb: 102,205,183;
     --color-theme-tint: #f0faf8;
     --color-theme-transparent: #66cdb71A;
-    --color-theme: #66cdb7;
+    --color-theme: #66cdb7; /* PRIMARY THEME COLOR */
     --font-family-body: Merriweather, sans-serif;
     --font-family-head: Lato, sans-serif;
     --font-family-ui: Lato, sans-serif;
