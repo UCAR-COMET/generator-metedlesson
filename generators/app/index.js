@@ -95,13 +95,20 @@ module.exports = class extends Generator {
       {
         type: "checkbox",
         name: "articulatePages",
-        message: "Select the additional pages to include:",
-        choices: [
-          "Resources",
-          "Print",
-          "Blank Page",
-        ],
-        default: ["Resources"]
+        message: "Select any additional pages to include:",
+        choices: [{
+          name: 'Resources',
+          value: 'includeResources',
+          checked: true
+        }, {
+          name: 'Print',
+          value: 'includePrint',
+          checked: false
+        }, {
+          name: 'Blank Page',
+          value: 'includeBlank',
+          checked: false
+        }]
       }
     ];
 
@@ -132,6 +139,7 @@ module.exports = class extends Generator {
           this.copyrightText = props.splashImageCredit;
         });
       }
+      // Check additional prompts for Articulate Shell
       if (props.templateType === "articulate-shell") {
         return this.prompt(articulateShellPrompts).then(props => {
           console.log("RETURN STUFF FOR ARTICULATE SHELL PROMPTS!!!");
@@ -139,7 +147,8 @@ module.exports = class extends Generator {
           // this.props = props;
 
           // Adjusted vars
-          this.articulatePages = props.articulatePages;
+          this.articulatePages = props.articulatePages.push(props.articulatePages);
+          console.log("Articulate Pages: ", this.articulatePages);
         });
       }
 
