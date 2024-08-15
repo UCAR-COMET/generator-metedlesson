@@ -342,7 +342,7 @@ require_once('cometAPI.inc.php');
                                                               class="block-gallery__figure" role="figure">
                                                               <a href="<?php echo $item->path . "/" . $item->name . "." . $item->extension;?>" target="_blank">
                                                               <div class="block-gallery__image img--zoom"
-                                                                style="background: url('<?php echo $item->path . "/" . $item->name . ".jpg" ?>');">
+                                                                style="background: url('<?php echo $item->path . "/" . $item->name . ".jpg" ?>'); background-size: fit;">
                                                                 <div class="img"><img decoding="async" loading="lazy" alt=""
                                                                     role="img" src="assets/KLV28A/amp.jpg"></div><button
                                                                   aria-label="Zoom image" class="img__btn visually-hidden"
