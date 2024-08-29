@@ -324,83 +324,135 @@ require_once('cometAPI.inc.php');
 
 
 
-                                                      <div class="block-gallery__row">
+                                                    <div class="block-gallery__row">
                                                         <div>
 
-<?php foreach($items as $item) { ?>
-        
-<?php $item->description = str_replace( '"', '&quot;', $item->description ); ?>
+                                                          <?php foreach($items as $item) { ?>
 
-<?php $item->credits = str_replace( '"', '&quot;', $item->credits ); 
-    $pattern =  "/" . preg_quote($module->path, "/") . "/";
-    $item->path = preg_replace($pattern, "", $item->path);
-?>                                                  
+                                                          <?php $item->description = str_replace( '"', '&quot;', $item->description ); ?>
+
+                                                          <?php $item->credits = str_replace( '"', '&quot;', $item->credits ); 
+                                                              $pattern =  "/" . preg_quote($module->path, "/") . "/";
+                                                              $item->path = preg_replace($pattern, "", $item->path);
+                                                          ?>
                                                           <div class="block-gallery__col">
 
-                                                          
-                                                            <figure id="item-" aria-labelledby="figcaption-<?php echo $item->id; ?>"
+
+                                                            <figure id="item-"
+                                                              aria-labelledby="figcaption-<?php echo $item->id; ?>"
                                                               class="block-gallery__figure" role="figure">
+                                                          <?php /*START_PHP_SIRFCIT*/ if ($item->extension=="htm"){ ?>
+                                                              <a href="<?php echo $item->path . "/index." . $item->extension;?>" target="_blank">
+                                                          <?php } else { ?>
                                                               <a href="<?php echo $item->path . "/" . $item->name . "." . $item->extension;?>" target="_blank">
-                                                              <div class="block-gallery__image img--zoom"
-                                                                style="background: url('<?php echo $item->path . "/" . $item->name . ".jpg" ?>'); background-size: fit;">
-                                                                <div class="img"><img decoding="async" loading="lazy" alt=""
-                                                                    role="img" src="assets/KLV28A/amp.jpg"></div><button
-                                                                  aria-label="Zoom image" class="img__btn visually-hidden"
-                                                                  type="button"><svg aria-hidden="true"
-                                                                    class="img__btn-symbol" focusable="false" role="img"
-                                                                    viewBox="0 0 493 493" xmlns="http://www.w3.org/2000/svg">
-                                                                    <path
-                                                                      d="M72.1125 306.317L102.113 306.318L102.112 369.127L369.124 102.115L306.316 102.115L306.315 72.1142L420.31 72.1149L420.311 186.11L390.311 186.109L390.311 123.355L123.352 390.313L186.107 390.312L186.108 420.313L72.1125 420.313V306.317Z">
-                                                                    </path>
-                                                                  </svg></button>
-                                                              </div>
+                                                          <?php } /*END_PHP_SIRFCIT*/ ?>
+                                                                <div class="block-gallery__image img--zoom"
+                                                                  style="background-image: url('<?php echo $item->path . "/" . $item->name . ".jpg" ?>'); background-size: fit;">
+                                                                  <div class="img"><img decoding="async" loading="lazy"
+                                                                      alt="" role="img" src="assets/KLV28A/amp.jpg">
+                                                                  </div><button aria-label="Zoom image"
+                                                                    class="img__btn visually-hidden" type="button"><svg
+                                                                      aria-hidden="true" class="img__btn-symbol"
+                                                                      focusable="false" role="img" viewBox="0 0 493 493"
+                                                                      xmlns="http://www.w3.org/2000/svg">
+                                                                      <path
+                                                                        d="M72.1125 306.317L102.113 306.318L102.112 369.127L369.124 102.115L306.316 102.115L306.315 72.1142L420.31 72.1149L420.311 186.11L390.311 186.109L390.311 123.355L123.352 390.313L186.107 390.312L186.108 420.313L72.1125 420.313V306.317Z">
+                                                                      </path>
+                                                                    </svg></button>
+                                                                </div>
                                                               </a>
                                                               <figcaption id="figcaption-<?php echo $item->id; ?>">
                                                                 <div class="block-gallery__caption brand--linkColor">
                                                                   <div class="fr-view">
-                                                                    <p><strong>Description:</strong> <br/> <?php echo $item->description; ?></p>
-                                                                    <p class="media-filename"><strong>File Name:</strong><br><?php echo $item->name ?>.<?php echo $item->extension; ?></p>
-                    <p><strong>Credits:</strong><br><?php echo $item->credits; ?></p>
-                    <p><strong>Copyright Terms:</strong><br>
-<?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="COMET Standard Terms of Use"){ ?>
-    <a href="http://www.meted.ucar.edu/legal.htm" target="_blank">COMET Standard Terms of Use</a><?php } /*END_PHP_SIRFCIT*/ ?>
-<?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="COMET Standard Terms of Use - NCU"){ ?>
-    <a href="http://www.meted.ucar.edu/legal.htm" target="_blank">COMET Standard Terms of Use - NCU</a><?php } /*END_PHP_SIRFCIT*/ ?>
-<?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons BY 4.0 International"){ ?>
-    <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons BY 4.0 International</a><?php } /*END_PHP_SIRFCIT*/ ?>
-<?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution-ShareAlike 3.0 IGO"){ ?>
-    <a href="http://creativecommons.org/licenses/by-sa/3.0/igo/" target="_blank">Creative Commons Attribution-ShareAlike 3.0 IGO</a><?php } /*END_PHP_SIRFCIT*/ ?>
-<?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution-ShareAlike 3.0 Unported"){ ?>
-    <a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank">Creative Commons Attribution-ShareAlike 3.0</a><?php } /*END_PHP_SIRFCIT*/ ?>
-<?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution 3.0 Unported"){ ?>
-    <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 Unported</a><?php } /*END_PHP_SIRFCIT*/ ?>
-<?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution-ShareAlike 2.5"){ ?>
-    <a href="http://creativecommons.org/licenses/by-sa/2.5/" target="_blank">Creative Commons Attribution-ShareAlike 2.5</a><?php } /*END_PHP_SIRFCIT*/ ?>
-<?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution-ShareAlike 2.0"){ ?>
-    <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">Creative Commons Attribution-ShareAlike 2.0</a><?php } /*END_PHP_SIRFCIT*/ ?>
-<?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution-Noncommercial-Share Alike 2.0 Generic"){ ?>
-    <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank">Creative Commons Attribution-Noncommercial-Share Alike 2.0 Generic</a><?php } /*END_PHP_SIRFCIT*/ ?>
-<?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Attribution-NonCommercial-NoDerivs 2.0 Generic"){ ?>
-    <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/" target="_blank">Attribution-NonCommercial-NoDerivs 2.0 Generic</a><?php } /*END_PHP_SIRFCIT*/ ?>
-<?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution-Noncommercial 2.0 Generic"){ ?>
-    <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">Creative Commons Attribution-Noncommercial 2.0 Generic</a><?php } /*END_PHP_SIRFCIT*/ ?>
-<?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution 2.0"){ ?>
-    <a href="http://creativecommons.org/licenses/by/2.0/" target="_blank">Creative Commons Attribution 2.0</a><?php } /*END_PHP_SIRFCIT*/ ?>
-<?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution 2.0 Generic"){ ?>
-    <a href="http://creativecommons.org/licenses/by/2.0/" target="_blank">Creative Commons Attribution 2.0 Generic</a><?php } /*END_PHP_SIRFCIT*/ ?>
-                    </p>
+                                                                    <p><strong>Description:</strong> <br />
+                                                                      <?php echo $item->description; ?>
+                                                                    </p>
+                                                                    <p class="media-filename"><strong>File
+                                                                        Name:</strong><br>
+                                                                      <?php echo $item->name ?>.<?php echo $item->extension; ?>
+                                                                    </p>
+                                                                    <p><strong>Credits:</strong><br>
+                                                                      <?php echo $item->credits; ?>
+                                                                    </p>
+                                                                    <p><strong>Copyright Terms:</strong><br>
+                                                                      <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="COMET Standard Terms of Use"){ ?>
+                                                                      <a href="http://www.meted.ucar.edu/legal.htm"
+                                                                        target="_blank">COMET Standard Terms of Use</a>
+                                                                      <?php } /*END_PHP_SIRFCIT*/ ?>
+                                                                      <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="COMET Standard Terms of Use - NCU"){ ?>
+                                                                      <a href="http://www.meted.ucar.edu/legal.htm"
+                                                                        target="_blank">COMET Standard Terms of Use -
+                                                                        NCU</a>
+                                                                      <?php } /*END_PHP_SIRFCIT*/ ?>
+                                                                      <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons BY 4.0 International"){ ?>
+                                                                      <a href="http://creativecommons.org/licenses/by/4.0/"
+                                                                        target="_blank">Creative Commons BY 4.0
+                                                                        International</a>
+                                                                      <?php } /*END_PHP_SIRFCIT*/ ?>
+                                                                      <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution-ShareAlike 3.0 IGO"){ ?>
+                                                                      <a href="http://creativecommons.org/licenses/by-sa/3.0/igo/"
+                                                                        target="_blank">Creative Commons
+                                                                        Attribution-ShareAlike 3.0 IGO</a>
+                                                                      <?php } /*END_PHP_SIRFCIT*/ ?>
+                                                                      <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution-ShareAlike 3.0 Unported"){ ?>
+                                                                      <a href="http://creativecommons.org/licenses/by-sa/3.0/"
+                                                                        target="_blank">Creative Commons
+                                                                        Attribution-ShareAlike 3.0</a>
+                                                                      <?php } /*END_PHP_SIRFCIT*/ ?>
+                                                                      <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution 3.0 Unported"){ ?>
+                                                                      <a href="http://creativecommons.org/licenses/by/3.0/"
+                                                                        target="_blank">Creative Commons Attribution 3.0
+                                                                        Unported</a>
+                                                                      <?php } /*END_PHP_SIRFCIT*/ ?>
+                                                                      <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution-ShareAlike 2.5"){ ?>
+                                                                      <a href="http://creativecommons.org/licenses/by-sa/2.5/"
+                                                                        target="_blank">Creative Commons
+                                                                        Attribution-ShareAlike 2.5</a>
+                                                                      <?php } /*END_PHP_SIRFCIT*/ ?>
+                                                                      <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution-ShareAlike 2.0"){ ?>
+                                                                      <a href="http://creativecommons.org/licenses/by-sa/2.0/"
+                                                                        target="_blank">Creative Commons
+                                                                        Attribution-ShareAlike 2.0</a>
+                                                                      <?php } /*END_PHP_SIRFCIT*/ ?>
+                                                                      <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution-Noncommercial-Share Alike 2.0 Generic"){ ?>
+                                                                      <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/"
+                                                                        target="_blank">Creative Commons
+                                                                        Attribution-Noncommercial-Share Alike 2.0
+                                                                        Generic</a>
+                                                                      <?php } /*END_PHP_SIRFCIT*/ ?>
+                                                                      <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Attribution-NonCommercial-NoDerivs 2.0 Generic"){ ?>
+                                                                      <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/"
+                                                                        target="_blank">Attribution-NonCommercial-NoDerivs
+                                                                        2.0 Generic</a>
+                                                                      <?php } /*END_PHP_SIRFCIT*/ ?>
+                                                                      <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution-Noncommercial 2.0 Generic"){ ?>
+                                                                      <a href="http://creativecommons.org/licenses/by-nc/2.0/"
+                                                                        target="_blank">Creative Commons
+                                                                        Attribution-Noncommercial 2.0 Generic</a>
+                                                                      <?php } /*END_PHP_SIRFCIT*/ ?>
+                                                                      <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution 2.0"){ ?>
+                                                                      <a href="http://creativecommons.org/licenses/by/2.0/"
+                                                                        target="_blank">Creative Commons Attribution
+                                                                        2.0</a>
+                                                                      <?php } /*END_PHP_SIRFCIT*/ ?>
+                                                                      <?php /*START_PHP_SIRFCIT*/ if ($item->copyright_type =="Creative Commons Attribution 2.0 Generic"){ ?>
+                                                                      <a href="http://creativecommons.org/licenses/by/2.0/"
+                                                                        target="_blank">Creative Commons Attribution 2.0
+                                                                        Generic</a>
+                                                                      <?php } /*END_PHP_SIRFCIT*/ ?>
+                                                                    </p>
                                                                   </div>
                                                                 </div>
-                                                                
+
                                                               </figcaption>
                                                             </figure>
 
 
                                                           </div>
 
-<?php } ?><!-- close row if ending on something other than 4 -->
+                                                          <?php } ?><!-- close row if ending on something other than 4 -->
 
-                                                          
+
                                                         </div>
                                                       </div>
                                                     </div>
@@ -416,7 +468,7 @@ require_once('cometAPI.inc.php');
                                     </div>
                                   </div>
                                 </div>
-                                
+
                               </div>
                             </div>
                           </div>

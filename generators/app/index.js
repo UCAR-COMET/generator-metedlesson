@@ -102,11 +102,11 @@ module.exports = class extends Generator {
           checked: true
         }, {
           name: 'Print',
-          value: 'Print',
+          value: 'addPrintPage',
           checked: false
         }, {
           name: 'Blank Page',
-          value: 'Blank',
+          value: 'addBlankPage',
           checked: false
         }]
       }
