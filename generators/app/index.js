@@ -98,15 +98,15 @@ module.exports = class extends Generator {
         message: "Select any additional pages to include:",
         choices: [{
           name: 'Resources',
-          value: 'Resources',
+          value: 'ResourcesPage',
           checked: true
         }, {
           name: 'Print',
-          value: 'addPrintPage',
+          value: 'PrintPage',
           checked: false
         }, {
           name: 'Blank Page',
-          value: 'addBlankPage',
+          value: 'BlankPage',
           checked: false
         }]
       }
@@ -608,5 +608,9 @@ module.exports = class extends Generator {
     this.log("Copyright year: " + `${chalk.red(this.generatorYear)}`);
     this.log(`${chalk.green("build & dist")} folders READY`);
     this.log(yosay(`${chalk.green("Just running a few more tasks...")}`));
+    // Log additional Articulate options
+    if (this.articulatePages){
+      this.log("Articulate pages:" + this.articulatePages);
+    }
   }
 };
