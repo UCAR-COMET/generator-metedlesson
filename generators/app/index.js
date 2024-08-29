@@ -200,7 +200,7 @@ module.exports = class extends Generator {
         this.templatePath("extensions/grunt/articulate/Gruntfile.js"),
         this.destinationPath("Gruntfile.js")
       );
-      // index.html
+      // index.htm
       this.fs.copyTpl(
         this.templatePath("articulate_rise/index.htm"),
         this.destinationPath("build/index.htm"),
@@ -215,7 +215,7 @@ module.exports = class extends Generator {
           lessonLang: this.props.metedLang
         }
       );
-      // contributors.html
+      // contributors.htm
       this.fs.copyTpl(
         this.templatePath("articulate_rise/contributors.htm"),
         this.destinationPath("build/contributors.htm"),
@@ -245,7 +245,7 @@ module.exports = class extends Generator {
           lessonLang: this.props.metedLang
         }
       );
-      // preassessment.html
+      // preassessment.htm
       this.fs.copyTpl(
         this.templatePath("articulate_rise/preassessment.htm"),
         this.destinationPath("build/preassessment.htm"),
@@ -260,7 +260,7 @@ module.exports = class extends Generator {
           lessonLang: this.props.metedLang
         }
       );
-      // quiz.html
+      // quiz.htm
       this.fs.copyTpl(
         this.templatePath("articulate_rise/quiz.htm"),
         this.destinationPath("build/quiz.htm"),
@@ -313,14 +313,14 @@ module.exports = class extends Generator {
           this.destinationPath("build/resources.htm"),
           {
             templateType: this.props.templateType,
-          lessonTitle: this.props.metedName,
-          lessonID: this.props.metedID,
-          lessonDesc: this.props.metedDesc,
-          lessonKeys: this.props.metedKeys,
-          copyrightYear: this.generatorYear,
-          lessonLang: this.props.metedLang,
-          usedPages: this.articulatePages,
-          pathStructure: this.structure
+            lessonTitle: this.props.metedName,
+            lessonID: this.props.metedID,
+            lessonDesc: this.props.metedDesc,
+            lessonKeys: this.props.metedKeys,
+            copyrightYear: this.generatorYear,
+            lessonLang: this.props.metedLang,
+            usedPages: this.articulatePages,
+            pathStructure: this.structure
           }
         );
       }
@@ -330,14 +330,14 @@ module.exports = class extends Generator {
           this.destinationPath("build/print.php"),
           {
             templateType: this.props.templateType,
-          lessonTitle: this.props.metedName,
-          lessonID: this.props.metedID,
-          lessonDesc: this.props.metedDesc,
-          lessonKeys: this.props.metedKeys,
-          copyrightYear: this.generatorYear,
-          lessonLang: this.props.metedLang,
-          usedPages: this.articulatePages,
-          pathStructure: this.structure
+            lessonTitle: this.props.metedName,
+            lessonID: this.props.metedID,
+            lessonDesc: this.props.metedDesc,
+            lessonKeys: this.props.metedKeys,
+            copyrightYear: this.generatorYear,
+            lessonLang: this.props.metedLang,
+            usedPages: this.articulatePages,
+            pathStructure: this.structure
           }
         );
       }
@@ -347,14 +347,14 @@ module.exports = class extends Generator {
           this.destinationPath("build/blank.htm"),
           {
             templateType: this.props.templateType,
-          lessonTitle: this.props.metedName,
-          lessonID: this.props.metedID,
-          lessonDesc: this.props.metedDesc,
-          lessonKeys: this.props.metedKeys,
-          copyrightYear: this.generatorYear,
-          lessonLang: this.props.metedLang,
-          usedPages: this.articulatePages,
-          pathStructure: this.structure
+            lessonTitle: this.props.metedName,
+            lessonID: this.props.metedID,
+            lessonDesc: this.props.metedDesc,
+            lessonKeys: this.props.metedKeys,
+            copyrightYear: this.generatorYear,
+            lessonLang: this.props.metedLang,
+            usedPages: this.articulatePages,
+            pathStructure: this.structure
           }
         );
       }
