@@ -307,7 +307,7 @@ module.exports = class extends Generator {
         }
       );
       // conditional pages
-      if (this.articulatePages.includes("Resources")) {
+      if (this.articulatePages.includes("ResourcesPage")) {
         this.fs.copy(
           this.templatePath("articulate_rise/resources.htm"),
           this.destinationPath("build/resources.htm"),
@@ -324,7 +324,7 @@ module.exports = class extends Generator {
           }
         );
       }
-      if (this.articulatePages.includes("Print")) {
+      if (this.articulatePages.includes("PrintPage")) {
         this.fs.copy(
           this.templatePath("print.php"),
           this.destinationPath("build/print.php"),
@@ -341,7 +341,7 @@ module.exports = class extends Generator {
           }
         );
       }
-      if (this.articulatePages.includes("Blank Page")) {
+      if (this.articulatePages.includes("BlankPage")) {
         this.fs.copy(
           this.templatePath("articulate_rise/blank.htm"),
           this.destinationPath("build/blank.htm"),
