@@ -192,6 +192,7 @@
                                                 class="lesson-progress__graphic lesson-progress__graphic--sidebar"></span></span></a>
                                         </div>
                                       </li>
+                                      <% if (usedPages.includes('ResourcesPage')) { %>
                                       <li class="nav-sidebar__outline-list-item" role="listitem">
                                         <div class="nav-sidebar__outline-item nav-sidebar__outline-item--active nav-sidebar__outline-item--complete">
                                           <a class="nav-sidebar__outline-item__link nav-sidebar__outline-item__link--active active" data-link="lesson-link-item"
@@ -204,6 +205,7 @@
                                             </svg>Resources<span class="lesson-progress lesson-progress--sidebar"><span
                                                 class="lesson-progress__graphic lesson-progress__graphic--sidebar"></span></span></a></div>
                                       </li>
+                                      <% } else {} %>
                                       <% if (usedPages.includes('PrintPage')) { %>
                                         <li class="nav-sidebar__outline-list-item" role="listitem">
                                           <div class="nav-sidebar__outline-item">
@@ -217,7 +219,7 @@
                                               </svg>Printable Lesson<span class="lesson-progress lesson-progress--sidebar"><span
                                                   class="lesson-progress__graphic lesson-progress__graphic--sidebar"></span></span></a></div>
                                         </li>
-                                        <% } %>
+                                        <% } else {} %>
                                         <% if (usedPages.includes('BlankPage')) { %>
                                           <li class="nav-sidebar__outline-list-item" role="listitem">
                                             <div class="nav-sidebar__outline-item">
@@ -231,7 +233,7 @@
                                                 </svg>PAGE NAME HERE<span class="lesson-progress lesson-progress--sidebar"><span
                                                     class="lesson-progress__graphic lesson-progress__graphic--sidebar"></span></span></a></div>
                                           </li>
-                                          <% } %>
+                                          <% } else {} %>
                                       <li class="nav-sidebar__outline-list-item nav-sidebar__outline-list-item--last"
                                         role="listitem">
                                         <div class="nav-sidebar__outline-item"><a class="nav-sidebar__outline-item__link" data-link="lesson-link-item"
