@@ -141,6 +141,18 @@
                             </a>
                           </div>
                         </li>
+                        <% if (usedPages.includes('PrintPage')) { %>
+                          <li class="overview-list__li" role="listitem">
+                            <div class="overview-list-item">
+                              <a class="overview-list-item__link" data-link="lesson-link-item" href="print.php">
+                                <div class="overview-list-item__progress-circle"><span aria-hidden="true" class="overview-list-item__icon"></span><span class="overview-list-item__title">
+                                    <object type="image/svg+xml" data="src/assets/item_icon.svg" alt="list item icon"></object>
+                                    Printable Content</span><span class="lesson-progress lesson-progress--cover">
+                                </div>
+                              </a>
+                            </div>
+                          </li>
+                        <% } else {} %>
                         <li class="overview-list__li" role="listitem">
                           <div class="overview-list-item">
                             <a class="overview-list-item__link" data-link="lesson-link-item" href="contributors.htm">

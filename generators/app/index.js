@@ -104,10 +104,6 @@ module.exports = class extends Generator {
           name: 'Print',
           value: 'PrintPage',
           checked: false
-        }, {
-          name: 'Blank Page',
-          value: 'BlankPage',
-          checked: false
         }]
       }
     ];
