@@ -17,7 +17,6 @@
     <script type="text/javascript" src="src/js/player-0.0.11.min.js"></script>
     <script type="text/javascript" src="src/js/lzwcompress.js"></script>
 
-    
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -26,7 +25,7 @@
   <link rel="stylesheet" type="text/css" href="src/css/rise_custom.css">
 
 </head>
-  <body>
+<body>
     <div id="app">
       <div class="visually-hidden-always" role="log" aria-live="polite" aria-atomic="true" aria-relevant="additions text"></div>
       <div class="visually-hidden-always" role="log" aria-live="polite" aria-atomic="true" aria-relevant="additions text"></div>
@@ -40,8 +39,7 @@
     <div class="cover-container">
       <div id="cover" class="cover cover--layout-left-overlay">
         <header class="cover__header" style="max-width: 1280px; float: none; margin: 0 auto;">
-          <div class="cover__header-content cover__header-content--overlay-dark"
-            style="position: relative; background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('src/assets/module-cover.jpg');">
+          <div class="cover__header-content cover__header-content--overlay-dark" style="position: relative; background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('src/assets/module-cover.jpg');">
             <div class="cover__header-content-info">
               <h1 class="cover__header-content-title"><%= lessonTitle %></h1>
               <div class="cover__header-content-action-wrapper">
@@ -58,190 +56,107 @@
           <div class="cover__details-content-wrap cover__details-content-wrap--logo">
             <div class="cover__details-content">
               <div class="cover__details-description-outline">
-                <section class="cover__details-content-section cover__details-content-section--type-outline">
+                <aside class="cover__details-content-section cover__details-content-section--type-outline">
                   <nav aria-label="Table of contents" class="overview-list">
                       <ol class="overview-list__list overview-list__list--sectionless" role="list">
                         <li class="overview-list__li" role="listitem">
-                          <div class="overview-list-item"><a class="overview-list-item__link"
-                              data-link="lesson-link-item" href="preassessment.htm">
-                              <div class="overview-list-item__progress-circle"><span aria-hidden="true"
-                                  class="overview-list-item__icon"></span><span class="overview-list-item__title"><svg aria-hidden="true"
-                                    class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false"
-                                    height="12" viewBox="0 0 18 12" width="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path clip-rule="evenodd"
-                                      d="M0.666992 1.00002C0.666992 0.539783 1.04009 0.166687 1.50033 0.166687H14.0003C14.4606 0.166687 14.8337 0.539783 14.8337 1.00002C14.8337 1.46026 14.4606 1.83335 14.0003 1.83335H1.50033C1.04009 1.83335 0.666992 1.46026 0.666992 1.00002ZM0.666992 6.00002C0.666992 5.53978 1.04009 5.16669 1.50033 5.16669H16.5003C16.9606 5.16669 17.3337 5.53978 17.3337 6.00002C17.3337 6.46026 16.9606 6.83335 16.5003 6.83335H1.50033C1.04009 6.83335 0.666992 6.46026 0.666992 6.00002ZM0.666992 11C0.666992 10.5398 1.04009 10.1667 1.50033 10.1667H10.667C11.1272 10.1667 11.5003 10.5398 11.5003 11C11.5003 11.4603 11.1272 11.8334 10.667 11.8334H1.50033C1.04009 11.8334 0.666992 11.4603 0.666992 11Z"
-                                      fill="currentColor" fill-rule="evenodd"></path>
-                                  </svg>Pre-assessment</span><span
-                                  class="lesson-progress lesson-progress--cover"><span
-                                    class="lesson-progress__graphic lesson-progress__graphic--cover"></span></span></div>
-                            </a></div>
+                          <div class="overview-list-item">
+                            <a class="overview-list-item__link" data-link="lesson-link-item" href="preassessment.htm">
+                              <div class="overview-list-item__progress-circle"><span aria-hidden="true" class="overview-list-item__icon"></span><span class="overview-list-item__title">
+                                  <object type="image/svg+xml" data="src/assets/item_icon.svg" alt="list item icon"></object>
+                                  Pre-assessment</span><span class="lesson-progress lesson-progress--cover">
+                              </div>
+                            </a>
+                          </div>
                         </li>
                         <li class="overview-list__li" role="listitem">
-                          <div class="overview-list-item"><a class="overview-list-item__link"
-                              data-link="lesson-link-item" href="storyline/story.html" target="_blank">
-                              <div class="overview-list-item__progress-circle"><span aria-hidden="true"
-                                  class="overview-list-item__icon"></span><span class="overview-list-item__title"><svg aria-hidden="true"
-                                    class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false"
-                                    height="12" viewBox="0 0 18 12" width="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path clip-rule="evenodd"
-                                      d="M0.666992 1.00002C0.666992 0.539783 1.04009 0.166687 1.50033 0.166687H14.0003C14.4606 0.166687 14.8337 0.539783 14.8337 1.00002C14.8337 1.46026 14.4606 1.83335 14.0003 1.83335H1.50033C1.04009 1.83335 0.666992 1.46026 0.666992 1.00002ZM0.666992 6.00002C0.666992 5.53978 1.04009 5.16669 1.50033 5.16669H16.5003C16.9606 5.16669 17.3337 5.53978 17.3337 6.00002C17.3337 6.46026 16.9606 6.83335 16.5003 6.83335H1.50033C1.04009 6.83335 0.666992 6.46026 0.666992 6.00002ZM0.666992 11C0.666992 10.5398 1.04009 10.1667 1.50033 10.1667H10.667C11.1272 10.1667 11.5003 10.5398 11.5003 11C11.5003 11.4603 11.1272 11.8334 10.667 11.8334H1.50033C1.04009 11.8334 0.666992 11.4603 0.666992 11Z"
-                                      fill="currentColor" fill-rule="evenodd"></path>
-                                  </svg>Lesson &rarr;</span><span
-                                  class="lesson-progress lesson-progress--cover"><span
-                                    class="lesson-progress__graphic lesson-progress__graphic--cover"></span></span></div>
-                            </a></div>
+                          <div class="overview-list-item">
+                            <a class="overview-list-item__link" data-link="lesson-link-item" href="storyline/story.html">
+                              <div class="overview-list-item__progress-circle"><span aria-hidden="true" class="overview-list-item__icon"></span><span class="overview-list-item__title">
+                                  <object type="image/svg+xml" data="src/assets/item_icon.svg" alt="list item icon"></object>
+                                  Lesson &rarr;</span><span class="lesson-progress lesson-progress--cover">
+                              </div>
+                            </a>
+                          </div>
                         </li>
                         <li class="overview-list__li" role="listitem">
-                          <div class="overview-list-item"><a class="overview-list-item__link"
-                              data-link="lesson-link-item" href="gallery.php">
-                              <div class="overview-list-item__progress-circle"><span aria-hidden="true"
-                                  class="overview-list-item__icon"></span><span class="overview-list-item__title"><svg aria-hidden="true"
-                                    class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false"
-                                    height="12" viewBox="0 0 18 12" width="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path clip-rule="evenodd"
-                                      d="M0.666992 1.00002C0.666992 0.539783 1.04009 0.166687 1.50033 0.166687H14.0003C14.4606 0.166687 14.8337 0.539783 14.8337 1.00002C14.8337 1.46026 14.4606 1.83335 14.0003 1.83335H1.50033C1.04009 1.83335 0.666992 1.46026 0.666992 1.00002ZM0.666992 6.00002C0.666992 5.53978 1.04009 5.16669 1.50033 5.16669H16.5003C16.9606 5.16669 17.3337 5.53978 17.3337 6.00002C17.3337 6.46026 16.9606 6.83335 16.5003 6.83335H1.50033C1.04009 6.83335 0.666992 6.46026 0.666992 6.00002ZM0.666992 11C0.666992 10.5398 1.04009 10.1667 1.50033 10.1667H10.667C11.1272 10.1667 11.5003 10.5398 11.5003 11C11.5003 11.4603 11.1272 11.8334 10.667 11.8334H1.50033C1.04009 11.8334 0.666992 11.4603 0.666992 11Z"
-                                      fill="currentColor" fill-rule="evenodd"></path>
-                                  </svg>Gallery</span><span
-                                  class="lesson-progress lesson-progress--cover"><span
-                                    class="lesson-progress__graphic lesson-progress__graphic--cover"></span></span></div>
-                            </a></div>
+                          <div class="overview-list-item">
+                            <a class="overview-list-item__link" data-link="lesson-link-item" href="gallery.php">
+                              <div class="overview-list-item__progress-circle"><span aria-hidden="true" class="overview-list-item__icon"></span><span class="overview-list-item__title">
+                                  <object type="image/svg+xml" data="src/assets/item_icon.svg" alt="list item icon"></object>
+                                  Gallery</span><span class="lesson-progress lesson-progress--cover">
+                              </div>
+                            </a>
+                          </div>
                         </li>
                         <li class="overview-list__li" role="listitem">
-                          <div class="overview-list-item"><a class="overview-list-item__link"
-                              data-link="lesson-link-item" href="quiz.htm">
-                              <div class="overview-list-item__progress-circle"><span aria-hidden="true"
-                                  class="overview-list-item__icon"></span><span class="overview-list-item__title"><svg aria-hidden="true"
-                                    class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false"
-                                    height="12" viewBox="0 0 18 12" width="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path clip-rule="evenodd"
-                                      d="M0.666992 1.00002C0.666992 0.539783 1.04009 0.166687 1.50033 0.166687H14.0003C14.4606 0.166687 14.8337 0.539783 14.8337 1.00002C14.8337 1.46026 14.4606 1.83335 14.0003 1.83335H1.50033C1.04009 1.83335 0.666992 1.46026 0.666992 1.00002ZM0.666992 6.00002C0.666992 5.53978 1.04009 5.16669 1.50033 5.16669H16.5003C16.9606 5.16669 17.3337 5.53978 17.3337 6.00002C17.3337 6.46026 16.9606 6.83335 16.5003 6.83335H1.50033C1.04009 6.83335 0.666992 6.46026 0.666992 6.00002ZM0.666992 11C0.666992 10.5398 1.04009 10.1667 1.50033 10.1667H10.667C11.1272 10.1667 11.5003 10.5398 11.5003 11C11.5003 11.4603 11.1272 11.8334 10.667 11.8334H1.50033C1.04009 11.8334 0.666992 11.4603 0.666992 11Z"
-                                      fill="currentColor" fill-rule="evenodd"></path>
-                                  </svg>Quiz</span><span
-                                  class="lesson-progress lesson-progress--cover"><span
-                                    class="lesson-progress__graphic lesson-progress__graphic--cover"></span></span></div>
-                            </a></div>
+                          <div class="overview-list-item">
+                            <a class="overview-list-item__link" data-link="lesson-link-item" href="quiz.htm">
+                              <div class="overview-list-item__progress-circle"><span aria-hidden="true" class="overview-list-item__icon"></span><span class="overview-list-item__title">
+                                  <object type="image/svg+xml" data="src/assets/item_icon.svg" alt="list item icon"></object>
+                                  Quiz</span><span class="lesson-progress lesson-progress--cover">
+                              </div>
+                            </a>
+                          </div>
                         </li>
                         <li class="overview-list__li" role="listitem">
-                          <div class="overview-list-item"><a class="overview-list-item__link"
-                              data-link="lesson-link-item" href="survey.htm">
-                              <div class="overview-list-item__progress-circle"><span aria-hidden="true"
-                                  class="overview-list-item__icon"></span><span class="overview-list-item__title"><svg aria-hidden="true"
-                                    class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false"
-                                    height="12" viewBox="0 0 18 12" width="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path clip-rule="evenodd"
-                                      d="M0.666992 1.00002C0.666992 0.539783 1.04009 0.166687 1.50033 0.166687H14.0003C14.4606 0.166687 14.8337 0.539783 14.8337 1.00002C14.8337 1.46026 14.4606 1.83335 14.0003 1.83335H1.50033C1.04009 1.83335 0.666992 1.46026 0.666992 1.00002ZM0.666992 6.00002C0.666992 5.53978 1.04009 5.16669 1.50033 5.16669H16.5003C16.9606 5.16669 17.3337 5.53978 17.3337 6.00002C17.3337 6.46026 16.9606 6.83335 16.5003 6.83335H1.50033C1.04009 6.83335 0.666992 6.46026 0.666992 6.00002ZM0.666992 11C0.666992 10.5398 1.04009 10.1667 1.50033 10.1667H10.667C11.1272 10.1667 11.5003 10.5398 11.5003 11C11.5003 11.4603 11.1272 11.8334 10.667 11.8334H1.50033C1.04009 11.8334 0.666992 11.4603 0.666992 11Z"
-                                      fill="currentColor" fill-rule="evenodd"></path>
-                                  </svg>Survey</span><span
-                                  class="lesson-progress lesson-progress--cover"><span
-                                    class="lesson-progress__graphic lesson-progress__graphic--cover"></span></span></div>
-                            </a></div>
+                          <div class="overview-list-item">
+                            <a class="overview-list-item__link" data-link="lesson-link-item" href="survey.htm">
+                              <div class="overview-list-item__progress-circle"><span aria-hidden="true" class="overview-list-item__icon"></span><span class="overview-list-item__title">
+                                  <object type="image/svg+xml" data="src/assets/item_icon.svg" alt="list item icon"></object>
+                                  Survey</span><span class="lesson-progress lesson-progress--cover">
+                              </div>
+                            </a>
+                          </div>
                         </li>
                         <li class="overview-list__li" role="listitem">
-                          <div class="overview-list-item"><a class="overview-list-item__link"
-                              data-link="lesson-link-item" href="https://meted.ucar.edu/education_training/lesson/<%= lessonID %>/booster" target="_blank">
-                              <div class="overview-list-item__progress-circle"><span aria-hidden="true"
-                                  class="overview-list-item__icon"></span><span class="overview-list-item__title"><svg aria-hidden="true"
-                                    class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false"
-                                    height="12" viewBox="0 0 18 12" width="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path clip-rule="evenodd"
-                                      d="M0.666992 1.00002C0.666992 0.539783 1.04009 0.166687 1.50033 0.166687H14.0003C14.4606 0.166687 14.8337 0.539783 14.8337 1.00002C14.8337 1.46026 14.4606 1.83335 14.0003 1.83335H1.50033C1.04009 1.83335 0.666992 1.46026 0.666992 1.00002ZM0.666992 6.00002C0.666992 5.53978 1.04009 5.16669 1.50033 5.16669H16.5003C16.9606 5.16669 17.3337 5.53978 17.3337 6.00002C17.3337 6.46026 16.9606 6.83335 16.5003 6.83335H1.50033C1.04009 6.83335 0.666992 6.46026 0.666992 6.00002ZM0.666992 11C0.666992 10.5398 1.04009 10.1667 1.50033 10.1667H10.667C11.1272 10.1667 11.5003 10.5398 11.5003 11C11.5003 11.4603 11.1272 11.8334 10.667 11.8334H1.50033C1.04009 11.8334 0.666992 11.4603 0.666992 11Z"
-                                      fill="currentColor" fill-rule="evenodd"></path>
-                                  </svg>Booster &rarr;</span><span
-                                  class="lesson-progress lesson-progress--cover"><span
-                                    class="lesson-progress__graphic lesson-progress__graphic--cover"></span></span></div>
-                            </a></div>
+                          <div class="overview-list-item">
+                            <a class="overview-list-item__link" data-link="lesson-link-item" href="https://meted.ucar.edu/education_training/lesson/<%= lessonID %>/booster">
+                              <div class="overview-list-item__progress-circle"><span aria-hidden="true" class="overview-list-item__icon"></span><span class="overview-list-item__title">
+                                  <object type="image/svg+xml" data="src/assets/item_icon.svg" alt="list item icon"></object>
+                                  Booster &rarr;</span><span class="lesson-progress lesson-progress--cover">
+                              </div>
+                            </a>
+                          </div>
                         </li>
                         <% if (usedPages.includes('ResourcesPage')) { %>
-                        <li class="overview-list__lit" role="listitem">
-                          <div class="overview-list-item"><a class="overview-list-item__link"
-                              data-link="lesson-link-item" href="resources.htm">
-                              <div class="overview-list-item__progress-circle"><span aria-hidden="true"
-                                  class="overview-list-item__icon"></span><span class="overview-list-item__title"><svg aria-hidden="true"
-                                    class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false"
-                                    height="12" viewBox="0 0 18 12" width="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path clip-rule="evenodd"
-                                      d="M0.666992 1.00002C0.666992 0.539783 1.04009 0.166687 1.50033 0.166687H14.0003C14.4606 0.166687 14.8337 0.539783 14.8337 1.00002C14.8337 1.46026 14.4606 1.83335 14.0003 1.83335H1.50033C1.04009 1.83335 0.666992 1.46026 0.666992 1.00002ZM0.666992 6.00002C0.666992 5.53978 1.04009 5.16669 1.50033 5.16669H16.5003C16.9606 5.16669 17.3337 5.53978 17.3337 6.00002C17.3337 6.46026 16.9606 6.83335 16.5003 6.83335H1.50033C1.04009 6.83335 0.666992 6.46026 0.666992 6.00002ZM0.666992 11C0.666992 10.5398 1.04009 10.1667 1.50033 10.1667H10.667C11.1272 10.1667 11.5003 10.5398 11.5003 11C11.5003 11.4603 11.1272 11.8334 10.667 11.8334H1.50033C1.04009 11.8334 0.666992 11.4603 0.666992 11Z"
-                                      fill="currentColor" fill-rule="evenodd"></path>
-                                  </svg>Resources</span><span
-                                  class="lesson-progress lesson-progress--cover"><span
-                                    class="lesson-progress__graphic lesson-progress__graphic--cover"></span></span></div>
-                            </a></div>
-                        </li>
-                        <% } else {} %>
-                        <% if (usedPages.includes('PrintPage')) { %>
-                        <li class="overview-list__lit" role="listitem">
-                          <div class="overview-list-item"><a class="overview-list-item__link"
-                              data-link="lesson-link-item" href="print.php">
-                              <div class="overview-list-item__progress-circle"><span aria-hidden="true"
-                                  class="overview-list-item__icon"></span><span class="overview-list-item__title"><svg aria-hidden="true"
-                                    class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false"
-                                    height="12" viewBox="0 0 18 12" width="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path clip-rule="evenodd"
-                                      d="M0.666992 1.00002C0.666992 0.539783 1.04009 0.166687 1.50033 0.166687H14.0003C14.4606 0.166687 14.8337 0.539783 14.8337 1.00002C14.8337 1.46026 14.4606 1.83335 14.0003 1.83335H1.50033C1.04009 1.83335 0.666992 1.46026 0.666992 1.00002ZM0.666992 6.00002C0.666992 5.53978 1.04009 5.16669 1.50033 5.16669H16.5003C16.9606 5.16669 17.3337 5.53978 17.3337 6.00002C17.3337 6.46026 16.9606 6.83335 16.5003 6.83335H1.50033C1.04009 6.83335 0.666992 6.46026 0.666992 6.00002ZM0.666992 11C0.666992 10.5398 1.04009 10.1667 1.50033 10.1667H10.667C11.1272 10.1667 11.5003 10.5398 11.
-5003 11C11.5003 11.4603 11.1272 11.8334 10.667 11.8334H1.50033C1.04009 11.8334 0.666992 11.4603 0.666992 11Z"
-                                      fill="currentColor" fill-rule="evenodd"></path>
-                                  </svg>Print</span><span
-                                  class="lesson-progress lesson-progress--cover"><span
-                                    class="lesson-progress__graphic lesson-progress__graphic--cover"></span></span></div>
-                            </a></div>
-                        </li>
-                        <% } else {} %>
-                        <% if (usedPages.includes('BlankPage')) { %>
-                        <li class="overview-list__lit" role="listitem">
-                          <div class="overview-list-item"><a class="overview-list-item__link"
-                              data-link="lesson-link-item" href="blank.htm">
-                              <div class="overview-list-item__progress-circle"><span aria-hidden="true"
-                                  class="overview-list-item__icon"></span><span class="overview-list-item__title"><svg aria-hidden="true"
-                                    class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false"
-                                    height="12" viewBox="0 0 18 12" width="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path clip-rule="evenodd"
-                                      d="M0.666992 1.00002C0.666992 0.539783 1.04009 0.166687 1.50033 0.166687H14.0003C14.4606 0.166687 14.8337 0.539783 14.8337 1.00002C14.8337 1.46026 14.4606 1.83335 14.0003 1.83335H1.50033C1.04009 1.83335 0.666992 1.46026 0.666992 1.00002ZM0.666992 6.00002C0.666992 5.53978 1.04009 5.16669 1.50033 5.16669H16.5003C16.9606 5.16669 17.3337 5.53978 17.3337 6.00002C17.3337 6.46026 16.9606 6.83335 16.5003 6.83335H1.50033C1.04009 6.83335 0.666992 6.46026 0.666992 6.00002ZM0.666992 11C0.666992 10.5398 1.04009 10.1667 1.50033 10.1667H10.667C11.1272 10.1667 11.5003 10.5398 11.
-5003 11C11.5003 11.4603 11.1272 11.8334 10.667 11.8334H1.50033C1.04009 11.8334 0.666992 11.4603 0.666992 11Z"
-                                      fill="currentColor" fill-rule="evenodd"></path>
-                                  </svg>Blank </span><span
-                                  class="lesson-progress lesson-progress--cover"><span
-                                    class="lesson-progress__graphic lesson-progress__graphic--cover"></span></span></div>
-                            </a></div>
-                        </li>
+                          <li class="overview-list__li" role="listitem">
+                            <div class="overview-list-item">
+                              <a class="overview-list-item__link" data-link="lesson-link-item" href="resources.htm">
+                                <div class="overview-list-item__progress-circle"><span aria-hidden="true" class="overview-list-item__icon"></span><span class="overview-list-item__title">
+                                    <object type="image/svg+xml" data="src/assets/item_icon.svg" alt="list item icon"></object>
+                                    Resources</span><span class="lesson-progress lesson-progress--cover">
+                                </div>
+                              </a>
+                            </div>
+                          </li>
                         <% } else {} %>
                         <li class="overview-list__li" role="listitem">
-                          <div class="overview-list-item"><a class="overview-list-item__link"
-                              data-link="lesson-link-item" href="contributors.htm">
-                              <div class="overview-list-item__progress-circle"><span aria-hidden="true"
-                                  class="overview-list-item__icon"></span><span class="overview-list-item__title"><svg aria-hidden="true"
-                                    class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false"
-                                    height="12" viewBox="0 0 18 12" width="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path clip-rule="evenodd"
-                                      d="M0.666992 1.00002C0.666992 0.539783 1.04009 0.166687 1.50033 0.166687H14.0003C14.4606 0.166687 14.8337 0.539783 14.8337 1.00002C14.8337 1.46026 14.4606 1.83335 14.0003 1.83335H1.50033C1.04009 1.83335 0.666992 1.46026 0.666992 1.00002ZM0.666992 6.00002C0.666992 5.53978 1.04009 5.16669 1.50033 5.16669H16.5003C16.9606 5.16669 17.3337 5.53978 17.3337 6.00002C17.3337 6.46026 16.9606 6.83335 16.5003 6.83335H1.50033C1.04009 6.83335 0.666992 6.46026 0.666992 6.00002ZM0.666992 11C0.666992 10.5398 1.04009 10.1667 1.50033 10.1667H10.667C11.1272 10.1667 11.5003 10.5398 11.5003 11C11.5003 11.4603 11.1272 11.8334 10.667 11.8334H1.50033C1.04009 11.8334 0.666992 11.4603 0.666992 11Z"
-                                      fill="currentColor" fill-rule="evenodd"></path>
-                                  </svg>Contributors</span><span
-                                  class="lesson-progress lesson-progress--cover"><span
-                                    class="lesson-progress__graphic lesson-progress__graphic--cover"></span></span></div>
-                            </a></div>
-                            <li class="overview-list__li overview-list__li--last" role="listitem">
-                              <div class="overview-list-item"><a class="overview-list-item__link"
-                                  data-link="lesson-link-item" href="download.php">
-                                  <div class="overview-list-item__progress-circle"><span aria-hidden="true"
-                                      class="overview-list-item__icon"></span><span class="overview-list-item__title"><svg aria-hidden="true"
-                                        class="nav-sidebar__outline-item-link-icon" fill="none" focusable="false"
-                                        height="12" viewBox="0 0 18 12" width="18" xmlns="http://www.w3.org/2000/svg">
-                                        <path clip-rule="evenodd"
-                                          d="M0.666992 1.00002C0.666992 0.539783 1.04009 0.166687 1.50033 0.166687H14.0003C14.4606 0.166687 14.8337 0.539783 14.8337 1.00002C14.8337 1.46026 14.4606 1.83335 14.0003 1.83335H1.50033C1.04009 1.83335 0.666992 1.46026 0.666992 1.00002ZM0.666992 6.00002C0.666992 5.53978 1.04009 5.16669 1.50033 5.16669H16.5003C16.9606 5.16669 17.3337 5.53978 17.3337 6.00002C17.3337 6.46026 16.9606 6.83335 16.5003 6.83335H1.50033C1.04009 6.83335 0.666992 6.46026 0.666992 6.00002ZM0.666992 11C0.666992 10.5398 1.04009 10.1667 1.50033 10.1667H10.667C11.1272 10.1667 11.5003 10.5398 11.5003 11C11.5003 11.4603 11.1272 11.8334 10.667 11.8334H1.50033C1.04009 11.8334 0.666992 11.4603 0.666992 11Z"
-                                          fill="currentColor" fill-rule="evenodd"></path>
-                                      </svg>Download</span><span
-                                      class="lesson-progress lesson-progress--cover"><span
-                                        class="lesson-progress__graphic lesson-progress__graphic--cover"></span></span></div>
-                                </a></div>
-                            </li>
+                          <div class="overview-list-item">
+                            <a class="overview-list-item__link" data-link="lesson-link-item" href="download.php">
+                              <div class="overview-list-item__progress-circle"><span aria-hidden="true" class="overview-list-item__icon"></span><span class="overview-list-item__title">
+                                  <object type="image/svg+xml" data="src/assets/item_icon.svg" alt="list item icon"></object>
+                                  Download</span><span class="lesson-progress lesson-progress--cover">
+                              </div>
+                            </a>
+                          </div>
+                        </li>
+                        <li class="overview-list__li" role="listitem">
+                          <div class="overview-list-item">
+                            <a class="overview-list-item__link" data-link="lesson-link-item" href="contributors.htm">
+                              <div class="overview-list-item__progress-circle"><span aria-hidden="true" class="overview-list-item__icon"></span><span class="overview-list-item__title">
+                                  <object type="image/svg+xml" data="src/assets/item_icon.svg" alt="list item icon"></object>
+                                  Contributors</span><span class="lesson-progress lesson-progress--cover">
+                              </div>
+                            </a>
+                          </div>
                         </li>
                       </ol>
                   </nav>
-                </section>
+                </aside>
               </div>
             </div>
           </div>
-
-
         </section>
 
         <footer id="lesson-footer">
@@ -274,14 +189,11 @@
           <% } %>
         </footer>
       </div>
-    </div>  
-
+    </div>
   </main>
 </div>
-<div></div>
-
-
-
+<div>
+</div>
 </div>
 </div>
 
