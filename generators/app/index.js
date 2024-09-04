@@ -100,11 +100,11 @@ module.exports = class extends Generator {
           name: 'Resources',
           value: 'ResourcesPage',
           checked: true
-        }, {
+        }/*, {
           name: 'Print',
           value: 'PrintPage',
           checked: false
-        }]
+        }*/]
       }
     ];
 
@@ -320,7 +320,7 @@ module.exports = class extends Generator {
           }
         );
       }
-      if (this.articulatePages.includes("PrintPage")) {
+      /*if (this.articulatePages.includes("PrintPage")) {
         this.fs.copy(
           this.templatePath("print.php"),
           this.destinationPath("build/print.php"),
@@ -353,7 +353,7 @@ module.exports = class extends Generator {
             pathStructure: this.structure
           }
         );
-      }
+      }*/
       
     } else {
 
