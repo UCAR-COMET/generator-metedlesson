@@ -12,41 +12,46 @@
 <meta name="viewport" content="width=device-width">
 <meta name="viewport" content="initial-scale=1.0">
 <link rel="stylesheet" href="src/css/tailwind.css">
+<!--<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>-->
+<script src="src/js/jquery.min.js"></script>
+<script src="src/js/defaults.js"></script>
 </head>
 <body>
+    <!-- navbar-->
     <nav class="sticky top-0 z-50 w-full h-16 border-b backdrop-filter backdrop-blur-xl bg-opacity-5 md:px-4 px-2">
         <div class="mx-auto flex h-full items-center justify-between p-1 sm:p-3 md:gap-2">
-            <div class="flex items-center gap-5"><button
-                    class="items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 w-9 md:hidden flex"
+            <div class="flex items-center gap-5">
+                <button id="menu-button" class="items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 w-9 md:hidden flex"
                     type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:Raqj6:"
-                    data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    data-state="closed">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="lucide lucide-align-left">
                         <line x1="21" x2="3" y1="6" y2="6"></line>
                         <line x1="15" x2="3" y1="12" y2="12"></line>
                         <line x1="17" x2="3" y1="18" y2="18"></line>
-                    </svg></button>
+                    </svg>
+                </button>
                 <div class="flex items-center gap-6">
                     <div class="hidden md:flex">
                         <a class="flex items-center gap-2.5" href="/">
                             <h1 class="text-md font-semibold">Lesson Title</h1>
                         </a>
                     </div>
-                    <!-- TOPNAV LEFT ITEMS -->
                     <div class="hidden md:flex items-center gap-5 text-sm font-medium text-muted-foreground">
                         <a class="flex items-center gap-1 text-sm font-bold text-primary"
                             href="/">Link_1 </a>
-                        <a class="flex items-center gap-1 text-sm" target="_blank" rel="noopener noreferrer" href="https://www.rubixstudios.com.au/">Link_2</a>
+                        <a class="flex items-center gap-1 text-sm" target="_blank" rel="noopener noreferrer" href="#">Link_2</a>
                     </div>
                 </div>
             </div>
             <div class="flex items-center gap-2">
                 <a class="flex items-center gap-1 text-sm font-bold text-primary" href="/">LINK_1 </a>
-                <a class="flex items-center gap-1 text-sm" target="_blank" rel="noopener noreferrer" href="https://www.rubixstudios.com.au/">LINK_2</a>
+                <a class="flex items-center gap-1 text-sm" target="_blank" rel="noopener noreferrer" href="#">LINK_2</a>
             </div>
         </div>
     </nav>
-
+    <!-- content -->
     <main class="px-5 sm:px-8 h-auto">
         <div class="flex items-start gap-14">
             <aside class="md:flex hidden flex-[1] min-w-[230px] sticky top-16 flex-col h-[94.5vh] overflow-y-auto">
@@ -60,8 +65,9 @@
                                     <h2 class="text-sm font-bold mb-2">PART_1_LABEL</h2>
                                     <div class="flex flex-col w-full gap-1">
                                         <div data-state="open">
-                                            <div class="flex items-center gap-2 text-sm"><a class=""
-                                                    href="/">Introduction</a><button
+                                            <div class="flex items-center gap-2 text-sm">
+                                                <a class="" href="/">Introduction</a>
+                                                <button
                                                     class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary underline-offset-4 hover:underline ml-auto h-6 w-6"
                                                     type="button" aria-controls="radix-:r4:" aria-expanded="true"
                                                     data-state="open"><svg stroke="currentColor" fill="none"
@@ -69,7 +75,9 @@
                                                         stroke-linejoin="round" class="h-[0.9rem] w-[0.9rem]" height="1em"
                                                         width="1em" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="m6 9 6 6 6-6"></path>
-                                                    </svg><span class="sr-only">Toggle</span></button></div>
+                                                    </svg><span class="sr-only">Toggle</span>
+                                                </button>
+                                            </div>
                                             <div data-state="open" id="radix-:r4:" class="CollapsibleContent"
                                                 style="transition-duration: 0s; animation-name: none; --radix-collapsible-content-height: 94px; --radix-collapsible-content-width: 230px;">
                                                 <div class="mt-2.5 flex flex-col items-start gap-3 pl-4 text-sm border-l text-neutral-800 dark:text-neutral-300/85">
@@ -322,13 +330,13 @@
             class="flex flex-wrap items-center justify-center sm:justify-between gap-4 sm:gap-0 w-full h-full px-2 sm:py-0 py-3 sm:px-4 lg:px-8 text-sm text-muted-foreground">
             <p class="text-center">© YYYY, <a class="font-semibold"
                     href="https://www.comet.ucar.edu">Footer copyright link text</a>.</p>
-            <div class="text-center hidden md:block"><a class="font-semibold" target="_blank" rel="noopener noreferrer"
-                    href="https://www.comet.ucar.edu"><img alt="COMET Logo" loading="lazy" width="30"
-                        height="30" decoding="async" data-nimg="1" style="color:transparent" src="/logo.svg"></a>
+            <div class="text-center hidden md:block">
+                <!--<a class="font-semibold" target="_blank" rel="noopener noreferrer" href="https://www.comet.ucar.edu">
+                    <img alt="COMET Logo" loading="lazy" width="30" height="30" decoding="async" data-nimg="1" style="color:transparent" src="/logo.svg">
+                </a>-->
             </div>
         </div>
     </footer>
-
 </body>
 <style>
     [data-radix-scroll-area-viewport] {
