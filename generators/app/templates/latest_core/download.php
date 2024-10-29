@@ -1,3 +1,7 @@
+<?php
+    $moduleTitle1 = "<%= lessonTitle %>";
+	$agreeLink = "<%= pathStructure %>distribute/getZip.php?moduleID=<%= lessonID %>&type=download&structure=dynamic"; 
+?>
 <!DOCTYPE html>
 <html lang="en" class="light" style="color-scheme: light;">
 <head>

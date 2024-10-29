@@ -597,6 +597,7 @@ module.exports = class extends Generator {
         lessonDesc: this.props.metedDesc,
         lessonKeys: this.props.metedKeys,
         copyrightYear: this.generatorYear,
+        pathStructure: this.structure
       }
     );
     // PageTemplate.php
