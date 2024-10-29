@@ -606,8 +606,8 @@ module.exports = class extends Generator {
     );
     // PageTemplate.php
     this.fs.copyTpl(
-      this.templatePath("latest_core/pageTemplate.php"),
-      this.destinationPath("build/pageTemplate.php"),
+      this.templatePath("latest_core/pageTemplate/pageTemplate.php"),
+      this.destinationPath("build/src/pageTemplate.php"),
       {
         templateType: this.props.templateType,
         lessonTitle: this.props.metedName,

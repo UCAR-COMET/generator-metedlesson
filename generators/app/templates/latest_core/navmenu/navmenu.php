@@ -40,7 +40,7 @@ $templateContent = $navmenu->getContent($page);
 $typeLink = $navmenu->getTypeToggleLink($page);
 $printLink = $navmenu->getPrintLink($tab);
 $titleTag = $navmenu->getTabTitle();
-$pageTemplate = addSlashes( file_get_contents('../pageTemplate.php'));
+$pageTemplate = addSlashes( file_get_contents('pageTemplate.php'));
 $pageOutput = "";
 
 
