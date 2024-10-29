@@ -21,7 +21,7 @@ module.exports = class extends Generator {
         name: "templateType",
         message: "Choose the lesson template:",
         choices: ["Latest Core", "legacy-single-print", "legacy-multi-print", "articulate-shell"],
-        default: "legacy single-print"
+        default: "Latest Core"
       },
       {
         type: "list",
