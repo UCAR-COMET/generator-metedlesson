@@ -610,9 +610,14 @@ module.exports = class extends Generator {
       this.destinationPath("build/pageTemplate.php"),
       {
         templateType: this.props.templateType,
+        lessonTitle: this.props.metedName,
+        lessonID: this.props.metedID,
         lessonLang: this.props.metedLang,
-        narratedSwitch: this.props.narratedLesson,
-        copyrightYear: this.generatorYear
+        lessonDesc: this.props.metedDesc,
+        lessonKeys: this.props.metedKeys,
+        copyrightYear: this.generatorYear,
+        pathStructure: this.structure,
+        narratedSwitch: this.props.narratedLesson        
       }
     );
     // Print.php
