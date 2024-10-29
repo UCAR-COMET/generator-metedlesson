@@ -11,7 +11,7 @@
 <meta name="keywords" content="<%= lessonKeys %>">
 <meta name="viewport" content="width=device-width">
 <meta name="viewport" content="initial-scale=1.0">
-<link rel="stylesheet" href="src/css/tailwind.css">
+<link rel="stylesheet" href="src/css/layout.css">
 <script src="src/js/jquery.min.js"></script>
 <script src="src/js/defaults.js"></script>
 </head>

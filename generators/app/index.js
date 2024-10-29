@@ -558,7 +558,8 @@ module.exports = class extends Generator {
       );
     }
   } else if (this.props.templateType === "Latest Core") {
-    // Latest core setup 2024+
+    // Latest core 2024+
+    // SRC
     this.fs.copy(
       this.templatePath("latest_core/src"),
       this.destinationPath("build/src")
@@ -567,21 +568,60 @@ module.exports = class extends Generator {
       this.templatePath("extensions/grunt/lc_rubix/Gruntfile.js"),
       this.destinationPath("Gruntfile.js")
     );
-    this.fs.copy(
+
+    // MODS
+    // index.htm
+    this.fs.copyTpl(
       this.templatePath("latest_core/index.htm"),
-      this.destinationPath("build/index.htm")
+      this.destinationPath("build/index.htm"),
+      {
+        templateType: this.props.templateType,
+        lessonTitle: this.props.metedName,
+        lessonID: this.props.metedID,
+        lessonLang: this.props.metedLang,
+        lessonDesc: this.props.metedDesc,
+        lessonKeys: this.props.metedKeys,
+        copyrightYear: this.generatorYear,
+        splashImageCredit: this.copyrightText
+      }
     );
-    this.fs.copy(
+    // Download.php
+    this.fs.copyTpl(
       this.templatePath("latest_core/download.php"),
-      this.destinationPath("build/download.php")
+      this.destinationPath("build/download.php"),
+      {
+        templateType: this.props.templateType,
+        lessonTitle: this.props.metedName,
+        lessonID: this.props.metedID,
+        lessonLang: this.props.metedLang,
+        copyrightYear: this.generatorYear,
+        pathStructure: this.structure
+      }
     );
-    this.fs.copy(
-      this.templatePath("latest_core/pageTemplate.php"),
-      this.destinationPath("build/pageTemplate.php")
+    // PageTemplate.php
+    this.fs.copyTpl(
+      this.templatePath("pageTemplate.php"),
+      this.destinationPath("build/pageTemplate.php"),
+      {
+        templateType: this.props.templateType,
+        lessonLang: this.props.metedLang,
+        narratedSwitch: this.props.narratedLesson,
+        copyrightYear: this.generatorYear
+      }
     );
-    this.fs.copy(
-      this.templatePath("latest_core/print.php"),
-      this.destinationPath("build/print.php")
+    // Print.php
+    this.fs.copyTpl(
+      this.templatePath("print.php"),
+      this.destinationPath("build/print.php"),
+      {
+        templateType: this.props.templateType,
+        lessonTitle: this.props.metedName,
+        lessonID: this.props.metedID,
+        lessonDesc: this.props.metedDesc,
+        lessonKeys: this.props.metedKeys,
+        copyrightYear: this.generatorYear,
+        lessonLang: this.props.metedLang
+      }
     );
   }
   }
