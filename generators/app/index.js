@@ -568,6 +568,10 @@ module.exports = class extends Generator {
       this.templatePath("extensions/grunt/lc_rubix/Gruntfile.js"),
       this.destinationPath("Gruntfile.js")
     );
+    this.fs.copy(
+      this.templatePath("latest_core/navmenu/navmenu.inc.php"),
+      this.destinationPath("build/src/navmenu.inc.php")
+    );
 
     // MODS
     // index.htm
@@ -602,7 +606,7 @@ module.exports = class extends Generator {
     );
     // PageTemplate.php
     this.fs.copyTpl(
-      this.templatePath("pageTemplate.php"),
+      this.templatePath("latest_core/pageTemplate.php"),
       this.destinationPath("build/pageTemplate.php"),
       {
         templateType: this.props.templateType,
@@ -624,6 +628,12 @@ module.exports = class extends Generator {
         copyrightYear: this.generatorYear,
         lessonLang: this.props.metedLang
       }
+    );
+    // Navmenu.php
+    this.fs.copyTpl(
+      this.templatePath("latest_core/navmenu/navmenu.php"),
+      this.destinationPath("build/src/navmenu.php"),
+      { lessonPath: this.props.metedPath }
     );
   }
   }
