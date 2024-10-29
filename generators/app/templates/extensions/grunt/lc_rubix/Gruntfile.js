@@ -1,4 +1,4 @@
-// FOR NEW BUILD WITH YEOMAN
+// NEW BUILD: LC RUBIX TEMPLATE VERSION
 module.exports = function(grunt) {
   grunt.initConfig({
     // Build project scaffold
@@ -15,7 +15,6 @@ module.exports = function(grunt) {
     },
     // Clean the build
     clean: {
-      core: ["dist/dev", "./.sass-cache/"],
       node: ["node_modules", "package*"],
       grunt: ["./Gruntfile.js"]
     }
@@ -28,11 +27,6 @@ module.exports = function(grunt) {
   ]);
  
   // Load install tasks
-  grunt.loadNpmTasks("grunt-contrib-copy");
   grunt.loadNpmTasks("grunt-mkdir");
-  grunt.loadNpmTasks("grunt-contrib-concat");
-  grunt.loadNpmTasks("grunt-concat-css");
-  grunt.loadNpmTasks("grunt-script-link-tags");
   grunt.loadNpmTasks("grunt-contrib-clean");
-  grunt.loadNpmTasks("grunt-contrib-cssmin");
 };

@@ -557,15 +557,15 @@ module.exports = class extends Generator {
         }
       );
     }
-  } else if (this.props.templateType === "latest core") {
+  } else if (this.props.templateType === "Latest Core") {
     // Latest core setup 2024+
-    this.fs.copy(
-      this.templatePath("extensions/grunt/lc_rubix/Gruntfile.js"),
-      this.destinationPath("./Gruntfile.js")
-    );
     this.fs.copy(
       this.templatePath("latest_core/src"),
       this.destinationPath("build/src")
+    );
+    this.fs.copy(
+      this.templatePath("extensions/grunt/lc_rubix/Gruntfile.js"),
+      this.destinationPath("Gruntfile.js")
     );
     this.fs.copy(
       this.templatePath("latest_core/index.htm"),

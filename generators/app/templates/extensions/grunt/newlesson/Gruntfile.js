@@ -1,4 +1,4 @@
-// FOR NEW BUILD WITH YEOMAN
+// NEW BUILD: LC LEGACY TEMPLATE VERSION
 module.exports = function(grunt) {
   grunt.initConfig({
     // Build project scaffold

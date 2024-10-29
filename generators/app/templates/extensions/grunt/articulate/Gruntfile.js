@@ -1,4 +1,4 @@
-// FOR CLEANUP OF EXISTING LESSON BUILD
+// NEW BUILD: ARTICULATE RISE TEMPLATE VERSION
 module.exports = function(grunt) {
   grunt.initConfig({
     
