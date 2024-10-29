@@ -9,7 +9,7 @@ module.exports = class extends Generator {
     // 1) Let's create some variables to use in the generator: current year, splash credit
     const generatorYear = new Date().getFullYear();
     const copyrightText = "The COMET Program";
-    const articulatePages = [];
+    //const articulatePages = [];
 
     // 2) Have Yeoman greet the user
     this.log(yosay(`Let's generate a new ${chalk.blue("MetEd Lesson")}!`));
@@ -20,8 +20,8 @@ module.exports = class extends Generator {
         type: "list",
         name: "templateType",
         message: "Choose the lesson template:",
-        choices: ["single-print", "multi-print", "articulate-shell"],
-        default: "single-print"
+        choices: ["Latest Core", "legacy-single-print", "legacy-multi-print", "articulate-shell"],
+        default: "legacy single-print"
       },
       {
         type: "list",
@@ -100,11 +100,11 @@ module.exports = class extends Generator {
           name: 'Resources',
           value: 'ResourcesPage',
           checked: true
-        }/*, {
+        }, {
           name: 'Print',
           value: 'PrintPage',
           checked: false
-        }*/]
+        }]
       }
     ];
 
@@ -355,7 +355,7 @@ module.exports = class extends Generator {
         );
       }*/
       
-    } else {
+    } else if(this.props.templateType === "legacy-single-print" || this.props.templateType === "legacy-multi-print") {
 
     // Single-print and multi-print setup
     this.fs.copy(
@@ -557,6 +557,32 @@ module.exports = class extends Generator {
         }
       );
     }
+  } else if (this.props.templateType === "latest core") {
+    // Latest core setup 2024+
+    this.fs.copy(
+      this.templatePath("extensions/grunt/newlesson/Gruntfile.js"),
+      this.destinationPath("Gruntfile.js")
+    );
+    this.fs.copy(
+      this.templatePath("latest_core/src"),
+      this.destinationPath("build/src")
+    );
+    this.fs.copy(
+      this.templatePath("latest_core/index.htm"),
+      this.destinationPath("build/index.htm")
+    );
+    this.fs.copy(
+      this.templatePath("latest_core/download.php"),
+      this.destinationPath("build/download.php")
+    );
+    this.fs.copy(
+      this.templatePath("latest_core/pageTemplate.php"),
+      this.destinationPath("build/pageTemplate.php")
+    );
+    this.fs.copy(
+      this.templatePath("latest_core/print.php"),
+      this.destinationPath("build/print.php")
+    );
   }
   }
 
