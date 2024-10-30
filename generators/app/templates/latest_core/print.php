@@ -17,6 +17,7 @@ $mm = new MediaItemManager();
     <meta name="viewport" content="initial-scale=1.0">
     <link rel="stylesheet" href="src/css/layout.css">
     <link rel="stylesheet" href="src/css/core.css">
+    <link rel="stylesheet" href="src/css/printable.css">
     <script src="src/js/jquery.min.js"></script>
     <script src="src/js/defaults.js"></script>
 </head>

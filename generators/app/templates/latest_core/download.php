@@ -16,6 +16,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="viewport" content="initial-scale=1.0">
     <link rel="stylesheet" href="src/css/layout.css">
+    <link rel="stylesheet" href="src/css/core.css">
     <script src="src/js/jquery.min.js"></script>
     <script src="src/js/defaults.js"></script>
     <script>
@@ -74,6 +75,7 @@
             </div>
             <div class="flex sm:ml-0 gap-2">
                 <!-- print/download links removed from inner pages -->
+                 <p><% if (lessonLang === 'ES') { %>Descargar<% } else if (lessonLang === 'FR') { %>Télécharger<% } else { %>Download<% } %></p>
             </div>
         </div>
     </nav>
@@ -84,7 +86,6 @@
                     <div class="flex-[3] pt-10">
                         
                         <div class="typography">
-                            <h1 class="text-3xl -mt-2"><% if (lessonLang === 'ES') { %>Descargar<% } else if (lessonLang === 'FR') { %>Télécharger<% } else { %>Download<% } %></h1>
                             <p class="sr-only -mt-4 text-base text-muted-foreground text-[16.5px]">License Agreement</p>
                             <div id="maincontent">
                                 <div id="dl_agree">
