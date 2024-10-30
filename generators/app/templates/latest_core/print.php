@@ -16,8 +16,6 @@ $mm = new MediaItemManager();
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width">
     <meta name="viewport" content="initial-scale=1.0">
-
-    <!--[if lte IE 9]><script type="text/javascript" src="jquery/apps/draw/excanvas.js"></script><script type="text/javascript" src="ie-support/respond.js"></script><link rel="stylesheet" type="text/css" media="screen" href="ie-support/ie-support.css" /><![endif]-->
 </head>
 
 <body>

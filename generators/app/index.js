@@ -622,7 +622,7 @@ module.exports = class extends Generator {
     );
     // Print.php
     this.fs.copyTpl(
-      this.templatePath("print.php"),
+      this.templatePath("latest_core/print.php"),
       this.destinationPath("build/print.php"),
       {
         templateType: this.props.templateType,

@@ -34,35 +34,14 @@
                         <line x1="17" x2="3" y1="18" y2="18"></line>
                     </svg></button>
                 <div class="flex items-center gap-6">
-                    <div class="hidden md:flex"><a href="index.htm"><%= lessonTitle %></a></div>
+                    <div class="hidden md:flex"><a href="../index.htm"><%= lessonTitle %></a></div>
                     <div class="hidden md:flex items-center gap-5 text-sm font-medium text-muted-foreground">
                         <!-- additional links -->
                     </div>
                 </div>
             </div>
             <div class="flex sm:ml-0 gap-2">
-                <a
-                    href="print.php"
-                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 w-9"
-                    aria-label="Print" title="Print"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="lucide lucide-printer w-[1.1rem] h-[1.1rem]">
-                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-                        <path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"></path>
-                        <rect x="6" y="14" width="12" height="8" rx="1"></rect>
-                    </svg>
-                </a>
-                <a
-                    href="download.php"
-                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 w-9"
-                    aria-label="Download" title="Download"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="lucide lucide-download w-[1.1rem] h-[1.1rem]">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                        <polyline points="7 10 12 15 17 10"></polyline>
-                        <line x1="12" x2="12" y1="15" y2="3"></line>
-                    </svg>
-                </a>
+                <!-- print/download links removed from inner pages -->
             </div>
         </div>
     </nav>
