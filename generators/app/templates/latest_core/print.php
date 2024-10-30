@@ -51,7 +51,7 @@ $mm = new MediaItemManager();
 <main class="px-5 sm:px-8 h-auto">
     <div class="flex items-start gap-14">
         <!-- desktop toc sidebar -->
-        <aside id="tableofcontents" class="md:flex hidden flex-[1] min-w-[230px] sticky top-16 flex-col h-[94.5vh] overflow-y-auto">
+        <aside class="md:flex hidden flex-[1] min-w-[230px] sticky top-16 flex-col h-[94.5vh] overflow-y-auto">
             <div dir="ltr" class="relative overflow-hidden py-4" style="position: relative; --radix-scroll-area-corner-width: 0px; --radix-scroll-area-corner-height: 0px;">
                 <div data-radix-scroll-area-viewport="" class="h-full w-full rounded-[inherit]" style="overflow: hidden scroll;">
                     <div style="min-width: 100%; display: table;">
@@ -59,6 +59,7 @@ $mm = new MediaItemManager();
                             <div class="mb-2">
                                 <h2 class="text-sm font-bold mb-2">Table of Contents</h2>
                                 <!-- TABLE OF CONTENTS: start -->
+                                <nav id="tableofcontents">
                                 <ul class="nav lc-docs-sidenav">
                                     <li><a href="#page_1-0-0">Page_1-0-0</a></li>
                                     <li><a href="#page_2-0-0">Page_2-0-0 Sample</a>
@@ -72,6 +73,7 @@ $mm = new MediaItemManager();
                                     </li>
                                     <li><a href="#page_contributors">Contributors</a></li>
                                 </ul>
+                                </nav>
                                 <!-- TABLE OF CONTENTS: end -->
                             </div>
                         </div>
@@ -88,29 +90,27 @@ $mm = new MediaItemManager();
                     <div class="typography">
                         
                         <!-- LESSON CONTENT: start -->
-                        <h1 class="sub_head">Learning Objectives</h1>
-                        <ul data-level="0" type="disc">
-                            <li>Explain the operating principles of dual orthogonal polarimetric weather radar.
-                            <ul data-level="1" type="circle">
-                                <li>Basic polarimetry principles</li>
-                                <li>H and V polarizations </li>
-                            </ul></li>
-                            <li>Explain the physical significance of the following variables: 
-                            <ul data-level="1" type="circle">
-                                <li>Differential reflectivity (ZDR), </li>
-                                <li>Correlation coefficient (CC or ρhv), </li>
-                                <li>Differential phase (Φdp), </li>
-                                <li>Specific differential phase (Kdp),</li>
-                                <li>Linear depolarization ratio (LDR)</li>
-                            </ul></li>
-                            <li>Ascribe physical significance to features primarily related to one or more of these variables</li>
-                            <li>Identify likeliest echo types based upon combinations of the classical (Z, Vr, SW) and polarimetric radar
-                                variables (listed above)
-                            <ul data-level="1" type="circle">
-                                <li>Identify the polarimetric variables that are the strongest discriminators for some hydrometeor classes</li>
-                            </ul></li>
-                        </ul>
-                        <p><b>Summary: </b>Once an experimental type of weathe...</p>
+                        <section id="page_1-0-0" class="page">
+                            <h3>Page 1-0-0 Title</h3>
+                            ...
+                        </section>
+                        <section id="page_2-0-0" class="page">
+                            <h3>Page_2-0-0 Sample</h3>
+                            ...
+                        </section>
+                        <section id="page_2-1-0" class="page">
+                            <h3 class="sub_head"><small>Parent Page 2-0-0 Title » </small>Child Page 2-1-0 Title</h3>
+                            ...
+                        </section>
+                        <section id="page_2-1-1" class="page">
+                            <h3 class="sub_head"><small>Parent Page 2-0-0 Title » Child Page 2-1-0 Title » </small>Child Page
+                                Page_2-1-1 Sample</h3>
+                            ...
+                        </section>
+                        <section id="page_contributors" class="page">
+                            <h3>Contributors</h3>
+                            ...
+                        </section>
                        
                         <!-- LESSON CONTENT: end -->
 
