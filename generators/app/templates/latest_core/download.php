@@ -40,7 +40,9 @@
         var $agree_btns = $('#agree_btns');
             $agree_btns.children('span:first').append($yes_accept);
             $agree_btns.children('span:last').append($no_accept);
-            $agree_btns.children('span:first input').addClass('agree').attr('value', '<% if (lessonLang === "ES") { %>Acepto<% } else if (lessonLang === "FR") { %>J\'accepte<% } else { %>I Accept<% } %>');
+            $agree_btns.children('span:first input').addClass('agree inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8 px-6');
+            $agree_btns.children('span:first input').attr('value', '<% if (lessonLang === "ES") { %>Acepto<% } else if (lessonLang === "FR") { %>J\'accepte<% } else { %>I Accept<% } %>');
+            $agree_btns.children('span:first input').addClass('inline-flex items-center justify-center h-9 px-4 py-2 ml-auto whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 !no-underline');
             $agree_btns.children('span:last input').attr('value', '<% if (lessonLang === "ES") { %>No acepto<% } else if (lessonLang === "FR") { %>Je n\'accepte pas<% } else { %>I do not accept<% } %>');
         // add LC2+ styling
         /*$('#agree_btns input:first').addClass('btn btn-success');

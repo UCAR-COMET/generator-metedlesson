@@ -23,6 +23,9 @@
   overflow: scroll !important;
   margin: 20px auto !important;
 }
+#agree_btns {
+  margin-bottom: 40px;
+}
 #agree_btns input {
   margin-right: 20px;
   margin-top: 10px;
@@ -37,11 +40,4 @@
 }
 #agree_btns .agree:hover {
   background-color: #529afe;
-}
-
-#agree_btns .disagree {
-  padding: 12px 24px;
-  border: 1px solid #ddd;
-  font-weight: bold;
-  color: black;
 }
