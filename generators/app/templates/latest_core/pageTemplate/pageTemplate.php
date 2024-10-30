@@ -12,6 +12,7 @@
 <meta name="viewport" content="width=device-width">
 <meta name="viewport" content="initial-scale=1.0">
 <link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="src/css/core.css">
 <script src="js/jquery.min.js"></script>
 <script src="js/defaults.js"></script>
 </head>

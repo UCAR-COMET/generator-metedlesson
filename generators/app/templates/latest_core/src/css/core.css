@@ -1,0 +1,14 @@
+.lc-docs-sidenav li > a {
+  color: #333;
+  font-family: "__GeistSans_3a0388", "__GeistSans_Fallback_3a0388", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+}
+.lc-docs-sidenav li > ul {
+  padding-left: 1rem;
+  border-left: 1px solid #ddd;
+}
+.lc-docs-sidenav ul > li > ul {
+  padding-left: 1rem;
+  border-left: 1px solid #ddd;
+}
