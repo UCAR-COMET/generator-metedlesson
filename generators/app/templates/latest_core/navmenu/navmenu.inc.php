@@ -121,23 +121,7 @@ class Navmenu
 	public function getContent($page)
 	{
 		$content = $this->html->find('[id=page_' . $page . ']', 0);
-		
-		/*if($this->type == "flash")
-		{
-			//if there is a div with a class = swf_600_700_some_name then replace that content with the swf  
-			$swfDivs = $content->find('[class^=swf_]');
-			foreach($swfDivs as $swfDiv)
-			{     
-				$classes = explode(" ", $swfDiv->class);
-				$params = explode("_", $classes[0], 4);
-				$width = $params[1];
-				$height = $params[2];
-				$swf = $params[3];
-				$insert = "<div class='swfCenter'><script type='text/javascript'>AC_FL_RunContent( 'codebase','http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0','bgcolor','FFFFFF','width','" . $width . "','height','" . $height . "','src','media/flash/". $swf ."','quality','high','pluginspage','http://www.macromedia.com/go/getflashplayer','movie','media/flash/". $swf ."','wmode','transparent' );</script></div>";
-				$swfDiv->innertext = $insert;
-			}
-		}*/
-		
+				
 		//Add the back and next buttons.
 		$bnCode = $this->getBackNextCode($page);
 		$h2 = $content->find('h2',0);
@@ -165,27 +149,7 @@ class Navmenu
 		foreach($imgs as $img)
 		{
 			$img->src = "https://" . $this->server . $this->path . $img->src;
-		}
-		
-		/*if($this->type == "flash")
-		{
-			$flashPath = "http://" . $this->server . $this->path;
-			
-			//if there is a div with a class = swf_600_700_some_name then replace that content with the swf  
-			$swfDivs = $content->find('div[class^=swf_]');
-			foreach($swfDivs as $swfDiv)
-			{     
-				$classes = explode(" ", $swfDiv->class);
-				$params = explode("_", $classes[0], 4);
-				$width = $params[1];
-				$height = $params[2];
-				$swf = $params[3];
-				$insert = "<script type='text/javascript'>AC_FL_RunContent( 'codebase','http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0','bgcolor','FFFFFF','width','" . $width . "','height','" . $height . "','src', '" . $flashPath ."media/flash/". $swf ."','quality','high','pluginspage','http://www.macromedia.com/go/getflashplayer','movie','" . $flashPath . "media/flash/". $swf ."','wmode','transparent' );</script>";
-				$swfDiv->innertext = $insert;
-				
-			}
-		}*/
-		
+		}	
 		
 		return $content;
 	}
@@ -219,8 +183,24 @@ class Navmenu
 			//If we are not at the first print version find the last page in the previous print version.
 			if($this->tab == 1)
 			{
-				return '<div class="stage_nav"><ul class="pager"><li class="previous invisible"></li><li class="next"><a href="' . $this->linkPrefix . '?tab=' . $this->tab . '&amp;page=' . $next . "&amp;type=" . $this->type . $this->linkSuffix . '">Next &rarr;</a></li></ul></div>';
-			
+				return '<div class="flex items-center justify-between sm:py-7 py-5">' .
+				'<div><a class="hidden inline-flex items-center justify-center h-9 px-4 py-2 ml-auto whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 !no-underline"' .
+				'href=""><svg stroke="currentColor" fill="none"' .
+				'stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"' .
+				'stroke-linejoin="round" class="w-[1rem] h-[1rem] mr-1" height="1em" width="1em"' .
+				'xmlns="http://www.w3.org/2000/svg">' .
+				'<path d="m15 18-6-6 6-6"></path></svg>' .
+				'' .
+				'</a></div>' .
+				'<div><a class="inline-flex items-center justify-center h-9 px-4 py-2 ml-auto whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 !no-underline"' .
+				'href="' . $this->linkPrefix . '?tab=' . $this->tab . '&amp;page=' . $next . "&amp;type=" . $this->type . $this->linkSuffix . '">' .
+				'<p>NEXT</p><svg stroke="currentColor" fill="none" stroke-width="2"' .
+				'viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"' .
+				'class="w-[1rem] h-[1rem] ml-1" height="1em" width="1em"' .
+				'xmlns="http://www.w3.org/2000/svg">' .
+				'<path d="m9 18 6-6-6-6"></path></svg>' .
+				'</a></div>' .
+				'</div>';
 			}else
 			{
 				
@@ -235,7 +215,25 @@ class Navmenu
 					$pageNum = substr($link, 6);
 				}
 				
-				return '<div class="stage_nav"><ul class="pager"><li class="previous unit"><a href="' . $this->linkPrefix . '?tab=' . ($this->tab - 1) . "&amp;page=" . $pageNum . "&amp;type=" . $this->type . $this->linkSuffix . '">&larr; Previous Unit</a></li><li class="next"><a href="' . $this->linkPrefix . '?tab=' . $this->tab . '&amp;page=' . $next . "&amp;type=" . $this->type . $this->linkSuffix . '">Next &rarr;</a></li></ul></div>';								 
+				return 'ERROR: No previous page found in this print version.';
+				/*return '<div class="flex items-center justify-between sm:py-7 py-5">' .
+    				'<div><a class="inline-flex items-center justify-center h-9 px-4 py-2 ml-auto whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 !no-underline"' .
+            		'href="' . $this->linkPrefix . '?tab=' . ($this->tab - 1) . "&amp;page=" . $pageNum . "&amp;type=" . $this->type . $this->linkSuffix . '"><svg stroke="currentColor" fill="none"' .
+                	'stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"' .
+                	'stroke-linejoin="round" class="w-[1rem] h-[1rem] mr-1" height="1em" width="1em"' .
+                	'xmlns="http://www.w3.org/2000/svg">' .
+                	'<path d="m15 18-6-6 6-6"></path></svg>' .
+					'<p>PREVIOUS SECTION</p>' .
+					'</a></div>' .
+    				'<div><a class="inline-flex items-center justify-center h-9 px-4 py-2 ml-auto whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 !no-underline"' .
+					'href="' . $this->linkPrefix . '?tab=' . $this->tab . '&amp;page=' . $next . "&amp;type=" . $this->type . $this->linkSuffix . '">' .
+            		'<p>NEXT</p><svg stroke="currentColor" fill="none" stroke-width="2"' .
+					'viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"' .
+					'class="w-[1rem] h-[1rem] ml-1" height="1em" width="1em"' .
+					'xmlns="http://www.w3.org/2000/svg">' .
+					'<path d="m9 18 6-6-6-6"></path></svg>' .
+					'</a></div>' .
+					'</div>';*/
 			}
 			
 			
@@ -245,7 +243,24 @@ class Navmenu
 			//If we are not at the last print version find the first page in the next print version.
 			if($this->tab == count($this->printFiles ))
 			{
-				return '<div class="stage_nav"><ul class="pager"><li class="previous"><a href="' . $this->linkPrefix . '?tab=' . $this->tab . '&amp;page=' . $previous . "&amp;type=" . $this->type . $this->linkSuffix . '">&larr; Previous</a></li><li class="inactive-next"></li></ul></div>';
+				return '<div class="flex items-center justify-between sm:py-7 py-5">' .
+    				'<div><a class="inline-flex items-center justify-center h-9 px-4 py-2 ml-auto whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 !no-underline"' .
+            		'href="' . $this->linkPrefix . '?tab=' . $this->tab . '&amp;page=' . $previous . "&amp;type=" . $this->type . $this->linkSuffix . '"><svg stroke="currentColor" fill="none"' .
+                	'stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"' .
+                	'stroke-linejoin="round" class="w-[1rem] h-[1rem] mr-1" height="1em" width="1em"' .
+                	'xmlns="http://www.w3.org/2000/svg">' .
+                	'<path d="m15 18-6-6 6-6"></path></svg>' .
+					'<p>PREVIOUS</p>' .
+					'</a></div>' .
+    				'<div><a class="hidden inline-flex items-center justify-center h-9 px-4 py-2 ml-auto whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 !no-underline"' .
+					'href="">' .
+            		'<svg stroke="currentColor" fill="none" stroke-width="2"' .
+					'viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"' .
+					'class="w-[1rem] h-[1rem] ml-1" height="1em" width="1em"' .
+					'xmlns="http://www.w3.org/2000/svg">' .
+					'<path d="m9 18 6-6-6-6"></path></svg>' .
+					'</a></div>' .
+					'</div>';
 			}else
 			{
 				
@@ -258,13 +273,48 @@ class Navmenu
 				$link = $a->href;
 				$pageNum = substr($link, 6);
 				
-				return '<div class="stage_nav"><ul class="pager"><li class="previous"><a href="' . $this->linkPrefix . '?tab=' . $this->tab  . '&amp;page=' . $previous . "&amp;type=" . $this->type . $this->linkSuffix . '">&larr; Previous</a></li> <li class="next unit"><a href="' . $this->linkPrefix . '?tab=' . ($this->tab + 1) . '&amp;page=' . $pageNum . "&amp;type=" . $this->type . $this->linkSuffix . '">Next Unit &rarr;</a></li></ul></div>';								 
+				return 'ERROR: Multi-print version not implemented yet.';
+				/*return '<div class="flex items-center justify-between sm:py-7 py-5">' .
+    				'<div><a class="inline-flex items-center justify-center h-9 px-4 py-2 ml-auto whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 !no-underline"' .
+            		'href="' . $this->linkPrefix . '?tab=' . $this->tab . '&amp;page=' . $previous . "&amp;type=" . $this->type . $this->linkSuffix . '"><svg stroke="currentColor" fill="none"' .
+                	'stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"' .
+                	'stroke-linejoin="round" class="w-[1rem] h-[1rem] mr-1" height="1em" width="1em"' .
+                	'xmlns="http://www.w3.org/2000/svg">' .
+                	'<path d="m15 18-6-6 6-6"></path></svg>' .
+					'<p>PREVIOUS</p>' .
+					'</a></div>' .
+    				'<div><a class="inline-flex items-center justify-center h-9 px-4 py-2 ml-auto whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 !no-underline"' .
+					'href="' . $this->linkPrefix . '?tab=' . ($this->tab + 1) . '&amp;page=' . $pageNum . "&amp;type=" . $this->type . $this->linkSuffix . '">' .
+            		'<p>NEXT SECTION</p><svg stroke="currentColor" fill="none" stroke-width="2"' .
+					'viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"' .
+					'class="w-[1rem] h-[1rem] ml-1" height="1em" width="1em"' .
+					'xmlns="http://www.w3.org/2000/svg">' .
+					'<path d="m9 18 6-6-6-6"></path></svg>' .
+					'</a></div>' .
+					'</div>';*/
 			}
 			
 			
 		}else
 		{										 
-			return '<div class="stage_nav"><ul class="pager"><li class="previous"><a href="' . $this->linkPrefix . '?tab=' . $this->tab . '&amp;page=' . $previous . "&amp;type=" . $this->type . $this->linkSuffix . '">&larr; Previous</a></li> <li class="next"><a href="' . $this->linkPrefix . '?tab=' . $this->tab . '&amp;page=' . $next . "&amp;type=" . $this->type . $this->linkSuffix . '">Next &rarr;</a></li></ul></div>';								 
+			return '<div class="flex items-center justify-between sm:py-7 py-5">' .
+    				'<div><a class="inline-flex items-center justify-center h-9 px-4 py-2 ml-auto whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 !no-underline"' .
+            		'href="' . $this->linkPrefix . '?tab=' . $this->tab . '&amp;page=' . $previous . "&amp;type=" . $this->type . $this->linkSuffix . '"><svg stroke="currentColor" fill="none"' .
+                	'stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"' .
+                	'stroke-linejoin="round" class="w-[1rem] h-[1rem] mr-1" height="1em" width="1em"' .
+                	'xmlns="http://www.w3.org/2000/svg">' .
+                	'<path d="m15 18-6-6 6-6"></path></svg>' .
+					'<p>PREVIOUS</p>' .
+					'</a></div>' .
+    				'<div><a class="inline-flex items-center justify-center h-9 px-4 py-2 ml-auto whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 !no-underline"' .
+					'href="' . $this->linkPrefix . '?tab=' . $this->tab . '&amp;page=' . $next . "&amp;type=" . $this->type . $this->linkSuffix . '">' .
+            		'<p>NEXT</p><svg stroke="currentColor" fill="none" stroke-width="2"' .
+					'viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"' .
+					'class="w-[1rem] h-[1rem] ml-1" height="1em" width="1em"' .
+					'xmlns="http://www.w3.org/2000/svg">' .
+					'<path d="m9 18 6-6-6-6"></path></svg>' .
+					'</a></div>' .
+					'</div>';
 		}	
 	}
 	
