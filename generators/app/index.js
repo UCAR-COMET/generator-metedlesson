@@ -560,7 +560,7 @@ module.exports = class extends Generator {
   } // LATEST CORE 2024+ SETUP
   else if (this.props.templateType === "Latest Core") {
     
-    // Direct copies
+    // Base files
     this.fs.copy(
       this.templatePath("extensions/grunt/lc_rubix/Gruntfile.js"),
       this.destinationPath("Gruntfile.js")
@@ -572,14 +572,9 @@ module.exports = class extends Generator {
     this.fs.copy(
       this.templatePath("latest_core/simple_html_dom.php"),
       this.destinationPath("build/simple_html_dom.php")
-    );
-    this.fs.copy(
-      this.templatePath("latest_core/navmenu/navmenu.inc.php"),
-      this.destinationPath("build/navmenu.inc.php")
-    );
+    );    
 
-    // Modified files
-    // index.htm
+    // index.htm w/ options
     this.fs.copyTpl(
       this.templatePath("latest_core/index.htm"),
       this.destinationPath("build/index.htm"),
@@ -594,7 +589,7 @@ module.exports = class extends Generator {
         splashImageCredit: this.copyrightText
       }
     );
-    // Download.php
+    // Download.php w/ options
     this.fs.copyTpl(
       this.templatePath("latest_core/download.php"),
       this.destinationPath("build/download.php"),
@@ -609,7 +604,7 @@ module.exports = class extends Generator {
         pathStructure: this.structure
       }
     );
-    // PageTemplate.php
+    // PageTemplate.php w/ options
     this.fs.copyTpl(
       this.templatePath("latest_core/pageTemplate.php"),
       this.destinationPath("build/pageTemplate.php"),
@@ -625,7 +620,7 @@ module.exports = class extends Generator {
         narratedSwitch: this.props.narratedLesson        
       }
     );
-    // Print.php
+    // Print.php w/ options
     this.fs.copyTpl(
       this.templatePath("latest_core/print.php"),
       this.destinationPath("build/print.php"),
@@ -642,8 +637,12 @@ module.exports = class extends Generator {
     // Navmenu.php
     this.fs.copyTpl(
       this.templatePath("latest_core/navmenu/navmenu.php"),
-      this.destinationPath("build/src/navmenu.php"),
+      this.destinationPath("build/navmenu.php"),
       { lessonPath: this.props.metedPath }
+    );
+    this.fs.copy(
+      this.templatePath("latest_core/navmenu/navmenu.inc.php"),
+      this.destinationPath("build/navmenu.inc.php")
     );
   }
   }
