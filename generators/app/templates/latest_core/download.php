@@ -35,22 +35,19 @@
         $content_area.append('<div id="license_agree"></div>');
         var $new_license = $('#license_agree');
             $new_license.append($agree_content);
-            $new_license.before('<h3 style="text-align:center"><% if (lessonLang === "ES") { %>Acuerdo de licencia<% } else if (lessonLang === "FR") { %>Contrat de license<% } else { %>License Agreement<% } %></h3>');
+            $new_license.before('<h3 style="text-align:center">License Agreement</h3>');
             $new_license.after('<div id="agree_btns"><span></span><span></span></div>');
         var $agree_btns = $('#agree_btns');
             $agree_btns.children('span:first').append($yes_accept);
             $agree_btns.children('span:last').append($no_accept);
-            $agree_btns.children('span:first input').addClass('agree inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8 px-6');
-            $agree_btns.children('span:first input').attr('value', '<% if (lessonLang === "ES") { %>Acepto<% } else if (lessonLang === "FR") { %>J\'accepte<% } else { %>I Accept<% } %>');
-            $agree_btns.children('span:first input').addClass('inline-flex items-center justify-center h-9 px-4 py-2 ml-auto whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 !no-underline');
-            $agree_btns.children('span:last input').attr('value', '<% if (lessonLang === "ES") { %>No acepto<% } else if (lessonLang === "FR") { %>Je n\'accepte pas<% } else { %>I do not accept<% } %>');
+            $agree_btns.children('span:first input').addClass('agree').attr('value', 'I Accept');
+            $agree_btns.children('span:last input').attr('value', 'I do not accept');
         // add LC2+ styling
-        /*$('#agree_btns input:first').addClass('btn btn-success');
-        $('#agree_btns input:last').addClass('btn btn-default').css('margin-left', '6px');
+    $('#agree_btns input:first').addClass('dwn_agree_btn');
+        $('#agree_btns input:last').addClass('dwn_disagree_btn').css('margin-left', '6px');
             $agree_btns.after($notice);
-            //$agree_btns.after('<h4>Notice!</h4>');  //This notice should be removed past JAN/2021
             $content_area.find('p:last').removeAttr('style');
-            $agreement.remove();*/
+            $agreement.remove();
     });
     </script>
 </head>

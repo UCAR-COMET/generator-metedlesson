@@ -26,18 +26,39 @@
 #agree_btns {
   margin-bottom: 40px;
 }
-#agree_btns input {
-  margin-right: 20px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+
+.dwn_agree_btn {
+  background-color: #17171a;
+  color: #fff;
+  font-weight: 500;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border-radius: 5px;
+  transition-property: color,background-color,border-color,text-decoration-color,fill,stroke;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-duration: .15s;
 }
-#agree_btns .agree {
-  padding: 12px 24px;
-  border: 1px solid #11185f;
-  background-color: #1f7dff;
-  font-weight: bold;
-  color: black;
+.dwn_agree_btn:hover {
+  background-color: #2e2e31;
 }
-#agree_btns .agree:hover {
-  background-color: #529afe;
+
+.dwn_disagree_btn {
+  background-color: #fff;
+  color: #18181b;
+  font-weight: 500;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border-radius: 5px;
+  transition-property: color,background-color,border-color,text-decoration-color,fill,stroke;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-duration: .15s;
+  border: 1px solid #e4e4e7;
+}
+
+.dwn_disagree_btn:hover {
+  background-color: #f4f4f5;
 }
