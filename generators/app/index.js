@@ -570,7 +570,7 @@ module.exports = class extends Generator {
     );
     this.fs.copy(
       this.templatePath("latest_core/navmenu/navmenu.inc.php"),
-      this.destinationPath("build/src/navmenu.inc.php")
+      this.destinationPath("build/navmenu.inc.php")
     );
 
     // MODS
@@ -607,7 +607,7 @@ module.exports = class extends Generator {
     // PageTemplate.php
     this.fs.copyTpl(
       this.templatePath("latest_core/pageTemplate/pageTemplate.php"),
-      this.destinationPath("build/src/pageTemplate.php"),
+      this.destinationPath("build/pageTemplate.php"),
       {
         templateType: this.props.templateType,
         lessonTitle: this.props.metedName,
