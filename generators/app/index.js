@@ -556,24 +556,29 @@ module.exports = class extends Generator {
           lessonLang: this.props.metedLang
         }
       );
-    }
-  } else if (this.props.templateType === "Latest Core") {
-    // Latest core 2024+
-    // SRC
+    }  
+  } // LATEST CORE 2024+ SETUP
+  else if (this.props.templateType === "Latest Core") {
+    
+    // Direct copies
+    this.fs.copy(
+      this.templatePath("extensions/grunt/lc_rubix/Gruntfile.js"),
+      this.destinationPath("Gruntfile.js")
+    );
     this.fs.copy(
       this.templatePath("latest_core/src"),
       this.destinationPath("build/src")
     );
     this.fs.copy(
-      this.templatePath("extensions/grunt/lc_rubix/Gruntfile.js"),
-      this.destinationPath("Gruntfile.js")
+      this.templatePath("latest_core/simple_html_dom.php"),
+      this.destinationPath("build/simple_html_dom.php")
     );
     this.fs.copy(
       this.templatePath("latest_core/navmenu/navmenu.inc.php"),
       this.destinationPath("build/navmenu.inc.php")
     );
 
-    // MODS
+    // Modified files
     // index.htm
     this.fs.copyTpl(
       this.templatePath("latest_core/index.htm"),
@@ -606,7 +611,7 @@ module.exports = class extends Generator {
     );
     // PageTemplate.php
     this.fs.copyTpl(
-      this.templatePath("latest_core/pageTemplate/pageTemplate.php"),
+      this.templatePath("latest_core/pageTemplate.php"),
       this.destinationPath("build/pageTemplate.php"),
       {
         templateType: this.props.templateType,

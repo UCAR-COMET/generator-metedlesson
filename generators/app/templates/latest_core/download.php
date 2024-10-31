@@ -66,7 +66,7 @@
                         <line x1="17" x2="3" y1="18" y2="18"></line>
                     </svg></button>
                 <div class="flex items-center gap-6">
-                    <div class="hidden md:flex"><a href="index.htm"><%= lessonTitle %></a></div>
+                    <div class="hidden md:flex"><a href="index.htm" class="text-md font-semibold"><%= lessonTitle %></a></div>
                     <div class="hidden md:flex items-center gap-5 text-sm font-medium text-muted-foreground">
                         <!-- additional links -->
                     </div>

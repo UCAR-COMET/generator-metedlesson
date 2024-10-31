@@ -34,7 +34,7 @@
                 </button>
                 <div class="flex items-center gap-6">
                     <div class="hidden md:flex">
-                        <a class="flex items-center gap-2.5" href="../index.htm">
+                        <a class="flex items-center gap-2.5" href="index.htm">
                             <h1 class="text-md font-semibold">$templateTitle</h1>
                         </a>
                     </div>
