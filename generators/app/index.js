@@ -188,8 +188,8 @@ module.exports = class extends Generator {
     if (this.props.templateType === "Articulate Rise Components") {
       // source files
       this.fs.copy(
-        this.templatePath("articulate_rise/src"),
-        this.destinationPath("build/src")
+        this.templatePath("articulate_rise/lib"),
+        this.destinationPath("build/lib")
       );
       // gruntfile
       this.fs.copy(
