@@ -20,7 +20,7 @@ module.exports = class extends Generator {
         type: "list",
         name: "templateType",
         message: "Choose the lesson template:",
-        choices: ["Latest Core", "legacy-single-print", "legacy-multi-print", "articulate-shell"],
+        choices: ["Latest Core", "legacy-single-print", "legacy-multi-print", "Articulate Rise Components"],
         default: "Latest Core"
       },
       {
@@ -91,7 +91,7 @@ module.exports = class extends Generator {
       }
     ];
 
-    const articulateShellPrompts = [
+    /*const articulateShellPrompts = [
       {
         type: "checkbox",
         name: "articulatePages",
@@ -106,7 +106,7 @@ module.exports = class extends Generator {
           checked: false
         }]
       }
-    ];
+    ];*/
 
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
@@ -124,7 +124,7 @@ module.exports = class extends Generator {
       this.copyrightText = copyrightText;
 
       // Check additional prompts for LC
-      if (props.hasAdditionalOptions && props.templateType !== "articulate-shell") {
+      if (props.hasAdditionalOptions && props.templateType !== "Articulate Rise Components") {
         return this.prompt(additionalPrompts).then(props => {
           console.log("RETURN STUFF FOR ADDITIONAL PROMPTS AND OPTIONS!!!");
           // To access props from additional options
@@ -136,7 +136,7 @@ module.exports = class extends Generator {
         });
       }
       // Check additional prompts for Articulate Shell
-      if (props.templateType === "articulate-shell") {
+      /*if (props.templateType === "Articulate Rise Components") {
         return this.prompt(articulateShellPrompts).then(props => {
           console.log("RETURN STUFF FOR ARTICULATE SHELL PROMPTS!!!");
           // To access props from additional options
@@ -146,7 +146,7 @@ module.exports = class extends Generator {
           this.articulatePages = props.articulatePages;
           console.log("Articulate Pages: ", this.articulatePages);
         });
-      }
+      }*/
 
       /* Console.log('Continue building lesson without additional options...');
         adjustVars(this.generatorYear, this.splashCredit); */
@@ -185,7 +185,7 @@ module.exports = class extends Generator {
     // BUILD
 
     // Articulate shell setup if selected
-    if (this.props.templateType === "articulate-shell") {
+    if (this.props.templateType === "Articulate Rise Components") {
       // source files
       this.fs.copy(
         this.templatePath("articulate_rise/src"),
@@ -197,7 +197,7 @@ module.exports = class extends Generator {
         this.destinationPath("Gruntfile.js")
       );
       // index.htm
-      this.fs.copyTpl(
+      /*this.fs.copyTpl(
         this.templatePath("articulate_rise/index.htm"),
         this.destinationPath("build/index.htm"),
         {
@@ -210,9 +210,9 @@ module.exports = class extends Generator {
           usedPages: this.articulatePages,
           lessonLang: this.props.metedLang
         }
-      );
+      );*/
       // contributors.htm
-      this.fs.copyTpl(
+      /*this.fs.copyTpl(
         this.templatePath("articulate_rise/contributors.htm"),
         this.destinationPath("build/contributors.htm"),
         {
@@ -225,7 +225,7 @@ module.exports = class extends Generator {
           usedPages: this.articulatePages,
           lessonLang: this.props.metedLang
         }
-      );
+      );*/
       // gallery.php
       this.fs.copyTpl(
         this.templatePath("articulate_rise/gallery.php"),
@@ -242,7 +242,7 @@ module.exports = class extends Generator {
         }
       );
       // preassessment.htm
-      this.fs.copyTpl(
+      /*this.fs.copyTpl(
         this.templatePath("articulate_rise/preassessment.htm"),
         this.destinationPath("build/preassessment.htm"),
         {
@@ -255,9 +255,9 @@ module.exports = class extends Generator {
           usedPages: this.articulatePages,
           lessonLang: this.props.metedLang
         }
-      );
+      );*/
       // quiz.htm
-      this.fs.copyTpl(
+      /*this.fs.copyTpl(
         this.templatePath("articulate_rise/quiz.htm"),
         this.destinationPath("build/quiz.htm"),
         {
@@ -270,9 +270,9 @@ module.exports = class extends Generator {
           usedPages: this.articulatePages,
           lessonLang: this.props.metedLang
         }
-      );
+      );*/
       // survey.html
-      this.fs.copyTpl(
+      /*this.fs.copyTpl(
         this.templatePath("articulate_rise/survey.htm"),
         this.destinationPath("build/survey.htm"),
         {
@@ -285,9 +285,9 @@ module.exports = class extends Generator {
           usedPages: this.articulatePages,
           lessonLang: this.props.metedLang
         }
-      );
+      );*/
       // download.php
-      this.fs.copyTpl(
+      /*this.fs.copyTpl(
         this.templatePath("articulate_rise/download.php"),
         this.destinationPath("build/download.php"),
         {
@@ -301,9 +301,9 @@ module.exports = class extends Generator {
           usedPages: this.articulatePages,
           pathStructure: this.structure
         }
-      );
+      );*/
       // conditional pages
-      if (this.articulatePages.includes("ResourcesPage")) {
+      /*if (this.articulatePages.includes("ResourcesPage")) {
         this.fs.copy(
           this.templatePath("articulate_rise/resources.htm"),
           this.destinationPath("build/resources.htm"),
@@ -319,7 +319,7 @@ module.exports = class extends Generator {
             pathStructure: this.structure
           }
         );
-      }
+      }*/
       /*if (this.articulatePages.includes("PrintPage")) {
         this.fs.copy(
           this.templatePath("print.php"),
