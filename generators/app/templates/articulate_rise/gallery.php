@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<!--
 <?php require_once('cometAPI.inc.php');  $mm = new MediaItemManager(); $items = $mm->getMediaGalleryUTF8(<%= lessonID %>); $moduleManager = new ModuleManager(); $module = $moduleManager->getModule(<%= lessonID %>); ?>
--->
+
 <html lang="<% if (lessonLang === 'ES') { %>es<% } else if (lessonLang === 'FR') { %>fr<% } else { %>en<% } %>">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -52,14 +51,13 @@
     </div>
   </div>
   <div class="container" style="min-height: 200px; margin-bottom: 20px;">
-<?php foreach($items as $item) { ?>
+    <div class="row">
+      <?php foreach($items as $item) { ?>
         <?php $item->description = str_replace( '"', '&quot;', $item->description ); ?>
         <?php $item->credits = str_replace( '"', '&quot;', $item->credits ); 
             $pattern =  "/" . preg_quote($module->path, "/") . "/";
             $item->path = preg_replace($pattern, "", $item->path);
         ?>
-    <div class="row">
-      
       <div class="col-lg-3 col-md-6 col-12">
         <div class="card media-item-card">
         <figure id="item-<?php echo $item->id; ?>" aria-labelledby="figcaption-<?php echo $item->id; ?>" class="block-gallery__figure" role="figure">
@@ -146,8 +144,9 @@
               </p>
           </div>
         </div>
-      </div>
       <?php } ?><!-- close row if ending on something other than 4 -->
+      </div>
+      
     </div>
   </div>
 <div id="app">                                                                                           
