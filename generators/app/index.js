@@ -91,23 +91,6 @@ module.exports = class extends Generator {
       }
     ];
 
-    /*const articulateShellPrompts = [
-      {
-        type: "checkbox",
-        name: "articulatePages",
-        message: "Select any additional pages to include:",
-        choices: [{
-          name: 'Resources',
-          value: 'ResourcesPage',
-          checked: true
-        }, {
-          name: 'Print',
-          value: 'PrintPage',
-          checked: false
-        }]
-      }
-    ];*/
-
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       this.props = props;
@@ -135,21 +118,6 @@ module.exports = class extends Generator {
           this.copyrightText = props.splashImageCredit;
         });
       }
-      // Check additional prompts for Articulate Shell
-      /*if (props.templateType === "Articulate Rise Components") {
-        return this.prompt(articulateShellPrompts).then(props => {
-          console.log("RETURN STUFF FOR ARTICULATE SHELL PROMPTS!!!");
-          // To access props from additional options
-          // this.props = props;
-
-          // Adjusted vars
-          this.articulatePages = props.articulatePages;
-          console.log("Articulate Pages: ", this.articulatePages);
-        });
-      }*/
-
-      /* Console.log('Continue building lesson without additional options...');
-        adjustVars(this.generatorYear, this.splashCredit); */
     });
   }
 
@@ -196,36 +164,6 @@ module.exports = class extends Generator {
         this.templatePath("extensions/grunt/articulate/Gruntfile.js"),
         this.destinationPath("Gruntfile.js")
       );
-      // index.htm
-      /*this.fs.copyTpl(
-        this.templatePath("articulate_rise/index.htm"),
-        this.destinationPath("build/index.htm"),
-        {
-          templateType: this.props.templateType,
-          lessonTitle: this.props.metedName,
-          lessonID: this.props.metedID,
-          lessonDesc: this.props.metedDesc,
-          lessonKeys: this.props.metedKeys,
-          copyrightYear: this.generatorYear,
-          usedPages: this.articulatePages,
-          lessonLang: this.props.metedLang
-        }
-      );*/
-      // contributors.htm
-      /*this.fs.copyTpl(
-        this.templatePath("articulate_rise/contributors.htm"),
-        this.destinationPath("build/contributors.htm"),
-        {
-          templateType: this.props.templateType,
-          lessonTitle: this.props.metedName,
-          lessonID: this.props.metedID,
-          lessonDesc: this.props.metedDesc,
-          lessonKeys: this.props.metedKeys,
-          copyrightYear: this.generatorYear,
-          usedPages: this.articulatePages,
-          lessonLang: this.props.metedLang
-        }
-      );*/
       // gallery.php
       this.fs.copyTpl(
         this.templatePath("articulate_rise/gallery.php"),
@@ -241,119 +179,6 @@ module.exports = class extends Generator {
           lessonLang: this.props.metedLang
         }
       );
-      // preassessment.htm
-      /*this.fs.copyTpl(
-        this.templatePath("articulate_rise/preassessment.htm"),
-        this.destinationPath("build/preassessment.htm"),
-        {
-          templateType: this.props.templateType,
-          lessonTitle: this.props.metedName,
-          lessonID: this.props.metedID,
-          lessonDesc: this.props.metedDesc,
-          lessonKeys: this.props.metedKeys,
-          copyrightYear: this.generatorYear,
-          usedPages: this.articulatePages,
-          lessonLang: this.props.metedLang
-        }
-      );*/
-      // quiz.htm
-      /*this.fs.copyTpl(
-        this.templatePath("articulate_rise/quiz.htm"),
-        this.destinationPath("build/quiz.htm"),
-        {
-          templateType: this.props.templateType,
-          lessonTitle: this.props.metedName,
-          lessonID: this.props.metedID,
-          lessonDesc: this.props.metedDesc,
-          lessonKeys: this.props.metedKeys,
-          copyrightYear: this.generatorYear,
-          usedPages: this.articulatePages,
-          lessonLang: this.props.metedLang
-        }
-      );*/
-      // survey.html
-      /*this.fs.copyTpl(
-        this.templatePath("articulate_rise/survey.htm"),
-        this.destinationPath("build/survey.htm"),
-        {
-          templateType: this.props.templateType,
-          lessonTitle: this.props.metedName,
-          lessonID: this.props.metedID,
-          lessonDesc: this.props.metedDesc,
-          lessonKeys: this.props.metedKeys,
-          copyrightYear: this.generatorYear,
-          usedPages: this.articulatePages,
-          lessonLang: this.props.metedLang
-        }
-      );*/
-      // download.php
-      /*this.fs.copyTpl(
-        this.templatePath("articulate_rise/download.php"),
-        this.destinationPath("build/download.php"),
-        {
-          templateType: this.props.templateType,
-          lessonTitle: this.props.metedName,
-          lessonID: this.props.metedID,
-          lessonDesc: this.props.metedDesc,
-          lessonKeys: this.props.metedKeys,
-          copyrightYear: this.generatorYear,
-          lessonLang: this.props.metedLang,
-          usedPages: this.articulatePages,
-          pathStructure: this.structure
-        }
-      );*/
-      // conditional pages
-      /*if (this.articulatePages.includes("ResourcesPage")) {
-        this.fs.copy(
-          this.templatePath("articulate_rise/resources.htm"),
-          this.destinationPath("build/resources.htm"),
-          {
-            templateType: this.props.templateType,
-            lessonTitle: this.props.metedName,
-            lessonID: this.props.metedID,
-            lessonDesc: this.props.metedDesc,
-            lessonKeys: this.props.metedKeys,
-            copyrightYear: this.generatorYear,
-            lessonLang: this.props.metedLang,
-            usedPages: this.articulatePages,
-            pathStructure: this.structure
-          }
-        );
-      }*/
-      /*if (this.articulatePages.includes("PrintPage")) {
-        this.fs.copy(
-          this.templatePath("print.php"),
-          this.destinationPath("build/print.php"),
-          {
-            templateType: this.props.templateType,
-            lessonTitle: this.props.metedName,
-            lessonID: this.props.metedID,
-            lessonDesc: this.props.metedDesc,
-            lessonKeys: this.props.metedKeys,
-            copyrightYear: this.generatorYear,
-            lessonLang: this.props.metedLang,
-            usedPages: this.articulatePages,
-            pathStructure: this.structure
-          }
-        );
-      }
-      if (this.articulatePages.includes("BlankPage")) {
-        this.fs.copy(
-          this.templatePath("articulate_rise/blank.htm"),
-          this.destinationPath("build/blank.htm"),
-          {
-            templateType: this.props.templateType,
-            lessonTitle: this.props.metedName,
-            lessonID: this.props.metedID,
-            lessonDesc: this.props.metedDesc,
-            lessonKeys: this.props.metedKeys,
-            copyrightYear: this.generatorYear,
-            lessonLang: this.props.metedLang,
-            usedPages: this.articulatePages,
-            pathStructure: this.structure
-          }
-        );
-      }*/
       
     } else if(this.props.templateType === "legacy-single-print" || this.props.templateType === "legacy-multi-print") {
 
