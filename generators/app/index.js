@@ -20,7 +20,7 @@ module.exports = class extends Generator {
         type: "list",
         name: "templateType",
         message: "Choose the lesson template:",
-        choices: ["Latest Core", "legacy-single-print", "legacy-multi-print", "Articulate Rise Components"],
+        choices: ["Latest Core", "Articulate Rise Components", "legacy-single-print", "legacy-multi-print"],
         default: "Latest Core"
       },
       {
