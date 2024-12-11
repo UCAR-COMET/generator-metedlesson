@@ -154,28 +154,31 @@ module.exports = class extends Generator {
 
     // Articulate shell setup if selected
     if (this.props.templateType === "Articulate Rise Components") {
-      // source files
-      this.fs.copy(
-        this.templatePath("articulate_rise/lib"),
-        this.destinationPath("build/lib")
-      );
-      // gruntfile
+      // GRUNT
       this.fs.copy(
         this.templatePath("extensions/grunt/articulate/Gruntfile.js"),
         this.destinationPath("Gruntfile.js")
       );
-      // gallery.php
+      // GALLERY Builder Components
       this.fs.copyTpl(
-        this.templatePath("articulate_rise/gallery.php"),
-        this.destinationPath("build/gallery.php"),
+        this.templatePath("articulate_rise/gallery_origin.php"),
+        this.destinationPath("build/gallery_origin.php"),
         {
           templateType: this.props.templateType,
           lessonTitle: this.props.metedName,
           lessonID: this.props.metedID,
-          lessonDesc: this.props.metedDesc,
-          lessonKeys: this.props.metedKeys,
           copyrightYear: this.generatorYear,
-          usedPages: this.articulatePages,
+          lessonLang: this.props.metedLang
+        }
+      );
+      this.fs.copyTpl(
+        this.templatePath("articulate_rise/gallery_target.htm"),
+        this.destinationPath("build/gallery_target.htm"),
+        {
+          templateType: this.props.templateType,
+          lessonTitle: this.props.metedName,
+          lessonID: this.props.metedID,
+          copyrightYear: this.generatorYear,
           lessonLang: this.props.metedLang
         }
       );
