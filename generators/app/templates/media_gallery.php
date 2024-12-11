@@ -136,9 +136,7 @@ require_once('cometAPI.inc.php');
 				<h2 id="lesson-sidebar-title" class="module-title-text"></h2>
 				<!--  Table of Contents -->
 				<div id="menu" class="sidebar-toc">
-					<h4 id="lesson-sidebar-unit-title"><% if (lessonLang === 'ES') { %>Galería
-						multimedia<% } else if (lessonLang === 'FR') { %>Médiathèque<% } else { %>Media Gallery<% } %>
-					</h4>
+					<h4 id="lesson-sidebar-unit-title"><% if (lessonLang === 'ES') { %> Galería multimedia<% } else if (lessonLang === 'FR') { %>Médiathèque<% } else { %>Media Gallery<% } %></h4>
 				</div>
 				<hr>
 				<% if (lessonLang === 'ES') { %>
