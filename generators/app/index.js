@@ -173,14 +173,7 @@ module.exports = class extends Generator {
       );
       this.fs.copyTpl(
         this.templatePath("articulate_rise/gallery_target.htm"),
-        this.destinationPath("build/gallery_target.htm"),
-        {
-          templateType: this.props.templateType,
-          lessonTitle: this.props.metedName,
-          lessonID: this.props.metedID,
-          copyrightYear: this.generatorYear,
-          lessonLang: this.props.metedLang
-        }
+        this.destinationPath("build/gallery_target.htm")
       );
       
     } else if(this.props.templateType === "legacy-single-print" || this.props.templateType === "legacy-multi-print") {
