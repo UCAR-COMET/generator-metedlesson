@@ -20,7 +20,7 @@ module.exports = class extends Generator {
         type: "list",
         name: "templateType",
         message: "Choose the lesson template:",
-        choices: ["Latest Core", "Articulate Rise Components", "legacy-single-print", "legacy-multi-print"],
+        choices: ["Latest Core", "Articulate Components", "legacy-single-print", "legacy-multi-print"],
         default: "Latest Core"
       },
       {
@@ -107,7 +107,7 @@ module.exports = class extends Generator {
       this.copyrightText = copyrightText;
 
       // Check additional prompts for LC
-      if (props.hasAdditionalOptions && props.templateType !== "Articulate Rise Components") {
+      if (props.hasAdditionalOptions && props.templateType !== "Articulate Components") {
         return this.prompt(additionalPrompts).then(props => {
           console.log("RETURN STUFF FOR ADDITIONAL PROMPTS AND OPTIONS!!!");
           // To access props from additional options
@@ -153,7 +153,7 @@ module.exports = class extends Generator {
     // BUILD
 
     // Articulate shell setup if selected
-    if (this.props.templateType === "Articulate Rise Components") {
+    if (this.props.templateType === "Articulate Components") {
       // GRUNT
       this.fs.copy(
         this.templatePath("extensions/grunt/articulate/Gruntfile.js"),
