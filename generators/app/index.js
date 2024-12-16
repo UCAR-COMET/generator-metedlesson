@@ -160,7 +160,7 @@ module.exports = class extends Generator {
         this.destinationPath("Gruntfile.js")
       );
       // GALLERY Builder Components
-      this.fs.copyTpl(
+      /*this.fs.copyTpl(
         this.templatePath("articulate_rise/gallery_origin.php"),
         this.destinationPath("build/gallery_origin.php"),
         {
@@ -170,10 +170,17 @@ module.exports = class extends Generator {
           copyrightYear: this.generatorYear,
           lessonLang: this.props.metedLang
         }
-      );
+      );*/
       this.fs.copyTpl(
         this.templatePath("articulate_rise/gallery_target.htm"),
-        this.destinationPath("build/gallery_target.htm")
+        this.destinationPath("build/gallery_target.htm"),
+        {
+          templateType: this.props.templateType,
+          lessonTitle: this.props.metedName,
+          lessonID: this.props.metedID,
+          copyrightYear: this.generatorYear,
+          lessonLang: this.props.metedLang
+        }
       );
       
     } else if(this.props.templateType === "legacy-single-print" || this.props.templateType === "legacy-multi-print") {
