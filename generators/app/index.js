@@ -160,7 +160,7 @@ module.exports = class extends Generator {
         this.destinationPath("Gruntfile.js")
       );
       // GALLERY Builder Components
-      /*this.fs.copyTpl(
+      this.fs.copyTpl(
         this.templatePath("articulate_rise/gallery_origin.php"),
         this.destinationPath("build/gallery_origin.php"),
         {
@@ -170,7 +170,7 @@ module.exports = class extends Generator {
           copyrightYear: this.generatorYear,
           lessonLang: this.props.metedLang
         }
-      );*/
+      );
       this.fs.copyTpl(
         this.templatePath("articulate_rise/gallery_target.htm"),
         this.destinationPath("build/gallery_target.htm"),
