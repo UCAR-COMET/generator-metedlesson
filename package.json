@@ -1,7 +1,7 @@
 {
   "name": "generator-metedlesson",
-  "version": "2.0.1",
-  "description": "COMET - MetEd lesson generator v2. [Updated August 2022]",
+  "version": "3.0.0",
+  "description": "COMET - MetEd lesson generator v3 [jan 2025]",
   "homepage": "https://www.meted.ucar.edu",
   "author": {
     "name": "Gary Pacheco - COMET Media Development Group",

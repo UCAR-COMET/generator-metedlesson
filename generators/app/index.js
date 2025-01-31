@@ -20,7 +20,7 @@ module.exports = class extends Generator {
         type: "list",
         name: "templateType",
         message: "Choose the lesson template:",
-        choices: ["Latest Core", "Articulate Components", "legacy-single-print", "legacy-multi-print"],
+        choices: ["Latest Core", "legacy-single", "legacy-multiple", /* Articulate Components */],
         default: "Latest Core"
       },
       {
@@ -183,7 +183,7 @@ module.exports = class extends Generator {
         }
       );
       
-    } else if(this.props.templateType === "legacy-single-print" || this.props.templateType === "legacy-multi-print") {
+    } else if(this.props.templateType === "legacy-single" || this.props.templateType === "legacy-multiple") {
 
     // Single-print and multi-print setup
     this.fs.copy(
