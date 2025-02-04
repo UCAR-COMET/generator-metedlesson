@@ -1,0 +1,84 @@
+/* LC legacy items */
+.panel {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);
+}
+.panel-heading {
+    border-bottom: 1px solid #ccc;
+    padding: 0 1rem;
+}
+.panel-title {
+    margin: .75rem .5rem !important;
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
+.panel-title a {
+    text-decoration: none;
+}
+.panel-body {
+    padding: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.nav.nav-tabs {
+    margin-bottom: 20px;
+    list-style-type: none;
+    display: flex;
+}
+.nav.nav-tabs > li {
+    margin-bottom: 0;
+    margin-right: 10px;
+}
+.nav.nav-tabs > li > a {
+    padding: .5rem 1.125rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    text-decoration: none;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);
+}
+.nav.nav-tabs > li > a:hover {
+    background-color: #e9ecef;
+}
+.nav.nav-tabs > li.active > a {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+.tab-content > .tab-pane {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 1.5rem;
+}
+
+.interaction-question {
+    margin-bottom: 20px;
+}
+.interaction-question textarea {
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: .5rem;
+}
+
+.submit-button {
+    margin: 1rem 0;
+    padding: .5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-weight: 600;
+}
+.submit-button:hover {
+    background-color: #e9ecef;
+    cursor: pointer;
+}
+.submit-button:disabled {
+    background-color: #f8f9fa;
+    cursor: not-allowed;
+}
+.submit-button:disabled:hover {
+    background-color: #f8f9fa;
+}
