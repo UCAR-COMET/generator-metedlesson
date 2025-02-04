@@ -17,11 +17,13 @@ $mm = new MediaItemManager();
     <link rel="stylesheet" href="src/css/legacy_styles.css">
     <link rel="stylesheet" href="src/css/layout.css">
     <link rel="stylesheet" href="src/css/core.css">
-    <link rel="stylesheet" href="src/css/printable.css">
+    <!--<link rel="stylesheet" href="src/css/printable.css">-->
     <script src="src/js/jquery.min.js"></script>
     <script src="src/js/jquery-ui.min.js"></script>
     <script src="src/js/jquery-plugins.min.js"></script>
     <script src="src/js/defaults.js"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js "></script>
+    <link href=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css " rel="stylesheet">
 </head>
 
 <body>
