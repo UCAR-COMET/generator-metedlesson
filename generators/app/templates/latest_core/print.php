@@ -17,7 +17,7 @@ $mm = new MediaItemManager();
     <link rel="stylesheet" href="src/css/legacy_styles.css">
     <link rel="stylesheet" href="src/css/layout.css">
     <link rel="stylesheet" href="src/css/core.css">
-    <!--<link rel="stylesheet" href="src/css/printable.css">-->
+    <link rel="stylesheet" href="src/css/printable.css">
     <script src="src/js/jquery.min.js"></script>
     <script src="src/js/jquery-ui.min.js"></script>
     <script src="src/js/jquery-plugins.min.js"></script>

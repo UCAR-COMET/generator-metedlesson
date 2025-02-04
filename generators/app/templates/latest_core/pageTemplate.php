@@ -15,6 +15,8 @@
 <link rel="stylesheet" href="src/css/layout.css">
 <link rel="stylesheet" href="src/css/core.css">
 <script src="src/js/jquery.min.js"></script>
+<script src="src/js/jquery-ui.min.js"></script>
+<script src="src/js/jquery-plugins.min.js"></script>
 <script src="src/js/defaults.js"></script>
 </head>
 <body>
