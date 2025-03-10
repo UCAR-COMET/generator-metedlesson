@@ -1,4 +1,4 @@
-"use strict";
+// "use strict";
 const Generator = require("yeoman-generator");
 const chalk = require("chalk");
 const yosay = require("yosay");
@@ -9,7 +9,7 @@ module.exports = class extends Generator {
     // 1) Let's create some variables to use in the generator: current year, splash credit
     const generatorYear = new Date().getFullYear();
     const copyrightText = "The COMET Program";
-    //const articulatePages = [];
+    // Const articulatePages = [];
 
     // 2) Have Yeoman greet the user
     this.log(yosay(`Let's generate a new ${chalk.blue("MetEd Lesson")}!`));
@@ -20,7 +20,7 @@ module.exports = class extends Generator {
         type: "list",
         name: "templateType",
         message: "Choose the lesson template:",
-        choices: ["Latest Core", "legacy-single", "legacy-multiple", /* Articulate Components */],
+        choices: ["legacy-single", "legacy-multiple"],
         default: "Latest Core"
       },
       {
@@ -107,7 +107,10 @@ module.exports = class extends Generator {
       this.copyrightText = copyrightText;
 
       // Check additional prompts for LC
-      if (props.hasAdditionalOptions && props.templateType !== "Articulate Components") {
+      if (
+        props.hasAdditionalOptions &&
+        props.templateType !== "Articulate Components"
+      ) {
         return this.prompt(additionalPrompts).then(props => {
           console.log("RETURN STUFF FOR ADDITIONAL PROMPTS AND OPTIONS!!!");
           // To access props from additional options
@@ -153,198 +156,136 @@ module.exports = class extends Generator {
     // BUILD
 
     // Articulate shell setup if selected
-    if (this.props.templateType === "Articulate Components") {
-      // GRUNT
+    /* if (this.props.templateType === "Articulate Components") {
+                      -- GRUNT
+                      this.fs.copy(
+                        this.templatePath("extensions/grunt/articulate/Gruntfile.js"),
+                        this.destinationPath("Gruntfile.js")
+                      );
+                      -- GALLERY Builder Components
+                      this.fs.copyTpl(
+                        this.templatePath("articulate_rise/gallery_origin.php"),
+                        this.destinationPath("build/gallery_origin.php"),
+                        {
+                          templateType: this.props.templateType,
+                          lessonTitle: this.props.metedName,
+                          lessonID: this.props.metedID,
+                          copyrightYear: this.generatorYear,
+                          lessonLang: this.props.metedLang
+                        }
+                      );
+                      this.fs.copyTpl(
+                        this.templatePath("articulate_rise/gallery_target.htm"),
+                        this.destinationPath("build/gallery_target.htm"),
+                        {
+                          templateType: this.props.templateType,
+                          lessonTitle: this.props.metedName,
+                          lessonID: this.props.metedID,
+                          copyrightYear: this.generatorYear,
+                          lessonLang: this.props.metedLang
+                        }
+                      );
+                    } else */
+
+    if (
+      this.props.templateType === "legacy-single" ||
+      this.props.templateType === "legacy-multiple"
+    ) {
+      // Single-print and multi-print setup
       this.fs.copy(
-        this.templatePath("extensions/grunt/articulate/Gruntfile.js"),
+        this.templatePath("extensions/grunt/newlesson/Gruntfile.js"),
         this.destinationPath("Gruntfile.js")
       );
-      // GALLERY Builder Components
+      this.fs.copy(
+        this.templatePath("assets"),
+        this.destinationPath("build/assets")
+      );
+      this.fs.copy(
+        this.templatePath("bootstrap"),
+        this.destinationPath("build/bootstrap")
+      );
+      this.fs.copy(this.templatePath("css"), this.destinationPath("build/css"));
+      this.fs.copy(
+        this.templatePath("jquery"),
+        this.destinationPath("build/jquery")
+      );
+      this.fs.copy(
+        this.templatePath("ie-support"),
+        this.destinationPath("build/ie-support")
+      );
+      this.fs.copy(
+        this.templatePath("modernizr"),
+        this.destinationPath("build/modernizr")
+      );
+      this.fs.copy(
+        this.templatePath("navmenu.inc.php"),
+        this.destinationPath("build/navmenu.inc.php")
+      );
+      this.fs.copy(
+        this.templatePath("simple_html_dom.php"),
+        this.destinationPath("build/simple_html_dom.php")
+      );
+
+      // MODS
+      // index.htm
       this.fs.copyTpl(
-        this.templatePath("articulate_rise/gallery_origin.php"),
-        this.destinationPath("build/gallery_origin.php"),
+        this.templatePath("index.htm"),
+        this.destinationPath("build/index.htm"),
         {
           templateType: this.props.templateType,
           lessonTitle: this.props.metedName,
           lessonID: this.props.metedID,
+          lessonLang: this.props.metedLang,
+          lessonDesc: this.props.metedDesc,
+          lessonKeys: this.props.metedKeys,
           copyrightYear: this.generatorYear,
-          lessonLang: this.props.metedLang
+          splashImageCredit: this.copyrightText
         }
       );
+      // Download.php
       this.fs.copyTpl(
-        this.templatePath("articulate_rise/gallery_target.htm"),
-        this.destinationPath("build/gallery_target.htm"),
+        this.templatePath("download.php"),
+        this.destinationPath("build/download.php"),
         {
           templateType: this.props.templateType,
           lessonTitle: this.props.metedName,
           lessonID: this.props.metedID,
+          lessonLang: this.props.metedLang,
           copyrightYear: this.generatorYear,
-          lessonLang: this.props.metedLang
+          pathStructure: this.structure
         }
       );
-      
-    } else if(this.props.templateType === "legacy-single" || this.props.templateType === "legacy-multiple") {
-
-    // Single-print and multi-print setup
-    this.fs.copy(
-      this.templatePath("extensions/grunt/newlesson/Gruntfile.js"),
-      this.destinationPath("Gruntfile.js")
-    );
-    this.fs.copy(
-      this.templatePath("assets"),
-      this.destinationPath("build/assets")
-    );
-    this.fs.copy(
-      this.templatePath("bootstrap"),
-      this.destinationPath("build/bootstrap")
-    );
-    this.fs.copy(this.templatePath("css"), this.destinationPath("build/css"));
-    this.fs.copy(
-      this.templatePath("jquery"),
-      this.destinationPath("build/jquery")
-    );
-    this.fs.copy(
-      this.templatePath("ie-support"),
-      this.destinationPath("build/ie-support")
-    );
-    this.fs.copy(
-      this.templatePath("modernizr"),
-      this.destinationPath("build/modernizr")
-    );
-    this.fs.copy(
-      this.templatePath("navmenu.inc.php"),
-      this.destinationPath("build/navmenu.inc.php")
-    );
-    this.fs.copy(
-      this.templatePath("simple_html_dom.php"),
-      this.destinationPath("build/simple_html_dom.php")
-    );
-
-    // MODS
-    // index.htm
-    this.fs.copyTpl(
-      this.templatePath("index.htm"),
-      this.destinationPath("build/index.htm"),
-      {
-        templateType: this.props.templateType,
-        lessonTitle: this.props.metedName,
-        lessonID: this.props.metedID,
-        lessonLang: this.props.metedLang,
-        lessonDesc: this.props.metedDesc,
-        lessonKeys: this.props.metedKeys,
-        copyrightYear: this.generatorYear,
-        splashImageCredit: this.copyrightText
-      }
-    );
-    // Download.php
-    this.fs.copyTpl(
-      this.templatePath("download.php"),
-      this.destinationPath("build/download.php"),
-      {
-        templateType: this.props.templateType,
-        lessonTitle: this.props.metedName,
-        lessonID: this.props.metedID,
-        lessonLang: this.props.metedLang,
-        copyrightYear: this.generatorYear,
-        pathStructure: this.structure
-      }
-    );
-    // Media_gallery.php
-    this.fs.copyTpl(
-      this.templatePath("media_gallery.php"),
-      this.destinationPath("build/media_gallery.php"),
-      {
-        templateType: this.props.templateType,
-        lessonTitle: this.props.metedName,
-        lessonID: this.props.metedID,
-        lessonLang: this.props.metedLang,
-        copyrightYear: this.generatorYear
-      }
-    );
-    // PageTemplate.php
-    this.fs.copyTpl(
-      this.templatePath("pageTemplate.php"),
-      this.destinationPath("build/pageTemplate.php"),
-      {
-        templateType: this.props.templateType,
-        lessonLang: this.props.metedLang,
-        narratedSwitch: this.props.narratedLesson,
-        copyrightYear: this.generatorYear
-        // MultiPrint: this.props.multiLesson,
-      }
-    );
-    // Navmenu.php
-    this.fs.copyTpl(
-      this.templatePath("navmenu.php"),
-      this.destinationPath("build/navmenu.php"),
-      { lessonPath: this.props.metedPath }
-    );
-    // Print.php
-    this.fs.copyTpl(
-      this.templatePath("print.php"),
-      this.destinationPath("build/print.php"),
-      {
-        templateType: this.props.templateType,
-        lessonTitle: this.props.metedName,
-        lessonID: this.props.metedID,
-        lessonDesc: this.props.metedDesc,
-        lessonKeys: this.props.metedKeys,
-        copyrightYear: this.generatorYear,
-        lessonLang: this.props.metedLang
-      }
-    );
-
-    // POST LANGUAGE CONDITIONALS
-    // defaults.js
-    switch (this.props.metedLang) {
-      case "EN": // English
-        this.fs.copyTpl(
-          this.templatePath("extensions/lc-default/defaults.js"),
-          this.destinationPath("build/jquery/defaults.js"),
-          {
-            templateType: this.props.templateType,
-            lessonTitle: this.props.metedName,
-            lessonID: this.props.metedID
-          }
-        );
-        this.fs.copy(
-          this.templatePath("navmenu.inc.php"),
-          this.destinationPath("build/navmenu.inc.php")
-        );
-        break;
-      case "ES": // Spanish
-        this.fs.copyTpl(
-          this.templatePath("extensions/lc-default/defaults_es.js"),
-          this.destinationPath("build/jquery/defaults.js"),
-          {
-            templateType: this.props.templateType,
-            lessonTitle: this.props.metedName,
-            lessonID: this.props.metedID
-          }
-        );
-        this.fs.copy(
-          this.templatePath("navmenu.inc_es.php"),
-          this.destinationPath("build/navmenu.inc.php")
-        );
-        break;
-      case "FR": // French
-        this.fs.copyTpl(
-          this.templatePath("extensions/lc-default/defaults_fr.js"),
-          this.destinationPath("build/jquery/defaults.js"),
-          {
-            templateType: this.props.templateType,
-            lessonTitle: this.props.metedName,
-            lessonID: this.props.metedID
-          }
-        );
-        this.fs.copy(
-          this.templatePath("navmenu.inc_fr.php"),
-          this.destinationPath("build/navmenu.inc.php")
-        );
-    }
-
-    // MULTI-PRINT ONLY
-    if (this.props.templateType === "multi-print") {
+      // Media_gallery.php
+      this.fs.copyTpl(
+        this.templatePath("media_gallery.php"),
+        this.destinationPath("build/media_gallery.php"),
+        {
+          templateType: this.props.templateType,
+          lessonTitle: this.props.metedName,
+          lessonID: this.props.metedID,
+          lessonLang: this.props.metedLang,
+          copyrightYear: this.generatorYear
+        }
+      );
+      // PageTemplate.php
+      this.fs.copyTpl(
+        this.templatePath("pageTemplate.php"),
+        this.destinationPath("build/pageTemplate.php"),
+        {
+          templateType: this.props.templateType,
+          lessonLang: this.props.metedLang,
+          narratedSwitch: this.props.narratedLesson,
+          copyrightYear: this.generatorYear
+          // MultiPrint: this.props.multiLesson,
+        }
+      );
+      // Navmenu.php
+      this.fs.copyTpl(
+        this.templatePath("navmenu.php"),
+        this.destinationPath("build/navmenu.php"),
+        { lessonPath: this.props.metedPath }
+      );
+      // Print.php
       this.fs.copyTpl(
         this.templatePath("print.php"),
         this.destinationPath("build/print.php"),
@@ -358,121 +299,185 @@ module.exports = class extends Generator {
           lessonLang: this.props.metedLang
         }
       );
-      this.fs.copyTpl(
-        this.templatePath("print.php"),
-        this.destinationPath("build/print_02.php"),
-        {
-          templateType: this.props.templateType,
-          lessonTitle: this.props.metedName,
-          lessonID: this.props.metedID,
-          lessonDesc: this.props.metedDesc,
-          lessonKeys: this.props.metedKeys,
-          copyrightYear: this.generatorYear,
-          lessonLang: this.props.metedLang
-        }
-      );
-      this.fs.copyTpl(
-        this.templatePath("contributors.htm"),
-        this.destinationPath("build/contributors.htm"),
-        {
-          templateType: this.props.templateType,
-          lessonTitle: this.props.metedName,
-          lessonID: this.props.metedID,
-          lessonDesc: this.props.metedDesc,
-          lessonKeys: this.props.metedKeys,
-          copyrightYear: this.generatorYear,
-          lessonLang: this.props.metedLang
-        }
-      );
-    }  
-  } // LATEST CORE 2024+ SETUP
-  else if (this.props.templateType === "Latest Core") {
-    
-    // Base files
-    this.fs.copy(
-      this.templatePath("extensions/grunt/lc_rubix/Gruntfile.js"),
-      this.destinationPath("Gruntfile.js")
-    );
-    this.fs.copy(
-      this.templatePath("latest_core/src"),
-      this.destinationPath("build/src")
-    );
-    this.fs.copy(
-      this.templatePath("latest_core/simple_html_dom.php"),
-      this.destinationPath("build/simple_html_dom.php")
-    );    
 
-    // index.htm w/ options
-    this.fs.copyTpl(
-      this.templatePath("latest_core/index.htm"),
-      this.destinationPath("build/index.htm"),
-      {
-        templateType: this.props.templateType,
-        lessonTitle: this.props.metedName,
-        lessonID: this.props.metedID,
-        lessonLang: this.props.metedLang,
-        lessonDesc: this.props.metedDesc,
-        lessonKeys: this.props.metedKeys,
-        copyrightYear: this.generatorYear,
-        splashImageCredit: this.copyrightText
+      // POST LANGUAGE CONDITIONALS
+      // defaults.js
+      switch (this.props.metedLang) {
+        case "EN": // English
+          this.fs.copyTpl(
+            this.templatePath("extensions/lc-default/defaults.js"),
+            this.destinationPath("build/jquery/defaults.js"),
+            {
+              templateType: this.props.templateType,
+              lessonTitle: this.props.metedName,
+              lessonID: this.props.metedID
+            }
+          );
+          this.fs.copy(
+            this.templatePath("navmenu.inc.php"),
+            this.destinationPath("build/navmenu.inc.php")
+          );
+          break;
+        case "ES": // Spanish
+          this.fs.copyTpl(
+            this.templatePath("extensions/lc-default/defaults_es.js"),
+            this.destinationPath("build/jquery/defaults.js"),
+            {
+              templateType: this.props.templateType,
+              lessonTitle: this.props.metedName,
+              lessonID: this.props.metedID
+            }
+          );
+          this.fs.copy(
+            this.templatePath("navmenu.inc_es.php"),
+            this.destinationPath("build/navmenu.inc.php")
+          );
+          break;
+        case "FR": // French
+          this.fs.copyTpl(
+            this.templatePath("extensions/lc-default/defaults_fr.js"),
+            this.destinationPath("build/jquery/defaults.js"),
+            {
+              templateType: this.props.templateType,
+              lessonTitle: this.props.metedName,
+              lessonID: this.props.metedID
+            }
+          );
+          this.fs.copy(
+            this.templatePath("navmenu.inc_fr.php"),
+            this.destinationPath("build/navmenu.inc.php")
+          );
       }
-    );
-    // Download.php w/ options
-    this.fs.copyTpl(
-      this.templatePath("latest_core/download.php"),
-      this.destinationPath("build/download.php"),
-      {
-        templateType: this.props.templateType,
-        lessonTitle: this.props.metedName,
-        lessonID: this.props.metedID,
-        lessonLang: this.props.metedLang,
-        lessonDesc: this.props.metedDesc,
-        lessonKeys: this.props.metedKeys,
-        copyrightYear: this.generatorYear,
-        pathStructure: this.structure
+
+      // MULTI-PRINT ONLY
+      if (this.props.templateType === "multi-print") {
+        this.fs.copyTpl(
+          this.templatePath("print.php"),
+          this.destinationPath("build/print.php"),
+          {
+            templateType: this.props.templateType,
+            lessonTitle: this.props.metedName,
+            lessonID: this.props.metedID,
+            lessonDesc: this.props.metedDesc,
+            lessonKeys: this.props.metedKeys,
+            copyrightYear: this.generatorYear,
+            lessonLang: this.props.metedLang
+          }
+        );
+        this.fs.copyTpl(
+          this.templatePath("print.php"),
+          this.destinationPath("build/print_02.php"),
+          {
+            templateType: this.props.templateType,
+            lessonTitle: this.props.metedName,
+            lessonID: this.props.metedID,
+            lessonDesc: this.props.metedDesc,
+            lessonKeys: this.props.metedKeys,
+            copyrightYear: this.generatorYear,
+            lessonLang: this.props.metedLang
+          }
+        );
+        this.fs.copyTpl(
+          this.templatePath("contributors.htm"),
+          this.destinationPath("build/contributors.htm"),
+          {
+            templateType: this.props.templateType,
+            lessonTitle: this.props.metedName,
+            lessonID: this.props.metedID,
+            lessonDesc: this.props.metedDesc,
+            lessonKeys: this.props.metedKeys,
+            copyrightYear: this.generatorYear,
+            lessonLang: this.props.metedLang
+          }
+        );
       }
-    );
-    // PageTemplate.php w/ options
-    this.fs.copyTpl(
-      this.templatePath("latest_core/pageTemplate.php"),
-      this.destinationPath("build/pageTemplate.php"),
-      {
-        templateType: this.props.templateType,
-        lessonTitle: this.props.metedName,
-        lessonID: this.props.metedID,
-        lessonLang: this.props.metedLang,
-        lessonDesc: this.props.metedDesc,
-        lessonKeys: this.props.metedKeys,
-        copyrightYear: this.generatorYear,
-        pathStructure: this.structure,
-        narratedSwitch: this.props.narratedLesson        
-      }
-    );
-    // Print.php w/ options
-    this.fs.copyTpl(
-      this.templatePath("latest_core/print.php"),
-      this.destinationPath("build/print.php"),
-      {
-        templateType: this.props.templateType,
-        lessonTitle: this.props.metedName,
-        lessonID: this.props.metedID,
-        lessonDesc: this.props.metedDesc,
-        lessonKeys: this.props.metedKeys,
-        copyrightYear: this.generatorYear,
-        lessonLang: this.props.metedLang
-      }
-    );
-    // Navmenu.php
-    this.fs.copyTpl(
-      this.templatePath("latest_core/navmenu/navmenu.php"),
-      this.destinationPath("build/navmenu.php"),
-      { lessonPath: this.props.metedPath }
-    );
-    this.fs.copy(
-      this.templatePath("latest_core/navmenu/navmenu.inc.php"),
-      this.destinationPath("build/navmenu.inc.php")
-    );
-  }
+    } // LATEST CORE 2024+ SETUP
+    else if (this.props.templateType === "Latest Core") {
+      // Base files
+      this.fs.copy(
+        this.templatePath("extensions/grunt/lc_rubix/Gruntfile.js"),
+        this.destinationPath("Gruntfile.js")
+      );
+      this.fs.copy(
+        this.templatePath("latest_core/src"),
+        this.destinationPath("build/src")
+      );
+      this.fs.copy(
+        this.templatePath("latest_core/simple_html_dom.php"),
+        this.destinationPath("build/simple_html_dom.php")
+      );
+
+      // Index.htm w/ options
+      this.fs.copyTpl(
+        this.templatePath("latest_core/index.htm"),
+        this.destinationPath("build/index.htm"),
+        {
+          templateType: this.props.templateType,
+          lessonTitle: this.props.metedName,
+          lessonID: this.props.metedID,
+          lessonLang: this.props.metedLang,
+          lessonDesc: this.props.metedDesc,
+          lessonKeys: this.props.metedKeys,
+          copyrightYear: this.generatorYear,
+          splashImageCredit: this.copyrightText
+        }
+      );
+      // Download.php w/ options
+      this.fs.copyTpl(
+        this.templatePath("latest_core/download.php"),
+        this.destinationPath("build/download.php"),
+        {
+          templateType: this.props.templateType,
+          lessonTitle: this.props.metedName,
+          lessonID: this.props.metedID,
+          lessonLang: this.props.metedLang,
+          lessonDesc: this.props.metedDesc,
+          lessonKeys: this.props.metedKeys,
+          copyrightYear: this.generatorYear,
+          pathStructure: this.structure
+        }
+      );
+      // PageTemplate.php w/ options
+      this.fs.copyTpl(
+        this.templatePath("latest_core/pageTemplate.php"),
+        this.destinationPath("build/pageTemplate.php"),
+        {
+          templateType: this.props.templateType,
+          lessonTitle: this.props.metedName,
+          lessonID: this.props.metedID,
+          lessonLang: this.props.metedLang,
+          lessonDesc: this.props.metedDesc,
+          lessonKeys: this.props.metedKeys,
+          copyrightYear: this.generatorYear,
+          pathStructure: this.structure,
+          narratedSwitch: this.props.narratedLesson
+        }
+      );
+      // Print.php w/ options
+      this.fs.copyTpl(
+        this.templatePath("latest_core/print.php"),
+        this.destinationPath("build/print.php"),
+        {
+          templateType: this.props.templateType,
+          lessonTitle: this.props.metedName,
+          lessonID: this.props.metedID,
+          lessonDesc: this.props.metedDesc,
+          lessonKeys: this.props.metedKeys,
+          copyrightYear: this.generatorYear,
+          lessonLang: this.props.metedLang
+        }
+      );
+      // Navmenu.php
+      this.fs.copyTpl(
+        this.templatePath("latest_core/navmenu/navmenu.php"),
+        this.destinationPath("build/navmenu.php"),
+        { lessonPath: this.props.metedPath }
+      );
+      this.fs.copy(
+        this.templatePath("latest_core/navmenu/navmenu.inc.php"),
+        this.destinationPath("build/navmenu.inc.php")
+      );
+    }
   }
 
   // Install dependencies
@@ -520,7 +525,7 @@ module.exports = class extends Generator {
     this.log(`${chalk.green("build & dist")} folders READY`);
     this.log(yosay(`${chalk.green("Just running a few more tasks...")}`));
     // Log additional Articulate options
-    if (this.articulatePages){
+    if (this.articulatePages) {
       this.log("Articulate pages:" + this.articulatePages);
     }
   }

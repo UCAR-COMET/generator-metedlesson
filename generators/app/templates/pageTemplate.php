@@ -123,7 +123,7 @@
 
             <section id="lesson-content" class="col-sm-9">
                 <div id="print-button">
-                    <a href="$printLink"><span class="glyphicon glyphicon-print"></span><% if (lessonLang === 'ES') { %>Imprimir<% } else if (lessonLang === 'FR') { %>Imprimer<% } else { %>Print<% } %></a>
+                    <a href="$printLink"><span class="glyphicon glyphicon-print"></span> <% if (lessonLang === 'ES') { %>Imprimir<% } else if (lessonLang === 'FR') { %>Imprimer<% } else { %>Print<% } %></a>
                 </div>
                 $templateContent
             </section>
