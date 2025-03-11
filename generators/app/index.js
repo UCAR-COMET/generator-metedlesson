@@ -485,9 +485,9 @@ module.exports = class extends Generator {
     this.installDependencies({
       npm: true,
       bower: false,
-      grunt: false
+      grunt: true
     });
-    /*this.npmInstall(
+    this.npmInstall(
       [
         "grunt",
         "grunt-cli",
@@ -501,14 +501,14 @@ module.exports = class extends Generator {
         "grunt-script-link-tags"
       ],
       { "save-dev": false }
-    );*/
+    );
     // Run npm install && grunt on end
-    /*this.on("end", function() {
+    this.on("end", function() {
       if (!this.options["skip-install"]) {
         this.npmInstall();
         this.spawnCommand("grunt", ["default"]);
       }
-    });*/
+    });
 
     // Log Output
     this.log(
@@ -525,8 +525,8 @@ module.exports = class extends Generator {
     this.log(`${chalk.green("build")} folder READY`);
     this.log(yosay(`${chalk.green("Just running a few more tasks...")}`));
     // Log additional Articulate options
-    /*if (this.articulatePages) {
+    if (this.articulatePages) {
       this.log("Articulate pages:" + this.articulatePages);
-    }*/
+    }
   }
 };

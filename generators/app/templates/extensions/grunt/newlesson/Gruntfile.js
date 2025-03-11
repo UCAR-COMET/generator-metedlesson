@@ -299,6 +299,7 @@ module.exports = function(grunt) {
     // CLEAN THE BUILDS
     clean: {
       core: ["dist/dev", "./.sass-cache/"],
+      dist: ["dist"],
       node: ["node_modules", "package*"],
       grunt: ["./Gruntfile.js"]
     }
