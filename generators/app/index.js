@@ -13,6 +13,7 @@ module.exports = class extends Generator {
 
     // 2) Have Yeoman greet the user
     this.log(yosay(`Let's generate a new ${chalk.blue("MetEd Lesson")}!`));
+    this.log(chalk.blue('v.3.0.1'));
 
     // 3) Let's make prompts in the CLI
     const prompts = [
@@ -20,7 +21,7 @@ module.exports = class extends Generator {
         type: "list",
         name: "templateType",
         message: "Choose the lesson template:",
-        choices: ["legacy-single", "legacy-multiple"],
+        choices: ["legacy-single", "legacy-multiple", "sl-xapi"],
         default: "Latest Core"
       },
       {
@@ -109,7 +110,7 @@ module.exports = class extends Generator {
       // Check additional prompts for LC
       if (
         props.hasAdditionalOptions &&
-        props.templateType !== "Articulate Components"
+        props.templateType !== "sl-xapi"
       ) {
         return this.prompt(additionalPrompts).then(props => {
           console.log("RETURN STUFF FOR ADDITIONAL PROMPTS AND OPTIONS!!!");
