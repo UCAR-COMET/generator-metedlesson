@@ -490,8 +490,8 @@ module.exports = class extends Generator {
         this.destinationPath("Gruntfile.js")
       );
       this.fs.copyTpl(
-        this.templatePath("xapi_support/*"),
-        this.destinationPath("prebuild"),
+        this.templatePath("xapi_support"),
+        this.destinationPath("prebuild/xapi_support"),
         {
           templateType: this.props.templateType,
           lessonTitle: this.props.metedName,
@@ -501,10 +501,6 @@ module.exports = class extends Generator {
           copyrightYear: this.generatorYear,
           lessonLang: this.props.metedLang
         }
-      );
-      this.fs.copy(
-        this.templatePath("xapi_support/assets"),
-        this.destinationPath("prebuild/assets")
       );
       this.fs.copy(
         this.templatePath("svelte_builder/*"),
