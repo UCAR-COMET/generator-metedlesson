@@ -486,8 +486,12 @@ module.exports = class extends Generator {
     }
     else if (this.props.templateType === "sl-xapi") {
       this.fs.copy(
+        this.templatePath("extensions/grunt/2025_xapi/Gruntfile.js"),
+        this.destinationPath("Gruntfile.js")
+      );
+      this.fs.copy(
         this.templatePath("xapi_support/*"),
-        this.destinationPath(".")
+        this.destinationPath("prebuild/")
       );
     }
   }
@@ -516,12 +520,9 @@ module.exports = class extends Generator {
     );
     // Run npm install && grunt on end
     this.on("end", function() {
-      if (!this.options["skip-install"]) {
+      if (!this.options["skip-install"]  && this.props.templateType !== "sl-xapi") {
         this.npmInstall();
-        //conditional Grunt task
-        if (this.props.templateType !== "sl-xapi") {
-          this.spawnCommand("grunt", ["default"]);
-        }
+        this.spawnCommand("grunt", ["default"]);
       }
     });
 
