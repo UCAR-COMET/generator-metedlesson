@@ -514,6 +514,20 @@ module.exports = class extends Generator {
         this.templatePath("svelte_builder/src"),
         this.destinationPath("prebuild/src")
       );
+      this.fs.copyTpl(
+        this.templatePath("svelte_builder/src/lib/lesson.config.js"),
+        this.destinationPath("prebuild/src/lib/lesson.config.js"),
+        {
+          templateType: this.props.templateType,
+          lessonTitle: this.props.metedName,
+          lessonID: this.props.metedID,
+          lessonDesc: this.props.metedDesc,
+          lessonKeys: this.props.metedKeys,
+          copyrightYear: this.generatorYear,
+          lessonLang: this.props.metedLang,
+          lessonPath: this.props.metedPath
+        }
+      );
       this.fs.copy(
         this.templatePath("svelte_builder/_dev"),
         this.destinationPath("prebuild/_dev")
@@ -522,6 +536,7 @@ module.exports = class extends Generator {
         this.templatePath("svelte_builder/_sample_pages"),
         this.destinationPath("prebuild/_sample_pages")
       );
+      
     }
   }
 
