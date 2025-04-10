@@ -489,9 +489,38 @@ module.exports = class extends Generator {
         this.templatePath("extensions/grunt/2025_xapi/Gruntfile.js"),
         this.destinationPath("Gruntfile.js")
       );
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath("xapi_support/*"),
-        this.destinationPath("prebuild/")
+        this.destinationPath("prebuild"),
+        {
+          templateType: this.props.templateType,
+          lessonTitle: this.props.metedName,
+          lessonID: this.props.metedID,
+          lessonDesc: this.props.metedDesc,
+          lessonKeys: this.props.metedKeys,
+          copyrightYear: this.generatorYear,
+          lessonLang: this.props.metedLang
+        }
+      );
+      this.fs.copy(
+        this.templatePath("xapi_support/assets"),
+        this.destinationPath("prebuild/assets")
+      );
+      this.fs.copy(
+        this.templatePath("svelte_builder/*"),
+        this.destinationPath("prebuild")
+      );
+      this.fs.copy(
+        this.templatePath("svelte_builder/src"),
+        this.destinationPath("prebuild/src")
+      );
+      this.fs.copy(
+        this.templatePath("svelte_builder/_dev"),
+        this.destinationPath("prebuild/_dev")
+      );
+      this.fs.copy(
+        this.templatePath("svelte_builder/_sample_pages"),
+        this.destinationPath("prebuild/_sample_pages")
       );
     }
   }
