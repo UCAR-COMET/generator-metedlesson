@@ -5,17 +5,19 @@ const yosay = require("yosay");
 const grunt = require("grunt");
 
 module.exports = class extends Generator {
+/* ========= */
+/* PROMPTING */
+/* ========= */
   prompting() {
-    // 1) Let's create some variables to use in the generator: current year, splash credit
+    // 1) Static Default Variablies
     const generatorYear = new Date().getFullYear();
     const copyrightText = "The COMET Program";
-    // Const articulatePages = [];
 
-    // 2) Have Yeoman greet the user
+    // 2) Greeting
     this.log(yosay(`Let's generate a new ${chalk.blue("MetEd Lesson")}!`));
     this.log(chalk.blue('v.3.0.1'));
 
-    // 3) Let's make prompts in the CLI
+    // 3) Begin Prompts
     const prompts = [
       {
         type: "list",
@@ -91,7 +93,9 @@ module.exports = class extends Generator {
         default: false
       }
     ];
-
+/* ====================== */
+/* RETURN COLECTED VALUES */
+/* ====================== */
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       this.props = props;
@@ -113,7 +117,6 @@ module.exports = class extends Generator {
         props.templateType !== "sl-xapi"
       ) {
         return this.prompt(additionalPrompts).then(props => {
-          console.log("RETURN STUFF FOR ADDITIONAL PROMPTS AND OPTIONS!!!");
           // To access props from additional options
           // this.props = props;
 
@@ -125,8 +128,11 @@ module.exports = class extends Generator {
     });
   }
 
+/* =================== */
+/* WRITE OUT AND BUILD */
+/* =================== */
   writing() {
-    // INSTALL DEPENDENCIES
+    // INSTALL DEV DEPENDENCIES and BUILD PACKAGE.JSON
     const pkgJson = {
       devDependencies: {
         grunt: "^1.5.3",
@@ -188,10 +194,9 @@ module.exports = class extends Generator {
                       );
                     } else */
 
-    if (
-      this.props.templateType === "legacy-single" ||
-      this.props.templateType === "legacy-multiple"
-    ) {
+    // LATEST CORE LEGACY SETUP
+    if ( this.props.templateType === "legacy-single" || this.props.templateType === "legacy-multiple" )
+    {
       // Single-print and multi-print setup
       this.fs.copy(
         this.templatePath("extensions/grunt/newlesson/Gruntfile.js"),
@@ -479,6 +484,12 @@ module.exports = class extends Generator {
         this.destinationPath("build/navmenu.inc.php")
       );
     }
+    else if (this.props.templateType === "sl-xapi") {
+      this.fs.copy(
+        this.templatePath("xapi_support/*"),
+        this.destinationPath(".")
+      );
+    }
   }
 
   // Install dependencies
@@ -507,18 +518,15 @@ module.exports = class extends Generator {
     this.on("end", function() {
       if (!this.options["skip-install"]) {
         this.npmInstall();
-        this.spawnCommand("grunt", ["default"]);
+        //conditional Grunt task
+        if (this.props.templateType !== "sl-xapi") {
+          this.spawnCommand("grunt", ["default"]);
+        }
       }
     });
 
     // Log Output
-    this.log(
-      yosay(
-        `${chalk.green(
-          "I made the MetEd lesson scaffolding with the following settings:"
-        )}`
-      )
-    );
+    this.log( yosay( `${chalk.green( "I made the MetEd lesson scaffolding with the following settings:" )}`));
     this.log("Lesson: " + `${chalk.red(this.props.metedName)}`);
     this.log("ID: " + `${chalk.red(this.props.metedID)}`);
     this.log("Language: " + `${chalk.red(this.props.metedLang)}`);
