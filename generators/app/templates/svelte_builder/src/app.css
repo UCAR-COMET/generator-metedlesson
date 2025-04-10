@@ -15,7 +15,12 @@
 select {
     @apply border border-gray-300 rounded-md px-2;
 }
-#home-link:hover {
+
+.prerendered-content a {
+    @apply text-blue-700;
+    text-decoration: underline;
+}
+.prerendered-content a:hover {
     @apply text-blue-500;
     text-decoration: none;
 }

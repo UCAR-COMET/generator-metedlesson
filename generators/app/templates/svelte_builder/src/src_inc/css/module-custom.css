@@ -1,0 +1,71 @@
+ 
+  /* Asmet10 Custom */
+  .user-note {
+    font-style: italic; }
+  
+  .as-select-list {
+    font-size: 80%; }
+  
+  .as-select-list dt,
+  .as-select-list dd {
+    float: left; }
+  
+  .as-select-list dt {
+    clear: left;
+    width: 100px; }
+  
+  /*Question Slider*/
+  #qslide .carousel-control.left,
+  #qslide .carousel-control.right,
+  #qslide2 .carousel-control.left,
+  #qslide2 .carousel-control.right {
+    background-image: none !important;
+    background: #333; }
+  
+  #qslide .carousel-control,
+  #qslide2 .carousel-control {
+    width: 14px;
+    height: 80px; }
+  
+  #qslide .carousel-indicators li,
+  #qslide2 .carousel-indicators li {
+    border: 1px solid #1e8cc6; }
+  
+  #qslide .carousel-indicators .active,
+  #qslide2 .carousel-indicators .active {
+    background-color: #1e8cc6; }
+  
+  #qslide .carousel-control .glyphicon-chevron-left,
+  #qslide .carousel-control .glyphicon-chevron-right,
+  #qslide2 .carousel-control .glyphicon-chevron-left,
+  #qslide2 .carousel-control .glyphicon-chevron-right {
+    font-size: 15px;
+    margin-top: -11px; }
+  
+  #qslide .carousel-indicators,
+  #qslide2 .carousel-indicators {
+    bottom: -20px; }
+  
+  #qslide .question-wrap,
+  #qslide2 .question-wrap {
+    padding: 0px 10px; }
+  
+  #qslide .carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev,
+  #qslide2 .carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev {
+    margin-left: -6px; }
+  
+  #qslide .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next,
+  #qslide2 .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next {
+    margin-right: -7px; }
+  
+  @media (min-width: 768px) {
+    #qslide .carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev,
+    #qslide2 .carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev {
+      margin-left: -13px; }
+  
+    #qslide .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next,
+    #qslide2 .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next {
+      margin-right: -15px; } }
+  
+  /*# sourceMappingURL=module-custom.css.map */
+  

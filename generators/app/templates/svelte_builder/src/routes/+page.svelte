@@ -28,7 +28,7 @@
             <div class="mt-3 text-center sm:mt-5">
                 <h3 class="text-lg font-semibold text-gray-900" id="modal-title">Before you begin</h3>
                 <div class="mt-2">
-                <p class="text-gray-500 text-left">Please complete the pretest. This pretest covers material in the lesson that you are about to take, and it will help you gauge your current level of understanding of this topic. You will have the opportunity to take a quiz with very similar questions after you have completed the lesson. Comparing the two will help you see how much you’ve learned and will also help us see how well the lesson achieves its goals.</p>
+                <p class="text-gray-500 text-left">Please complete the pre-test. This pre-test covers material in the lesson that you are about to take, and it will help you gauge your current level of understanding of this topic. You will have the opportunity to take a quiz with very similar questions after you have completed the lesson. Comparing the two will help you see how much you’ve learned and will also help us see how well the lesson achieves its goals.</p>
                 </div>
             </div>
             </div>
@@ -50,7 +50,9 @@
 <div class="min-h-[86.5vh] flex flex-col justify-center items-center text-center px-2 py-8">
     <h1 class="text-4xl font-bold mb-4 sm:text-7xl">{lesson.title}</h1>
     <p class="text-lg text-muted-foreground mb-4">{lesson.subtitle}</p>
-    <p class="text-base max-w-3xl text-foreground mb-8">{lesson.description}</p>
+    <div class="text-base max-w-3xl text-foreground mb-8 prerendered-content">
+        {@html lesson.description}
+    </div>
     <div class="flex items-center gap-5">
         <button class="btn btn-start"
             onclick={() => { setOpen(); }}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<tincan xmlns="http://projecttincan.com/tincan.xsd">
+    <activities>
+        <activity id="urn:ucar:comet:meted:lesson:10251" type="http://adlnet.gov/expapi/activities/course">
+            <name>Begin Lesson</name>
+            <description>As sea levels rise and the frequency of coastal flooding increases, the need to forecast and plan for these events is growing. The National Oceanographic and Atmospheric Administration’s (NOAA) Monthly High Tide Flooding Outlook shows users where and when high tide flooding (HTF) is likely in the coming months. By integrating the Outlook into regular use, coastal communities can better prepare and respond to potential flooding days, reducing negative impacts from high tide flooding and sea-level rise.
+
+In this lesson, you will use the Monthly Outlook to work through a short-term planning scenario where you plan an operational agenda. Through this, you will gain an understanding of the Monthly Outlooks capabilities, learn how to interpret the projections it provides, and how to use it in a realistic situation. </description>
+            <launch>xAPI_wrapper.html</launch>
+        </activity>
+    </activities>
+</tincan>
