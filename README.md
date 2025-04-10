@@ -1,5 +1,5 @@
 # generator-metedlesson
-> COMET MetEd lesson generator v3.0.0
+> COMET MetEd lesson generator v3.0.1
 
 ## Installation
 
@@ -30,6 +30,7 @@ Apache-2.0 © [Gary Pacheco - COMET](https://www.comet.ucar.edu)
 
 
 ## Updates
+- apr/2025 -- v3.0.1 Fix LC "module-culstom.scss", adapt layout for Absorb LMS. Begin Svelte builder.
 - jan/2025 -- v3.0.0 Upgrade legacy cores to jQuery v3.7.1 with breaking changes.
-- oct/2022 -- v2.0.1 Switch prompts to add conditionals, fixes with SASS and webfont structures.
 - nov/2022 -- v2.1.0 Switch prompts, and include Articulate shell template.
+- oct/2022 -- v2.0.1 Switch prompts to add conditionals, fixes with SASS and webfont structures.

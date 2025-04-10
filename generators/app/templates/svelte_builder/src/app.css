@@ -1,0 +1,539 @@
+@import 'tailwindcss';
+
+.typography a,
+.page a {
+    @apply text-blue-700;
+    text-decoration: underline;
+}
+.typography a:hover,
+.page a:hover {
+    @apply text-blue-500;
+    text-decoration: none;
+}
+
+/* reset */
+select {
+    @apply border border-gray-300 rounded-md px-2;
+}
+#home-link:hover {
+    @apply text-blue-500;
+    text-decoration: none;
+}
+
+/* customize Bootstrap using Tailwind */
+.btn {
+    @apply font-bold;
+    @apply my-1;
+    @apply py-1;
+    @apply px-4;
+    @apply rounded;
+    @apply border;
+}
+.btn:hover {
+    @apply bg-gray-300 cursor-pointer;
+}
+.btn:active {
+    @apply bg-gray-400;
+}
+.btn:disabled {
+    @apply bg-gray-200;
+    @apply text-gray-300;
+    @apply cursor-not-allowed;
+}
+.btn.btn-lg {
+    @apply text-lg;
+    @apply py-2;
+    @apply px-6;
+}
+.btn.btn-sm {
+    @apply text-sm;
+    @apply py-1;
+    @apply px-3;
+}
+.btn.btn-xs {
+    @apply text-xs;
+    @apply py-1;
+    @apply px-2;
+}
+.btn.btn-block {
+    @apply w-full;
+}
+.btn.btn-block.btn-lg {
+    @apply text-lg;
+    @apply py-2;
+    @apply px-6;
+}
+.btn.btn-block.btn-sm {
+    @apply text-sm;
+    @apply py-1;
+    @apply px-3;
+}
+.btn.btn-block.btn-xs {
+    @apply text-xs;
+    @apply py-1;
+    @apply px-2;
+}
+.btn-start {
+    @apply bg-blue-500 text-white text-lg font-bold my-1 py-2 px-4 rounded shadow-md hover:bg-blue-700;
+    text-decoration: none;
+}
+.btn.btn-primary {
+    @apply bg-blue-500 text-white font-bold my-1 py-1 px-4 rounded hover:bg-blue-700 border border-blue-500;
+}
+.btn.btn-default {
+    @apply bg-gray-200 text-gray-700 font-bold my-1 py-1 px-4 rounded hover:bg-gray-300 border border-gray-200;
+}
+.btn.btn-success {
+    @apply bg-green-500 text-white font-bold my-1 py-1 px-4 rounded hover:bg-green-700 border border-green-500;
+}
+.btn.btn-danger {
+    @apply bg-red-500 text-white font-bold my-1 py-1 px-4 rounded hover:bg-red-700 border border-red-500;
+}
+.btn.btn-info {
+    @apply bg-blue-300 text-white font-bold my-1 py-1 px-4 rounded hover:bg-blue-500 border border-blue-300;
+}
+.btn.btn-warning {
+    @apply bg-yellow-500 text-white font-bold my-1 py-1 px-4 rounded hover:bg-yellow-700 border border-yellow-500;
+}
+
+.panel {
+    @apply my-4;
+}
+
+.panel-collapse.in {
+    visibility: visible !important;
+    height: auto;
+    transition: height 0.35s ease-in-out, visibility 0.35s ease-in-out;
+}
+.panel-collapse.collapsing {
+    visibility: hidden !important;
+    height: 0;
+    transition: height 0.35s ease-in-out;
+}
+.panel-collapse {
+    @apply my-2;
+    margin-block: 0 !important;
+    visibility: hidden !important;
+    height: 0;
+    transition: height 0.35s ease-in-out;
+}
+.panel-heading {
+    @apply bg-gray-100 font-bold py-1 rounded-t;
+}
+.panel-title a {
+    @apply text-lg font-bold text-blue-500;
+    text-decoration: none;
+}
+.panel-title a:hover {
+    @apply decoration-1 underline;
+}
+
+.module_hide {
+    @apply hidden;
+}
+
+.page {
+    @apply py-2;
+}
+
+.page h3 {
+    @apply text-xl font-bold my-2;
+}
+
+.page > h4 {
+    @apply text-lg font-bold my-2;
+}
+.page > h5 {
+    @apply text-base font-bold my-2;
+    @apply mt-4;
+}
+.page > h6 {
+    @apply text-sm font-bold my-2;
+}
+
+.page > ul {
+    @apply list-disc ml-4;
+    margin: 2rem !important;
+
+}
+
+.table {
+    @apply my-2;
+}
+
+.center {
+    @apply text-center my-2;
+}
+
+.center > img {
+    @apply my-2;
+    max-width: 100%;
+    height: auto;
+    float: none;
+    margin: 0 auto;
+}
+
+.center > iframe {
+    @apply my-2;
+    width: 100%;
+    height: 500px;
+    border: 1px solid !important;
+    border-radius: 4px;
+}
+
+.page > .center-block {
+    @apply my-2;
+    max-width: 100%;
+    height: auto;
+    float: none;
+}
+
+.page {
+    margin-top: -60px;
+    padding-top: 60px;
+}
+.page h3 small,
+.page .sub_head small {
+    display: block;
+    color: rgb(150, 150, 150);
+}
+.page-heading {
+    @apply mb-4;
+    border-bottom: 1px solid #ccc;
+    margin-top: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.page-heading small {
+    display: block;
+    margin-bottom: -30px;
+}
+.center.caption > p {
+    font-style: italic;
+    color: #555;
+}
+
+.interaction-question {
+    @apply my-4;
+}
+.question-wrap > h4,
+.interaction-question h4 {
+    @apply text-lg font-bold;
+}
+.question-wrap form,
+.question-wrap .submit-button {
+    @apply my-2;
+}
+.question-wrap input[type='radio'],
+.question-wrap input[type='checkbox'],
+.question-wrap input[type='text'] {
+    margin-right: 10px;
+}
+.response-group-item {
+    @apply my-1;
+}
+.question-wrap .response-group-item label > strong,
+.question-wrap .response-group-item > strong {
+    @apply mr-2;
+}
+
+.question-wrap .response-group-item select {
+    @apply border border-gray-300 rounded-md px-2;
+}
+
+.tabs-container {
+    @apply my-2;
+}
+.tabs-container > ul {
+    margin-bottom: 0px !important;
+}
+
+.nav-tabs {
+    @apply my-2;
+}
+.nav-tabs > li {
+    @apply my-2;
+}
+
+#comet-sponsors h4 {
+    @apply text-lg font-bold;
+}
+#comet-sponsors h5 {
+    @apply text-base font-bold;
+}
+#comet-sponsors ul {
+    @apply ml-4;
+}
+
+#comet-staff h4 {
+    @apply text-lg font-bold;
+}
+#comet-staff h5 {
+    @apply text-base font-bold;
+}
+#comet-staff ul {
+    @apply ml-4;
+}
+
+.col-xs-12 {
+    @apply w-full;
+}
+.col-xs-6 {
+    @apply w-1/2;
+    @apply float-left;
+    @apply p-4;
+}
+.col-sm-6 {
+    @apply w-1/2;
+    @apply float-left;
+    @apply p-2;
+}
+.col-md-4 {
+    @apply w-1/3;
+}
+.col-lg-3 {
+    @apply w-1/4;
+}
+.col-xl-2 {
+    @apply w-1/6;
+}
+
+.embed-responsive {
+    position: relative;
+    display: block;
+    height: 0;
+    padding: 0;
+      padding-bottom: 0px;
+    overflow: hidden;
+  }
+.embed-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.image-sweep.center-block,
+.twenty-twenty.center-block,
+.twentytwenty-wrapper {
+    @apply my-4;
+    max-width: 100%;
+    height: auto;
+    float: none;
+    margin: 0 auto;
+}
+
+.lc-docs-sidenav li {
+    @apply my-2;
+    @apply leading-0;
+}
+.lc-docs-sidenav li a {
+    position: relative;
+}
+.lc-docs-sidenav li a:hover {
+    text-decoration: underline;
+}
+.lc-docs-sidenav li a > span.toggle-icon {
+    position: absolute;
+    left: -26px;
+    top: 0;
+}
+
+
+.toggle-icon {
+    @apply cursor-pointer font-bold text-gray-600;
+    user-select: none;
+
+}
+
+.sidebar-toc ul {
+    list-style: none;
+    padding-left: 1.5rem;
+}
+
+.sidebar-toc a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sidebar-toc a:hover {
+    text-decoration: underline;
+}
+.sidebar-toc a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+}
+
+.toggle-icon {
+    cursor: pointer;
+    font-weight: bold;
+    color: #666;
+    user-select: none;
+    min-width: 1rem;
+    display: inline-flex;
+    justify-content: center;
+}
+
+/* DRAW */
+.drawing-question {
+    @apply p-4;
+}
+.drawing-question h4 {
+    @apply text-lg font-bold;
+}
+.drawtool-controls {
+    @apply py-4 grid grid-cols-2;
+}
+.drawtool-buttons {
+    @apply my-2;
+}
+.drawtool-toolset {
+    @apply my-2;
+
+}
+.drawtool-toolset select {
+    display: block;
+    width: 100%;
+}
+.drawtool-swatch {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    border:  1px solid #fff, 2px solid #222;
+    border-radius: 2.5em;
+    margin: 4px 2px;
+    clear: none;
+    cursor: pointer;
+    position: relative;
+  }
+
+
+.drag_controls {
+    @apply my-4;
+}
+
+.carousel {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+.carousel-inner .item {
+    position: relative;
+    display: none;
+    -webkit-transition: -webkit-transform 0.6s ease;
+    transition: transform 0.6s ease;
+}
+.carousel-inner .item img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.carousel-inner .active {
+    display: block;
+}
+.carousel-indicators {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    list-style: disc;
+    padding-inline-start: 0 !important;
+}
+
+.carousel-indicators li {
+    @apply bg-gray-100 border-blue-500 border-1;
+    display: inline-block;
+    margin: 0 4px;
+    cursor: pointer;
+    width: 14px;
+    height: 14px;
+    text-indent: -9999px;
+    border-radius: 10px;
+}
+
+.carousel-indicators .active {
+    @apply bg-blue-500;
+}
+ 
+
+/* MEDIA GALLERY */
+#lesson-content {
+    @apply my-4;
+}
+#lesson-content h4 {
+    @apply text-lg font-bold;
+}
+.gallery-item {
+    max-width: 400px;
+    min-width: 400px;
+}
+.gallery-item a {
+    @apply text-blue-500;
+    text-decoration: underline;
+}
+.gallery-item a:hover {
+    @apply text-blue-700;
+    text-decoration: none;
+}
+
+.gallery-container .gallery-item .panel {
+    @apply mt-2 p-4;
+    height: 32rem;
+    overflow-y: auto;
+}
+.gallery-container .media-description {
+    @apply my-2 text-sm;
+    overflow-y: hidden scroll;
+}
+.media-thumbnail img {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px;
+    float: none;
+    margin: 0 auto;
+}
+
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.error-content {
+    max-width: 600px;
+}
+.error-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.error-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #555;
+}
