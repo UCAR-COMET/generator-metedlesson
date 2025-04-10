@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<tincan xmlns="http://projecttincan.com/tincan.xsd">
+    <activities>
+        <activity id="urn:ucar:comet:meted:lesson:565" type="http://adlnet.gov/expapi/activities/course">
+            <name>Begin Lesson</name>
+            <description>This module explores ocean acoustics, focusing on the propagation and detection of sound in the marine environment. Sound propagation strongly depends on refraction caused by variations in sound speed, and reflection off the seafloor and sea surface. Detection of sound subsequently depends on its propagation path, background noise from human and natural sources, and the sensors used for detection.  </description>
+            <launch>xAPI_wrapper.html</launch>
+        </activity>
+    </activities>
+</tincan>
