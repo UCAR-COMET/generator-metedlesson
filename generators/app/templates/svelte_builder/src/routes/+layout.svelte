@@ -4,8 +4,8 @@
     import { lesson } from '$lib/lesson.config.js';
     import { onMount } from 'svelte';
     
-    let lessonPublishYear = lesson.publishDate ? new Date(lesson.publishDate).getFullYear() : null;
-    let currentYear = new Date().getFullYear();
+    //let lessonPublishYear = lesson.publishDate ? new Date(lesson.publishDate).getFullYear() : null;
+    //let currentYear = new Date().getFullYear();
     let moreMenuOpen = $state(false);
 
     const toggleMoreMenu = () => {
@@ -136,7 +136,7 @@
 <!-- footer -->
 <footer class="w-full h-16 border-t">
     <div class="flex flex-wrap items-center justify-center sm:justify-between gap-4 sm:gap-0 w-full h-full px-2 sm:py-0 py-3 sm:px-4 lg:px-8 text-sm text-muted-foreground">
-        <p class="text-center">© {lessonPublishYear !== currentYear ? `${lessonPublishYear}-` : ''}{currentYear}, <a class="font-semibold" href="https://www.meted.ucar.edu/">COMET MetEd</a> - All Rights Reserved.</p>
+        <p class="text-center">© <%= copyrightYear %>, <a class="font-semibold" href="https://www.meted.ucar.edu/">COMET MetEd</a> - All Rights Reserved.</p>
         <div class="text-center hidden md:block"></div>
     </div>
 </footer>

@@ -69,47 +69,44 @@
 				<h4 id="contributors">Project Contributors</h4>
 				<h5>Project Lead</h5>
 				<ul>
-					<li>Erin Houlihan - UCAR/COMET</li>
-					<li>James Russell - UCAR/COMET</li>
+					<li></li>
+					<li></li>
 				</ul>
 				<h5>Project Scientist</h5>
 				<ul>
-					<li>Erin Houlihan - UCAR/COMET</li>
-					<li>James Russell - UCAR/COMET</li>
+					<li></li>
+					<li></li>
 				</ul>
 				<h5>Instructional Design</h5>
 				<ul>
-					<li>Laurel Ozersky - UCAR/COMET</li>
-					<li>Kira LaCoss - UCAR/COMET</li>
+					<li></li>
+					<li></li>
 				</ul>
 				<h5>Science Advisors</h5>
 				<ul>
-					<li>Karen Kavanaugh - NOAA NOS CO-OPS</li>
-					<li>Analise Keeney - NOAA NOS CO-OPS</li>
-					<li>Audra Luscher - NOAA NOS CO-OPS</li>
-					<li>Paul Fanelli - NOAA NOS CO-OPS</li>
-					<li>Gwen Shaughnessy - NOAA NOS CO-OPS</li>
-					<li>Connor Lewis - NOAA NOS CO-OPS</li>
-					<li>Amy Bosteels - NOAA NOS CO-OPS</li>
-					<li>John Callahan - NOAA NOS CO-OPS</li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
 				</ul>
 				<h5>Program Oversight</h5>
 				<ul>
-					<li>James Russell - UCAR/COMET</li>
+					<li></li>
 				</ul>
 				<h5>Graphics/Animations</h5>
 				<ul>
-					<li>Steve Deyo - UCAR/COMET</li>
+					<li></li>
 				</ul>
 				<h5>Multimedia Authoring/Interface Design</h5>
 				<ul>
-					<li>James Russell - UCAR/COMET</li>
-					<li>Laurel Ozersky - UCAR/COMET</li>
-					<li>Gary Pacheco - UCAR/COMET</li>
+					<li></li>
+					<li></li>
+					<li></li>
 				</ul>
 			</div>
 			<div id="comet-staff">
-				<h4>COMET Staff, August 2024</h4>
+				<h4>COMET Staff, [MONTH][YEAR]</h4>
 				<h5>Director's Office</h5>
 				<ul>
 					<li>Dr. Elizabeth Mulvihill, Director</li>
